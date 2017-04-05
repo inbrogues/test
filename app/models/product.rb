@@ -6,4 +6,5 @@ class Product < ActiveRecord::Base
     has_many :product_datum
     has_many :color, through: :product_datum
     has_and_belongs_to_many :photos
+    has_and_belongs_to_many :categories
 end
