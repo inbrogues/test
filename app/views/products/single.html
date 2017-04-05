@@ -1,0 +1,275 @@
+
+	<main role="main">
+	<!-- Main -->
+	<div class="wrapper">
+		<div class="product parbase">
+			<!--PAGE:productDetail -->
+			<div class="catalogwarning parbase"></div>
+			<div class="row product-detail">
+				<div class="images parbase">
+					<section class="product-detail-images grid col-6 clearfix">
+						<button class="product-detail-thumbnails-scroll-up disabled">
+							<div class="navigation-arrow-up"></div>
+						</button>
+						<div class="product-detail-thumbnails">
+							<ul>
+								<li class="product-detail-thumbnail current">
+                  <%=image_tag("bhmprod-2.jpg")%>
+								</li>
+								<li class="product-detail-thumbnail">
+                  <%=image_tag("bhmprod-3.jpg" , class:"product-detail-thumbnail-image")%>
+								</li>
+								<li class="product-detail-thumbnail">
+                  <%=image_tag("bhmprod-4.jpg" , class:"product-detail-thumbnail-image")%>
+								</li>
+							</ul>
+						</div>
+						<button class="product-detail-thumbnails-scroll-down disabled">
+							<div class="navigation-arrow-down"></div>
+						</button>
+						<div class="product-detail-main-image">
+							<div class="product-detail-main-image-container">
+                <%=image_tag("bhmprod.jpg" , width:"384", height:"576", class:"product-detail-main-image-image")%>
+							</div>
+							<span class="product-detail-zoom-info">Нажмите на изображение, чтобы изменить его размер</span>
+							<span class="product-detail-zoom-info touch-info">Коснуться изображения, чтобы развернуть его на весь экран</span>
+							<a href="#" class="product-detail-full-screen-image-link hidden-text">На весь экран</a>
+						</div>
+					</section>
+				</div>
+				<section class="product-detail-meta grid col-6">
+					<div class="product-detail-options">
+						<h1 class="product-item-headline"><%= @product.name%></h1>
+						<div class="price parbase">
+							<div class="product-item-price">
+								<span class="price-value"><%= @product.price%> Грн</span>
+							</div>
+						</div>
+						<div class="product-item-selection hidden"></div>
+						<div id="swatchsize">
+							<div class="product-colors clearfix loaded">
+								<div class="product-input-label" data-value="">
+									Цвет:
+									<span>Черный</span>
+								</div>
+								<ul class="inputlist clearfix">
+									<% @colors.each do |color| %>
+										<li>
+											<% if @color_active==color %>
+												<a href="#" title="<%= color.name %>" data-sizes="" id="filter-colour-0462979003" class="filter-option active">
+											<% else %>
+												<a href="#" title="<%= color.name %>" data-sizes="" id="filter-colour-0462979003" class="filter-option ">
+											<%end%>
+	    					                <%=image_tag(color.img(:original) ,class:"pattern")%></a>
+										</li>
+									<%end%>
+									</li>
+								</ul>
+							</div>
+							<div class="product-sizes loaded">
+								<div class="product-input-label" data-value="Выбрать размер" data-default-value="Select size">
+									Размер:
+									<span>Select size</span>
+								</div>
+								<ul class="inputlist clearfix" data-sizelist="0462979003" style="display: block;">
+								<% @product_sizes.each do |product_size|  %>
+									<li>
+										<label for="filter-size-0462979003001">
+											<input type="radio" name="product-size" value="<%= product_size.size %>" data-size="001" id="filter-size-0462979003001">
+											<%if product_size.has%>
+											<div class="detailbox detailbox-value">
+												<span><%= product_size.size %></span>
+											</div>
+											<%else%>
+											<div class="detailbox detailbox-value unavailable">
+												<span><%= product_size.size %></span>
+											</div>
+											<%end%>
+
+										</label>
+									</li>
+								<%end%>
+								</ul>
+								<div class="product-detail-linked-product">
+									<a href="#" class="underline overlay-trigger">Руководство по размерам</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="product-detail-details">
+						<div class="product-detail-availability">
+							Доставка через: 2-14 рабочих дней (Больший срок для отдаленных районов. Проверьте страницу Службы поддержки покупателей для подробной информации)
+						</div>
+						<button class="button button-big button-buy product-details-favorite button-disabled" data-not-added-text="Вы должны выбрать имеющийся в наличии размер" data-added-text="Товар добавлен" data-shopping-bag-text="Корзина" data-shopping-bag-failed-text="При добавлении товара в корзину произошла ошибка" data-quantity-text="Количество" data-color-text="Цвет" data-size-text="Размер" data-default-quantity="1" data-sold-out-text="Распродано" data-not-added-sold-out-text="Изделие данного цвета распродано во всех размерах">Добавить в корзину</button>
+
+						<button data-tracking-type="event" data-tracking-json-template="utagFavorite" data-tracking-params="" class="button button-big button-secondary button-favorite icon icon-favorites-dark js-button-favorite is-favorite" data-saved-text="СОХРАНЕНО КАК ИЗБРАННОЕ" data-not-saved-text="СОХРАНИТЬ КАК ИЗБРАННОЕ">СОХРАНЕНО КАК ИЗБРАННОЕ</button>
+
+						<div class="parbase details">
+							<div class="product-detail-tabs tabs">
+								<ul class="tab-items">
+									<li class="tab-item">
+										<a href="javascript:;" class="tab-item-link active" data-target="tab-description">Описание</a>
+									</li>
+									<li class="tab-item">
+										<a href="javascript:;" class="tab-item-link" data-target="tab-details">Подробнее</a>
+									</li>
+									<li class="tab-item">
+										<a href="javascript:;" class="tab-item-link" data-target="tab-delivery">Доставка</a>
+									</li>
+								</ul>
+								<div class="tab-pane tab-description active">
+									<p class="product-detail-description-text" itemprop="description">
+										<%= @product.about%>
+									</p>
+									<ul class="product-warninglist" data-headline-text="ПРЕДУПРЕЖДЕНИЕ!"></ul>
+								</div>
+								<div class="tab-pane tab-details">
+									<div class="article-composition">
+										<h4>Состав</h4>
+										<ul>
+											<li>Подкладка: Полиэстер 100%</li>
+											<li>Полиэстер 100%</li>
+										</ul>
+									</div>
+									<div class="article-care-instructions">
+										<h4>Инструкции по уходу</h4>
+										<ul>
+											<li>Машинная стирка при температуре 30°</li>
+										</ul>
+									</div>
+									<h4>Идентификационный номер арт.</h4>
+									<ul>
+										<li class="product-detail-article-code"><%= @product_data.article %></li>
+									</ul>
+								</div>
+
+								<div class="tab-pane tab-delivery">
+									<p>
+										Чтобы разместить заказ Вам должно быть больше 18 лет и Вы должны быть резидентом РФ. В зависимости от того, где вы проживаете, Вам доставят Ваш заказ в срок от 2 до 14 рабочих дней после того, как Вы получите подтверждение на Ваш адрес электронной почты. В период высокого спроса и распродаж, возможно, доставка займет больше времени. Вы сможете оплатить Ваш заказ после доставки наличными или банковской картой. У Вас всегда есть 14 дней, чтобы принять решение подходит ли Вам товар (Возврату и обмену не подлежат продукты личной гигиены (заколки, расчески и другие аналогичные товары), бельевые изделия, в том числе купальные изделия, чулочно-носочные изделия, парфюмерно-косметические изделия).
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+		<div class="parbase stylewith">
+			<div class="style-with" id="style-with-article-code-0462979003">
+
+				<section class="product-items component-row">
+					<!-- Product items -->
+					<header>
+						<h2 class="product-items-title">Сочетается</h2>
+					</header>
+					<div class="product-items-content">
+						<div class="row swipe" style="visibility: visible;">
+							<ul class="swipe-items">
+								<li class="swipe-item">
+									<%  @products[0..3].each do |p|%>
+									<div class="grid col-3">
+										<article class="product-item">
+											<!-- Product item -->
+											<a href="#" title="" class="product-item-link">
+                        						<%=image_tag(p.img(:original) , width:"222", height:"333", class:"product-item-image")%>
+												<button type="button" data-tracking-type="event" class="favorite icon icon-favorites js-favorite" data-saved-text="СОХРАНЕНО КАК ИЗБРАННОЕ" data-not-saved-text="СОХРАНИТЬ КАК ИЗБРАННОЕ">СОХРАНИТЬ КАК ИЗБРАННОЕ</button>
+											</a>
+											<div class="product-item-details">
+												<h3 class="product-item-heading">
+													<a href="#"><%=p.name%></a>
+												</h3> 
+												<strong class="price"><%= p.price%> Грн</strong>
+												<div class="product-item-selection"></div>
+												<ul class="list-swatches">
+
+													<%p.color.each do |c|  %>
+														<li class="item">
+															<%=image_tag(c.img(:original) ,class:"swatch")%>
+														</li>
+													<%end%>
+
+												</ul>
+											</div>
+										</article>
+										<!-- /Product item -->
+									</div>
+									<%end%>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+				<!-- /Product items -->
+			</div>
+		</div>
+
+		<div class="praone parbase productrecommendationarea">
+			<!-- PRA 1 -->
+			<section class="product-recommendation-area product-items items-6 ng-scope">
+				<header>
+					<h2 class="product-recommendation-area-title ng-binding">Также покупают</h2>
+				</header>
+				<div class="product-items-content">
+					<div class="row swipe swipe-single" style="visibility: visible;">
+						<ul class="swipe-items">
+							<!-- ngRepeat: list in praCtrl.pra1Panel.products -->
+							<li class="swipe-item ng-scope" data-index="0">
+								<!-- ngRepeat: product in list -->
+								<% @products.each do |p| %>
+								<div class="grid col-2 ng-scope" ng-repeat="product in list">
+									<article class="product-item club-price-item">
+										<a class="product-item-link" href="#">
+                      						<%=image_tag(p.img(:original) , width:"140", height:"210", class:"product-item-image")%>
+											<button type="button" data-tracking-type="event" data-tracking-json-template="utagFavorite" data-tracking-params="Favourites|0440439013|Утепленный бомбер|PRODUCT_DETAIL_PAGE" class="favorite icon icon-favorites js-favorite" data-saved-text="" data-not-saved-text=""></button>
+										</a>
+										<div class="product-item-details">
+											<h3 class="product-item-headline">
+												<a class="ng-binding" href="#"><%=p.name%></a>
+											</h3>
+											<strong class="price sale-price ng-binding ng-hide"><%= p.price%> Грн
+												<span class="price original-price ng-binding"></span>
+											</strong> 
+											<ul class="list-swatches">
+												<!-- ngRepeat: color in product.variantData -->
+
+												<%p.color.each do |c|  %>
+													<li ng-repeat="color in product.variantData" class="item ng-scope" add-space="">
+														<%=image_tag(c.img(:original) ,class:"swatch")%>
+													</li>
+												<%end%>
+
+												
+												<!-- end ngRepeat: color in product.variantData -->
+											</ul>
+										</div>
+									</article>
+								</div>
+								<%end%>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+		<div class="parsys main"></div>
+	</div>
+</main>
+
+    <script>
+  $(document).ready(function(){
+    // окно сайзгайда
+    $('.product-detail-linked-product > a, .modalclose').click(function(){
+    	$('.modaloverlay').toggleClass('hidden');
+    });
+    // окно сайзгайда/
+    // описание
+    $('.tab-item > a').click(function(){
+    	$('.tab-item > a').removeClass('active');
+    	$(this).addClass('active');
+    	var i = $(this).parent().index();
+    	$('.tab-pane').removeClass('active');
+    	$('.tab-pane').eq(i).addClass('active');
+    });
+    // описание /
+  });
+  </script>

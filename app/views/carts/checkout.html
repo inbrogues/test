@@ -1,0 +1,206 @@
+
+<main role="main" class="segments responsive">
+  <div class="wrapper">
+    <nav class="breadcrumbs">
+      <ul>
+        <li>
+          <a href="/ru_ru/">Yourhm.com.ua</a>
+        </li>
+        <li class="">
+          <a href="#" onclick="return false;">Войти/Зарегистрироваться</a>
+        </li>
+      </ul>
+    </nav>
+    <header class="checkout-header">
+      <h1>ОФОРМЛЕНИЕ ЗАКАЗА</h1>
+      <ul class="checkout-breadcrumbs items-3 clearfix">
+        <li class="item item-current">1. ВОЙТИ</li>
+        <li class="item">2. ДОСТАВКА И ОПЛАТА</li>
+        <li class="item item-last">3. СПАСИБО</li>
+      </ul>
+    </header>
+    <div class="row ng-scope" ng-controller="CheckoutLoginCxtController">
+      <div class="grid col-8">
+        <div id="hidden_login_box" class="box">
+          <h2 class="box-headline">1. ВОЙТИ</h2>
+          <div class="row">
+            <div class="grid col-4">
+              <div class="box-content">
+                <div class="login-form">
+                  <!-- Login form -->
+                  <h3>ЗАРЕГИСТРИРОВАТЬСЯ</h3>
+                  <form id="loginForm" action="" method="post" class="ng-pristine ng-valid">
+                    <input type="hidden" id="targetURL" name="targetURL" value="/login/checkout">
+                    <div class="inputwrapper required">
+                      <label for="j_username" class="label">Эл. Почта</label>
+                      <input id="signin-email" name="j_username" data-validation-required="true" data-validation-required-text="Пожалуйста, укажите адрес электронной почты." data-validation-email="true" type="email" data-validation-inline="false" class="text-input" data-validation-email-text="Пожалуйста, укажите правильный адрес электронной почты" value="" maxlength="40"></div>
+                    <div class="inputwrapper required">
+                      <label for="j_password" class="label">Пароль</label>
+                      <input id="txt-signin-password" name="j_password" data-validation-required="true" data-validation-required-text="Пожалуйста, укажите новый пароль." data-validation-minlength="6" data-validation-maxlength="25" data-validation-minlength-text="Пароль должен содержать минимум 6 символов" data-validation-maxlength-text="Ваш пароль — слишком длинный. Максимально допустимое количество символов — 25" class="password-input" type="password" value=""></div>
+                    <p>
+                      <a href="#" class="forgotten-password underline">Забыли пароль?</a>
+                    </p>
+                    <div class="input-group">
+                      <button type="submit" data-validation-text="Проверьте данные, прежде чем продолжить" class="button">ВОЙТИ</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="grid col-4">
+              <div class="box-content">
+                <div class="input-group-separate">
+                  <h3>НОВЫЙ ПОКУПАТЕЛЬ</h3>
+                  <p class="headline-explanation">
+                    Создайте новую учетную запись, чтобы  упростить процесс совершения покупок.
+                  </p>
+                  <button id="click_button_register" class="button button-secondary">СОЗДАТЬ НОВУЮ УЧЕТНУЮ ЗАПИСЬ</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="display: none" id="hidden_register_box" class="box">
+          <h2 class="box-headline">НОВЫЙ ПОКУПАТЕЛЬ</h2>
+          <div class="box-content">
+            <div class="login-form new-user">
+              <!-- Login form -->
+              <h3>УКАЖИТЕ ВАШИ ДАННЫЕ</h3>
+              <form  method="post" class="responsive form-section ng-pristine ng-valid ng-valid-email ng-valid-maxlength" id="registration-form">
+                <div class="input-group-separate">
+                  <label for="txt-joinus-email">Эл. Почта</label>
+                  <input ng-model="registerForm.email" id="txt-joinus-email" type="email" data-validation-required="true" data-validation-required-text="Пожалуйста, укажите адрес электронной почты." data-validation-email="true" data-validation-email-text="Пожалуйста, укажите правильный адрес электронной почты" maxlength="80" ng-class="{'invalid' : errors.registerForm.email!=null}" class="ng-pristine ng-untouched ng-valid ng-valid-email ng-valid-maxlength">
+                  <!-- ngIf: errors.registerForm.email!=null -->
+                  <span class="input-info">Мы отправим подтверждение Вашего заказа по этому адресу.</span>
+                </div>
+                <input type="hidden" id="driver" value="1">
+                <div class="input-group">
+                  <label for="txt-joinus-password">Пароль</label>
+                  <input type="password" ng-model="registerForm.pwd" id="txt-joinus-password" data-validation-maxlength="25" data-validation-minlength="6" data-validation-required="true" data-validation-required-text="Пожалуйста, укажите новый пароль." data-validation-nospaces="true" data-validation-nospaces-text="Пароль не должен содержать пробелы" data-validation-maxlength-text="Ваш пароль — слишком длинный. Максимально допустимое количество символов — 25" data-validation-minlength-text="Пароль должен содержать минимум 6 символов" class="ng-pristine ng-untouched ng-valid">
+                  <span class="input-info">Пароль должен содержать минимум 6 символов</span>
+                </div>
+                <div class="input-group">
+                  <label for="txt-joinus-password-repeat">Повторить пароль</label>
+                  <input type="password" ng-model="registerForm.checkPwd" id="txt-joinus-password-repeat" data-validation-minlength="6" data-validation-required="true" data-validation-maxlength="25" data-validation-maxlength-text="Ваш пароль — слишком длинный. Максимально допустимое количество символов — 25" data-validation-required-text="Пожалуйста, повторно укажите Ваш пароль." data-validation-confirm-id="txt-joinus-password" data-validation-confirm-text="Ваш пароль и повторно указанный пароль не совпадают" data-validation-minlength-text="Пароль должен содержать минимум 6 символов" class="ng-pristine ng-untouched ng-valid">
+                  <span class="input-info">Пароль должен содержать минимум 6 символов</span>
+                </div>
+                <div class="inputwrapper">
+                  <ul class="input-list">
+                    <li class="item subscriptions">
+                      <input type="checkbox" id="chb-signin-newsletter" name="hmNewsSubscription" ng-model="registerForm.hmNewsSubscription" class="checkbox-input ng-pristine ng-untouched ng-valid">
+                      <label class="checkbox-label" for="signin-newsletter_0">
+                        Я хочу получать сообщения об эксклюзивных предложениях и новостях на свою почту и мне больше 16 лет.
+                      </label>
+                    </li>
+                  </ul>
+                </div>
+                <div class="input-group terms">
+                  <input type="checkbox" id="check-terms" class="checkbox-input ng-pristine ng-untouched ng-valid" name="termsAndConditions" data-validation-required="true" ng-model="registerForm.termsAndConditions">
+                  <label for="check-terms" class="checkbox-label">
+                    <a href="/ru_ru/customer-service/privacy-link.html" class="underline overlay-trigger">Да, я соглашаюсь с политикой конфиденциальности.</a>
+                  </label>
+                </div>
+                <input id="checkoutRegisterNewUser" value="ПРИСОЕДИНЯЙТЕСЬ К НАМ" type="submit" data-validation-text="Эту форму не удалось отправить. Пожалуйста, проверьте указанную Вами информацию."></form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="grid col-4">
+        <div class="box checkout-order" id="checkoutOrderPartDiv">
+          <h2 class="box-headline">ВАШ ЗАКАЗ</h2>
+          <ul class="checkout-order-items">
+            <li class="checkout-order-item">
+              <%=image_tag("in_check.jpg" , class:"checkout-order-item-image" )%>
+              <div class="checkout-order-item-product-info">
+                <div class="product-item-headline">Атласная куртка</div>
+                <div id="redWhitePrices_0462979004003" class="product-item-price ">
+                  <span id="main_price" class="main_price_0462979004003">2499 Грн</span>
+                  <small id="white_price_0462979004003"></small>
+                </div>
+                <dl class="checkout-order-item-product-details">
+                  <dt>Количество:</dt>
+                  <dd>1</dd>
+                  <dt>Цвет:</dt>
+                  <dd>Приглушенный розовый</dd>
+                  <dt>Размер:</dt>
+                  <dd>36</dd>
+                </dl>
+                <div class="shopping-bag-item-total-price product-item-price">
+                  Итого: 2499 Грн
+                </div>
+              </div>
+            </li>
+          </ul>
+          <div class="box-content">
+            <table class="order-total">
+              <tbody>
+                <tr>
+                  <th scope="row">СТОИМОСТЬ ЗАКАЗА:</th>
+                  <td>
+                    <span id="newPriceSubtotal">2499 Грн</span>
+                  </td>
+                </tr>
+
+                <tr style="display: none;">
+                  <th scope="row">СКИДКА:</th>
+                  <td>
+                    <span id="totalDiscountValue">- 0 Pуб</span>
+                  </td>
+                </tr>
+
+                <tr>
+                  <th scope="row">ДОСТАВКА:</th>
+                  <td>99 Грн</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr class="total">
+                  <th scope="row">ИТОГО</th>
+                  <td id="total_price_of_basket">2598 Грн</td>
+                </tr>
+              </tfoot>
+            </table>
+            <p class="fine-print">
+              14-дневный период возврата товара, комиссия за возврат и возврат стоимости за неотправленный товар. Прочитать о
+              <a class="overlay-trigger underline" href="#">Прочитать о возврате и возмещении стоимости товара.</a>
+            </p>
+
+          </div>
+        </div>
+
+        <!-- Only Content -->
+        <!--AEMPUBPRDEU26-->
+        <div class="parsys main">
+          <section class="legaltext parbase section">
+            <h1 class="sub-sub-heading"></h1>
+            <p class="text"></p>
+            <p></p>
+            <p>
+              Код скидки следует ввести во вкладке «доставка и оплата» в разделе «оплата» перед завершением покупки.
+            </p>
+            <p></p>
+          </section>
+        </div>
+      </div>
+    </div>
+    <div aria-hidden="true" id="login-failed" class="hidden modal-content">
+      <div class="modal-text">
+        <h1>НЕ УДАЛОСЬ ВЫПОЛНИТЬ ВХОД</h1>
+        <p>
+          Пожалуйста, проверьте правильность Вашего адреса электронной почты и пароля.
+        </p>
+        <div class="sticky button-group">
+          <input class="modalclose button" type="button" value="OK"></div>
+      </div>
+    </div>
+    <script>
+    $("#click_button_register").click(function() {
+      $("#hidden_login_box").hide();
+      $("#hidden_register_box").show();
+      if(typeof(utag) !== 'undefined'){
+        utagTrackOpeningView("Registration : Checkout", "CHECKOUT");
+      }   
+    });
+  </script>
+  </div>
+</main>
