@@ -1,0 +1,57 @@
+	<main role="main" class="">
+		<div class="wrapper">
+			<nav class="breadcrumbs">
+				<ul>
+					<li>
+						<a href="/ru_ru/">Yourhm.com.ua</a>
+					</li>
+					<li class="">
+						<a href="#" onclick="return false;">Войти/Зарегистрироваться</a>
+					</li>
+				</ul>
+			</nav>
+			<div class="row my-hm">
+				<div class="layout layout-eight">
+					<div class="grid col-7">
+						<h1>ВОЙТИ</h1>
+						<div class="row">
+							<div class="grid col-4">
+								<div class="login-form new-user">
+									<h3>ЗАРЕГИСТРИРОВАННЫЙ ПОКУПАТЕЛЬ</h3>
+									<p>Введите Ваши данные, чтобы войти.</p>
+									<form id="loginForm" class="responsive half-size ng-pristine ng-valid" action="" method="post">
+										<div class="inputwrapper required">
+											<label for="txt-signin-email" class="label">Эл. Почта</label>
+											<input id="txt-signin-email" name="j_username" data-validation-required="true" data-validation-required-text="Пожалуйста, укажите адрес электронной почты." data-validation-minlength="6" data-validation-minlength-text="Пожалуйста, укажите правильный адрес электронной почты" data-validation-email="true" type="email" data-validation-email-text="Пожалуйста, укажите правильный адрес электронной почты" value="" maxlength="150"></div>
+										<div class="inputwrapper required">
+											<label for="txt-signin-password" class="label">Пароль</label>
+											<input id="txt-signin-password" name="j_password" data-validation-required="true" data-validation-required-text="Пожалуйста, укажите новый пароль." data-validation-minlength="6" data-validation-maxlength="25" data-validation-minlength-text="Пароль должен содержать минимум 6 символов" data-validation-maxlength-text="Ваш пароль — слишком длинный. Максимально допустимое количество символов — 25" type="password" value=""></div>
+										<div class="input-group">
+											<input type="submit" value="ВОЙТИ" data-validation-text="Проверьте данные, прежде чем продолжить"></div>
+										<a href="#" class="forgotten-password underline">Забыли пароль?</a>
+										<div>
+									</div>
+									</form>
+								</div>
+							</div>
+							<div class="grid col-3">
+								<h3>НОВЫЙ ПОКУПАТЕЛЬ</h3>
+								<p>Создайте новую учетную запись для упрощения процесса покупки</p>
+								<button class="button button-secondary">ПРИСОЕДИНЯЙТЕСЬ К НАМ</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div aria-hidden="true" id="login-failed" class="hidden modal-content">
+				<div class="modal-text">
+					<h1>НЕ УДАЛОСЬ ВЫПОЛНИТЬ ВХОД</h1>
+					<p>
+						Пожалуйста, проверьте правильность Вашего адреса электронной почты и пароля.
+					</p>
+					<div class="sticky button-group">
+						<input class="modalclose button" type="button" value="OK"></div>
+				</div>
+			</div>
+		</div>
+	</main>

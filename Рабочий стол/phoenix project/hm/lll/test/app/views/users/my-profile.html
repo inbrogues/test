@@ -1,0 +1,169 @@
+
+	<main role="main" class="responsive my-hm">
+		<div class="wrapper">
+			<nav class="breadcrumbs">
+				<ul>
+					<li>
+						<a href="#">Yourhm.com.ua</a>
+					</li>
+
+					<li class="">
+						<a href="#">Ваша учетная запись</a>
+					</li>
+
+					<li class="active">
+						<a href="#" onclick="return false;">Профиль</a>
+					</li>
+				</ul>
+			</nav>
+			<script type="text/javascript">$("body").addClass("checkout-loader-layer");</script>
+			<nav class="section navigation menu " role="navigation">
+				<ul role="menu">
+					<li class="item" role="presentation" tabindex="0">
+						<a href="#" role="menuitem">Обзор</a>
+					</li>
+					<li class="current item" role="presentation" tabindex="-1">
+						<a href="#" role="menuitem">Личные сведения</a>
+					</li>
+					<li class="item" role="presentation" tabindex="-1">
+						<a href="#" role="menuitem">Заказы</a>
+					</li>
+					<li class="item" role="presentation" tabindex="-1">
+						<a href="#" role="menuitem">Адресная книга</a>
+					</li>
+					<li class="item" role="presentation" tabindex="-1">
+						<a href="#" role="menuitem">Информация о банковском счете</a>
+					</li>
+				</ul>
+			</nav>
+			<div class="layout layout-eight ng-scope" id="profileDIV">
+				<div class="responsive status-message  expandable common-expandable">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<div class="message ">Ваша персональная информация успешно обновлена.</div>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+					<button class="close icon-close-white hidden-text">Close</button>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				</div>
+				&nbsp;
+				<form class="form-section agile-form disabled-form ng-valid-email ng-dirty ng-valid-required ng-valid-pattern ng-valid ng-valid-maxlength" novalidate="" id="profile">
+					<fieldset class="form-part">
+						<legend class="heading">ЛИЧНЫЕ СВЕДЕНИЯ</legend>
+						<div class="inputwrapper">
+							<label class="label" for="myhm-email">Эл. Почта</label>
+							<input class="text-input field ng-pristine ng-untouched ng-valid disabled-input ng-valid-email" type="email" name="email" id="email" data-validation-email="true" data-validation-required="true" data-validation-required-text="profile.email.invalid" init-from-form="" value="" autocomplete="email">
+							<span class="static ng-binding">inbrogues1@gmail.com</span>
+						</div>
+						<div class="inputwrapper required">
+							<label class="label" for="checkout.firstName">Имя</label>
+							<input ng-show="isEditprofile || isEdit['profile']" ng-model="profile.firstName" ng-change="nameChanged('profile','firstName')" required="" type="text" data-validation-maxlength="75" data-validation-regex="^(?:\s*)[^:“”\u0022;!@$%^&amp;*()_+={}\[<>
+							,.?`~|\]\\\/]+(\s+[^\s\d:“”\u0022;!@$%^&amp;*()_+={}\[<>,.?`~|\]\\\/]+)*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text="Пожалуйста, укажите имя. " data-validation-regex-text="Пожалуйста, введите снова без пробелов" id="profile-firstName" name="firstName" maxlength="75" class="text-input field firstName  ng-pristine ng-untouched ng-valid-maxlength ng-hide ng-valid ng-valid-required" autocomplete="given-name">
+							<div class="input-info ng-hide"></div>
+							<span class="static ng-binding">Сергей</span>
+						</div>
+
+						<div class="inputwrapper optional" ng-class="false ? 'required' : 'optional'">
+							<label class="label" for="checkout.middleName">Отчество</label>
+							<input ng-show="isEditprofile || isEdit['profile']" ng-model="profile.middleName" ng-change="nameChanged('profile','middleName')" type="text" data-validation-maxlength="75" data-validation-regex="^(?:\s*)[^:“”\u0022;!@$%^&amp;*()_+={}\[<>
+							,.?`~|\]\\\/]+(\s+[^\s\d:“”\u0022;!@$%^&amp;*()_+={}\[<>,.?`~|\]\\\/]+)*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text=" " data-validation-regex-text="" id="profile-middleName" name="middleName" maxlength="75" class="text-input field middleName  ng-pristine ng-untouched ng-valid ng-valid-maxlength ng-hide" autocomplete="">
+							<div class="input-info ng-hide" ng-show="isEditprofile || isEdit['profile'] ">Укажите Ваше отчество здесь</div>
+							<span class="static ng-binding" ng-hide="isEditprofile || isEdit['profile']">Николаевич</span>
+						</div>
+
+						<div class="inputwrapper required" ng-class="true ? 'required' : 'optional'">
+							<label class="label" for="checkout.lastName">Фамилия</label>
+							<input ng-show="isEditprofile || isEdit['profile']" ng-model="profile.lastName" ng-change="nameChanged('profile','lastName')" required="" type="text" data-validation-maxlength="150" data-validation-regex="^(?:\s*)[^:“”\u0022;!@$%^&amp;*()_+={}\[<>
+							,.?`~|\]\\\/]+(\s+[^\s\d:“”\u0022;!@$%^&amp;*()_+={}\[<>,.?`~|\]\\\/]+)*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text="Пожалуйста, укажите фамилию. " data-validation-regex-text="Пожалуйста, введите снова без пробелов" id="profile-lastName" name="lastName" maxlength="150" class="text-input field lastName  ng-pristine ng-untouched ng-valid-maxlength ng-hide ng-valid ng-valid-required" autocomplete="family-name">
+							<div class="input-info ng-hide"></div>
+							<span class="static ng-binding">Шишман</span>
+						</div>
+
+						<div class="inputwrapper select-date  optional">
+							<label class="label" for="myhm-dob">Дата рождения</label>
+							<div class="ng-hide">
+								<span class="static ng-binding">05 Jan 1995</span>
+							</div>
+							<div class="inputwrapper">
+								<label class="label" for="myhm-user-phone">Номер телефона</label>
+								<div class="phone-group">
+									<div class="phone-wrap">
+										<label for="user-country-code-number" class="visuallyhidden"></label>
+										<input type="tel" init-from-form="" id="code" name="code" placeholder="Пример +7" class="number-input field country-code-number prefix to-hankaku ng-pristine ng-untouched ng-valid disabled-input ng-valid-maxlength" maxlength="150" data-validation-required="false" data-validation-replace-dash="true" data-validation-regex-text="Неправильный префикс" ng-init="profile.prefix = +7" data-validation-regex="^(?:\s*)\+[0-9]{1,3}(?:\s*)$" ng-model="profile.prefix" ng-class="{'invalid' : errors.accountProfileForm.cellPhone!=null, 'disabled-input' : !isEditprofile}" ng-disabled="!isEditprofile" disabled="disabled"></div>
+									<div class="phone-wrap">
+										<input type="tel" class="to-hankaku number-input field cellPhone ng-pristine ng-untouched ng-valid disabled-input ng-valid-maxlength" id="myhm-user-phone" name="myhm-user-phone" maxlength="15" init-from-form="" value="" placeholder="Пример 903 2816437" data-validation-required="" data-validation-replace-dash="true" data-validation-required-text="Вы должны указать номер телефона" data-validation-regex-text="Неправильный номер телефона" data-validation-regex="^(?:\s*)[\s\d\-]+(?:\s*)$" ng-model="profile.cellPhone" ng-class="{'invalid' : errors.accountProfileForm.cellPhone!=null, 'disabled-input' : !isEditprofile}" ng-disabled="!isEditprofile" disabled="disabled"></div>
+									<div class="input-info ng-hide" ng-show="isEditprofile">Пример +7</div>
+								</div>
+								<span class="static ng-binding"></span>
+								<!-- ngIf: errors.accountProfileForm.cellPhone!=null -->
+							</div>
+							<div class="inputwrapper">
+								<label class="label" for="myhm-country">Страна</label>
+								<span class="ng-binding" id="myhm-country">Украина</span>
+								<input type="hidden" name="country" ng-model="profile.country" class="ng-pristine ng-untouched ng-valid">
+							</div>
+					</fieldset>
+
+					<!-- SUBSCRIPTION PART BEGIN-->
+					<fieldset class="form-part" data-change-text="Your subscription settings has been updated">
+						<legend class="heading">ПОДПИСКА</legend>
+
+						<div class="inputwrapper list-group optional" ng-class="{'hidden-field' : isEditprofile}">
+							<input type="hidden" ng-model="profile.hmCatalogueSubscription" value="" init-from-form="" class="ng-pristine ng-untouched ng-valid">
+							<label class="label" for="chb-catalogue" id="chb-newsletter-label">Печатные рекламные материалы</label>
+							<ul class="input-list   ">
+								<li class="item">
+									<input class="checkbox-input disabled-input ng-pristine ng-untouched ng-valid" type="checkbox" checked="checked" name="catalogue" id="chb-catalogue" ng-model="profile.hmCatalogueSubscription" ng-disabled="!isEditprofile" disabled="disabled">
+									<span class="no-edit show-if-checked" ng-show="profile.hmCatalogueSubscription &amp;&amp; !isEditprofile">Подписан</span>
+									<label for="chb-catalogue" id="chb-newsletter-label" class="checkbox-label">
+										Я хочу получать печатные рекламные материалы от компании H&amp;M.
+									</label>
+								</li>
+							</ul>
+						</div>
+					</fieldset>
+					<!-- SUBSCRIPTION PART END -->
+
+					<!-- HM CLUB PART BEGIN -->
+					<!-- HM CLUB PART END -->
+
+					<!-- BUTTON PART BEGIN -->
+					<div class="button-group">
+						<p class="privacy-agreement">
+							Нажимая «Сохранить данные», я соглашаюсь c
+							<a href="#" class="link overlay-trigger">Политикой конфиденциальности</a>
+						</p>
+						<button type="button" class="secondary button" ng-click="setEditProfile()" ng-hide="isEditprofile">Редактировать</button>
+						<!-- <button type="button" class="secondary button ng-hide">Отменить</button> -->
+						<!-- <button type="submit" class="button save-form  ng-hide" id="saveProfileDetails" ng-show="isEditprofile">Сохранить данные</button> -->
+
+						<a href="#" class="button change-password" onclick="window.location.href='update-password'">ИЗМЕНИТЬ ПАРОЛЬ</a>
+
+						<div id="globalMessages"></div>
+					</div>
+				</form>
+
+			</div>
+			<script type="text/javascript">
+		$(function() {
+		$("body").on("click", ".my-hm-edit-details", function() {
+			$("#chb-newsletter-label").prop('cssStyle', 'display: inline');
+		});
+		$(".details-email").bind("keyup change",
+			function(e) {
+				if ($(this).val() != "") {
+					$(".confirm-password-input").attr('data-validation-required', true);
+					$(".confirm-password").show();
+				} else {
+					$(".confirm-password-input").removeAttr(
+							'data-validation-required');
+					$(".confirm-password").hide();
+
+					$(".input-info.invalid.button-validation-message")
+							.hide();
+					$(".details-email").removeClass("invalid");
+				}
+			});
+		});
+	</script>
+		</div>
+	</main>

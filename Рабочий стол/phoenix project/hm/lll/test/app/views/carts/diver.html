@@ -1,0 +1,1350 @@
+  <main role="main" class="">
+    <div class="wrapper">
+      <nav class="breadcrumbs">
+        <ul>
+          <li>
+            <a href="/ru_ru/">HM.COM</a>
+          </li>
+
+          <li class="">
+            <a href="#" onclick="return false;">ОФОРМЛЕНИЕ ЗАКАЗА</a>
+          </li>
+          <li class="active">
+            <a href="#" onclick="return false;">ОФОРМЛЕНИЕ ЗАКАЗА</a>
+          </li>
+        </ul>
+      </nav>
+      <header class="checkout-header">
+        <h1>ОФОРМЛЕНИЕ ЗАКАЗА</h1>
+        <ul class="checkout-breadcrumbs items-3 clearfix">
+          <li class="item">1. ВОЙТИ</li>
+          <li class="item item-current">2. ДОСТАВКА И ОПЛАТА</li>
+          <li class="item item-last">3. СПАСИБО</li>
+        </ul>
+      </header>
+    <div class="input-fields-info has-border">
+      Пожалуйста, заполните данные кириллицей и в соответствии с паспортом
+    </div>
+    <div class="layout ng-scope" ng-controller="CheckoutContextController">
+      <div class="row">
+        <div class="grid col-8">
+          <section id="checkoutAddressPartDiv" class="box checkout-section responsive checkout-address-section">
+            <header class="box-headline checkout-address-section-header">
+              <h1 class="heading">Мои данные</h1>
+            </header>
+            <form id="checkoutAddressPartForm" class="form-section newBillingAddress ng-invalid ng-invalid-required ng-valid-maxlength ng-valid-pattern ng-dirty">
+              <fieldset class="form-part">
+                <legend class="heading">ЛИЧНЫЕ СВЕДЕНИЯ</legend>
+                <div class="two modules">
+                  <div>
+                    <div class="inputwrapper required" ng-class="true ? 'required' : 'optional'">
+                      <label class="label" for="checkout.firstName">Имя</label>
+                      <!-- ngIf: true -->
+                      <div class="input-field-info ng-scope ng-hide" ng-if="true">
+                        <span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
+                      </div>
+                      <input required="" type="text" data-validation-maxlength="75" data-validation-regex="^(?:\s*)[^:“”\u0022;!@$%^&amp;*()_+={}\[<>
+                      ,.?`~|\]\\\/]+(\s+[^\s\d:“”\u0022;!@$%^&amp;*()_+={}\[<>,.?`~|\]\\\/]+)*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text="Пожалуйста, укажите имя. " data-validation-regex-text="Пожалуйста, введите снова без пробелов" id="newBillingAddress-firstName" name="firstName" maxlength="75" class="text-input field firstName  ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength" autocomplete="given-name">
+                      <div class="input-info"></div>
+                      <span class="static ng-binding ng-hide"></span>
+                    </div>
+                    <div class="inputwrapper optional" ng-class="false ? 'required' : 'optional'">
+                      <label class="label" for="checkout.middleName">Отчество</label>
+
+                      <!-- ngIf: true -->
+                      <div class="input-field-info ng-scope ng-hide">
+                        <span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
+                      </div>
+                      <!-- end ngIf: true -->
+
+                      <input type="text" data-validation-maxlength="75" data-validation-regex="^(?:\s*)[^:“”\u0022;!@$%^&amp;*()_+={}\[<>
+                      ,.?`~|\]\\\/]+(\s+[^\s\d:“”\u0022;!@$%^&amp;*()_+={}\[<>,.?`~|\]\\\/]+)*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text=" " data-validation-regex-text="" id="newBillingAddress-middleName" name="middleName" maxlength="75" class="text-input field middleName  ng-pristine ng-untouched ng-valid ng-valid-maxlength" autocomplete="">
+                      <div class="input-info">Укажите Ваше отчество здесь</div>
+                      <span class="static ng-binding ng-hide"></span>
+                    </div>
+
+                    <div class="inputwrapper required">
+                      <label class="label" for="checkout.lastName">Фамилия</label>
+
+                      <!-- ngIf: true -->
+                      <div class="input-field-info ng-scope ng-hide">
+                        <span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
+                      </div>
+                      <!-- end ngIf: true -->
+
+                      <input required="" type="text" data-validation-maxlength="150" data-validation-regex="^(?:\s*)[^:“”\u0022;!@$%^&amp;*()_+={}\[<>
+                      ,.?`~|\]\\\/]+(\s+[^\s\d:“”\u0022;!@$%^&amp;*()_+={}\[<>,.?`~|\]\\\/]+)*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text="Пожалуйста, укажите фамилию. " data-validation-regex-text="Пожалуйста, введите снова без пробелов" id="newBillingAddress-lastName" name="lastName" maxlength="150" class="text-input field lastName  ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength" autocomplete="family-name">
+                      <div class="input-info"></div>
+                      <span class="static ng-binding ng-hide"></span>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="inputwrapper static-text">
+                      <span class="label">Эл. Почта</span>
+                      <p class="static checkout-email-address ng-binding">inbrogues1@gmail.com</p>
+                    </div>
+
+                    <div class="inputwrapper select-date  optional" ng-class="false ? 'required' : 'optional'">
+                      <label class="label" for="myhm-dob">Дата рождения</label>
+                      <div class="merged-inputs">
+                        <input type="tel" ng-model="newBillingAddress.day" autocomplete="bday-day" pattern="[0-9]*" inputmode="numeric" id="myhm-dob-day" class="input-day text-input dateOfBirth ng-pristine ng-untouched ng-valid ng-valid-pattern" placeholder="ДД" size="2">
+
+                        <span class="divider filled">.</span>
+
+                        <input type="tel" ng-model="newBillingAddress.month" autocomplete="bday-month" pattern="[0-9]*" inputmode="numeric" id="myhm-dob-month" class="input-month text-input dateOfBirth ng-pristine ng-untouched ng-valid ng-valid-pattern" placeholder="ММ" size="2">
+
+                        <span class="divider filled">.</span>
+
+                        <input type="tel" ng-model="newBillingAddress.year" autocomplete="bday-year" pattern="[0-9]*" inputmode="numeric" id="myhm-dob-year" class="input-year text-input dateOfBirth ng-pristine ng-untouched ng-valid ng-valid-pattern" placeholder="ГГГГ" size="4">
+                      </div>
+                      <span class="static ng-binding ng-hide"></span>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+
+              <fieldset class="form-part">
+                <legend class="heading">ДОМАШНИЙ АДРЕС</legend>
+                <div class="two modules">
+                  <div>
+                    <div class="inputwrapper required">
+                      <label class="label" for="checkout.line1">Строка адреса 1</label>
+                      <!-- ngIf: true -->
+                      <div class="input-field-info ng-scope">
+                        <span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
+                      </div>
+                      <!-- end ngIf: true -->
+
+                      <input required="" type="text" data-validation-maxlength="40" data-validation-regex="^(?:\s*)[^\s“”\u0022;]+[^“”\u0022;]*(?:\s*)$" data-validation-maxlength-text="" data-validation-required-text="Пожалуйста, укажите адрес. " data-validation-regex-text="Удалить первый пробел" id="newBillingAddress-line1" name="line1" maxlength="40" class="text-input field line1  ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength" autocomplete="address-line1">
+                      <div class="input-info"">Название улицы, номер дома, корпус, строение, номер квартиры</div>
+                      <span class="static ng-binding ng-hide"></span>
+                    </div>
+
+                    <div class="inputwrapper optional">
+                      <label class="label" for="checkout.line2">Строка адреса 2</label>
+                      <!-- ngIf: true -->
+                      <div class="input-field-info ng-scope">
+                        <span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
+                      </div>
+                      <!-- end ngIf: true -->
+
+                      <input type="text" data-validation-maxlength="40" data-validation-regex="^(?:\s*)[^\s“”\u0022;]+[^“”\u0022;]*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text=" " data-validation-regex-text="Удалить первый пробел" id="newBillingAddress-line2" name="line2" maxlength="40" class="text-input field line2  ng-pristine ng-untouched ng-valid ng-valid-maxlength" autocomplete="address-line2">
+                      <div class="input-info">Этаж, домофон и т.д.</div>
+                      <span class="static ng-binding ng-hide"></span>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="inputwrapper required">
+                      <label class="label" for="checkout.town">Город</label>
+                      <!-- ngIf: true -->
+                      <div class="input-field-info ng-scope ng-hide" ng-if="true">
+                        <span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
+                      </div>
+                      <!-- end ngIf: true -->
+
+                      <input required="" type="text" data-validation-maxlength="40" data-validation-regex="^(?:\s*)[^\d“”\u0022;]+[^\s\d“”\u0022;]+[^“”\u0022;]*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text="Пожалуйста, укажите город. " data-validation-regex-text="Пожалуйста, укажите правильное название города" id="newBillingAddress-town" name="town" maxlength="40" class="text-input field town  ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength" autocomplete="address-level2">
+                      <div class="input-info">город, без указания области и района</div>
+                      <span class="static ng-binding ng-hide"></span>
+                    </div>
+
+                    <div class="inputwrapper required">
+                      <label class="label" for="checkout.postalCode">Почтовый индекс</label>
+                      <!-- ngIf: true -->
+                      <div class="input-field-info ng-scope ng-hide">
+                        <span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
+                      </div>
+                      <!-- end ngIf: true -->
+                      <input required="" type="text" data-validation-maxlength="10" data-validation-regex="^(?:\s*)(\d{6})(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text="Пожалуйста, укажите почтовый индекс (105064). " data-validation-regex-text="Пожалуйста, укажите правильный почтовый индекс (105064)." id="newBillingAddress-postalCode" name="postalCode" maxlength="10" class="text-input field postalCode to-hankaku ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength" autocomplete="postal-code">
+                      <div class="input-info">Укажите Ваш почтовый индекс. Например 105064</div>
+                      <span class="static ng-binding ng-hide"></span>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+
+              <div class="form-part" ng-class="{'hidden': getContext().closeBillingSection}">
+                <div class="two modules">
+                  <div>
+                    <p>
+                      Указанная Вами информация будет сохранена в Вашей учетной записи и в Вашей адресной книге.
+                    </p>
+                  </div>
+                  <div>
+                    <p>* Звездочками обозначены поля, обязательные для заполнения</p>
+                  </div>
+                </div>
+                <input type="submit" id="submitBillingAddress" value="ПЕРЕЙТИ К РАЗДЕЛУ &quot;ДОСТАВКА&quot;" data-validation-text="Эту форму не удалось отправить. Пожалуйста, проверьте указанную Вами информацию."></div>
+            </form>
+            <div class="read-only row hidden">
+              <div class="grid col-4">
+                <div class="box-content">
+                  <h3 class="checkout-header-text">ЛИЧНЫЕ СВЕДЕНИЯ</h3>
+                  <div class="ng-binding">
+                    <br>
+                    inbrogues1@gmail.com
+                    <br></div>
+                </div>
+              </div>
+              <div class="grid col-4">
+                <div class="box-content">
+                  <h3 class="checkout-header-text">ДОМАШНИЙ АДРЕС</h3>
+                  <div class="read-only-billing-address">
+                    <span class="ng-binding"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- ngIf: !getContext().homeAddressBlocked &&  !getContext().customer.cbp -->
+            <button id="checkoutAddressPartEdit" type="button" class="link responsive navigate icon-caret-right edit-toggle ng-scope hidden">Редактировать</button>
+            <!-- end ngIf: !getContext().homeAddressBlocked &&  !getContext().customer.cbp -->
+          </section>
+          <section id="checkoutDeliveryPartDiv" class="box checkout-section checkout-delivery-section responsive">
+            <header class="box-headline checkout-delivery-section-header">
+              <h1 class="heading">ДОСТАВКА</h1>
+            </header>
+            <form id="checkoutDeliveryPartForm" name="checkoutDeliveryPartForm" class="box-content hidden ng-dirty ng-invalid ng-invalid-required ng-valid-maxlength">
+              <fieldset class="delivery-preferences">
+                <legend class="sub-sub-heading">ВЫБЕРИТЕ ПРЕДПОЧТИТЕЛЬНЫЙ ВАРИАНТ ДОСТАВКИ</legend>
+                <p class="text">
+                  Ознакомьтесь с&nbsp;
+                  <a href="#" class="underline overlay-trigger">информацией о доставке</a>
+                </p>
+                <!-- ngRepeat: deliveryMode in getContext().deliveryModeList -->
+                <fieldset ng-repeat="deliveryMode in getContext().deliveryModeList" id="delivery-address-0" class="delivery-option check-option js-check-option ng-scope">
+                  <label for="deliveryMode-0" class="check-option-label delivery-option-label">
+                    <input type="radio" class="js-update-on-change delivery-option-radio js-check-option-input ng-pristine ng-untouched ng-valid" id="deliveryMode-0" name="16" value="home-delivery-RU"> <strong class="delivery-option-type check-option-label-text-primary ng-binding">Доставка курьером</strong>
+                    <span class="delivery-option-expedience check-option-label-text-secondary ng-binding">2-6 дня (дней)</span> <strong class="delivery-option-price check-option-label-text-primary ng-binding">199 Pуб</strong>
+                    <!-- ngIf: (deliveryMode.addressBlackListed || !deliveryMode.pssEnable) && !deliveryMode.paymentNotAvailable -->
+                    <!-- ngIf: !deliveryMode.supportCOD -->
+                    <strong ng-hide="( deliveryMode.supportHazmat || (newDeliveryAddress.blackListed &amp;&amp; newDeliveryAddress.deliveryMode == deliveryMode.code) ) || ((deliveryMode.addressBlackListed || !deliveryMode.pssEnable) &amp;&amp; !deliveryMode.paymentNotAvailable)" class="icon-warning check-option-warning ng-hide" title="Пожалуйста, примите к сведению, что если Вы выберете местоположение, отмеченное этим символом, некоторые товары не будут включены в Ваш заказ."></strong>
+                  </label>
+                  <div class="delivery-option-details check-option-details" ng-switch="" on="deliveryMode.type">
+                    <div class="responsive status-message is-open thin  ng-hide" data-background-color="middle-grey" ng-show="deliveryMode.onlineServicePackageInfo!=null">
+
+                      <div class="message icon icon-info ng-binding"></div>
+                    </div>
+                    <!-- ngIf: deliveryMode.type == 'address' -->
+                    <p ng-if-start="deliveryMode.type == 'address'" class="ng-scope"></p>
+
+                    <!-- ngIf: deliveryMode.pssEnable && deliveryMode.fastDelivery && !(deliveryMode.tommorrowHoliday || deliveryMode.warehouseCutoffTimePassed) && !deliveryMode.warehouseLimitReached -->
+                    <!-- ngIf: deliveryMode.pssEnable && deliveryMode.fastDelivery && !(deliveryMode.tommorrowHoliday || deliveryMode.warehouseCutoffTimePassed) && deliveryMode.warehouseLimitReached -->
+                    <!-- ngIf: deliveryMode.pssEnable && deliveryMode.fastDelivery && (deliveryMode.tommorrowHoliday || deliveryMode.warehouseCutoffTimePassed) -->
+                    <p class="ng-binding ng-scope"></p>
+                    <!-- ngIf: !deliveryMode.fastDelivery -->
+                    <p class="text ng-scope" ng-if="!deliveryMode.fastDelivery">Ваша посылка будет доставлена по адресу проживания.</p>
+                    <!-- end ngIf: !deliveryMode.fastDelivery -->
+                    <article class="delivery-address ng-scope">
+                      <h1 class="sub-sub-heading">АДРЕС ДОСТАВКИ</h1>
+                      <address class="vcard read-only-delivery-address">
+                        <span class="item fn ng-binding"></span>
+                        <div class="adr">
+                          <span ng-bind-html="getContext().deliveryAddress.formattedAddress" class="ng-binding"></span>
+                        </div>
+                      </address>
+                      <a href="#delivery-address-0" ng-click="newAddressClickAction($index)" ng-class="{'not-active' : getContext().deliveryModeForced}" class="underline js-change-delivery-address-toggle">Изменить адрес</a>
+                    </article>
+                    <div style="margin-top: 10px;" ng-show="getContext().deliveryModeForced" class="ng-scope ng-hide">
+                      The payment method you’ve chosen&nbsp;requires your package to be delivered to&nbsp;your home address. In order to change&nbsp;delivery address, change payment to card.
+                    </div>
+
+                    <fieldset class="checkout-existing-addresses change-delivery-addresses newDeliveryAddressshome-delivery-RU">
+                      <legend class="sub-sub-heading">Изменить адрес</legend>
+                      <p class="text">Выберите существующий адрес или добавьте новый.</p>
+                      <p class="text">
+                        Вы можете редактировать указанные Вами адреса в разделе
+                        <a href="/ru_ru/my-account/address-book">«Мой H&amp;M»</a>
+                      </p>
+                      <h3>Использовать существующий адрес</h3>
+                      <ul class="choose-delivery-address">
+                        <!-- ngRepeat: address in getContext().customerAddresses -->
+                        <li class="js-check-option item checkout-new-address checked" ng-class="{'checked' : newDeliveryAddress.id == null}">
+
+                          <label for="delivery-radio-home-delivery-RU-false" class="fields-group has-radio check-option-invert">
+                            <input type="radio" ng-click="useNewAddress()" name="delivery-radio-home-delivery-RU-false" class="js-update-on-change delivery-option-radio js-check-option-input ng-pristine ng-untouched ng-valid" id="delivery-radio-home-delivery-RU-new" ng-model="newAddressForm" ng-value="newAddressForm">
+                            <strong class="check-option-label-text-primary">Изменить адрес доставки</strong>
+                          </label>
+
+                          <div class="check-option-details ng-hide" ng-show="newDeliveryAddressSelected">
+
+                            <div class="inputwrapper required" ng-class="true ? 'required' : 'optional'">
+                              <label class="label" for="checkout.firstName">Имя</label>
+
+                              <!-- ngIf: true -->
+                              <div class="input-field-info ng-scope ng-hide" ng-if="true" ng-show="(isEditnewDeliveryAddress || isEdit['newDeliveryAddress']) &amp;&amp; ('firstName' == 'line1' || 'firstName' == 'line2') ">
+
+                                <span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
+                              </div>
+                              <!-- end ngIf: true -->
+
+                              <input ng-show="isEditnewDeliveryAddress || isEdit['newDeliveryAddress']" ng-model="newDeliveryAddress.firstName" ng-change="nameChanged('newDeliveryAddress','firstName')" required="" type="text" data-validation-maxlength="75" data-validation-regex="^(?:\s*)[^:“”\u0022;!@$%^&amp;*()_+={}\[<>
+                              ,.?`~|\]\\\/]+(\s+[^\s\d:“”\u0022;!@$%^&amp;*()_+={}\[<>,.?`~|\]\\\/]+)*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text="Пожалуйста, укажите имя. " data-validation-regex-text="Пожалуйста, введите снова без пробелов" id="newDeliveryAddress-firstName" name="firstName" maxlength="75" class="text-input field firstName  ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength ng-hide" autocomplete="given-name">
+                              <div class="input-info ng-hide" ng-show="isEditnewDeliveryAddress || isEdit['newDeliveryAddress'] "></div>
+                              <span class="static ng-binding" ng-hide="isEditnewDeliveryAddress || isEdit['newDeliveryAddress']"></span>
+
+                            </div>
+
+                            <div class="inputwrapper optional" ng-class="false ? 'required' : 'optional'">
+                              <label class="label" for="checkout.middleName">Отчество</label>
+
+                              <!-- ngIf: true -->
+                              <div class="input-field-info ng-scope ng-hide" ng-if="true" ng-show="(isEditnewDeliveryAddress || isEdit['newDeliveryAddress']) &amp;&amp; ('middleName' == 'line1' || 'middleName' == 'line2') ">
+
+                                <span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
+                              </div>
+                              <!-- end ngIf: true -->
+
+                              <input ng-show="isEditnewDeliveryAddress || isEdit['newDeliveryAddress']" ng-model="newDeliveryAddress.middleName" ng-change="nameChanged('newDeliveryAddress','middleName')" type="text" data-validation-maxlength="75" data-validation-regex="^(?:\s*)[^:“”\u0022;!@$%^&amp;*()_+={}\[<>
+                              ,.?`~|\]\\\/]+(\s+[^\s\d:“”\u0022;!@$%^&amp;*()_+={}\[<>,.?`~|\]\\\/]+)*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text=" " data-validation-regex-text="" id="newDeliveryAddress-middleName" name="middleName" maxlength="75" class="text-input field middleName  ng-pristine ng-untouched ng-valid ng-valid-maxlength ng-hide" autocomplete="">
+                              <div class="input-info ng-hide" ng-show="isEditnewDeliveryAddress || isEdit['newDeliveryAddress'] ">Укажите Ваше отчество здесь</div>
+                              <span class="static ng-binding" ng-hide="isEditnewDeliveryAddress || isEdit['newDeliveryAddress']"></span>
+
+                            </div>
+
+                            <div class="inputwrapper required" ng-class="true ? 'required' : 'optional'">
+                              <label class="label" for="checkout.lastName">Фамилия</label>
+
+                              <!-- ngIf: true -->
+                              <div class="input-field-info ng-scope ng-hide" ng-if="true" ng-show="(isEditnewDeliveryAddress || isEdit['newDeliveryAddress']) &amp;&amp; ('lastName' == 'line1' || 'lastName' == 'line2') ">
+
+                                <span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
+                              </div>
+                              <!-- end ngIf: true -->
+
+                              <input ng-show="isEditnewDeliveryAddress || isEdit['newDeliveryAddress']" ng-model="newDeliveryAddress.lastName" ng-change="nameChanged('newDeliveryAddress','lastName')" required="" type="text" data-validation-maxlength="150" data-validation-regex="^(?:\s*)[^:“”\u0022;!@$%^&amp;*()_+={}\[<>
+                              ,.?`~|\]\\\/]+(\s+[^\s\d:“”\u0022;!@$%^&amp;*()_+={}\[<>,.?`~|\]\\\/]+)*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text="Пожалуйста, укажите фамилию. " data-validation-regex-text="Пожалуйста, введите снова без пробелов" id="newDeliveryAddress-lastName" name="lastName" maxlength="150" class="text-input field lastName  ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength ng-hide" autocomplete="family-name">
+                              <div class="input-info ng-hide" ng-show="isEditnewDeliveryAddress || isEdit['newDeliveryAddress'] "></div>
+                              <span class="static ng-binding" ng-hide="isEditnewDeliveryAddress || isEdit['newDeliveryAddress']"></span>
+
+                            </div>
+
+                            <div class="two modules">
+                              <div>
+
+                                <div class="inputwrapper required" ng-class="true ? 'required' : 'optional'">
+                                  <label class="label" for="checkout.line1">Строка адреса 1</label>
+
+                                  <!-- ngIf: true -->
+                                  <div class="input-field-info ng-scope ng-hide" ng-if="true" ng-show="(isEditnewDeliveryAddress || isEdit['newDeliveryAddress']) &amp;&amp; ('line1' == 'line1' || 'line1' == 'line2') ">
+
+                                    <span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
+                                  </div>
+                                  <!-- end ngIf: true -->
+
+                                  <input ng-show="isEditnewDeliveryAddress || isEdit['newDeliveryAddress']" ng-model="newDeliveryAddress.line1" ng-change="addressMandatoryChanged('newDeliveryAddress','line1')" required="" type="text" data-validation-maxlength="40" data-validation-regex="^(?:\s*)[^\s“”\u0022;]+[^“”\u0022;]*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text="Пожалуйста, укажите адрес. " data-validation-regex-text="Удалить первый пробел" id="newDeliveryAddress-line1" name="line1" maxlength="40" class="text-input field line1  ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength ng-hide" autocomplete="address-line1">
+                                  <div class="input-info ng-hide" ng-show="isEditnewDeliveryAddress || isEdit['newDeliveryAddress'] ">Название улицы, номер дома, корпус, строение, номер квартиры</div>
+                                  <span class="static ng-binding" ng-hide="isEditnewDeliveryAddress || isEdit['newDeliveryAddress']"></span>
+
+                                </div>
+
+                                <div class="inputwrapper optional" ng-class="false ? 'required' : 'optional'">
+                                  <label class="label" for="checkout.line2">Строка адреса 2</label>
+
+                                  <!-- ngIf: true -->
+                                  <div class="input-field-info ng-scope ng-hide" ng-if="true" ng-show="(isEditnewDeliveryAddress || isEdit['newDeliveryAddress']) &amp;&amp; ('line2' == 'line1' || 'line2' == 'line2') ">
+
+                                    <span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
+                                  </div>
+                                  <!-- end ngIf: true -->
+
+                                  <input ng-show="isEditnewDeliveryAddress || isEdit['newDeliveryAddress']" ng-model="newDeliveryAddress.line2" ng-change="addressNotMandatoryChanged('newDeliveryAddress','line2')" type="text" data-validation-maxlength="40" data-validation-regex="^(?:\s*)[^\s“”\u0022;]+[^“”\u0022;]*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text=" " data-validation-regex-text="Удалить первый пробел" id="newDeliveryAddress-line2" name="line2" maxlength="40" class="text-input field line2  ng-pristine ng-untouched ng-valid ng-valid-maxlength ng-hide" autocomplete="address-line2">
+                                  <div class="input-info ng-hide" ng-show="isEditnewDeliveryAddress || isEdit['newDeliveryAddress'] ">Этаж, домофон и т.д.</div>
+                                  <span class="static ng-binding" ng-hide="isEditnewDeliveryAddress || isEdit['newDeliveryAddress']"></span>
+
+                                </div>
+
+                              </div>
+                              <div>
+
+                                <div class="inputwrapper required" ng-class="true ? 'required' : 'optional'">
+                                  <label class="label" for="checkout.town">Город</label>
+
+                                  <!-- ngIf: true -->
+                                  <div class="input-field-info ng-scope ng-hide" ng-if="true" ng-show="(isEditnewDeliveryAddress || isEdit['newDeliveryAddress']) &amp;&amp; ('town' == 'line1' || 'town' == 'line2') ">
+
+                                    <span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
+                                  </div>
+                                  <!-- end ngIf: true -->
+
+                                  <input ng-show="isEditnewDeliveryAddress || isEdit['newDeliveryAddress']" ng-model="newDeliveryAddress.town" ng-change="addressMandatoryChanged('newDeliveryAddress','town')" required="" type="text" data-validation-maxlength="40" data-validation-regex="^(?:\s*)[^\d“”\u0022;]+[^\s\d“”\u0022;]+[^“”\u0022;]*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text="Пожалуйста, укажите город. " data-validation-regex-text="Пожалуйста, укажите правильное название города" id="newDeliveryAddress-town" name="town" maxlength="40" class="text-input field town  ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength ng-hide" autocomplete="address-level2">
+                                  <div class="input-info ng-hide" ng-show="isEditnewDeliveryAddress || isEdit['newDeliveryAddress'] ">город, без указания области и района</div>
+                                  <span class="static ng-binding" ng-hide="isEditnewDeliveryAddress || isEdit['newDeliveryAddress']"></span>
+
+                                </div>
+
+                                <div class="inputwrapper required" ng-class="true ? 'required' : 'optional'">
+                                  <label class="label" for="checkout.postalCode">Почтовый индекс</label>
+
+                                  <!-- ngIf: true -->
+                                  <div class="input-field-info ng-scope ng-hide" ng-if="true" ng-show="(isEditnewDeliveryAddress || isEdit['newDeliveryAddress']) &amp;&amp; ('postalCode' == 'line1' || 'postalCode' == 'line2') ">
+
+                                    <span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
+                                  </div>
+                                  <!-- end ngIf: true -->
+
+                                  <input ng-show="isEditnewDeliveryAddress || isEdit['newDeliveryAddress']" ng-model="newDeliveryAddress.postalCode" ng-change="addressMandatoryChanged('newDeliveryAddress','postalCode')" required="" type="text" data-validation-maxlength="10" data-validation-regex="^(?:\s*)(\d{6})(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text="Пожалуйста, укажите почтовый индекс (105064). " data-validation-regex-text="Пожалуйста, укажите правильный почтовый индекс (105064)." id="newDeliveryAddress-postalCode" name="postalCode" maxlength="10" class="text-input field postalCode to-hankaku ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength ng-hide" autocomplete="postal-code">
+                                  <div class="input-info ng-hide" ng-show="isEditnewDeliveryAddress || isEdit['newDeliveryAddress'] ">Укажите Ваш почтовый индекс. Например 105064</div>
+                                  <span class="static ng-binding" ng-hide="isEditnewDeliveryAddress || isEdit['newDeliveryAddress']"></span>
+
+                                </div>
+
+                              </div>
+                              <div class="remember-delivery-address" ng-show="canAddNewAddress(2)">
+                                <p>
+                                  <input type="checkbox" ng-model="newDeliveryAddress.visibleInAddressBook" id="chb-remember-delivery-address" class="ng-pristine ng-untouched ng-valid">
+                                  <label class="remember-card" for="chb-remember-delivery-address">Добавить этот адрес в мою адресную книгу.</label>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                      <a ng-click="closeChangeAddressSection(deliveryMode.code)" class="button secondary js-change-delivery-address-toggle">СОХРАНИТЬ</a>
+                      <a ng-click="useBillingAddress($index)" class="button secondary js-change-delivery-address-toggle">Отменить</a>
+                    </fieldset>
+                    <p ng-if-end="" class="ng-scope"></p>
+                    <!-- end ngIf: deliveryMode.type == 'address' -->
+                    <!-- ngSwitchWhen: places -->
+                    <!-- ngSwitchWhen: timeSlot -->
+                  </div>
+
+                  <!-- ngIf: ((!getContext().deliveryAddress.supportHazmat && !(deliveryMode.code).indexOf('pickup-in-place') >
+                  -1) || !deliveryMode.supportHazmat) && !deliveryMode.addressBlackListed && !openChangeAddress && getContext().hasHazmat -->
+                  <!-- ngIf: !deliveryMode.supportCOD -->
+                  <!-- ngIf: deliveryMode.addressBlackListed && !deliveryMode.paymentNotAvailable -->
+                  <!-- ngIf: deliveryMode.paymentNotAvailable -->
+                  <!-- ngIf: !deliveryMode.pssEnable && !deliveryMode.pssNoResponse -->
+                  <!-- ngIf: deliveryMode.pssNoResponse -->
+                </fieldset>
+                <!-- end ngRepeat: deliveryMode in getContext().deliveryModeList -->
+                <fieldset ng-repeat="deliveryMode in getContext().deliveryModeList" id="delivery-address-1" class="delivery-option check-option js-check-option ng-scope checked" ng-class="{'checked' : newDeliveryAddress.deliveryMode == deliveryMode.code,
+                      'check-option-disabled' : deliveryMode.paymentNotAvailable,
+                      'delivery-option-timeslot-home' : deliveryMode.timeSlotInterval != null &amp;&amp; deliveryMode.timeSlotInterval.length >
+                  0,
+                      'single-option' : deliverySingleOption}">
+                  <label for="deliveryMode-1" class="check-option-label delivery-option-label">
+                    <input type="radio" ng-value="deliveryMode.code" class="js-update-on-change delivery-option-radio js-check-option-input ng-pristine ng-untouched ng-valid" id="deliveryMode-1" ng-model="newDeliveryAddress.deliveryMode" ng-disabled="isDisabledActions() || !deliveryMode.active" ng-change="setDeliveryMode(deliveryMode)" name="18" value="home-delivery-post-RU">
+                    <strong class="delivery-option-type check-option-label-text-primary ng-binding">Доставка почтой</strong>
+                    <span class="delivery-option-expedience check-option-label-text-secondary ng-binding">Cтандарт 2-14 рабочих дней</span>
+                    <strong class="delivery-option-price check-option-label-text-primary ng-binding">99 Pуб</strong>
+                    <!-- ngIf: (deliveryMode.addressBlackListed || !deliveryMode.pssEnable) && !deliveryMode.paymentNotAvailable -->
+                    <!-- ngIf: !deliveryMode.supportCOD -->
+                    <strong ng-hide="( deliveryMode.supportHazmat || (newDeliveryAddress.blackListed &amp;&amp; newDeliveryAddress.deliveryMode == deliveryMode.code) ) || ((deliveryMode.addressBlackListed || !deliveryMode.pssEnable) &amp;&amp; !deliveryMode.paymentNotAvailable)" class="icon-warning check-option-warning ng-hide" title="Пожалуйста, примите к сведению, что если Вы выберете местоположение, отмеченное этим символом, некоторые товары не будут включены в Ваш заказ."></strong>
+                  </label>
+                  <div class="delivery-option-details check-option-details" ng-switch="" on="deliveryMode.type">
+                    <div class="responsive status-message is-open thin  ng-hide" data-background-color="middle-grey" ng-show="deliveryMode.onlineServicePackageInfo!=null">
+
+                      <div class="message icon icon-info ng-binding"></div>
+                    </div>
+                    <!-- ngIf: deliveryMode.type == 'address' -->
+                    <p ng-if-start="deliveryMode.type == 'address'" class="ng-scope"></p>
+
+                    <!-- ngIf: deliveryMode.pssEnable && deliveryMode.fastDelivery && !(deliveryMode.tommorrowHoliday || deliveryMode.warehouseCutoffTimePassed) && !deliveryMode.warehouseLimitReached -->
+                    <!-- ngIf: deliveryMode.pssEnable && deliveryMode.fastDelivery && !(deliveryMode.tommorrowHoliday || deliveryMode.warehouseCutoffTimePassed) && deliveryMode.warehouseLimitReached -->
+                    <!-- ngIf: deliveryMode.pssEnable && deliveryMode.fastDelivery && (deliveryMode.tommorrowHoliday || deliveryMode.warehouseCutoffTimePassed) -->
+                    <p class="ng-binding ng-scope"></p>
+                    <!-- ngIf: !deliveryMode.fastDelivery -->
+                    <p class="text ng-scope" ng-if="!deliveryMode.fastDelivery">Ваша посылка будет доставлена по адресу проживания.</p>
+                    <!-- end ngIf: !deliveryMode.fastDelivery -->
+                    <article class="delivery-address ng-scope">
+                      <h1 class="sub-sub-heading">АДРЕС ДОСТАВКИ</h1>
+                      <address class="vcard read-only-delivery-address">
+                        <span class="item fn ng-binding"></span>
+                        <div class="adr">
+                          <span ng-bind-html="getContext().deliveryAddress.formattedAddress" class="ng-binding"></span>
+                        </div>
+                      </address>
+                      <a href="#delivery-address-1" ng-click="newAddressClickAction($index)" ng-class="{'not-active' : getContext().deliveryModeForced}" class="underline js-change-delivery-address-toggle">Изменить адрес</a>
+                    </article>
+                    <div style="margin-top: 10px;" ng-show="getContext().deliveryModeForced" class="ng-scope ng-hide">
+                      The payment method you’ve chosen&nbsp;requires your package to be delivered to&nbsp;your home address. In order to change&nbsp;delivery address, change payment to card.
+                    </div>
+
+                    <fieldset class="checkout-existing-addresses change-delivery-addresses newDeliveryAddressshome-delivery-post-RU">
+                      <legend class="sub-sub-heading">Изменить адрес</legend>
+                      <p class="text">Выберите существующий адрес или добавьте новый.</p>
+                      <p class="text">
+                        Вы можете редактировать указанные Вами адреса в разделе
+                        <a href="/ru_ru/my-account/address-book">«Мой H&amp;M»</a>
+                      </p>
+                      <h3>Использовать существующий адрес</h3>
+                      <ul class="choose-delivery-address">
+                        <!-- ngRepeat: address in getContext().customerAddresses -->
+                        <li class="js-check-option item checkout-new-address checked" ng-class="{'checked' : newDeliveryAddress.id == null}">
+
+                          <label for="delivery-radio-home-delivery-post-RU-false" class="fields-group has-radio check-option-invert">
+                            <input type="radio" ng-click="useNewAddress()" name="delivery-radio-home-delivery-post-RU-false" class="js-update-on-change delivery-option-radio js-check-option-input ng-pristine ng-untouched ng-valid" id="delivery-radio-home-delivery-post-RU-new" ng-model="newAddressForm" ng-value="newAddressForm">
+                            <strong class="check-option-label-text-primary">Изменить адрес доставки</strong>
+                          </label>
+
+                          <div class="check-option-details ng-hide" ng-show="newDeliveryAddressSelected">
+
+                            <div class="inputwrapper required" ng-class="true ? 'required' : 'optional'">
+                              <label class="label" for="checkout.firstName">Имя</label>
+
+                              <!-- ngIf: true -->
+                              <div class="input-field-info ng-scope ng-hide" ng-if="true" ng-show="(isEditnewDeliveryAddress || isEdit['newDeliveryAddress']) &amp;&amp; ('firstName' == 'line1' || 'firstName' == 'line2') ">
+
+                                <span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
+                              </div>
+                              <!-- end ngIf: true -->
+
+                              <input ng-show="isEditnewDeliveryAddress || isEdit['newDeliveryAddress']" ng-model="newDeliveryAddress.firstName" ng-change="nameChanged('newDeliveryAddress','firstName')" required="" type="text" data-validation-maxlength="75" data-validation-regex="^(?:\s*)[^:“”\u0022;!@$%^&amp;*()_+={}\[<>
+                              ,.?`~|\]\\\/]+(\s+[^\s\d:“”\u0022;!@$%^&amp;*()_+={}\[<>,.?`~|\]\\\/]+)*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text="Пожалуйста, укажите имя. " data-validation-regex-text="Пожалуйста, введите снова без пробелов" id="newDeliveryAddress-firstName" name="firstName" maxlength="75" class="text-input field firstName  ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength ng-hide" autocomplete="given-name">
+                              <div class="input-info ng-hide" ng-show="isEditnewDeliveryAddress || isEdit['newDeliveryAddress'] "></div>
+                              <span class="static ng-binding" ng-hide="isEditnewDeliveryAddress || isEdit['newDeliveryAddress']"></span>
+
+                            </div>
+
+                            <div class="inputwrapper optional" ng-class="false ? 'required' : 'optional'">
+                              <label class="label" for="checkout.middleName">Отчество</label>
+
+                              <!-- ngIf: true -->
+                              <div class="input-field-info ng-scope ng-hide" ng-if="true" ng-show="(isEditnewDeliveryAddress || isEdit['newDeliveryAddress']) &amp;&amp; ('middleName' == 'line1' || 'middleName' == 'line2') ">
+
+                                <span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
+                              </div>
+                              <!-- end ngIf: true -->
+
+                              <input ng-show="isEditnewDeliveryAddress || isEdit['newDeliveryAddress']" ng-model="newDeliveryAddress.middleName" ng-change="nameChanged('newDeliveryAddress','middleName')" type="text" data-validation-maxlength="75" data-validation-regex="^(?:\s*)[^:“”\u0022;!@$%^&amp;*()_+={}\[<>
+                              ,.?`~|\]\\\/]+(\s+[^\s\d:“”\u0022;!@$%^&amp;*()_+={}\[<>,.?`~|\]\\\/]+)*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text=" " data-validation-regex-text="" id="newDeliveryAddress-middleName" name="middleName" maxlength="75" class="text-input field middleName  ng-pristine ng-untouched ng-valid ng-valid-maxlength ng-hide" autocomplete="">
+                              <div class="input-info ng-hide" ng-show="isEditnewDeliveryAddress || isEdit['newDeliveryAddress'] ">Укажите Ваше отчество здесь</div>
+                              <span class="static ng-binding" ng-hide="isEditnewDeliveryAddress || isEdit['newDeliveryAddress']"></span>
+
+                            </div>
+
+                            <div class="inputwrapper required" ng-class="true ? 'required' : 'optional'">
+                              <label class="label" for="checkout.lastName">Фамилия</label>
+
+                              <!-- ngIf: true -->
+                              <div class="input-field-info ng-scope ng-hide" ng-if="true" ng-show="(isEditnewDeliveryAddress || isEdit['newDeliveryAddress']) &amp;&amp; ('lastName' == 'line1' || 'lastName' == 'line2') ">
+
+                                <span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
+                              </div>
+                              <!-- end ngIf: true -->
+
+                              <input ng-show="isEditnewDeliveryAddress || isEdit['newDeliveryAddress']" ng-model="newDeliveryAddress.lastName" ng-change="nameChanged('newDeliveryAddress','lastName')" required="" type="text" data-validation-maxlength="150" data-validation-regex="^(?:\s*)[^:“”\u0022;!@$%^&amp;*()_+={}\[<>
+                              ,.?`~|\]\\\/]+(\s+[^\s\d:“”\u0022;!@$%^&amp;*()_+={}\[<>,.?`~|\]\\\/]+)*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text="Пожалуйста, укажите фамилию. " data-validation-regex-text="Пожалуйста, введите снова без пробелов" id="newDeliveryAddress-lastName" name="lastName" maxlength="150" class="text-input field lastName  ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength ng-hide" autocomplete="family-name">
+                              <div class="input-info ng-hide" ng-show="isEditnewDeliveryAddress || isEdit['newDeliveryAddress'] "></div>
+                              <span class="static ng-binding" ng-hide="isEditnewDeliveryAddress || isEdit['newDeliveryAddress']"></span>
+
+                            </div>
+
+                            <div class="two modules">
+                              <div>
+
+                                <div class="inputwrapper required" ng-class="true ? 'required' : 'optional'">
+                                  <label class="label" for="checkout.line1">Строка адреса 1</label>
+
+                                  <!-- ngIf: true -->
+                                  <div class="input-field-info ng-scope ng-hide" ng-if="true" ng-show="(isEditnewDeliveryAddress || isEdit['newDeliveryAddress']) &amp;&amp; ('line1' == 'line1' || 'line1' == 'line2') ">
+
+                                    <span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
+                                  </div>
+                                  <!-- end ngIf: true -->
+
+                                  <input ng-show="isEditnewDeliveryAddress || isEdit['newDeliveryAddress']" ng-model="newDeliveryAddress.line1" ng-change="addressMandatoryChanged('newDeliveryAddress','line1')" required="" type="text" data-validation-maxlength="40" data-validation-regex="^(?:\s*)[^\s“”\u0022;]+[^“”\u0022;]*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text="Пожалуйста, укажите адрес. " data-validation-regex-text="Удалить первый пробел" id="newDeliveryAddress-line1" name="line1" maxlength="40" class="text-input field line1  ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength ng-hide" autocomplete="address-line1">
+                                  <div class="input-info ng-hide" ng-show="isEditnewDeliveryAddress || isEdit['newDeliveryAddress'] ">Название улицы, номер дома, корпус, строение, номер квартиры</div>
+                                  <span class="static ng-binding" ng-hide="isEditnewDeliveryAddress || isEdit['newDeliveryAddress']"></span>
+
+                                </div>
+
+                                <div class="inputwrapper optional" ng-class="false ? 'required' : 'optional'">
+                                  <label class="label" for="checkout.line2">Строка адреса 2</label>
+
+                                  <!-- ngIf: true -->
+                                  <div class="input-field-info ng-scope ng-hide" ng-if="true" ng-show="(isEditnewDeliveryAddress || isEdit['newDeliveryAddress']) &amp;&amp; ('line2' == 'line1' || 'line2' == 'line2') ">
+
+                                    <span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
+                                  </div>
+                                  <!-- end ngIf: true -->
+
+                                  <input ng-show="isEditnewDeliveryAddress || isEdit['newDeliveryAddress']" ng-model="newDeliveryAddress.line2" ng-change="addressNotMandatoryChanged('newDeliveryAddress','line2')" type="text" data-validation-maxlength="40" data-validation-regex="^(?:\s*)[^\s“”\u0022;]+[^“”\u0022;]*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text=" " data-validation-regex-text="Удалить первый пробел" id="newDeliveryAddress-line2" name="line2" maxlength="40" class="text-input field line2  ng-pristine ng-untouched ng-valid ng-valid-maxlength ng-hide" autocomplete="address-line2">
+                                  <div class="input-info ng-hide" ng-show="isEditnewDeliveryAddress || isEdit['newDeliveryAddress'] ">Этаж, домофон и т.д.</div>
+                                  <span class="static ng-binding" ng-hide="isEditnewDeliveryAddress || isEdit['newDeliveryAddress']"></span>
+
+                                </div>
+
+                              </div>
+                              <div>
+
+                                <div class="inputwrapper required" ng-class="true ? 'required' : 'optional'">
+                                  <label class="label" for="checkout.town">Город</label>
+
+                                  <!-- ngIf: true -->
+                                  <div class="input-field-info ng-scope ng-hide" ng-if="true" ng-show="(isEditnewDeliveryAddress || isEdit['newDeliveryAddress']) &amp;&amp; ('town' == 'line1' || 'town' == 'line2') ">
+
+                                    <span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
+                                  </div>
+                                  <!-- end ngIf: true -->
+
+                                  <input ng-show="isEditnewDeliveryAddress || isEdit['newDeliveryAddress']" ng-model="newDeliveryAddress.town" ng-change="addressMandatoryChanged('newDeliveryAddress','town')" required="" type="text" data-validation-maxlength="40" data-validation-regex="^(?:\s*)[^\d“”\u0022;]+[^\s\d“”\u0022;]+[^“”\u0022;]*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text="Пожалуйста, укажите город. " data-validation-regex-text="Пожалуйста, укажите правильное название города" id="newDeliveryAddress-town" name="town" maxlength="40" class="text-input field town  ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength ng-hide" autocomplete="address-level2">
+                                  <div class="input-info ng-hide" ng-show="isEditnewDeliveryAddress || isEdit['newDeliveryAddress'] ">город, без указания области и района</div>
+                                  <span class="static ng-binding" ng-hide="isEditnewDeliveryAddress || isEdit['newDeliveryAddress']"></span>
+
+                                </div>
+
+                                <div class="inputwrapper required" ng-class="true ? 'required' : 'optional'">
+                                  <label class="label" for="checkout.postalCode">Почтовый индекс</label>
+
+                                  <!-- ngIf: true -->
+                                  <div class="input-field-info ng-scope ng-hide" ng-if="true" ng-show="(isEditnewDeliveryAddress || isEdit['newDeliveryAddress']) &amp;&amp; ('postalCode' == 'line1' || 'postalCode' == 'line2') ">
+
+                                    <span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
+                                  </div>
+                                  <!-- end ngIf: true -->
+
+                                  <input ng-show="isEditnewDeliveryAddress || isEdit['newDeliveryAddress']" ng-model="newDeliveryAddress.postalCode" ng-change="addressMandatoryChanged('newDeliveryAddress','postalCode')" required="" type="text" data-validation-maxlength="10" data-validation-regex="^(?:\s*)(\d{6})(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text="Пожалуйста, укажите почтовый индекс (105064). " data-validation-regex-text="Пожалуйста, укажите правильный почтовый индекс (105064)." id="newDeliveryAddress-postalCode" name="postalCode" maxlength="10" class="text-input field postalCode to-hankaku ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength ng-hide" autocomplete="postal-code">
+                                  <div class="input-info ng-hide" ng-show="isEditnewDeliveryAddress || isEdit['newDeliveryAddress'] ">Укажите Ваш почтовый индекс. Например 105064</div>
+                                  <span class="static ng-binding" ng-hide="isEditnewDeliveryAddress || isEdit['newDeliveryAddress']"></span>
+
+                                </div>
+
+                              </div>
+                              <div class="remember-delivery-address" ng-show="canAddNewAddress(2)">
+                                <p>
+                                  <input type="checkbox" ng-model="newDeliveryAddress.visibleInAddressBook" id="chb-remember-delivery-address" class="ng-pristine ng-untouched ng-valid">
+                                  <label class="remember-card" for="chb-remember-delivery-address">Добавить этот адрес в мою адресную книгу.</label>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                      <a ng-click="closeChangeAddressSection(deliveryMode.code)" class="button secondary js-change-delivery-address-toggle">СОХРАНИТЬ</a>
+                      <a ng-click="useBillingAddress($index)" class="button secondary js-change-delivery-address-toggle">Отменить</a>
+                    </fieldset>
+                    <p ng-if-end="" class="ng-scope"></p>
+                    <!-- end ngIf: deliveryMode.type == 'address' -->
+                    <!-- ngSwitchWhen: places -->
+                    <!-- ngSwitchWhen: timeSlot -->
+                  </div>
+
+                  <!-- ngIf: ((!getContext().deliveryAddress.supportHazmat && !(deliveryMode.code).indexOf('pickup-in-place') >
+                  -1) || !deliveryMode.supportHazmat) && !deliveryMode.addressBlackListed && !openChangeAddress && getContext().hasHazmat -->
+                  <!-- ngIf: !deliveryMode.supportCOD -->
+                  <!-- ngIf: deliveryMode.addressBlackListed && !deliveryMode.paymentNotAvailable -->
+                  <!-- ngIf: deliveryMode.paymentNotAvailable -->
+                  <!-- ngIf: !deliveryMode.pssEnable && !deliveryMode.pssNoResponse -->
+                  <!-- ngIf: deliveryMode.pssNoResponse -->
+                </fieldset>
+                <!-- end ngRepeat: deliveryMode in getContext().deliveryModeList -->
+              </fieldset>
+              <fieldset class="delivery-telephone">
+                <span ng-hide="!getContext().deliveryMode.phoneNumberMandatory" class="ng-hide">
+                  <h3>УВЕДОМЛЕНИЕ О ДОСТАВКЕ</h3>
+                  Это необходимо для того, чтобы курьер мог связаться с Вами по поводу доставки Вашего заказа.
+                </span>
+                <h3 ng-hide="getContext().deliveryMode.phoneNumberMandatory">Номер телефона&nbsp;(Необязательно)</h3>
+                <input ng-hide="getContext().deliveryMode.phoneNumberMandatory" type="checkbox" class="delivery-notification-toggle ng-pristine ng-untouched ng-valid" id="chb-delivery-notification" ng-model="newDeliveryAddress.deliveryNotification" ng-change="deliveryNotification = newDeliveryAddress.deliveryNotification">
+                <label ng-hide="getContext().deliveryMode.phoneNumberMandatory" for="chb-delivery-notification" data-text-home-delivery="Если нам понадобится связаться с Вами в процессе доставки" data-text-pickup-place="Прислать мне уведомление о доставке в виде текстового сообщения" style="display: inline">Если нам понадобится связаться с Вами в процессе доставки</label>
+                <!-- ngIf: newDeliveryAddress.deliveryNotification || getContext().deliveryMode.phoneNumberMandatory -->
+                <div class="delivery-notification ng-scope" ng-if="newDeliveryAddress.deliveryNotification || getContext().deliveryMode.phoneNumberMandatory">
+                  <label for="delivery-number">Номер мобильного телефона</label>
+                  <div class="delivery-telephone-country-code">
+                    <input type="tel" ng-model="newDeliveryAddress.prefix" ng-class="{'invalid' : errors.deliveryAddressForm.prefix!=null || errors.deliveryAddressForm.cellPhone!=null}" class="delivery-number-country-code mask ng-pristine ng-untouched ng-valid ng-valid-maxlength" id="delivery-number-country-code" maxlength="150" autocomplete="tel-country-code" data-validation-required-if-visible="true" data-validation-required-text="Неправильный префикс" data-validation-replace-dash="true" data-validation-regex="^(?:\s*)\+[0-9]{1,3}(?:\s*)$" data-validation-regex-text="Неправильный префикс" name="prefix" data-input-mask="+000">
+                    <span class="input-info">Пример +7</span>
+                  </div>
+                  <div class="delivery-telephone-number">
+                    <input type="tel" ng-model="newDeliveryAddress.cellPhone" ng-class="{'invalid' : errors.deliveryAddressForm.cellPhone!=null || errors.deliveryAddressForm.prefix!=null}" id="delivery-number" maxlength="15" data-validation-required-if-visible="true" data-validation-required-text="Вы должны указать номер телефона" data-validation-replace-dash="true" data-validation-regex="^(?:\s*)[\s\d\-]+(?:\s*)$" data-validation-regex-text="Неправильный номер телефона" class="to-hankaku ng-pristine ng-untouched ng-valid ng-valid-maxlength" name="cellPhone" data-input-mask="0#">
+                    <span class="input-info">Пример 903 2816437</span>
+                  </div>
+                  <!-- ngIf: errors.deliveryAddressForm.cellPhone!=null -->
+                </div>
+                <!-- end ngIf: newDeliveryAddress.deliveryNotification || getContext().deliveryMode.phoneNumberMandatory -->
+              </fieldset>
+              <input type="submit" value="ДАЛЕЕ" id="checkoutDeliveryPartSubmit" ng-disabled="disabledActions ||  newDeliveryAddress.blackListed || openChangeAddress || getContext().entries.length == 0 || !getContext().deliveryMode.pssEnable || getContext().deliveryMode.paymentNotAvailable || (searchPupForm.pupListMessage &amp;&amp; searchPupForm.pickupPlaceList.length==0)" data-validation-text="Эту форму не удалось отправить. Пожалуйста, проверьте указанную Вами информацию."></form>
+            <div class="checkout-pickup-place-map-modal-content hidden">
+              <div class="checkout-pickup-place-map"></div>
+            </div>
+            <div class="read-only box-content hidden" ng-class="{'hidden': !getContext().closeDeliverySection}">
+              <div class="read-only-group">
+                <h2 class="sub-sub-heading">ВЫБЕРИТЕ ПРЕДПОЧТИТЕЛЬНЫЙ ВАРИАНТ ДОСТАВКИ</h2>
+                <p class="text ng-binding">
+                  Доставка почтой
+                  <strong class="amount ng-binding">(2-14 рабочих дня(-ей), 99 Pуб)</strong>
+                  <br></p>
+                <div ng-show="getContext().deliveryMode.onlineServicePackageInfo!=null" class="ng-hide">
+                  <p class="text ng-binding"></p>
+                </div>
+                <div ng-show="getContext().orderPhone" class="ng-hide">
+                  <h2 class="sub-sub-heading">УВЕДОМЛЕНИЕ О ДОСТАВКЕ</h2>
+                  <p class="text last ng-binding"></p>
+                </div>
+              </div>
+              <div class="read-only-group read-only-delivery-address">
+                <h2 class="sub-sub-heading">АДРЕС ДОСТАВКИ</h2>
+                <address class="vcard read-only-delivery-address">
+                  <span class="item fn ng-binding" itemprop="name"></span>
+                  <div class="adr ng-binding" ng-bind-html="getContext().deliveryAddress.formattedAddress"></div>
+                </address>
+              </div>
+            </div>
+            <button type="button" ng-click="openShippingSection()" ng-class="{'hidden': !getContext().closeDeliverySection || !getContext().closeBillingSection}" id="checkoutDeliveryPartEdit" class="link responsive navigate icon-caret-right edit-toggle hidden" onclick="">Редактировать</button>
+          </section>
+          <style>
+            .not-active {
+               pointer-events: none;
+               cursor: default;
+            }
+
+            .icon-info + .icon-warning {
+              margin-right:33px;
+            }
+
+            input[type=text]+.input-info.invalid.field-validation-message{
+              margin-top:0px;
+            }
+            </style>
+          <section id="checkoutPaymentPartDiv" class="box checkout-section checkout-payment-section responsive" ng-class="{'box-inactive': getContext().closePaymentSection}">
+            <header class="box-headline checkout-payment-section-header">
+              <h1 class="heading">Оплата и скидки</h1>
+            </header>
+            <div class="row hidden" ng-hide="getContext().closePaymentSection" ng-class="{'hidden': getContext().closePaymentSection || !getContext().closeBillingSection || !getContext().closeDeliverySection}">
+              <div class="grid col-4">
+                <div class="box-content">
+                  <div class="discount-section">
+                    <button ng-click="discountEdited = false; trackDiscount()" class="icon icon-right discount button overlay-trigger  icon-add-plus" ng-class="{'icon-add-plus':!finallyApplied,'icon-edit':finallyApplied}" data-content="discount-modal">
+                      <div ng-hide="checkIfVoucherApplied()">Добавить код скидки</div>
+                      <!-- ngIf: checkIfVoucherApplied() -->
+                      <!-- ngIf: checkIfVoucherApplied() -->
+                    </button>
+                    <div class="hidden product-warning notice responsive">
+                      <p class="text icon-info">Gift cards can be used in combination with card or PayPal</p>
+                    </div>
+
+                    <div id="voucher-modal" class="hidden modal-content">
+                      <div class="modal-text">
+                        <h1 class="heading">H&amp;M CLUB REWARDS</h1>
+                        <div class="info-message">
+                          <span class="icon icon-info"></span>
+                          <p class="text">
+                            Please note that discount codes will not be applied if a voucher is added.
+                          </p>
+                        </div>
+                        <p class="club-points">
+                          H&amp;M Club Points:
+                          <strong class="points ng-binding"></strong>
+                        </p>
+                        <p class="club-points-text">You can spend your points on one of the following vouchers</p>
+                        <p class="sub-sub-heading">H&amp;M CLUB REWARDS</p>
+                        <div class="selectables-overflow voucher-list">
+                          <ul class="selectable-items">
+                            <!-- ngRepeat: onlineVoucher in getContext().onlineVoucherList -->
+                            <li ng-hide="getContext().onlineVoucherList.length">
+                              <p class="text">There are currently no rewards to display.</p>
+                            </li>
+                            <li ng-show="getContext().onlineVoucherList.length &amp;&amp; !getContext().onlineVoucherAvalaible" class="ng-hide">
+                              <p class="text">
+                                At the moment, you do not have enough Club Points to use on Rewards. Don’t worry though! The more you shop, the more points you get. Explore all the H&amp;M Club Rewards on the H&amp;M Club Page.
+                              </p>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="sticky button-group">
+                        <input type="button" class="button modalclose" value="Закрыть" ng-show="!getContext().onlineVoucherAvalaible">
+                        <input type="button" class="button secondary modalclose ng-hide" value="Отменить" ng-show="getContext().onlineVoucherAvalaible" ng-click="cancelVoucherActions('voucher-modal')">
+                        <input type="button" class="button ng-hide" ng-disabled="!discountEdited" ng-click="useOnlineVoucher()" value="СОХРАНИТЬ" ng-show="getContext().onlineVoucherAvalaible" disabled="disabled"></div>
+                    </div>
+
+                    <div class="hidden modal-content" id="voucher-error-popup">
+                      <div class="modal-text">
+                        <div class="shopping-bag-message">
+                          <h1 class="heading ng-binding"></h1>
+                          <p ng-bind-html="getContext().popupMessage" class="ng-binding"></p>
+                          <form class="ng-pristine ng-valid">
+                            <div class="buttons clearfix">
+                              <button class="modalclose button">НАЗАД</button>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div id="discount-modal" class="modal-content" aria-hidden="true">
+                      <section id="discount-modal-content" class="responsive modal-content">
+                        <div class="modal-text">
+                          <h1 class="heading">КОД СКИДКИ</h1>
+
+                          <div class="add-to-list-form">
+                            <div class="input-group">
+                              <label for="txt-discount-code" class="sub-sub-heading">ДОБАВИТЬ КОД СКИДКИ</label>
+                              <div class="input-wrapper row">
+                                <div class="inline grid col-5">
+                                  <input ng-model="voucherCode" data-validation-inline="false" id="voucherCode" type="text" ng-class="{'invalid':getContext().errors}" ng-disabled="getContext().voucherApplied" class="ng-pristine ng-untouched ng-valid"></div>
+                                <div class="inline grid">
+                                  <input value="ДОБАВИТЬ" ng-click="checkVoucher()" type="button" id="addVoucher" ng-disabled="!voucherCode" disabled="disabled"></div>
+                                <!-- ngIf: getContext().voucherApplied -->
+                                <p class="input-info invalid field-validation-message ng-binding hidden" ng-class="{'hidden':!getContext().errors}"></p>
+                              </div>
+                            </div>
+                            <h2 class="sub-sub-heading">ДОБАВЛЕННЫЙ КОД СКИДКИ</h2>
+                            <div class="add-to-list-result selectable-overflows">
+                              <p class="no-result" ng-show="!getContext().voucherApplied">Код скидки не добавлен.</p>
+                              <!-- ngIf: getContext().voucherApplied -->
+                            </div>
+                          </div>
+                        </div>
+                        <div class="sticky button-group">
+                          <input type="button" class="button secondary modalclose" ng-click="cancelVoucherActions('discount-modal')" value="Отменить">
+                          <input type="button" class="button modalclose" ng-click="redeemVoucher(false)" value="СОХРАНИТЬ" ng-disabled="!discountEdited || getContext().errors" disabled="disabled"></div>
+                      </section>
+                    </div>
+
+                    <div id="gift-card-modal" class="modal-content" aria-hidden="true">
+                      <section id="gift-card-modal-content" class="responsive modal-content">
+                        <div class="modal-text">
+                          <h1 class="heading">ПОДАРОЧНЫЕ КАРТЫ:</h1>
+                          <div class="info-message">
+                            <span class="icon icon-info"></span>
+                            <p class="text">Gift cards can be used in combination with card or PayPal</p>
+                          </div>
+                          <div class="add-to-list-form">
+                            <div class="input-group">
+                              <div class="input-wrapper row">
+                                <div class="inline grid col-3">
+                                  <label for="txt-gift-card" class="sub-sub-heading">НОМЕР ПОДАРОЧНОЙ КАРТЫ</label>
+                                  <input id="gift-card-number" data-validation-inline="false" type="tel" data-validation-required-if-visible="" data-validation-maxlength="19" data-numbers-only="true" ng-model="giftCardInfo.cardNumber" autocomplete="new-password" class="ng-pristine ng-untouched ng-valid"></div>
+                                <div class="inline grid col-2">
+                                  <label for="txt-pin-code" class="sub-sub-heading">ПИН-КОД</label>
+                                  <input id="txt-pin-code" data-validation-inline="false" autocomplete="new-password" data-validation-required-if-visible="true" maxlength="4" type="password" ng-model="giftCardInfo.cardPin" class="ng-pristine ng-untouched ng-valid ng-valid-maxlength"></div>
+                                <div class="inline grid">
+                                  <input type="button" id="btn-gift-card" value="ДОБАВИТЬ" ng-click="addGiftCard()" ng-disabled="!giftCardInfo.cardNumber || !giftCardInfo.cardPin || getContext().disableAddGiftCart || disableGCbuttonMultiClick" disabled="disabled"></div>
+                                <p class="input-info invalid ng-binding"></p>
+                                <p class="text ng-hide" ng-show="getContext().giftCardGTtotalPrice">Добавленные Вами подарочные карты покрывают всю сумму</p>
+                              </div>
+                              <!-- ngIf: getContext().giftCardList.length >=  getContext().maxGiftCard --></div>
+                            <h2 class="sub-sub-heading">ДОБАВЛЕННЫЕ ПОДАРОЧНЫЕ КАРТЫ</h2>
+                            <div class="add-to-list-result selectables-overflow">
+                              <p class="no-result" ng-class="{'hidden': getContext().giftCardList.length}">
+                                Подарочные карты не добавлены.
+                                <br>
+                                Укажите номер подарочной карты, а это — ПИН-код для добавления подарочной карты.
+                              </p>
+                              <!-- ngRepeat: giftCardItem in getContext().giftCardList -->
+                            </div>
+                          </div>
+                        </div>
+                        <div class="sticky button-group">
+                          <input class="button secondary modalclose" value="Отменить" type="button">
+                          <input class="button modalclose" ng-click="giftCartCountTealium()" value="СОХРАНИТЬ" ng-disabled="!getContext().giftCardList.length" type="button" disabled="disabled"></div>
+                      </section>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row use-new-payment-card hidden" ng-class="{'hidden': getContext().closePaymentSection || !getContext().closeBillingSection || !getContext().closeDeliverySection}">
+              <div class="grid col-4">
+                <div class="box-content">
+                  <h3 ng-hide="getContext().paymentModeList.length == 1 &amp;&amp; getContext().paymentMode.code == 'COD'" class="ng-hide">ВЫБРАТЬ ВАРИАНТ ОПЛАТЫ</h3>
+                  <p ng-hide="getContext().paymentModeList.length == 1 &amp;&amp; getContext().paymentMode.code == 'COD'" class="ng-hide">
+                    Узнайте о принимаемых нами
+                    <a href="/ru_ru/customer-service/payments.html" class="underline overlay-trigger">способах оплаты</a>
+                    . Вы можете удалить ваши платежные карты из
+                    <a href="my-account/payment-details" class="underline">My H&amp;M</a>
+                  </p>
+                  <div class="info-message ng-hide" ng-show="getContext().giftCardGTtotalPrice">
+                    <span class="icon icon-info"></span>
+                    <p class="text">Добавленные Вами подарочные карты покрывают всю сумму</p>
+                  </div>
+                </div>
+              </div>
+              <div class="grid col-4"></div>
+            </div>
+            <!-- ngRepeat: payment in getContext().paymentModeList -->
+            <div ng-repeat="payment in getContext().paymentModeList" ng-switch="" on="payment.paymentProvider" class="row ng-scope hidden" ng-class="{'hidden': getContext().closePaymentSection || !getContext().closeBillingSection || !getContext().closeDeliverySection}">
+              <div class="grid col-4">
+                <!-- ngSwitchWhen: CYBERSOURCE -->
+                <!-- ngSwitchWhen: ACI -->
+                <!-- ngSwitchWhen: CASHONDELIVERY -->
+                <div ng-switch-when="CASHONDELIVERY" class="box-content ng-scope">
+
+                  <div class="check-option js-check-option checked single" ng-class="{'checked' : paymentMode == payment.code, 'check-option-disabled' : !payment.active || getContext().giftCardGTtotalPrice, 'single' : paymentSingleOption}">
+                    <label for="payment-option-COD" class="label-COD check-option-label-COD">
+                      <input type="radio" name="payment-option" class="js-check-option-input js-payment-option js-update-on-change ng-pristine ng-untouched ng-valid" id="payment-option-COD" value="COD" ng-change="setPaymentMode(payment.code)" ng-model="paymentMode" ng-value="payment.code" ng-disabled="isDisabledActions() || !payment.active || getContext().giftCardGTtotalPrice">
+                      <span class="check-option-label-text-primary ng-binding">
+                        Оплата наличными при получении
+                        <strong class="amount ng-binding" ng-show="payment.standardPaymentModeValue.formattedValue">&nbsp;(0 Pуб)</strong>
+                      </span>
+                      <!-- ngIf: paymentMode == payment.code -->
+                      <span class="check-option-label-text-secondary ng-binding ng-scope" ng-if="paymentMode == payment.code"></span>
+                      <!-- end ngIf: paymentMode == payment.code -->
+                      <span class="check-option-label-text-secondary">
+                        <span ng-bind-html="payment.description" class="ng-binding">Вы оплачиваете наличными курьеру при получении заказа.</span>
+                      </span>
+                    </label>
+
+                    <!-- ngIf: paymentMode == payment.code && (!deliverySupportCOD || (deliverySupportCOD && getContext().codLimitReached)) -->
+                  </div>
+                </div>
+                <!-- end ngSwitchWhen: -->
+                <!-- ngSwitchWhen: CBP -->
+                <!-- ngSwitchWhen: PAYPAL -->
+                <!-- ngSwitchWhen: IDEAL -->
+                <!-- ngSwitchWhen: P24 -->
+                <!-- ngSwitchWhen: KCP -->
+              </div>
+              <div class="grid col-4"></div>
+            </div>
+            <!-- end ngRepeat: payment in getContext().paymentModeList -->
+            <div class="read-only row hidden" ng-class="{'hidden': !getContext().closePaymentSection}">
+              <div class="grid col-4">
+                <div class="box-content">
+                  <div>
+                    <h3 class="checkout-header-text">СПОСОБ ОПЛАТЫ</h3>
+                    <!-- ngIf: paymentMode != 'GiftCard' -->
+                    <div class="read-only-paymeny-details ng-binding ng-scope" ng-if="paymentMode != 'GiftCard'">Оплата наличными при получении</div>
+                    <!-- end ngIf: paymentMode != 'GiftCard' -->
+                    <!-- ngIf: paymentMode == 'GiftCard' -->
+                  </div>
+                </div>
+              </div>
+              <div class="grid col-4">
+                <div class="box-content" ng-hide="haveDiscountsOnCart()"></div>
+                <div class="box-content ng-hide" ng-show="haveDiscountsOnCart()">
+                  <h3 ng-show="isOnlineVoucherApplied()" class="ng-hide">H&amp;M CLUB REWARDS</h3>
+                  <p ng-show="isOnlineVoucherApplied()" class="text ng-hide">Добавлено</p>
+                  <h3 ng-show="getContext().giftCardList.length == 1" class="ng-hide">GIFT CARD</h3>
+                  <h3 ng-show="getContext().giftCardList.length >1" class="ng-hide">ПОДАРОЧНЫЕ КАРТЫ:</h3>
+                  <p ng-show="getContext().giftCardList.length >0" class="text last ng-hide">Добавлено</p>
+                </div>
+              </div>
+            </div>
+            <button type="button" ng-click="getContext().closePaymentSection = false; expandPaymentSection()" ng-class="{'hidden': !getContext().closePaymentSection || !getContext().closeBillingSection || !getContext().closeDeliverySection}" class="link responsive navigate icon-caret-right edit-toggle place-order-button hidden" data-payment-loader-title="Выполняется обработка платежа. Пожалуйста, подождите, пока мы завершим оформление Вашего платежа." data-payment-loader-text="В случае возникновения проблем с оплатой Ваш заказ все равно сохраняется в разделе «Мои заказы», где Вы можете снова попытаться оплатить его.">Редактировать</button>
+            <div class="payment-loader js-payment-loader" aria-hidden="true" style="display: none;">
+              <div class="payment-loader-wrapper">
+                <div class="payment-loader-container">
+                  <span class="loader"></span>
+                  <h2 class="title"></h2>
+                  <p class="text"></p>
+                </div>
+                <span class="card-provider"></span>
+              </div>
+            </div>
+          </section>
+          <!-- CR 18208 Add Loader Key Start mobile-->
+          <!-- CR 18208 Add Loader Key End-->
+          <div class="checkout-place-order-section">
+            <form id="placeOrderFormId" ng-submit="doCheckout()" class="ng-pristine ng-valid">
+              <input type="hidden" id="selectedPaymentMode" value="COD">
+              <div class="input-group terms">
+                <input id="check-terms" name="termsCheck" class="input-checkbox checkout-accept-terms" data-validation-required="true" type="checkbox">
+                <label for="check-terms">
+                  Да, я соглашаюсь с
+                  <a href="/ru_ru/customer-service/terms-link.html" class="underline overlay-trigger">Условиями и положениями</a>
+                  и
+                  <a href="/ru_ru/customer-service/privacy-link.html" class="underline overlay-trigger">Политикой конфиденциальности</a>
+                  .
+                </label>
+              </div>
+
+              <input id="placeorderbutton" class="button-big place-order-button" value="ЗАВЕРШИТЬ ПОКУПКУ" data-not-added-text="" data-validation-text="Ваша покупка не может быть завершена. Пожалуйста, проверьте вашу информацию." data-cbptitle-text="" data-cbptext-text="" type="submit" ng-hide="getContext().paymentMode.paymentProvider === 'P24'" ng-disabled="isDisabledPlaceOrder()" disabled="disabled">
+
+              <!-- TODO: We have to validate if we can use the same complete to purchase button for P24 as well -->
+              <input id="placeorderbutton" class="button-big place-order-button ng-hide" value="checkout.summary.placeOrder.p24" data-not-added-text="" data-validation-text="Ваша покупка не может быть завершена. Пожалуйста, проверьте вашу информацию." data-alt-submit-text-przelewy24="checkout.summary.placeOrder.p24" type="button" ng-click="openBankInfo()" ng-show="getContext().paymentMode.paymentProvider === 'P24'" ng-disabled="isDisabledPlaceOrder()" disabled="disabled">
+              <div class="checkout-encryption-info">В целях безопасности все данные шифруются.</div>
+              <p class="fine-print">Вы можете оплатить Вашу покупку.</p>
+
+              <!-- CR 18208 Add Loader End for other markets-->
+              <div id="desktopPaymentConfirmationLoader" class="payment-loader js-payment-loader" aria-hidden="true" style="display: none;">
+                <div class="payment-loader-wrapper">
+                  <div class="payment-loader-container">
+                    <span class="loader"></span>
+                    <h2 class="title">Мы обрабатываем Ваш платеж</h2>
+                    <p class="text">
+                      Пожалуйста, подождите, поскольку это может занять несколько секунд. Не закрывайте это окно и не нажимайте кнопку «Назад»
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- CR 18208 Add Loader Key End desktop-->
+
+            </form>
+          </div>
+        </div>
+        
+        <div class="grid col-4">
+          <div class="box checkout-order" id="checkoutOrderPartDiv">
+            <h2 class="box-headline">ВАШ ЗАКАЗ</h2>
+            <ul class="checkout-order-items">
+              <li class="checkout-order-item">
+                 <%=image_tag("in_check.jpg" , class:"checkout-order-item-image" )%>
+                <div class="checkout-order-item-product-info">
+                  <div class="product-item-headline">Атласная куртка</div>
+                  <div id="redWhitePrices_0462979004003" class="product-item-price ">
+                    <span id="main_price" class="main_price_0462979004003">2499 Грн</span>
+                    <small id="white_price_0462979004003"></small>
+                  </div>
+                  <dl class="checkout-order-item-product-details">
+                    <dt>Количество:</dt>
+                    <dd>1</dd>
+                    <dt>Цвет:</dt>
+                    <dd>Приглушенный розовый</dd>
+                    <dt>Размер:</dt>
+                    <dd>36</dd>
+                  </dl>
+                  <div class="shopping-bag-item-total-price product-item-price">
+                    Итого: 2499 Грн
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <div class="box-content">
+              <table class="order-total">
+                <tbody>
+                  <tr>
+                    <th scope="row">СТОИМОСТЬ ЗАКАЗА:</th>
+                    <td>
+                      <span id="newPriceSubtotal">2499 Грн</span>
+                    </td>
+                  </tr>
+
+                  <tr style="display: none;">
+                    <th scope="row">СКИДКА:</th>
+                    <td>
+                      <span id="totalDiscountValue">- 0 Pуб</span>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">ДОСТАВКА:</th>
+                    <td>99 Грн</td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr class="total">
+                    <th scope="row">ИТОГО</th>
+                    <td id="total_price_of_basket">2598 Грн</td>
+                  </tr>
+                </tfoot>
+              </table>
+              <p class="fine-print">
+                14-дневный период возврата товара, комиссия за возврат и возврат стоимости за неотправленный товар. Прочитать о
+                <a class="overlay-trigger underline" href="#">Прочитать о возврате и возмещении стоимости товара.</a>
+              </p>
+            </div>
+          </div>
+          <div class="parsys main">
+            <section class="legaltext parbase section">
+              <h1 class="sub-sub-heading"></h1>
+              <p class="text"></p>
+              <p></p>
+              <p>
+                Код скидки следует ввести во вкладке «доставка и оплата» в разделе «оплата» перед завершением покупки.
+              </p>
+              <p></p>
+            </section>
+          </div>
+        </div>
+
+        <div class="hidden modal-content ng-hide" id="address-validation-popup" ng-show="getContext().showPopup &amp;&amp; getContext().popupType =='ADDRESSES'">
+          <div class="modal-text">
+            <div class="address-validation">
+              <h1 class="heading ng-binding"></h1>
+              <p ng-bind-html="getContext().popupMessage" class="ng-binding"></p>
+              <form class="ng-pristine ng-valid">
+                <div class="address-validation-addresses">
+                  <div class="address-validation-un-validated">
+                    <h3>ВЫ УКАЗАЛИ:</h3>
+                    <div class="address-validation-address">
+                      <input type="radio" name="validation-address" value="-1" id="un-validated-address" ng-model="newAddress.selectedAddress" class="ng-pristine ng-untouched ng-valid">
+                      <label for="un-validated-address">
+                        <span ng-bind-html="newAddress.formattedAddress" class="ng-binding"></span>
+                        <br>
+                        <a class="address-validation-edit modalclose underline ng-hide" ng-show="verifiedAddresses.length>0" ng-click="closePopup()">Редактировать</a>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="address-validation-suggestions ng-hide" ng-show="verifiedAddresses.length>
+                    0">
+                    <h3>ВЫ ИМЕЛИ В ВИДУ:</h3>
+                    <div class="address-validation-address-list " ng-class="{'scrollable' : verifiedAddresses.length>
+                      4}">
+                      <!-- ngRepeat: address in verifiedAddresses -->
+                    </div>
+                  </div>
+                </div>
+                <div class="buttons clearfix">
+                  <button ng-click="closePopup()" class="modalclose button button-secondary">Редактировать</button>
+                  <button ng-click="submitClosePopup()" class="modalclose button">OK</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="hidden modal-content" id="error-popup">
+          <div class="modal-text">
+            <div class="shopping-bag-message">
+              <h1 class="heading ng-binding"></h1>
+              <p ng-bind-html="getContext().popupMessage" class="ng-binding"></p>
+              <form class="ng-pristine ng-valid">
+                <div class="sticky button-group">
+                  <button ng-click="closePopup()" class="modalclose button">OK</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div aria-hidden="true" id="generic-error-popup" class="hidden modal-content">
+          <div class="modal-text">
+            <h1 class="heading">Произошла ошибка</h1>
+            <p style="text-align:center">
+              Эту форму не удалось отправить. Пожалуйста, проверьте указанную Вами информацию
+            </p>
+            <div class="sticky button-group">
+              <button ng-click="closePopup()" class="modalclose button">OK</button>
+            </div>
+          </div>
+        </div>
+
+        <div aria-hidden="true" id="kcp-unavailable-error" class="hidden modal-content">
+          <div class="modal-text">
+            <h1 class="heading">checkout.error.kcp.unavailable.title</h1>
+            <p class="text">checkout.error.kcp.unavailable.message</p>
+            <div class="sticky button-group">
+              <button ng-click="closePopup()" class="modalclose button">OK</button>
+            </div>
+          </div>
+        </div>
+
+        <div aria-hidden="true" id="los-down-error" class="hidden modal-content">
+          <div class="modal-text">
+            <h1 class="heading">Код скидки не подтвержден</h1>
+            <p class="text">
+              Извините, в настоящий момент не удалось подтвердить Ваш код скидки.Пожалуйста, повторите попытку, или удалите код скидки, чтобы завершить оформление Вашей покупки.Нажмите «OK», чтобы вернуться к оформлению заказа.
+            </p>
+            <div class="sticky button-group">
+              <button ng-click="closePopup()" class="modalclose button">OK</button>
+            </div>
+          </div>
+        </div>
+
+        <div aria-hidden="true" id="expired-idc-error" class="hidden modal-content">
+          <div class="modal-text">
+            <h1 class="heading">Неверный код скидки</h1>
+            <p class="text">
+              Срок действия указанного кода истек, и скидка не будет применена.Фактическая стоимость заказа указана в обновленной информации о заказе.Нажмите «OK», чтобы вернуться к оформлению заказа.
+            </p>
+            <div class="sticky button-group">
+              <button ng-click="removeExpiredIdc()" class="modalclose button">OK</button>
+            </div>
+          </div>
+        </div>
+        <div class="hidden modal-content ng-hide" id="refresh-popup" ng-show="getContext().showPopup &amp;&amp; getContext().popupType=='REFRESH'">
+          <div class="modal-text">
+            <h1 class="ng-binding"></h1>
+            <p ng-bind-html="getContext().popupMessage" class="ng-binding"></p>
+            <div class="buttons clearfix">
+              <button ng-click="refreshPage()" class="modalclose button">OK</button>
+            </div>
+          </div>
+        </div>
+        <div class="hidden modal-content ng-hide" id="change-address-popup" ng-show="getContext().showPopup &amp;&amp; (getContext().popupType=='HOME_ADDRESS_DELIVERY' || getContext().popupType=='DELIVERY_NAME')">
+          <div class="modal-text">
+            <h1 ng-hide="getContext().popupHeader">YOUR DELIVERY ADDRESS</h1>
+            <p ng-hide="getContext().popupMessage">checkout.popup.cbp.delivery.address.message</p>
+            <h1 ng-show="getContext().popupHeader" class="ng-binding ng-hide"></h1>
+            <p ng-bind-html="getContext().popupMessage" ng-show="getContext().popupMessage" class="ng-binding ng-hide"></p>
+            <div class="buttons clearfix">
+              <input ng-click="setDefaultPaymentMode()" class="modalclose button button-secondary" type="button" value="Отменить">
+              <input ng-click="setHomeAddressAsDelivery()" ng-show="getContext().popupType=='HOME_ADDRESS_DELIVERY'" type="button" class="modalclose button checkout-change-to-home-address ng-hide" value="Proceed" data-checkout-check-input="chb-home-delivery">
+              <input ng-click="setDeliveryNameAsHome()" ng-show="getContext().popupType=='DELIVERY_NAME'" type="button" class="modalclose button checkout-change-to-home-address ng-hide" value="Proceed" data-checkout-check-input="chb-home-delivery"></div>
+          </div>
+        </div>
+        <div class="hidden modal-content ng-hide" id="home-address-not-verified" ng-show="getContext().showPopup &amp;&amp; (getContext().popupType=='HOME_ADDRESS_NOT_VERIFIED')">
+          <div class="modal-text">
+            <div class="address-validation">
+              <h1 class="heading ng-binding"></h1>
+              <p class="ng-binding"></p>
+              <form class="ng-pristine ng-valid">
+                <div class="address-validation-addresses" ng-hide="isEditHome">
+                  <div class="address-validation-un-validated">
+                    <h3>ВЫ УКАЗАЛИ:</h3>
+                    <div class="address-validation-address">
+                      <label class="ng-binding">
+                        <br>
+                        ,
+                        <br>
+                        <a class="address-validation-edit underline" ng-click="openPopupWithFields()">Редактировать</a>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="address-validation-suggestions ng-hide" ng-init="newBillingAddress.selectedAddress = 0" ng-show="verifiedAddresses.length>
+                    0">
+                    <h3>ВЫ ИМЕЛИ В ВИДУ:</h3>
+                    <div class="address-validation-address-list " ng-class="{'scrollable' : verifiedAddresses.length>
+                      4}">
+                      <!-- ngRepeat: address in verifiedAddresses -->
+                    </div>
+                  </div>
+                </div>
+                <div class="buttons clearfix">
+                  <button ng-click="setDefaultPaymentMode();isEditHome = false" class="modalclose button button-secondary">Отменить</button>
+                  <button ng-click="submitPopupHomeNotVerified()" ng-show="isEditHome || verifiedAddresses.length>0" class="modalclose button ng-hide">OK</button>
+                  <button ng-click="isEditHome = true" ng-hide="isEditHome || verifiedAddresses.length>0" class="modalclose button">Редактировать</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="hidden modal-content ng-hide" id="home-address-not-verified-with-fields" ng-show="getContext().showPopup &amp;&amp; (getContext().popupType=='HOME_ADDRESS_NOT_VERIFIED')">
+          <div class="modal-text">
+            <div class="address-validation">
+              <h1 class="heading ng-binding"></h1>
+              <p class="ng-binding"></p>
+              <form class="ng-pristine ng-valid ng-valid-maxlength">
+                <div class="address-validation-edit-address ng-hide" ng-show="isEditHome">
+                  <div class="input-group">
+                    <label for="txt-new-billing-address-address-1">Строка адреса 1</label>
+                    <div class="input-field-info">
+                      <span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
+                    </div>
+                    <input type="text" ng-model="newBillingAddress.line1" ng-change="newBillingAddress.alreadyValidated = false; isAddressChanged = true" name="line1" ng-class="{'invalid' : errors.billingAddressForm.line1!=null}" id="txt-new-billing-address-address-1" maxlength="40" data-validation-regex="^(?:\s*)[^\s“”\u0022;]+[^“”\u0022;]*(?:\s*)$" data-validation-regex-text="Чтобы Ваш заказ был доставлен, Вы должны написать Ваш адрес латиницей" data-validation-required-if-not-checked=".checkout-billing-addresses input" data-validation-required-text="Пожалуйста, укажите адрес." class="ng-pristine ng-untouched ng-valid ng-valid-maxlength">
+                    <div class="input-info">Название улицы, номер дома, корпус, строение, номер квартиры</div>
+                    <!-- ngIf: errors.billingAddressForm.line1!=null -->
+                  </div>
+                  <div class="input-group">
+                    <label for="txt-new-billing-address-address-2">
+                      Строка адреса 2
+                      <small>&nbsp;(Необязательно)</small>
+                    </label>
+                    <div class="input-field-info">
+                      <span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
+                    </div>
+                    <input name="line2" type="text" ng-model="newBillingAddress.line2" ng-change="newBillingAddress.alreadyValidated = false; isAddressChanged = true" ng-class="{'invalid' : errors.billingAddressForm.line2!=null}" data-validation-regex="^(?:\s*)[^\s“”\u0022;]+[^“”\u0022;]*(?:\s*)$" data-validation-regex-text="Чтобы Ваш заказ был доставлен, Вы должны написать Ваш адрес латиницей" id="txt-new-billing-address-address-2" maxlength="40" data-daum-clear="true" class="ng-pristine ng-untouched ng-valid ng-valid-maxlength">
+                    <div class="input-info">Этаж, домофон и т.д.</div>
+                    <!-- ngIf: errors.billingAddressForm.line2!=null -->
+                  </div>
+                  <div class="input-group">
+                    <label for="txt-new-billing-address-city">Город</label>
+                    <input type="text" ng-model="newBillingAddress.town" ng-change="newBillingAddress.alreadyValidated = false;isAddressChanged = true" name="town" ng-class="{'invalid' : errors.billingAddressForm.townCity!=null}" id="txt-new-billing-address-city" maxlength="40" data-validation-required-if-not-checked=".checkout-billing-addresses input" data-validation-regex="^(?:\s*)[^\d“”\u0022;]+[^\s\d“”\u0022;]+[^“”\u0022;]*(?:\s*)$" data-validation-required-text="Пожалуйста, укажите город." data-validation-regex-text="Пожалуйста, укажите правильное название города" class="ng-pristine ng-untouched ng-valid ng-valid-maxlength">
+                    <div class="input-explanation input-info">город, без указания области и района</div>
+                    <!-- ngIf: errors.billingAddressForm.town!=null -->
+                  </div>
+                  <div class="input-group">
+                    <label for="txt-new-billing-address-postal">Почтовый индекс</label>
+                    <input type="text" ng-model="newBillingAddress.postalCode" ng-change="newBillingAddress.alreadyValidated = false;isAddressChanged = true;" id="txt-new-billing-address-postal" ng-class="{'invalid' : errors.billingAddressForm.postalCode!=null}" data-validation-regex="^(?:\s*)(\d{6})(?:\s*)$" data-validation-regex-text="Пожалуйста, укажите правильный почтовый индекс (105064)." maxlength="10" data-validation-required-if-not-checked=".checkout-billing-addresses input" data-validation-required-text="Пожалуйста, укажите почтовый индекс (105064)." name="postalCode" class="to-hankaku ng-pristine ng-untouched ng-valid ng-valid-maxlength">
+                    <div class="input-info">Укажите Ваш почтовый индекс. Например 105064</div>
+                    <!-- ngIf: errors.billingAddressForm.postalCode!=null -->
+                  </div>
+                  <div class="input-group">
+                    <div class="country-picker">
+                      <label>Страна</label>
+                      <span class="country-name">Российская Федерация</span>
+                      <a class="country-name overlay-trigger " data-layout="confirm" data-modal-scrollup="false" href="/ru_ru/checkout/change-country">Не та страна?</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="buttons clearfix">
+                  <button ng-click="setDefaultPaymentMode();isEditHome = false" class="modalclose button button-secondary">Отменить</button>
+                  <button ng-click="submitPopupHomeNotVerified()" ng-show="isEditHome || verifiedAddresses.length>0" class="modalclose button ng-hide">OK</button>
+                  <button ng-click="isEditHome = true" ng-hide="isEditHome || verifiedAddresses.length>0" class="modalclose button">Редактировать</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <input type="hidden" id="checkKcp" value="">
+        <div id="checkout-disabled-popup" aria-hidden="true" class="hidden modal-content" data-disable-close="true">
+          <div class="shopping-bag-message">
+            <h2>checkout.disabled.header</h2>
+            <p>checkout.disabled.message</p>
+            <div class="buttons clearfix">
+              <a href="./cart" class="button">checkout.disabled.back.button</a>
+            </div>
+          </div>
+        </div>
+        <div class="hidden modal-content" id="payment-address-modal" aria-hidden="true">
+          <div class="modal-text">
+            <h1>АДРЕС ДЕРЖАТЕЛЯ КАРТЫАдрес держателя карты</h1>
+            <p>
+              Если адрес ниже не соответствует адресу держателя карты, пожалуйста, введите корректный адрес в графе «Использовать новый адрес»
+            </p>
+            <form id="paymentAddressForm" class="checkout-cardholder-address ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength" ng-submit="closeAndSavePaymentAddress('payment-address-modal')" novalidate="">
+              <div class="use-new-delivery-address">
+                <div class="row">
+                  <div class="grid col-4">
+                    <div class="box-content box-content-not-first">
+                      <div class="inputwrapper required">
+                        <label for="txt-new-payment-address-address-1" class="label">Строка адреса 1</label>
+                        <div class="input-field-info">
+                          <span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
+                        </div>
+                        <input type="text" ng-model="newPaymentInfo.line1" maxlength="40" id="cc-address-new-address-1" ng-class="{'invalid' : errors.paymentAddressForm.line1!=null}" data-validation-regex="^(?:\s*)[^\s“”\u0022;]+[^“”\u0022;]*(?:\s*)$" data-validation-regex-text="Чтобы Ваш заказ был доставлен, Вы должны написать Ваш адрес латиницей" data-validation-required-if-visible="true" class="text-input ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength" data-validation-required-text="Пожалуйста, укажите адрес." required="required">
+                        <div class="input-info">Название улицы, номер дома, корпус, строение, номер квартиры</div>
+                      </div>
+                      <div class="inputwrapper ">
+                        <label for="txt-new-payment-address-address-2" class="label">
+                          Строка адреса 2
+                          <small>&nbsp;(Необязательно)</small>
+                        </label>
+                        <div class="input-field-info">
+                          <span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
+                        </div>
+                        <input type="text" ng-model="newPaymentInfo.line2" ng-class="{'invalid' : errors.paymentAddressForm.line2!=null}" class="text-input ng-pristine ng-untouched ng-valid ng-valid-maxlength" data-validation-regex="^(?:\s*)[^\s“”\u0022;]+[^“”\u0022;]*(?:\s*)$" data-validation-regex-text="Чтобы Ваш заказ был доставлен, Вы должны написать Ваш адрес латиницей" id="txt-new-payment-address-address-2" maxlength="40">
+
+                        <div class="input-info">Этаж, домофон и т.д.</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="grid col-4">
+                    <div class="box-content box-content-not-first">
+                      <div class="inputwrapper required">
+                        <label for="txt-new-payment-address-city" class="label">Город</label>
+                        <input type="text" ng-model="newPaymentInfo.town" maxlength="40" id="cc-address-new-city" ng-class="{'invalid' : errors.paymentAddressForm.town!=null}" data-validation-required-if-not-checked=".checkout-payment-addresses input" data-validation-regex="^(?:\s*)[^\d“”\u0022;]+[^\s\d“”\u0022;]+[^“”\u0022;]*(?:\s*)$" data-validation-required-text="Пожалуйста, укажите город." class="text-input ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength" data-validation-regex-text="Пожалуйста, укажите правильное название города" required="required">
+                        <!-- ngIf: errors.paymentAddressForm.town!=null -->
+                      </div>
+                      <div class="inputwrapper required ng-hide" ng-show="showProvince">
+                        <label class="label">Область</label>
+                        <div>
+                          <select id="address-payment-province" name="address-payment-province" class="txt-address-province my-account-address-province custom ng-pristine ng-untouched ng-invalid ng-invalid-required" data-validation-required-if-visible="true" required="required" data-validation-required-text="myaccount.address.enter.province" ng-model="newPaymentInfo.provinceData" ng-options="province as province.name for province in getContext().provincesByCountry">
+                            <option value="" class="">Выбрать область</option>
+                          </select>
+                        </div>
+                      </div>
+                      <!-- ngIf: showPostalCode -->
+                      <div class="inputwrapper ng-scope required" ng-class="!optionalPostalCode ? 'required' : 'optional'" ng-if="showPostalCode">
+                        <label for="txt-new-payment-address-postal" class="label">Почтовый индекс</label>
+                        <input type="text" ng-model="newPaymentInfo.postalCode" ng-class="{'invalid' : errors.paymentAddressForm.postalCode!=null}" id="cc-address-new-postal-code" data-validation-required-if-not-checked=".checkout-payment-addresses input" data-validation-required-text="Укажите почтовый индекс" name="postalCode" class="to-hankaku text-input ng-pristine ng-untouched ng-valid">
+                        <!-- ngIf: errors.paymentAddressForm.postalCode!=null -->
+                      </div>
+                      <!-- end ngIf: showPostalCode -->
+                      <div ng-hide="showPostalCode" class="input-group empty-input-group ng-hide"></div>
+                      <div class="inputwrapper required">
+                        <label class="label">Страна</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="grid col-4">
+                    <div class="box-content box-content-not-first">
+                      <p>* Звездочками обозначены поля, обязательные для заполнения</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="buttons clearfix">
+                <button type="button" ng-click="closePaymentAddress('payment-address-modal')" class="modalclose button button-secondary">Отменить</button>
+                <input type="submit" class="modalconfirm button" value="OK"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <input id="cybersourceStatus" type="hidden" value="">
+    <input id="cybersourceReasonCode" type="hidden" value="">
+    <input id="cart-not-modified" class="hidden" value="true">
+    <style>
+      .checkout-address-text{
+            word-wrap: break-word;
+      };
+</style>
+  </div>
+</main>
