@@ -47,25 +47,29 @@
 						</div>
 						<div class="product-item-selection hidden"></div>
 						<div id="swatchsize">
-							<div class="product-colors clearfix loaded">
-								<div class="product-input-label" data-value="">
-									Цвет:
-									<span>Черный</span>
-								</div>
-								<ul class="inputlist clearfix">
-									<% @colors.each do |color| %>
-										<li>
-											<% if @color_active==color %>
-												<a href="#" title="<%= color.name %>" data-sizes="" id="filter-colour-0462979003" class="filter-option active">
-											<% else %>
-												<a href="#" title="<%= color.name %>" data-sizes="" id="filter-colour-0462979003" class="filter-option ">
-											<%end%>
-	    					                <%=image_tag(color.img(:original) ,class:"pattern")%></a>
-										</li>
+							<% if @color_active || @colors !=[]%>
+								<div class="product-colors clearfix loaded">
+									<% if @color_active%>
+									<div class="product-input-label" data-value="">
+										Цвет:
+										<span><%= @color_active.name %></span>
+									</div>
 									<%end%>
-									</li>
-								</ul>
-							</div>
+									<ul class="inputlist clearfix">
+										<% @colors.each do |color| %>
+											<li>
+												<% if @color_active==color %>
+													<a href="#" title="<%= color.name %>" data-sizes="" id="filter-colour-0462979003" class="filter-option active">
+												<% else %>
+													<a href="#" title="<%= color.name %>" data-sizes="" id="filter-colour-0462979003" class="filter-option ">
+												<%end%>
+		    					                <%=image_tag(color.img(:original) ,class:"pattern")%></a>
+											</li>
+										<%end%>
+										</li>
+									</ul>
+								</div>
+							<%end%>
 							<div class="product-sizes loaded">
 								<div class="product-input-label" data-value="Выбрать размер" data-default-value="Select size">
 									Размер:

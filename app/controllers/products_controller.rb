@@ -4,8 +4,12 @@ class ProductsController < ApplicationController
 		@product_datas = @product.product_datum
 		@product_data = @product_datas[0]
 		@product_sizes = ProductProductSize.where(product: @product_data).order("has DESC")
-		
-		@colors = Color.find(@product_datas.collect(&:color_id))
+		color_id=@product_datas.collect(&:color_id)
+		if color_id != [nil]
+			@colors = Color.find(color_id)
+		else
+			@colors = []
+		end
 		
 		@color_active = @product_data.color
 
