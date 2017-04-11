@@ -1,0 +1,23 @@
+<%= semantic_form_for @category, :url => admin_color_create_path(@category) do |f| %>
+  <% if @category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+      <ul>
+      <% @category.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, class: 'form-control' %>
+  
+  <%= f.label :parent_id %>
+  <%= f.text_field :parent_id  , class: 'form-control' %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

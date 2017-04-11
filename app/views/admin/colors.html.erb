@@ -1,18 +1,15 @@
-<h1>Admin#colors</h1>
-<p>Find me in app/views/admin/colors.html.erb</p>
-
-
-
-
-
 
 <div class="colors">
 	<% @colors.each do | color | %>
 		<div class="color">
 			<p class="id"><%=color.id %></p>
 			<p class="name"><%=color.name %></p>
-			<p class=""><%=image_tag(color.img:origion)%></p>
-			<p class="main"><%=color.main_color.name%></p>
+			<p class=""><%=image_tag(color.img(:original))%></p>
+			<% if color.main_color%>
+				<p class="main"><%=color.main_color.name%></p>
+			<% else %>
+				<p class="main">No found</p> 
+			<% end%>
 		</div>
 	<% end %>
 </div>

@@ -1,0 +1,18 @@
+<div>
+	<%= f.label :color_id %>
+	<%= f.text_field :color_id %>
+	<%= f.label :article %>
+	<%= f.text_field :article %>
+	<%= f.label :price %>
+	<%= f.text_field :price %>
+	<%= f.label :about %>
+	<%= f.text_field :about%>
+	<div class="photoss">
+		<div class="photos">
+		<%= f.semantic_fields_for :photos do |photo| %>
+			<%=render 'photo_fields', f: photo %>
+	    <%end%>
+		<%= link_to_add_association 'add photos', f, :photos%>
+		</div>
+	<div class="photoss">
+</div>

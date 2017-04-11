@@ -13,15 +13,11 @@
 						</button>
 						<div class="product-detail-thumbnails">
 							<ul>
-								<li class="product-detail-thumbnail current">
-                  <%=image_tag("bhmprod-2.jpg")%>
-								</li>
+								<% @product_data.photos.each do  |photo|  %>
 								<li class="product-detail-thumbnail">
-                  <%=image_tag("bhmprod-3.jpg" , class:"product-detail-thumbnail-image")%>
+									<%=image_tag(photo.img(:original) ,class:"swatch")%>
 								</li>
-								<li class="product-detail-thumbnail">
-                  <%=image_tag("bhmprod-4.jpg" , class:"product-detail-thumbnail-image")%>
-								</li>
+								<%end%>
 							</ul>
 						</div>
 						<button class="product-detail-thumbnails-scroll-down disabled">
@@ -42,7 +38,7 @@
 						<h1 class="product-item-headline"><%= @product.name%></h1>
 						<div class="price parbase">
 							<div class="product-item-price">
-								<span class="price-value"><%= @product.price%> Грн</span>
+								<span class="price-value"><%= @product_data.price%> Грн</span>
 							</div>
 						</div>
 						<div class="product-item-selection hidden"></div>
@@ -123,7 +119,7 @@
 								</ul>
 								<div class="tab-pane tab-description active">
 									<p class="product-detail-description-text" itemprop="description">
-										<%= @product.about%>
+										<%= @product_data.about%>
 									</p>
 									<ul class="product-warninglist" data-headline-text="ПРЕДУПРЕЖДЕНИЕ!"></ul>
 								</div>
@@ -182,7 +178,11 @@
 												<h3 class="product-item-heading">
 													<a href="#"><%=p.name%></a>
 												</h3> 
-												<strong class="price"><%= p.price%> Грн</strong>
+												<% if p.product_datum[0]!=nil and p.product_datum[0].price!=nil %>
+													<strong class="price"><%= p.product_datum[0].price%> Грн</strong>
+												<%else%>
+													<strong class="price">Уточняеться</strong>
+												<% end %>
 												<div class="product-item-selection"></div>
 												<ul class="list-swatches">
 
@@ -230,9 +230,12 @@
 											<h3 class="product-item-headline">
 												<a class="ng-binding" href="#"><%=p.name%></a>
 											</h3>
-											<strong class="price sale-price ng-binding ng-hide"><%= p.price%> Грн
+											<% if p.product_datum[0]!=nil and p.product_datum[0].price!=nil %>
+												<strong class="price sale-price ng-binding ng-hide"><%= p.price%> Грн</strong> 
+											<%else%>
+												<strong class="price sale-price ng-binding ng-hide">Уточняеться</strong>
+											<% end %>
 												<span class="price original-price ng-binding"></span>
-											</strong> 
 											<ul class="list-swatches">
 												<!-- ngRepeat: color in product.variantData -->
 

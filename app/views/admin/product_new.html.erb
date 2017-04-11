@@ -1,4 +1,4 @@
-<%= form_for @product, :url => admin_create_path(@product) do |f| %>
+<%= semantic_form_for @product, :url => admin_product_create_path(@product) do |f| %>
   <% if @product.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
@@ -14,25 +14,18 @@
   <%= f.label :name %>
   <%= f.text_field :name, class: 'form-control' %>
 
-  <%= f.label :price %>
-  <%= f.text_field :price, class: 'form-control' %>
-
-  <%= f.label :about %>
-  <%= f.text_field :about, class: 'form-control' %>
-
   <%= f.label :img %>
   <%= f.file_field :img , class: 'form-control'%>
 
   <%= f.label :img_alt %>
   <%= f.file_field :img_alt , class: 'form-control'%>
-
-  <%= f.fields_for :product_datum do |product_data| %>
-       <%= product_data.text_field :color_id %>
-       <%= product_data.text_field :article %>
-   <% end %> 
-
-
-
+	<div>
+	Datas
+	<%= f.semantic_fields_for :product_datum do |product_data| %>
+			<%=render 'product_datum_fields', f: product_data %>
+    <%end%>
+	<%= link_to_add_association 'add product_datum', f, :product_datum%>
+	</div>
   <div class="actions">
     <%= f.submit %>
   </div>

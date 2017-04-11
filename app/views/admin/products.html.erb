@@ -1,2 +1,11 @@
-<h1>Admin#products</h1>
-<p>Find me in app/views/admin/products.html.erb</p>
+
+<div class="products">
+	<% @products.each do | product | %>
+		<div class="products">
+			<p class="id"><%=product.id %></p>
+			<p class="name"><%=product.name %></p>
+			<%=image_tag(product.img(:original) , width:"140", height:"210", class:"product-item-image")%>
+			<%=image_tag(product.img_alt(:original) , width:"140", height:"210", class:"product-item-image")%>
+		</div>
+	<% end %>
+</div>

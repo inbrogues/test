@@ -46,3 +46,5 @@ group :development do
   gem 'spring'
 end
 
+gem 'formtastic', '~> 3.0'
+gem "cocoon"

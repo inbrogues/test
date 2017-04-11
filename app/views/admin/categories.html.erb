@@ -1,2 +1,10 @@
-<h1>Admin#categories</h1>
-<p>Find me in app/views/admin/categories.html.erb</p>
+
+<div class="categories">
+	<% @categories.each do | category | %>
+		<div class="category">
+			<p class="id"><%=category.id %></p>
+			<p class="name"><%=category.name %></p>
+			<p class="name"><%=category.parent_id %></p>
+			</div>
+	<% end %>
+</div>

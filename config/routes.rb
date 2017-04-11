@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'admin/product_new'
 
   get 'admin/colors'
 
@@ -8,7 +7,19 @@ Rails.application.routes.draw do
   get 'admin/products'
 
   get 'admin/categories'
-  post 'admin/create'
+
+  
+  get 'admin' => 'admin#index'
+
+  get 'admin/product_new'
+  post 'admin/product_create'
+
+  get 'admin/color_new'
+  post 'admin/color_create'
+
+  get 'admin/category_new'
+  post 'admin/category_create'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
