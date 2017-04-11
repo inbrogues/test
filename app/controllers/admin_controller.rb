@@ -65,7 +65,7 @@ class AdminController < ApplicationController
 		puts "\n-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_"
 	    respond_to do |format|
 	      if @color.save
-	        format.html {redirect_to controller:"products", action:"single", id:  @color.id , notice: 'Color was successfully created.' }
+	        format.html {redirect_to controller:"admin", action:"index", id:  @color.id , notice: 'Color was successfully created.' }
 	        format.json { render :show, status: :created, location: @color }
 	      else
 	        format.html { render :new }
@@ -77,14 +77,14 @@ class AdminController < ApplicationController
 	def category_new
 		@category=Category.new
 	end
-	def color_create
+	def category_create
 		@category = Category.new(category_params)
 		puts "-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\n"
 		puts params
 		puts "\n-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_"
 	    respond_to do |format|
 	      if @category.save
-	        format.html {redirect_to controller:"products", action:"single", id:  @category.id , notice: 'Color was successfully created.' }
+	        format.html {redirect_to controller:"admin", action:"index", id:  @category.id , notice: 'Color was successfully created.' }
 	        format.json { render :show, status: :created, location: @category }
 	      else
 	        format.html { render :new }
