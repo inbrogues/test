@@ -1,10 +1,108 @@
-
+<!-- <script type="text/javascript" src="http://www2.hm.com/etc/designs/hm/clientlibs/desktop.min.js"></script> -->
 	<main role="main">
 	<!-- Main -->
 	<div class="wrapper">
 		<div class="product parbase">
 			<!--PAGE:productDetail -->
-			<div class="catalogwarning parbase"></div>
+			<div class="catalogwarning parbase">
+			<script>
+				 var productArticleDetails = {
+  'alternate': '\u0412\u044F\u0437\u0430\u043D\u044B\u0439 \u043A\u0430\u0440\u0434\u0438\u0433\u0430\u043D - {alternatecolor} - Женщины | H&M RU', 
+    'articleCode':'0129393047', 'baseProductCode' : '0129393_group_042_047', 'categoryParentKey' : '/1/ladies',
+    
+    'styleWithArticles' : [
+      
+          '0510152001',
+      
+          '0228257002',
+      
+          '0469513001',
+      
+          '0377144014',
+      
+          '0452689002',
+      
+          '0466250001',
+      
+          '0451703001',
+      
+          '0481645001',
+      
+          '0286825010',
+      
+          '0270381003'
+      
+    ],
+    
+    
+    // 
+    <% @product_datas.each do |product_data| %>
+    '<%= product_data.article %>0000': {
+      'name': 'Черный',
+      'colorCode': '09',  
+      'selection': false,
+      'description': '<%= product_data.about%>',
+      'images':[
+          
+          <% product_data.photos.each do  |photo|  %>
+          {
+          'thumbnail': '<%= photo.img.url(:original) %>',
+          'image': '<%= photo.img.url(:original) %> ',
+          'zoom': '<%= photo.img.url(:original) %>'
+          },
+          <%end%>
+          
+      ],
+      
+      
+        
+        
+          'price': '1 199 Руб',
+          'priceOriginal': false,
+          'priceValue': '1199.0',
+          'priceSaleValue': null,
+        
+      
+      
+      
+              
+        
+          'promoMarkerIcon': '',
+              'priceClub': null,
+              
+                    'promoMarkerUrl': '//www2.hm.com/medias/3for2-RU.png?context=bWFzdGVyfHJvb3R8MzA4OHxpbWFnZS9wbmd8aDRlL2hjZi8xMDQ0Mzk1MDI2MDI1NC5wbmd8OGNmNjZlMWEwMzhkN2I0YzkzMDg1ZGM3OTU0MzA0M2FhZTg3NTc0ZGMwMGJhYTNiMzAyNDQ3ZTY2NjkxN2IxYg',
+            'promoMarkerAlt': '',
+                    'promoMarkerLegalText': '\u042D\u0442\u043E \u043F\u0440\u0435\u0434\u043B\u043E\u0436\u0435\u043D\u0438\u0435 \u0434\u0435\u0439\u0441\u0442\u0432\u0443\u0435\u0442 \u043D\u0430 \u0441\u0430\u0439\u0442\u0435 hm.com \u0434\u043E 05.04.2017 \u0438\u043B\u0438 \u0434\u043E \u0442\u0435\u0445 \u043F\u043E\u0440, \u043F\u043E\u043A\u0430 \u0442\u043E\u0432\u0430\u0440\u044B \u0435\u0441\u0442\u044C \u0432 \u043D\u0430\u043B\u0438\u0447\u0438\u0438',
+                    'promoMarkerLabelText': '',
+          
+        
+      
+      
+      
+      
+      
+      'composition': [
+        
+          '\u0410\u043A\u0440\u0438\u043B 50%; \u0412\u0438\u0441\u043A\u043E\u0437\u0430 50%'
+        
+        ],
+      
+      
+      'careInstructions': [
+          
+              '\u041C\u0430\u0448\u0438\u043D\u043D\u0430\u044F \u0441\u0442\u0438\u0440\u043A\u0430 \u043F\u0440\u0438 \u0442\u0435\u043C\u043F\u0435\u0440\u0430\u0442\u0443\u0440\u0435 40\u00B0'
+          
+            ],
+      
+      
+      
+      'url': '/single/<%= @product.id %>/<%= product_data.article %>'
+      
+    },
+    <%end%>
+  };
+</script>
+			</div>
 			<div class="row product-detail">
 				<div class="images parbase">
 					<section class="product-detail-images grid col-6 clearfix">
@@ -13,11 +111,13 @@
 						</button>
 						<div class="product-detail-thumbnails">
 							<ul>
+								
 								<% @product_data.photos.each do  |photo|  %>
 								<li class="product-detail-thumbnail">
 									<%=image_tag(photo.img(:original) ,class:"swatch")%>
 								</li>
 								<%end%>
+								
 							</ul>
 						</div>
 						<button class="product-detail-thumbnails-scroll-down disabled">
@@ -25,7 +125,7 @@
 						</button>
 						<div class="product-detail-main-image">
 							<div class="product-detail-main-image-container">
-                <%=image_tag("bhmprod.jpg" , width:"384", height:"576", class:"product-detail-main-image-image")%>
+                <%=image_tag(@product_data.photos[0].img(:original) ,class:"swatch")%>
 							</div>
 							<span class="product-detail-zoom-info">Нажмите на изображение, чтобы изменить его размер</span>
 							<span class="product-detail-zoom-info touch-info">Коснуться изображения, чтобы развернуть его на весь экран</span>
@@ -52,14 +152,14 @@
 									</div>
 									<%end%>
 									<ul class="inputlist clearfix">
-										<% @colors.each do |color| %>
+										<% @product_datas.each do |product_data| %>
 											<li>
-												<% if @color_active==color %>
-													<a href="#" title="<%= color.name %>" data-sizes="" id="filter-colour-0462979003" class="filter-option active">
+												<% if @color_active==product_data.color %>
+													<a href="/single/<%= @product.id %>/<%= product_data.article %>" title="<%= product_data.color.name %>" data-sizes="" data-articlecode="<%= product_data.article %>0000" id="filter-colour-<%= product_data.article %>" class="filter-option active">
 												<% else %>
-													<a href="#" title="<%= color.name %>" data-sizes="" id="filter-colour-0462979003" class="filter-option ">
+													<a href="/single/<%= @product.id %>/<%= product_data.article %>" title="<%= product_data.color.name %>" data-sizes="" data-articlecode="<%= product_data.article %>0000" id="filter-colour-<%= product_data.article %>" class="filter-option ">
 												<%end%>
-		    					                <%=image_tag(color.img(:original) ,class:"pattern")%></a>
+		    					                <%=image_tag(product_data.color.img(:original) ,class:"pattern")%></a>
 											</li>
 										<%end%>
 										</li>
