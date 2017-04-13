@@ -96,7 +96,7 @@
       
       
       
-      'url': '/single/<%= @product.id %>/<%= product_data.article %>'
+      'url': '/single/hm-<%= product_data.article %>'
       
     },
     <%end%>
@@ -157,9 +157,9 @@
 										<% @product_datas.each do |product_data| %>
 											<li>
 												<% if @color_active==product_data.color %>
-													<a href="/single/<%= @product.id %>/<%= product_data.article %>" title="<%= product_data.color.name %>" data-sizes="" data-articlecode="<%= product_data.article %>0000" id="filter-colour-<%= product_data.article %>" class="filter-option active">
+													<a href="/single/hm-<%= product_data.article %>" title="<%= product_data.color.name %>" data-sizes="" data-articlecode="<%= product_data.article %>0000" id="filter-colour-<%= product_data.article %>" class="filter-option active">
 												<% else %>
-													<a href="/single/<%= @product.id %>/<%= product_data.article %>" title="<%= product_data.color.name %>" data-sizes="" data-articlecode="<%= product_data.article %>0000" id="filter-colour-<%= product_data.article %>" class="filter-option ">
+													<a href="/single/hm-<%= product_data.article %>" title="<%= product_data.color.name %>" data-sizes="" data-articlecode="<%= product_data.article %>0000" id="filter-colour-<%= product_data.article %>" class="filter-option ">
 												<%end%>
 		    					                <%=image_tag(product_data.color.img(:original) ,class:"pattern")%></a>
 											</li>
