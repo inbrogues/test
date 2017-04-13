@@ -95,7 +95,14 @@ Rails.application.routes.draw do
   get 'singlenew' => 'news#singlenew'
   #products
   get 'ladies' => 'products#ladies'
+  
   get 'products/' => 'products#index'
+
+  get 'products/:categorie0' => 'products#index'
+  get 'products/:categorie0/:categorie1' => 'products#index'
+  get 'products/:categorie0/:categorie1/:categorie2' => 'products#index'
+  get 'products/:categorie0/:categorie1/:categorie2/:categorie3' => 'products#index'
+  
   get 'single/hm-:article' => 'products#single'
   resources :products, only: [:edit, :update, :destroy]
   #users

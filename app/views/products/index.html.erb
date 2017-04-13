@@ -1,3 +1,8 @@
+  <h1><%=@h1 %></h1>
+  <h1><%=@h2 %></h1>
+  <h1><%=@h3 %></h1>
+  <h1><%=@h4 %></h1>
+  <h1><%=@h5 %></h1>
   <main role="main" class="responsive segments">
   <!-- Main -->
   <!--AEMPUBPRDEU30-->
@@ -63,16 +68,24 @@
                                 <li class="section-menu-subdepartment ">
                                   <a href="#"><%=main_category.name%></a>
                                   <% if @category.select{|e| e.parent==main_category} %>
-                                    <%@category.select{|e| e.parent==main_category}.each do |category|%>
                                       <ul>
-                                        <li class="section-menu-subcategory">
-                                          <a href="#">
-                                             <%=category.name%>
-                                          </a>
-                                          <ul></ul>
-                                        </li>
+                                        <%@category.select{|e| e.parent==main_category}.each do |category|%>
+                                          <li class="section-menu-subcategory">
+                                            <a href="#">
+                                               <%=category.name%>
+                                            </a>
+                                            <% if @category.select{|e| e.parent==category} %>
+                                              <ul>
+                                                <% @category.select{|e| e.parent==category}.each do |sub_category|%>
+                                                  <li class="section-menu-subcategory">
+                                                    <a href="">sub_category.name</a>
+                                                  </li>
+                                                <%end%>
+                                              </ul>
+                                            <% end %>
+                                          </li>
+                                        <%end%>
                                       </ul>
-                                    <%end%>
                                   <%end%>
                                 </li>
                                 <%end%>  

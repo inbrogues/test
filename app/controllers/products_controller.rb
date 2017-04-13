@@ -22,7 +22,10 @@ class ProductsController < ApplicationController
 		@products=Product.limit(9)
 		@category=Category.all
 		@main_category=@category.select{|e| e.parent==nil}
-
+		@h1=[ params[:categorie0] , params[:categorie1], params[:categorie2] ,params[:categorie3]].compact 
+		@h1.each{ |cat_name|
+			
+		}
 	end
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
