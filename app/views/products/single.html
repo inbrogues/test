@@ -57,9 +57,9 @@
       
         
         
-          'price': '1 199 Руб',
+          'price': '<%= product_data.price %> Грн',
           'priceOriginal': false,
-          'priceValue': '1199.0',
+          'priceValue': '<%= product_data.price %> ',
           'priceSaleValue': null,
         
       
@@ -173,24 +173,26 @@
 									Размер:
 									<span>Select size</span>
 								</div>
-								<ul class="inputlist clearfix" data-sizelist="0462979003" style="display: block;">
-								<% @product_sizes.each do |product_size|  %>
-									<% if (product_size.product_size) %>
-									<li>
-										<label for="filter-size-0462979003001">
-											<input type="radio" name="product-size" value="<%= product_size.size %>" data-size="001" id="filter-size-0462979003001">
-											<%if product_size.has%>
-											<div class="detailbox detailbox-value">
-												<span><%= product_size.product_size.size%></span>
-											</div>
-											<%else%>
-											<div class="detailbox detailbox-value unavailable">
-												<span><%= product_size.product_size.size %></span>
-											</div>
-											<%end%>
+								<ul class="inputlist clearfix" data-sizelist="" style="display: block;">
+								<% @product_datas.each do |product_data| %>
+									<% if (product_data.product_product_sizes) %>
+										<% product_data.product_product_sizes.each_with_index do |product_product_size, k| %>
+										<li>
+											<label for="filter-size-<%= product_data.article %>00<%= k %>">
+												<input type="radio" name="product-size" value="<%= product_product_size.size %>" data-size="001" id="filter-size-<%= product_data.article %>00">
+												<%if product_product_size.has%>
+												<div class="detailbox detailbox-value">
+													<span><%= product_product_size.size %></span>
+												</div>
+												<%else%>
+												<div class="detailbox detailbox-value unavailable">
+													<span><%= product_product_size.size %></span>
+												</div>
+												<%end%>
 
-										</label>
-									</li>
+											</label>
+										</li>
+										<%end%>
 									<%end%>
 								<%end%>
 								</ul>
