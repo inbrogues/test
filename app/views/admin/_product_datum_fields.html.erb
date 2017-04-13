@@ -8,6 +8,15 @@
 	<%= f.label :about %>
 	<%= f.text_field :about%>
 	<div class="photoss">
+		izes
+		<div class="product_size">
+		<%= f.semantic_fields_for :product_product_sizes do |product_product_size| %>
+			<%=render 'product_product_size_fields', f: product_product_size %>
+	    <%end%>
+		<%= link_to_add_association 'add size', f, :product_product_sizes%>
+		</div>
+	</div>
+	<div class="photoss">
 		<div class="photos">
 		<%= f.semantic_fields_for :photos do |photo| %>
 			<%=render 'photo_fields', f: photo %>

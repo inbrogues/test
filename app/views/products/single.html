@@ -124,9 +124,11 @@
 							<div class="navigation-arrow-down"></div>
 						</button>
 						<div class="product-detail-main-image">
-							<div class="product-detail-main-image-container">
-                <%=image_tag(@product_data.photos[0].img(:original) ,class:"swatch")%>
-							</div>
+							<% if @product_data.photos[0] %>
+								<div class="product-detail-main-image-container">
+	                				<%=image_tag(@product_data.photos[0].img(:original) ,class:"swatch")%>
+								</div>
+							<%end%>
 							<span class="product-detail-zoom-info">Нажмите на изображение, чтобы изменить его размер</span>
 							<span class="product-detail-zoom-info touch-info">Коснуться изображения, чтобы развернуть его на весь экран</span>
 							<a href="#" class="product-detail-full-screen-image-link hidden-text">На весь экран</a>
@@ -173,21 +175,23 @@
 								</div>
 								<ul class="inputlist clearfix" data-sizelist="0462979003" style="display: block;">
 								<% @product_sizes.each do |product_size|  %>
+									<% if (product_size.product_size) %>
 									<li>
 										<label for="filter-size-0462979003001">
 											<input type="radio" name="product-size" value="<%= product_size.size %>" data-size="001" id="filter-size-0462979003001">
 											<%if product_size.has%>
 											<div class="detailbox detailbox-value">
-												<span><%= product_size.size %></span>
+												<span><%= product_size.product_size.size%></span>
 											</div>
 											<%else%>
 											<div class="detailbox detailbox-value unavailable">
-												<span><%= product_size.size %></span>
+												<span><%= product_size.product_size.size %></span>
 											</div>
 											<%end%>
 
 										</label>
 									</li>
+									<%end%>
 								<%end%>
 								</ul>
 								<div class="product-detail-linked-product">
