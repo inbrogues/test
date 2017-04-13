@@ -1,8 +1,3 @@
-  <h1><%=@h1 %></h1>
-  <h1><%=@h2 %></h1>
-  <h1><%=@h3 %></h1>
-  <h1><%=@h4 %></h1>
-  <h1><%=@h5 %></h1>
   <main role="main" class="responsive segments">
   <!-- Main -->
   <!--AEMPUBPRDEU30-->
@@ -64,20 +59,32 @@
                                 </li>
                                 <% @main_category.each do |main_category|%>
                                 <% if main_category%>
-
-                                <li class="section-menu-subdepartment ">
+                                <% if @cat_active.include?(main_category)%>
+                                  <li class="section-menu-subdepartment current">
+                                <% else %>
+                                  <li class="section-menu-subdepartment">
+                                <% end %>
+                                
                                   <a href="#"><%=main_category.name%></a>
                                   <% if @category.select{|e| e.parent==main_category} %>
                                       <ul>
                                         <%@category.select{|e| e.parent==main_category}.each do |category|%>
-                                          <li class="section-menu-subcategory">
+                                          <% if @cat_active.include?(category)%>
+                                            <li class="section-menu-subcategory current">
+                                          <% else %>
+                                            <li class="section-menu-subcategory">
+                                          <% end %>
                                             <a href="#">
                                                <%=category.name%>
                                             </a>
                                             <% if @category.select{|e| e.parent==category} %>
                                               <ul>
                                                 <% @category.select{|e| e.parent==category}.each do |sub_category|%>
-                                                  <li class="section-menu-subcategory">
+                                                  <% if @cat_active.include?(sub_category)%>
+                                                    <li class="section-menu-subcategory current">
+                                                  <% else %>
+                                                    <li class="section-menu-subcategory">
+                                                  <% end %>
                                                     <a href="">sub_category.name</a>
                                                   </li>
                                                 <%end%>
@@ -394,9 +401,9 @@
                     <li class="right">
                       <span class="filterinfo">
                         <strong>ОТОБРАЖАЕТСЯ</strong>
-                        <span class="load-count">9</span>
+                        <span class="load-count"><%= @products.size %></span>
                         из
-                        <span class="total-count">50</span>
+                        <span class="total-counts"><%= @products_all %></span>
                         товаров
                       </span>
                     </li>
