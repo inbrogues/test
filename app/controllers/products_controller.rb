@@ -63,19 +63,22 @@ class ProductsController < ApplicationController
 
 
 		@ChoizenColor = params[:colorWithNames]||[]
-
+		@ChoizenSize = params[:sizes]||[]
 		if @cat
-
 			@productsCat=Product.where(id: 
 				CategoriesProducts.where(category_id: 
-					@cat_for_product).collect(&:product_id))
+					@cat_for_product
+				).collect(&:product_id)
+			)
 
 		else
 			@productsCat=Product.all
 		end
 
+		@productsAll=@productsCat			
+
 		if @ChoizenColor!=[]
-			@productsAll=@productsCat.where(id:
+			@productsAll=@productsAll.where(id:
 				ProductDatum.where(color_id:
 					Color.where(main_color_id: 
 						MainColor.where(name: @ChoizenColor)
@@ -83,22 +86,38 @@ class ProductsController < ApplicationController
 				).collect(&:product_id)
 			)
 			else
-			@productsAll=@productsCat			
 		end
+
+		if @ChoizenSize!=[]
+			@productsAll=@productsAll.where(id: 
+				ProductDatum.where(id: 
+					ProductProductSize.where(product_size_id: 
+						ProductSize.where(size: @ChoizenSize) , has:true
+					).collect(&:product_id)
+				).collect(&:product_id)
+			)		
+		end
+
+		@PossibleSizes=ProductSize.where(id: 
+			ProductProductSize.where(product_id: 
+				ProductDatum.where(product_id: 
+					@productsCat.collect(&:id)
+				).collect(&:id), has:true
+			).collect(&:product_size_id)
+		)
+	
+		
+		@PossibleColors=MainColor.where(id: 
+			Color.where(id: 
+				ProductDatum.where(product_id: 
+					@productsCat.collect(&:id)
+				).collect(&:color_id)
+			).collect(&:main_color_id)
+		)
 
 		@products=@productsAll[0..8]
 		@products_all=@productsAll.count
 		
-		
-
-		@PossibleColors=MainColor.where(id: 
-			Color.where(id: 
-				ProductDatum.where(product_id: 
-					@productsAll.collect(&:id)
-				).collect(&:color_id)
-			).collect(&:main_color_id)
-		).collect(&:name) 
-
 	end
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params

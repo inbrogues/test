@@ -1,6 +1,22 @@
+Выбраные цвета
+ <% @ChoizenColor.each do |c|%>
+  <h1> <%=c%></h1>
+ <% end %>
+<br>
+Выбраные размеры
+ <% @ChoizenSize.each do |c|%>
+  <h1> <%=c%></h1>
+ <% end %>
+<br>
+Возможные размеры для категории(ий)
+ <% @PossibleSizes.each do |c|%>
+  <h1> <%=c.size%></h1>
+ <% end %>
+<br>
+Возможные цвета для категории(ий)
 
  <% @PossibleColors.each do |c|%>
-  <h1> <%=c%></h1>
+  <h1> <%=c.name%></h1>
  <% end %>
   <main role="main" class="responsive segments">
   <!-- Main -->
