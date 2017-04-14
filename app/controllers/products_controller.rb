@@ -62,19 +62,42 @@ class ProductsController < ApplicationController
 		end
 
 
-		@products=Product.where(id: 
-			CategoriesProducts.where(category_id: 
-				@cat_for_product).collect(&:product_id))
-		.limit(9)
-		puts "=========================="
-		puts @cat_for_product
-		puts "=========================="
-		@products_all=Product.where(id: 
-			CategoriesProducts.where(category_id: 
-				@cat_for_product).collect(&:product_id)).count
-		puts "=========================="
-		puts @products_all
-		puts "=========================="
+		@ChoizenColor = params[:colorWithNames]||[]
+
+		if @cat
+
+			@productsCat=Product.where(id: 
+				CategoriesProducts.where(category_id: 
+					@cat_for_product).collect(&:product_id))
+
+		else
+			@productsCat=Product.all
+		end
+
+		if @ChoizenColor!=[]
+			@productsAll=@productsCat.where(id:
+				ProductDatum.where(color_id:
+					Color.where(main_color_id: 
+						MainColor.where(name: @ChoizenColor)
+					).collect(&:id)
+				).collect(&:product_id)
+			)
+			else
+			@productsAll=@productsCat			
+		end
+
+		@products=@productsAll[0..8]
+		@products_all=@productsAll.count
+		
+		
+
+		@PossibleColors=MainColor.where(id: 
+			Color.where(id: 
+				ProductDatum.where(product_id: 
+					@productsAll.collect(&:id)
+				).collect(&:color_id)
+			).collect(&:main_color_id)
+		).collect(&:name) 
 
 	end
     # Never trust parameters from the scary internet, only allow the white list through.
