@@ -64,6 +64,7 @@ class ProductsController < ApplicationController
 
 		@ChoizenColor = params[:colorWithNames]||[]
 		@ChoizenSize = params[:sizes]||[]
+		@Sort = params[:sort]
 		if @cat
 			@productsCat=Product.where(id: 
 				CategoriesProducts.where(category_id: 
@@ -97,7 +98,17 @@ class ProductsController < ApplicationController
 				).collect(&:product_id)
 			)		
 		end
-
+		puts "-------------------------------------------------------------------------------------------------"
+		puts @Sort
+		if @Sort
+			if @Sort == "PriceAsc"
+				puts 1
+				@productsAll = @productsAll.sort_by{|p| (p.product_datum[0]||{price: 0})[:price]||0}
+			elsif @Sort == "PriceDesc"
+				puts 2
+				@productsAll = @productsAll.sort_by{|p| ((p.product_datum[0]||{price: 0})[:price]||0)*-1}
+			end 
+		end
 		@PossibleSizes=ProductSize.where(id: 
 			ProductProductSize.where(product_id: 
 				ProductDatum.where(product_id: 
