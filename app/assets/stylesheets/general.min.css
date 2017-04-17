@@ -573,7 +573,7 @@ nav ul {
 }
 
 .loader, .fullscreen-image-modal:before {
-    background: url("../img/ajax-loader.gif");
+    background: url("/assets/ajax-loader.gif");
     background-size: 100%;
     display: block;
     height: 24px;
@@ -979,7 +979,7 @@ label.invalid.button-validation-message, .input-info.invalid.button-validation-m
 }
 
 .input-wrapper.invalid:before {
-    background-image: url("../img/invalid.png");
+    background-image: url("/assets/invalid.png");
     content: '';
     height: 16px;
     position: absolute;
@@ -990,7 +990,7 @@ label.invalid.button-validation-message, .input-info.invalid.button-validation-m
 
 @media only screen and (-webkit-min-device-pixel-ratio:1.3), only screen and (min--moz-device-pixel-ratio:1.3), only screen and (-o-min-device-pixel-ratio:1.3 / 1), only screen and (min-resolution:1.3dppx) {
     .input-wrapper.invalid:before {
-        background-image: url("../img/invalid@2x.png");
+        background-image: url("/assets/invalid@2x.png");
         background-size: 16px 16px
     }
 }
@@ -1001,7 +1001,7 @@ label.invalid.button-validation-message, .input-info.invalid.button-validation-m
 
 .input-fields-info:before {
     content: '';
-    background-image: url("../img/checkout-info.png");
+    background-image: url("/assets/checkout-info.png");
     height: 20px;
     margin-top: -10px;
     position: absolute;
@@ -1011,7 +1011,7 @@ label.invalid.button-validation-message, .input-info.invalid.button-validation-m
 
 @media only screen and (-webkit-min-device-pixel-ratio:1.3), only screen and (min--moz-device-pixel-ratio:1.3), only screen and (-o-min-device-pixel-ratio:1.3 / 1), only screen and (min-resolution:1.3dppx) {
     .input-fields-info:before {
-        background-image: url("../img/checkout-info@2x.png");
+        background-image: url("/assets/checkout-info@2x.png");
         background-size: 20px 20px
     }
 }
@@ -1022,14 +1022,14 @@ label.invalid.button-validation-message, .input-info.invalid.button-validation-m
 
 .input-field-info {
     position: absolute;
-    background-image: url("../img/checkout-info.png");
+    background-image: url("/assets/checkout-info.png");
     height: 20px;
     width: 20px
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio:1.3), only screen and (min--moz-device-pixel-ratio:1.3), only screen and (-o-min-device-pixel-ratio:1.3 / 1), only screen and (min-resolution:1.3dppx) {
     .input-field-info {
-        background-image: url("../img/checkout-info@2x.png");
+        background-image: url("/assets/checkout-info@2x.png");
         background-size: 20px 20px
     }
 }
@@ -1162,27 +1162,27 @@ label.invalid.button-validation-message, .input-info.invalid.button-validation-m
 }
 
 .lable-cc-images li.lable-cc-visa {
-    background-image: url("../img/credit-card-visa.png");
+    background-image: url("/assets/credit-card-visa.png");
     background-repeat: no-repeat;
     text-indent: -9999px
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio:1.3), only screen and (min--moz-device-pixel-ratio:1.3), only screen and (-o-min-device-pixel-ratio:1.3 / 1), only screen and (min-resolution:1.3dppx) {
     .lable-cc-images li.lable-cc-visa {
-        background-image: url("../img/credit-card-visa@2x.png");
+        background-image: url("/assets/credit-card-visa@2x.png");
         background-size: 30px 20px
     }
 }
 
 .lable-cc-images li.lable-cc-master-card, .wpwl-brand-MASTER {
-    background-image: url("../img/credit-card-mastercard.png");
+    background-image: url("/assets/credit-card-mastercard.png");
     background-repeat: no-repeat;
     text-indent: -9999px
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio:1.3), only screen and (min--moz-device-pixel-ratio:1.3), only screen and (-o-min-device-pixel-ratio:1.3 / 1), only screen and (min-resolution:1.3dppx) {
     .lable-cc-images li.lable-cc-master-card, .wpwl-brand-MASTER {
-        background-image: url("../img/credit-card-mastercard@2x.png");
+        background-image: url("/assets/credit-card-mastercard@2x.png");
         background-size: 30px 20px
     }
 }
@@ -3192,7 +3192,7 @@ input[type=submit].button-buy, input[type=button].button-buy,
 
 input[type=submit].button-buy:before, input[type=button].button-buy:before,
 .button.button-buy:before, .story-item.story-item-no-ribbon .button-buy.story-item-link:before {
-    background-image: url("../img/shopping-bag-inverted.png");
+    background-image: url("/assets/shopping-bag-inverted.png");
     content: '';
     height: 14px;
     width: 13px;
@@ -3204,7 +3204,7 @@ input[type=submit].button-buy:before, input[type=button].button-buy:before,
 @media only screen and (-webkit-min-device-pixel-ratio:1.3), only screen and (min--moz-device-pixel-ratio:1.3), only screen and (-o-min-device-pixel-ratio:1.3 / 1), only screen and (min-resolution:1.3dppx) {
     input[type=submit].button-buy:before, input[type=button].button-buy:before,
     .button.button-buy:before, .story-item.story-item-no-ribbon .button-buy.story-item-link:before {
-        background-image: url("../img/shopping-bag-inverted@2x.png");
+        background-image: url("/assets/shopping-bag-inverted@2x.png");
         background-size: 13px 14px
     }
 }
@@ -4628,7 +4628,7 @@ input.placeholder {
 .story-item.story-item-no-ribbon .responsive .spinner.story-item-link:disabled:after {
     display: block;
     content: '';
-    background-image: url("../img/loader_black.gif");
+    background-image: url("/assets/loader_black.gif");
     background-size: 14px;
     background-repeat: no-repeat;
     height: 14px;
@@ -4644,7 +4644,7 @@ input.placeholder {
     .story-item.story-item-no-ribbon .responsive .spinner.story-item-link:after,
     .responsive .button.spinner:disabled:after, .responsive .story-item.story-item-no-ribbon .spinner.story-item-link:disabled:after,
     .story-item.story-item-no-ribbon .responsive .spinner.story-item-link:disabled:after {
-        background-image: url("../img/loader_black@2x.gif");
+        background-image: url("/assets/loader_black@2x.gif");
         background-size: 14px 14px
     }
 }
@@ -4671,7 +4671,7 @@ input.placeholder {
 .story-item.story-item-no-ribbon .responsive .spinner.story-item-link:disabled.secondary:after {
     display: block;
     content: '';
-    background-image: url("../img/loader.gif");
+    background-image: url("/assets/loader.gif");
     background-size: 14px;
     background-repeat: no-repeat;
     height: 14px;
@@ -4683,7 +4683,7 @@ input.placeholder {
     .story-item.story-item-no-ribbon .responsive .spinner.secondary.story-item-link:after,
     .responsive .button.spinner:disabled.secondary:after, .responsive .story-item.story-item-no-ribbon .spinner.story-item-link:disabled.secondary:after,
     .story-item.story-item-no-ribbon .responsive .spinner.story-item-link:disabled.secondary:after {
-        background-image: url("../img/loader@2x.gif");
+        background-image: url("/assets/loader@2x.gif");
         background-size: 14px 14px
     }
 }
@@ -4694,7 +4694,7 @@ input.placeholder {
 .story-item.story-item-no-ribbon .responsive .spinner.story-item-link:disabled[type="submit"] {
     display: block;
     content: '';
-    background-image: url("../img/loader_black.gif");
+    background-image: url("/assets/loader_black.gif");
     background-size: 14px;
     background-repeat: no-repeat;
     height: 14px;
@@ -4712,7 +4712,7 @@ input.placeholder {
     .story-item.story-item-no-ribbon .responsive .spinner[type="submit"].story-item-link,
     .responsive .button.spinner:disabled[type="submit"], .responsive .story-item.story-item-no-ribbon .spinner.story-item-link:disabled[type="submit"],
     .story-item.story-item-no-ribbon .responsive .spinner.story-item-link:disabled[type="submit"] {
-        background-image: url("../img/loader_black@2x.gif");
+        background-image: url("/assets/loader_black@2x.gif");
         background-size: 14px 14px
     }
 }
@@ -4722,7 +4722,7 @@ input.placeholder {
 .responsive .button.spinner:disabled[type="submit"].secondary,
 .responsive .story-item.story-item-no-ribbon .spinner.story-item-link:disabled[type="submit"].secondary,
 .story-item.story-item-no-ribbon .responsive .spinner.story-item-link:disabled[type="submit"].secondary {
-    background-image: url("../img/loader.gif");
+    background-image: url("/assets/loader.gif");
     background-color: white
 }
 
@@ -5091,14 +5091,14 @@ input.placeholder {
 .filter-option.unavailable:after {
     top: 1px;
     left: 1px;
-    background-image: url("../img/unavail.png");
+    background-image: url("/assets/unavail.png");
     background-position: center;
     background-repeat: no-repeat
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio:1.3), only screen and (min--moz-device-pixel-ratio:1.3), only screen and (-o-min-device-pixel-ratio:1.3 / 1), only screen and (min-resolution:1.3dppx) {
     .filter-option.unavailable:after {
-        background-image: url("../img/unavail@2x.png");
+        background-image: url("/assets/unavail@2x.png");
         background-size: 24px 24px
     }
 }
@@ -5215,7 +5215,7 @@ input.placeholder {
         text-indent: -9999px;
         text-align: left;
         white-space: nowrap;
-        background-image: url("../img/close-inverted.png");
+        background-image: url("/assets/close-inverted.png");
         display: block;
         position: absolute;
         width: 17px;
@@ -5227,7 +5227,7 @@ input.placeholder {
 
 @media only screen and (min-width:768px) and (-webkit-min-device-pixel-ratio:1.3), only screen and (min-width:768px) and (min--moz-device-pixel-ratio:1.3), only screen and (min-width:768px) and (-o-min-device-pixel-ratio:1.3 / 1), only screen and (min-width:768px) and (min-resolution:1.3dppx) {
     .page-notification .close {
-        background-image: url("../img/close-inverted@2x.png");
+        background-image: url("/assets/close-inverted@2x.png");
         background-size: 17px 16px
     }
 }
@@ -8950,7 +8950,7 @@ input.placeholder {
 .responsive .booking-details.form-section .form-part.spinner:before {
     display: block;
     content: '';
-    background-image: url("../img/loader.gif");
+    background-image: url("/assets/loader.gif");
     background-size: 14px;
     background-repeat: no-repeat;
     height: 14px;
@@ -8963,7 +8963,7 @@ input.placeholder {
 
 @media only screen and (-webkit-min-device-pixel-ratio:1.3), only screen and (min--moz-device-pixel-ratio:1.3), only screen and (-o-min-device-pixel-ratio:1.3 / 1), only screen and (min-resolution:1.3dppx) {
     .responsive .booking-details.form-section .form-part.spinner:before {
-        background-image: url("../img/loader@2x.gif");
+        background-image: url("/assets/loader@2x.gif");
         background-size: 14px 14px
     }
 }
@@ -9238,7 +9238,7 @@ input.placeholder {
 .responsive .modal-wrapper.spinner::after {
     display: block;
     content: '';
-    background-image: url("../img/loader.gif");
+    background-image: url("/assets/loader.gif");
     background-size: 14px;
     background-repeat: no-repeat;
     height: 14px;
@@ -9250,7 +9250,7 @@ input.placeholder {
 
 @media only screen and (-webkit-min-device-pixel-ratio:1.3), only screen and (min--moz-device-pixel-ratio:1.3), only screen and (-o-min-device-pixel-ratio:1.3 / 1), only screen and (min-resolution:1.3dppx) {
     .responsive .modal-wrapper.spinner::after {
-        background-image: url("../img/loader@2x.gif");
+        background-image: url("/assets/loader@2x.gif");
         background-size: 14px 14px
     }
 }
@@ -9479,7 +9479,7 @@ input.placeholder {
     }
 
     .responsive .modal.modal-wide > .modalclose {
-        background-image: url("../img/layerclose-big.png");
+        background-image: url("/assets/layerclose-big.png");
         display: block;
         height: 16px;
         position: absolute;
@@ -9570,7 +9570,7 @@ input.placeholder {
 
 @media only screen and (min-width:768px) and (-webkit-min-device-pixel-ratio:1.3), only screen and (min-width:768px) and (min--moz-device-pixel-ratio:1.3), only screen and (min-width:768px) and (-o-min-device-pixel-ratio:1.3 / 1), only screen and (min-width:768px) and (min-resolution:1.3dppx) {
     .responsive .modal.modal-wide > .modalclose {
-        background-image: url("../img/layerclose-big@2x.png");
+        background-image: url("/assets/layerclose-big@2x.png");
         background-size: 17px 16px
     }
 }
@@ -10641,24 +10641,24 @@ input.placeholder {
 }
 
 .life-article-play-btn-white {
-    background-image: url("../img/sprites-life.png");
+    background-image: url("/assets/sprites-life.png");
     background-position: -80px 0
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio:1.3), only screen and (min--moz-device-pixel-ratio:1.3), only screen and (-o-min-device-pixel-ratio:1.3 / 1), only screen and (min-resolution:1.3dppx) {
     .life-article-play-btn-white {
-        background-image: url("../img/sprites-life@2x.png");
+        background-image: url("/assets/sprites-life@2x.png");
         background-size: 260px 100px
     }
 }
 
 .life-article-play-btn-black {
-    background-image: url("../img/life_play_btn_black.png")
+    background-image: url("/assets/life_play_btn_black.png")
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio:1.3), only screen and (min--moz-device-pixel-ratio:1.3), only screen and (-o-min-device-pixel-ratio:1.3 / 1), only screen and (min-resolution:1.3dppx) {
     .life-article-play-btn-black {
-        background-image: url("../img/life_play_btn_black@2x.png");
+        background-image: url("/assets/life_play_btn_black@2x.png");
         background-size: 87px 91px
     }
 }
@@ -11905,7 +11905,7 @@ a:hover .life-most-read-item-image {
 .loader-layer .loader-content.favorite-list-loader:before, .favorite-list-loader.favorite-list-loader:before {
     display: block;
     content: '';
-    background-image: url("../img/loader.gif");
+    background-image: url("/assets/loader.gif");
     background-size: 24px;
     background-repeat: no-repeat;
     height: 24px;
@@ -11915,7 +11915,7 @@ a:hover .life-most-read-item-image {
 
 @media only screen and (-webkit-min-device-pixel-ratio:1.3), only screen and (min--moz-device-pixel-ratio:1.3), only screen and (-o-min-device-pixel-ratio:1.3 / 1), only screen and (min-resolution:1.3dppx) {
     .loader-layer .loader-content.favorite-list-loader:before, .favorite-list-loader.favorite-list-loader:before {
-        background-image: url("../img/loader@2x.gif");
+        background-image: url("/assets/loader@2x.gif");
         background-size: 24px 24px
     }
 }
@@ -11949,7 +11949,7 @@ a:hover .life-most-read-item-image {
 .loader-layer-logo-text.spinner:before {
     display: block;
     content: '';
-    background-image: url("../img/loader.gif");
+    background-image: url("/assets/loader.gif");
     background-size: 14px;
     background-repeat: no-repeat;
     height: 14px;
@@ -11959,7 +11959,7 @@ a:hover .life-most-read-item-image {
 
 @media only screen and (-webkit-min-device-pixel-ratio:1.3), only screen and (min--moz-device-pixel-ratio:1.3), only screen and (-o-min-device-pixel-ratio:1.3 / 1), only screen and (min-resolution:1.3dppx) {
     .loader-layer-logo-text.spinner:before {
-        background-image: url("../img/loader@2x.gif");
+        background-image: url("/assets/loader@2x.gif");
         background-size: 14px 14px
     }
 }
@@ -17400,7 +17400,7 @@ html[lang=ko] * , html[lang=ko_KR] * {
 }
 
 .button.button-chat:before, .story-item.story-item-no-ribbon .button-chat.story-item-link:before {
-    background-image: url("../img/chat-icon.png");
+    background-image: url("/assets/chat-icon.png");
     content: '';
     height: 11px;
     left: 12px;
@@ -17411,7 +17411,7 @@ html[lang=ko] * , html[lang=ko_KR] * {
 
 @media only screen and (-webkit-min-device-pixel-ratio:1.3), only screen and (min--moz-device-pixel-ratio:1.3), only screen and (-o-min-device-pixel-ratio:1.3 / 1), only screen and (min-resolution:1.3dppx) {
     .button.button-chat:before, .story-item.story-item-no-ribbon .button-chat.story-item-link:before {
-        background-image: url("../img/chat-icon@2x.png");
+        background-image: url("/assets/chat-icon@2x.png");
         background-size: 17px 11px
     }
 }
@@ -17513,14 +17513,14 @@ html[lang=zh] .button.button-chat > span, html[lang=zh] .story-item.story-item-n
 }
 
 .swipe-navigation-prev:before {
-    background-image: url("../img/sprites.png");
+    background-image: url("/assets/sprites.png");
     background-position: -150px 0;
     left: 10px
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio:1.3), only screen and (min--moz-device-pixel-ratio:1.3), only screen and (-o-min-device-pixel-ratio:1.3 / 1), only screen and (min-resolution:1.3dppx) {
     .swipe-navigation-prev:before {
-        background-image: url("../img/sprites@2x.png");
+        background-image: url("/assets/sprites@2x.png");
         background-size: 380px 42px
     }
 }
@@ -17554,14 +17554,14 @@ html[lang=zh] .button.button-chat > span, html[lang=zh] .story-item.story-item-n
 }
 
 .swipe-navigation-next:before {
-    background-image: url("../img/sprites.png");
+    background-image: url("/assets/sprites.png");
     background-position: -170px 0;
     right: 10px
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio:1.3), only screen and (min--moz-device-pixel-ratio:1.3), only screen and (-o-min-device-pixel-ratio:1.3 / 1), only screen and (min-resolution:1.3dppx) {
     .swipe-navigation-next:before {
-        background-image: url("../img/sprites@2x.png");
+        background-image: url("/assets/sprites@2x.png");
         background-size: 380px 42px
     }
 }
@@ -17647,7 +17647,7 @@ html[lang=zh] .button.button-chat > span, html[lang=zh] .story-item.story-item-n
 }
 
 #search-field .magnify {
-    background-image: url("../img/sprites.png");
+    background-image: url("/assets/sprites.png");
     background-position: -529px -61px;
     height: 14px;
     width: 14px;
@@ -17660,7 +17660,7 @@ html[lang=zh] .button.button-chat > span, html[lang=zh] .story-item.story-item-n
 
 @media only screen and (-webkit-min-device-pixel-ratio:1.3), only screen and (min--moz-device-pixel-ratio:1.3), only screen and (-o-min-device-pixel-ratio:1.3 / 1), only screen and (min-resolution:1.3dppx) {
     #search-field .magnify {
-        background-image: url("../img/sprites@2x.png");
+        background-image: url("/assets/sprites@2x.png");
         background-size: 380px 42px
     }
 }
@@ -17774,18 +17774,18 @@ html[lang=zh] .button.button-chat > span, html[lang=zh] .story-item.story-item-n
     height: 24px;
     width: 24px;
     content: "";
-    background-image: url("../img/unavail.png")
+    background-image: url("/assets/unavail.png")
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio:1.3), only screen and (min--moz-device-pixel-ratio:1.3), only screen and (-o-min-device-pixel-ratio:1.3 / 1), only screen and (min-resolution:1.3dppx) {
     .detailbox.unavailable:after {
-        background-image: url("../img/unavail@2x.png");
+        background-image: url("/assets/unavail@2x.png");
         background-size: 24px 24px
     }
 }
 
 .detailbox.unavailable.detailbox-flexible:after {
-    background-image: url("../img/unavail.png");
+    background-image: url("/assets/unavail.png");
     background-position: center 0;
     background-repeat: no-repeat;
     right: 2px;
@@ -17794,7 +17794,7 @@ html[lang=zh] .button.button-chat > span, html[lang=zh] .story-item.story-item-n
 
 @media only screen and (-webkit-min-device-pixel-ratio:1.3), only screen and (min--moz-device-pixel-ratio:1.3), only screen and (-o-min-device-pixel-ratio:1.3 / 1), only screen and (min-resolution:1.3dppx) {
     .detailbox.unavailable.detailbox-flexible:after {
-        background-image: url("../img/unavail@2x.png");
+        background-image: url("/assets/unavail@2x.png");
         background-size: 100% 24px
     }
 }
@@ -17876,7 +17876,7 @@ input:checked + .detailbox-flexible.unavailable > span > span, input:checked + .
 }
 
 .product-filter-spinner {
-    background: url("../img/ajax-loader.gif");
+    background: url("/assets/ajax-loader.gif");
     background-size: 100%;
     height: 24px;
     width: 24px
@@ -17969,7 +17969,7 @@ input:checked + .detailbox-flexible.unavailable > span > span, input:checked + .
 }
 
 .product-filters .filterlogo {
-    background-image: url("../img/logotype.png");
+    background-image: url("/assets/logotype.png");
     display: block;
     width: 36px;
     height: 24px;
@@ -17981,7 +17981,7 @@ input:checked + .detailbox-flexible.unavailable > span > span, input:checked + .
 
 @media only screen and (-webkit-min-device-pixel-ratio:1.3), only screen and (min--moz-device-pixel-ratio:1.3), only screen and (-o-min-device-pixel-ratio:1.3 / 1), only screen and (min-resolution:1.3dppx) {
     .product-filters .filterlogo {
-        background-image: url("../img/logotype@2x.png");
+        background-image: url("/assets/logotype@2x.png");
         background-size: 36px 24px
     }
 }
@@ -19241,7 +19241,7 @@ input:checked + .detailbox-flexible.unavailable > span > span, input:checked + .
 }
 
 .product-items-wrapper.loading:after {
-    background: url("../img/ajax-loader.gif");
+    background: url("/assets/ajax-loader.gif");
     background-size: 100%;
     bottom: 30px;
     content: "";
@@ -19543,7 +19543,7 @@ input:checked + .detailbox-flexible.unavailable > span > span, input:checked + .
 .product-detail-thumbnail:before {
     display: block;
     content: '';
-    background-image: url("../img/loader.gif");
+    background-image: url("/assets/loader.gif");
     background-size: 14px;
     background-repeat: no-repeat;
     height: 14px;
@@ -19557,7 +19557,7 @@ input:checked + .detailbox-flexible.unavailable > span > span, input:checked + .
 
 @media only screen and (-webkit-min-device-pixel-ratio:1.3), only screen and (min--moz-device-pixel-ratio:1.3), only screen and (-o-min-device-pixel-ratio:1.3 / 1), only screen and (min-resolution:1.3dppx) {
     .product-detail-thumbnail:before {
-        background-image: url("../img/loader@2x.gif");
+        background-image: url("/assets/loader@2x.gif");
         background-size: 14px 14px
     }
 }
@@ -19647,7 +19647,7 @@ input:checked + .detailbox-flexible.unavailable > span > span, input:checked + .
 
 .product-detail-main-image .product-detail-full-screen-image-link {
     background-color: black;
-    background-image: url("../img/fullscreen-inverted.png");
+    background-image: url("/assets/fullscreen-inverted.png");
     bottom: 10px;
     display: block;
     height: 28px;
@@ -19658,7 +19658,7 @@ input:checked + .detailbox-flexible.unavailable > span > span, input:checked + .
 
 @media only screen and (-webkit-min-device-pixel-ratio:1.3), only screen and (min--moz-device-pixel-ratio:1.3), only screen and (-o-min-device-pixel-ratio:1.3 / 1), only screen and (min-resolution:1.3dppx) {
     .product-detail-main-image .product-detail-full-screen-image-link {
-        background-image: url("../img/fullscreen-inverted@2x.png");
+        background-image: url("/assets/fullscreen-inverted@2x.png");
         background-size: 30px 28px
     }
 }
@@ -19742,7 +19742,7 @@ input:checked + .detailbox-flexible.unavailable > span > span, input:checked + .
 .js .product-detail-meta .product-colors .inputlist:before, .js .product-detail-meta .product-sizes .inputlist:before {
     display: block;
     content: '';
-    background-image: url("../img/loader.gif");
+    background-image: url("/assets/loader.gif");
     background-size: 14px;
     background-repeat: no-repeat;
     height: 14px;
@@ -19754,7 +19754,7 @@ input:checked + .detailbox-flexible.unavailable > span > span, input:checked + .
 
 @media only screen and (-webkit-min-device-pixel-ratio:1.3), only screen and (min--moz-device-pixel-ratio:1.3), only screen and (-o-min-device-pixel-ratio:1.3 / 1), only screen and (min-resolution:1.3dppx) {
     .js .product-detail-meta .product-colors .inputlist:before, .js .product-detail-meta .product-sizes .inputlist:before {
-        background-image: url("../img/loader@2x.gif");
+        background-image: url("/assets/loader@2x.gif");
         background-size: 14px 14px
     }
 }
@@ -20124,7 +20124,7 @@ input:checked + .detailbox-flexible.unavailable > span > span, input:checked + .
 }
 
 .weibo-share {
-    background-image: url("../img/share-weibo.png");
+    background-image: url("/assets/share-weibo.png");
     display: block;
     height: 25px;
     width: 74px
@@ -20132,13 +20132,13 @@ input:checked + .detailbox-flexible.unavailable > span > span, input:checked + .
 
 @media only screen and (-webkit-min-device-pixel-ratio:1.3), only screen and (min--moz-device-pixel-ratio:1.3), only screen and (-o-min-device-pixel-ratio:1.3 / 1), only screen and (min-resolution:1.3dppx) {
     .weibo-share {
-        background-image: url("../img/share-weibo@2x.png");
+        background-image: url("/assets/share-weibo@2x.png");
         background-size: 74px 25px
     }
 }
 
 .renren-share {
-    background-image: url("../img/share-renren.png");
+    background-image: url("/assets/share-renren.png");
     display: block;
     height: 18px;
     width: 84px
@@ -20146,7 +20146,7 @@ input:checked + .detailbox-flexible.unavailable > span > span, input:checked + .
 
 @media only screen and (-webkit-min-device-pixel-ratio:1.3), only screen and (min--moz-device-pixel-ratio:1.3), only screen and (-o-min-device-pixel-ratio:1.3 / 1), only screen and (min-resolution:1.3dppx) {
     .renren-share {
-        background-image: url("../img/share-renren@2x.png");
+        background-image: url("/assets/share-renren@2x.png");
         background-size: 84px 18px
     }
 }
@@ -20179,7 +20179,7 @@ input:checked + .detailbox-flexible.unavailable > span > span, input:checked + .
 }
 
 .header-global .logotype {
-    background-image: url("../img/sprites.png");
+    background-image: url("/assets/sprites.png");
     background-repeat: no-repeat;
     display: block;
     height: 42px;
@@ -20189,7 +20189,7 @@ input:checked + .detailbox-flexible.unavailable > span > span, input:checked + .
 
 @media only screen and (-webkit-min-device-pixel-ratio:1.3), only screen and (min--moz-device-pixel-ratio:1.3), only screen and (-o-min-device-pixel-ratio:1.3 / 1), only screen and (min-resolution:1.3dppx) {
     .header-global .logotype {
-        background-image: url("../img/sprites@2x.png");
+        background-image: url("/assets/sprites@2x.png");
         background-size: 380px 42px
     }
 }
@@ -20693,7 +20693,7 @@ input:checked + .detailbox-flexible.unavailable > span > span, input:checked + .
 }
 
 .goto-shopping-bag:before {
-    background-image: url("../img/sprites.png");
+    background-image: url("/assets/sprites.png");
     background-position: -130px 0;
     content: '';
     height: 13px;
@@ -20705,7 +20705,7 @@ input:checked + .detailbox-flexible.unavailable > span > span, input:checked + .
 
 @media only screen and (-webkit-min-device-pixel-ratio:1.3), only screen and (min--moz-device-pixel-ratio:1.3), only screen and (-o-min-device-pixel-ratio:1.3 / 1), only screen and (min-resolution:1.3dppx) {
     .goto-shopping-bag:before {
-        background-image: url("../img/sprites@2x.png");
+        background-image: url("/assets/sprites@2x.png");
         background-size: 380px 42px
     }
 }
@@ -21621,7 +21621,7 @@ input:checked + .detailbox-flexible.unavailable > span > span, input:checked + .
 }
 
 .choose-region .has-shopping:before {
-    background-image: url("../img/shopping-bag.png");
+    background-image: url("/assets/shopping-bag.png");
     content: '';
     height: 13px;
     left: -20px;
@@ -21632,7 +21632,7 @@ input:checked + .detailbox-flexible.unavailable > span > span, input:checked + .
 
 @media only screen and (-webkit-min-device-pixel-ratio:1.3), only screen and (min--moz-device-pixel-ratio:1.3), only screen and (-o-min-device-pixel-ratio:1.3 / 1), only screen and (min-resolution:1.3dppx) {
     .choose-region .has-shopping:before {
-        background-image: url("../img/shopping-bag@2x.png");
+        background-image: url("/assets/shopping-bag@2x.png");
         background-size: 13px 13px
     }
 }
@@ -21936,7 +21936,7 @@ input:checked + .detailbox-flexible.unavailable > span > span, input:checked + .
 }
 
 .quick-buy-modal .close {
-    background-image: url("../img/layerclose.png");
+    background-image: url("/assets/layerclose.png");
     display: block;
     height: 11px;
     position: absolute;
@@ -21947,7 +21947,7 @@ input:checked + .detailbox-flexible.unavailable > span > span, input:checked + .
 
 @media only screen and (-webkit-min-device-pixel-ratio:1.3), only screen and (min--moz-device-pixel-ratio:1.3), only screen and (-o-min-device-pixel-ratio:1.3 / 1), only screen and (min-resolution:1.3dppx) {
     .quick-buy-modal .close {
-        background-image: url("../img/layerclose@2x.png");
+        background-image: url("/assets/layerclose@2x.png");
         background-size: 11px 11px
     }
 }
@@ -22371,7 +22371,7 @@ input:checked + .detailbox-flexible.unavailable > span > span, input:checked + .
 .life-large-carousel .swipe-navigation-inner .swipe-navigation-prev:after,
 .life-large-carousel .swipe-navigation-inner .swipe-navigation-next:before,
 .life-large-carousel .swipe-navigation-inner .swipe-navigation-next:after {
-    background-image: url("../img/sprites-life.png");
+    background-image: url("/assets/sprites-life.png");
     -webkit-transform: rotate(0);
     -moz-transform: rotate(0);
     -ms-transform: rotate(0);
@@ -22385,7 +22385,7 @@ input:checked + .detailbox-flexible.unavailable > span > span, input:checked + .
     .life-large-carousel .swipe-navigation-inner .swipe-navigation-prev:after,
     .life-large-carousel .swipe-navigation-inner .swipe-navigation-next:before,
     .life-large-carousel .swipe-navigation-inner .swipe-navigation-next:after {
-        background-image: url("../img/sprites-life@2x.png");
+        background-image: url("/assets/sprites-life@2x.png");
         background-size: 260px 100px
     }
 }
@@ -22822,7 +22822,7 @@ input:checked + .detailbox-flexible.unavailable > span > span, input:checked + .
 }
 
 .life-article-carousel .swipe-navigation-prev, .life-article-carousel .swipe-navigation-next {
-    background-image: url("../img/sprites-life.png");
+    background-image: url("/assets/sprites-life.png");
     width: 40px;
     height: 70px;
     padding: 0;
@@ -22831,7 +22831,7 @@ input:checked + .detailbox-flexible.unavailable > span > span, input:checked + .
 
 @media only screen and (-webkit-min-device-pixel-ratio:1.3), only screen and (min--moz-device-pixel-ratio:1.3), only screen and (-o-min-device-pixel-ratio:1.3 / 1), only screen and (min-resolution:1.3dppx) {
     .life-article-carousel .swipe-navigation-prev, .life-article-carousel .swipe-navigation-next {
-        background-image: url("../img/sprites-life@2x.png");
+        background-image: url("/assets/sprites-life@2x.png");
         background-size: 260px 100px
     }
 }
@@ -22886,7 +22886,7 @@ input:checked + .detailbox-flexible.unavailable > span > span, input:checked + .
 }
 
 .life-social-links a {
-    background-image: url("../img/sprites-life.png");
+    background-image: url("/assets/sprites-life.png");
     text-indent: -9999px;
     display: inline-block;
     width: 15px;
@@ -22901,7 +22901,7 @@ input:checked + .detailbox-flexible.unavailable > span > span, input:checked + .
 
 @media only screen and (-webkit-min-device-pixel-ratio:1.3), only screen and (min--moz-device-pixel-ratio:1.3), only screen and (-o-min-device-pixel-ratio:1.3 / 1), only screen and (min-resolution:1.3dppx) {
     .life-social-links a {
-        background-image: url("../img/sprites-life@2x.png");
+        background-image: url("/assets/sprites-life@2x.png");
         background-size: 260px 100px
     }
 }
@@ -22955,37 +22955,37 @@ input:checked + .detailbox-flexible.unavailable > span > span, input:checked + .
 }
 
 .life-social-links a.life-social-link-weibo {
-    background-image: url("../img/life_social_weibo.png");
+    background-image: url("/assets/life_social_weibo.png");
     background-position: 0 0
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio:1.3), only screen and (min--moz-device-pixel-ratio:1.3), only screen and (-o-min-device-pixel-ratio:1.3 / 1), only screen and (min-resolution:1.3dppx) {
     .life-social-links a.life-social-link-weibo {
-        background-image: url("../img/life_social_weibo@2x.png");
+        background-image: url("/assets/life_social_weibo@2x.png");
         background-size: 15px 15px
     }
 }
 
 .life-social-links a.life-social-link-renren {
-    background-image: url("../img/life_social_renren.png");
+    background-image: url("/assets/life_social_renren.png");
     background-position: 0 0
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio:1.3), only screen and (min--moz-device-pixel-ratio:1.3), only screen and (-o-min-device-pixel-ratio:1.3 / 1), only screen and (min-resolution:1.3dppx) {
     .life-social-links a.life-social-link-renren {
-        background-image: url("../img/life_social_renren@2x.png");
+        background-image: url("/assets/life_social_renren@2x.png");
         background-size: 15px 15px
     }
 }
 
 .life-social-links a.life-social-link-youku {
-    background-image: url("../img/life_social_youku.png");
+    background-image: url("/assets/life_social_youku.png");
     background-position: 0 0
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio:1.3), only screen and (min--moz-device-pixel-ratio:1.3), only screen and (-o-min-device-pixel-ratio:1.3 / 1), only screen and (min-resolution:1.3dppx) {
     .life-social-links a.life-social-link-youku {
-        background-image: url("../img/life_social_youku@2x.png");
+        background-image: url("/assets/life_social_youku@2x.png");
         background-size: 15px 15px
     }
 }
@@ -23022,13 +23022,13 @@ input:checked + .detailbox-flexible.unavailable > span > span, input:checked + .
     margin-left: -40px;
     width: 30px;
     height: 30px;
-    background-image: url("../img/sprites-life.png");
+    background-image: url("/assets/sprites-life.png");
     background-position: -180px 0
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio:1.3), only screen and (min--moz-device-pixel-ratio:1.3), only screen and (-o-min-device-pixel-ratio:1.3 / 1), only screen and (min-resolution:1.3dppx) {
     .life-loadmore span:before {
-        background-image: url("../img/sprites-life@2x.png");
+        background-image: url("/assets/sprites-life@2x.png");
         background-size: 260px 100px
     }
 }
@@ -23124,12 +23124,12 @@ input:checked + .detailbox-flexible.unavailable > span > span, input:checked + .
 
 .life-shop-the-story-prev {
     left: 0;
-    background-image: url("../img/life_arrow_prev_small.png")
+    background-image: url("/assets/life_arrow_prev_small.png")
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio:1.3), only screen and (min--moz-device-pixel-ratio:1.3), only screen and (-o-min-device-pixel-ratio:1.3 / 1), only screen and (min-resolution:1.3dppx) {
     .life-shop-the-story-prev {
-        background-image: url("../img/life_arrow_prev_small@2x.png");
+        background-image: url("/assets/life_arrow_prev_small@2x.png");
         background-size: 19px 37px
     }
 }
@@ -23140,12 +23140,12 @@ input:checked + .detailbox-flexible.unavailable > span > span, input:checked + .
 
 .life-shop-the-story-next {
     right: 0;
-    background-image: url("../img/life_arrow_next_small.png")
+    background-image: url("/assets/life_arrow_next_small.png")
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio:1.3), only screen and (min--moz-device-pixel-ratio:1.3), only screen and (-o-min-device-pixel-ratio:1.3 / 1), only screen and (min-resolution:1.3dppx) {
     .life-shop-the-story-next {
-        background-image: url("../img/life_arrow_next_small@2x.png");
+        background-image: url("/assets/life_arrow_next_small@2x.png");
         background-size: 19px 37px
     }
 }
@@ -23208,7 +23208,7 @@ input:checked + .detailbox-flexible.unavailable > span > span, input:checked + .
 }
 
 .life-back-to-feed:before {
-    background-image: url("../img/life_article_back.png");
+    background-image: url("/assets/life_article_back.png");
     top: 1px;
     width: 19px;
     height: 31px;
@@ -23217,7 +23217,7 @@ input:checked + .detailbox-flexible.unavailable > span > span, input:checked + .
 
 @media only screen and (-webkit-min-device-pixel-ratio:1.3), only screen and (min--moz-device-pixel-ratio:1.3), only screen and (-o-min-device-pixel-ratio:1.3 / 1), only screen and (min-resolution:1.3dppx) {
     .life-back-to-feed:before {
-        background-image: url("../img/life_article_back@2x.png");
+        background-image: url("/assets/life_article_back@2x.png");
         background-size: 19px 30px
     }
 }
@@ -23228,7 +23228,7 @@ input:checked + .detailbox-flexible.unavailable > span > span, input:checked + .
 }
 
 .life-back-to-top:before {
-    background-image: url("../img/life_back_to_top.png");
+    background-image: url("/assets/life_back_to_top.png");
     top: 15px;
     width: 32px;
     height: 19px;
@@ -23237,7 +23237,7 @@ input:checked + .detailbox-flexible.unavailable > span > span, input:checked + .
 
 @media only screen and (-webkit-min-device-pixel-ratio:1.3), only screen and (min--moz-device-pixel-ratio:1.3), only screen and (-o-min-device-pixel-ratio:1.3 / 1), only screen and (min-resolution:1.3dppx) {
     .life-back-to-top:before {
-        background-image: url("../img/life_back_to_top@2x.png");
+        background-image: url("/assets/life_back_to_top@2x.png");
         background-size: 32px 20px
     }
 }
@@ -23360,7 +23360,7 @@ input:checked + .detailbox-flexible.unavailable > span > span, input:checked + .
 }
 
 .product-items-wrapper.loading:after {
-    background: url("../img/ajax-loader.gif");
+    background: url("/assets/ajax-loader.gif");
     background-size: 100%;
     bottom: 30px;
     content: "";
@@ -23738,7 +23738,7 @@ input:checked + .detailbox-flexible.unavailable > span > span, input:checked + .
 
 .checkout-payment-section .select-card-type label span {
     display: inline-block;
-    background-image: url("../img/credit-cards-radios.png");
+    background-image: url("/assets/credit-cards-radios.png");
     background-repeat: no-repeat;
     background-position: 0 0;
     position: relative;
@@ -23749,7 +23749,7 @@ input:checked + .detailbox-flexible.unavailable > span > span, input:checked + .
 
 @media only screen and (-webkit-min-device-pixel-ratio:1.3), only screen and (min--moz-device-pixel-ratio:1.3), only screen and (-o-min-device-pixel-ratio:1.3 / 1), only screen and (min-resolution:1.3dppx) {
     .checkout-payment-section .select-card-type label span {
-        background-image: url("../img/credit-cards-radios@2x.png");
+        background-image: url("/assets/credit-cards-radios@2x.png");
         background-size: 109px 23px
     }
 }
@@ -23806,7 +23806,7 @@ input:checked + .detailbox-flexible.unavailable > span > span, input:checked + .
 }
 
 .checkout-payment-section .credit-cards {
-    background-image: url("../img/credit-cards.png");
+    background-image: url("/assets/credit-cards.png");
     background-repeat: no-repeat;
     display: inline-block;
     height: 18px;
@@ -23815,7 +23815,7 @@ input:checked + .detailbox-flexible.unavailable > span > span, input:checked + .
 
 @media only screen and (-webkit-min-device-pixel-ratio:1.3), only screen and (min--moz-device-pixel-ratio:1.3), only screen and (-o-min-device-pixel-ratio:1.3 / 1), only screen and (min-resolution:1.3dppx) {
     .checkout-payment-section .credit-cards {
-        background-image: url("../img/credit-cards@2x.png");
+        background-image: url("/assets/credit-cards@2x.png");
         background-size: 66px 18px
     }
 }
@@ -23952,7 +23952,7 @@ input:checked + .detailbox-flexible.unavailable > span > span, input:checked + .
 }
 
 .checkout-encryption-info:before {
-    background-image: url("../img/encrypted.png");
+    background-image: url("/assets/encrypted.png");
     content: '';
     width: 10px;
     height: 13px;
@@ -23963,7 +23963,7 @@ input:checked + .detailbox-flexible.unavailable > span > span, input:checked + .
 
 @media only screen and (-webkit-min-device-pixel-ratio:1.3), only screen and (min--moz-device-pixel-ratio:1.3), only screen and (-o-min-device-pixel-ratio:1.3 / 1), only screen and (min-resolution:1.3dppx) {
     .checkout-encryption-info:before {
-        background-image: url("../img/encrypted@2x.png");
+        background-image: url("/assets/encrypted@2x.png");
         background-size: 10px 13px
     }
 }
