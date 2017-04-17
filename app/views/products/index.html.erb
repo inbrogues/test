@@ -355,11 +355,11 @@
                     <!-- Product item -->
                     <div class="grid col-3">
                       <article class="product-item club-price-item">
-                        <a href="#" title="" class="product-item-link">
+                        <%= link_to "/single/hm-#{product.product_datum[0].article}" , class: "product-item-link" do %>
                           
                           <img src="<%= product.img(:original) %>" alt="" width="222" height="333" class="product-item-image" data-altimage="<%= product.img_alt(:original) %>">
                           <button type="button" class="favorite icon icon-favorites js-favorite" data-tracking-type="event" data-saved-text="СОХРАНЕНО КАК ИЗБРАННОЕ" data-not-saved-text="СОХРАНИТЬ КАК ИЗБРАННОЕ">СОХРАНИТЬ КАК ИЗБРАННОЕ</button>
-                        </a>
+                        <%end%>
                         <div class="product-item-details">
                           <h3 class="product-item-heading">
                             <a href="#"><%=product.name%></a>
@@ -381,10 +381,12 @@
                     </div>
                     <!-- /Product item -->
                     <%end%>
-          
+                  
                   </div>
                 </div>
               </section>
+                  <%= will_paginate @products %>
+
               <!-- /Product items -->
               <a href="#" class="hidden listing-total-count" data-total-count="66"></a>
             </div>

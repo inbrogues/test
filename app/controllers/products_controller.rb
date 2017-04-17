@@ -14,9 +14,13 @@ class ProductsController < ApplicationController
 		end
 		
 		@color_active = @product_data.color
-
-		@products=Product.limit(6)
-
+		@products=Product.where(id: 
+			CategoriesProducts.where(category_id: 
+				CategoriesProducts.where(product_id: @product.id
+					).collect(&:category_id)
+				).collect(&:product_id)
+			).limit(6)
+		.order("RANDOM()")
 	end
 	def index
 		
@@ -128,6 +132,7 @@ class ProductsController < ApplicationController
 
 		@products=@productsAll[0..8]
 		@products_all=@productsAll.count
+		@products = @productsAll.paginate(:page => params[:page], :per_page => 30)
 		
 	end
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -182,11 +182,11 @@
 												<input type="radio" name="product-size" value="<%= product_product_size.size %>" data-size="001" id="filter-size-<%= product_data.article %>00">
 												<%if product_product_size.has%>
 												<div class="detailbox detailbox-value">
-													<span><%= product_product_size.size %></span>
+													<span><%= product_product_size.product_size.size %></span>
 												</div>
 												<%else%>
 												<div class="detailbox detailbox-value unavailable">
-													<span><%= product_product_size.size %></span>
+													<span><%= product_product_size.product_size.size %></span>
 												</div>
 												<%end%>
 
@@ -276,10 +276,10 @@
 									<div class="grid col-3">
 										<article class="product-item">
 											<!-- Product item -->
-											<a href="#" title="" class="product-item-link">
+											<%= link_to "/single/hm-#{p.product_datum[0].article}" , class: "product-item-link" do %>
                         						<%=image_tag(p.img(:original) , width:"222", height:"333", class:"product-item-image")%>
 												<button type="button" data-tracking-type="event" class="favorite icon icon-favorites js-favorite" data-saved-text="СОХРАНЕНО КАК ИЗБРАННОЕ" data-not-saved-text="СОХРАНИТЬ КАК ИЗБРАННОЕ">СОХРАНИТЬ КАК ИЗБРАННОЕ</button>
-											</a>
+											<%end%>
 											<div class="product-item-details">
 												<h3 class="product-item-heading">
 													<a href="#"><%=p.name%></a>
@@ -328,16 +328,16 @@
 								<% @products.each do |p| %>
 								<div class="grid col-2 ng-scope" ng-repeat="product in list">
 									<article class="product-item club-price-item">
-										<a class="product-item-link" href="#">
+										<%= link_to "/single/hm-#{p.product_datum[0].article}" , class: "product-item-link" do %>
                       						<%=image_tag(p.img(:original) , width:"140", height:"210", class:"product-item-image")%>
 											<button type="button" data-tracking-type="event" data-tracking-json-template="utagFavorite" data-tracking-params="Favourites|0440439013|Утепленный бомбер|PRODUCT_DETAIL_PAGE" class="favorite icon icon-favorites js-favorite" data-saved-text="" data-not-saved-text=""></button>
-										</a>
+										<%end%>
 										<div class="product-item-details">
 											<h3 class="product-item-headline">
 												<a class="ng-binding" href="#"><%=p.name%></a>
 											</h3>
 											<% if p.product_datum[0]!=nil and p.product_datum[0].price!=nil %>
-												<strong class="price sale-price ng-binding ng-hide"><%= p.price%> Грн</strong> 
+												<strong class="price sale-price ng-binding ng-hide"><%= p.product_datum[0].price%> Грн</strong> 
 											<%else%>
 												<strong class="price sale-price ng-binding ng-hide">Уточняеться</strong>
 											<% end %>
