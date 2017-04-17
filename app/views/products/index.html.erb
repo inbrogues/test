@@ -245,142 +245,44 @@
                   <div class="filteractions clearfix">
                     <ul class="triggers clearfix">
                       <!--  category condition  -->
-                      <li class="js-clickexpand clickexpand filter ">
+                      <li class="js-clickexpand clickexpand filter " data-expandoptions="{&quot;toggle&quot;:&quot;true&quot;}">
                         <a href="javascript:;" class="trigger js-expandtrigger"> <strong>Фильтр</strong>
                         </a>
                         <div class="expandtarget js-expandtarget filters">
-                          <form class="js-product-list-filter-form ng-pristine ng-valid" method="get" data-productlist-page="true" data-filtered-products-url="#">
+                          <form class="js-product-list-filter-form ng-pristine ng-valid" method="get" data-productlist-page="true" data-filtered-products-url="/products">
                             <div class="row">
                               <div class="cols clearfix">
                                 <div class="col">
                                   <h4>Цвет</h4>
-                                  <ul class="inputlist grid" data-filter-param-name="colorWithNames">
-                                    <li>
-                                      <a href="#" title="Черный" class="filter-option" data-value="">
-                                        <span class="pattern" style="background:#000000;"></span>
-                                        Черный
-                                      </a>
-                                    </li>
-                                    <li>
-                                      <a href="#" title="Синий" class="filter-option" data-value="">
-                                        <span class="pattern" style="background:#0000ff;"></span>
-                                        Синий
-                                      </a>
-                                    </li>
-                                    <li>
-                                      <a href="#" title="Зеленый" class="filter-option" data-value="">
-                                        <span class="pattern" style="background:#008000;"></span>
-                                        Зеленый
-                                      </a>
-                                    </li>
-                                    <li>
-                                      <a href="#" title="Серый" class="filter-option" data-value="">
-                                        <span class="pattern" style="background:#808080;"></span>
-                                        Серый
-                                      </a>
-                                    </li>
-                                    <li>
-                                      <a href="#" title="Коричневый" class="filter-option" data-value="">
-                                        <span class="pattern" style="background:#a52a2a;"></span>
-                                        Коричневый
-                                      </a>
-                                    </li>
-                                    <li>
-                                      <a href="#" title="Бежевый" class="filter-option" data-value="">
-                                        <span class="pattern" style="background:#f5f5dc;"></span>
-                                        Бежевый
-                                      </a>
-                                    </li>
-                                    <li>
-                                      <a href="#" title="Красный" class="filter-option" data-value="">
-                                        <span class="pattern" style="background:#ff0000;"></span>
-                                        Красный
-                                      </a>
-                                    </li>
-                                    <li>
-                                      <a href="#" title="Оранжевый" class="filter-option" data-value="">
-                                        <span class="pattern" style="background:#ffa500;"></span>
-                                        Оранжевый
-                                      </a>
-                                    </li>
-                                    <li>
-                                      <a href="#" title="Розовый" class="filter-option" data-value="">
-                                        <span class="pattern" style="background:#ffc0cb;"></span>
-                                        Розовый
-                                      </a>
-                                    </li>
-                                    <li>
-                                      <a href="#" title="White" class="filter-option" data-value="">
-                                        <span class="pattern" style="background:#ffffff;"></span>
-                                        White
-                                      </a>
-                                    </li>
+                                  <ul class="inputlist grid" data-filter-param-name="colorWithNames[]">
+                                  <% @PossibleColors.each do |c|%>
+                                        <li>
+                                          <a href="/bodies" title="<%= c.name %>" class="filter-option <% if @ChoizenColor.include?(c.name) %> active <% end %>" data-value="<%= c.name %>">
+                                            <span class="pattern" style="background:#000000;"></span>
+                                            <%= c.name %>
+                                          </a>
+                                        </li>
+                                    <% end %>
                                   </ul>
                                 </div>
 
                                 <div class="col">
                                   <h4>Размер</h4>
                                   <ul class="inputlist row-cols">
-                                    <li class="row-col">
-                                      <ul data-filter-param-name="sizes" class="inputlist rows">
-                                        <li>
-                                          <label for="filter-size-5_xs">
-                                            <input id="filter-size-5_xs" type="checkbox" value="5_xs">
-                                            <div class="detailbox detailbox-value">
-                                              <span>xs</span>
-                                            </div>
-                                          </label>
-                                        </li>
-                                      </ul>
-                                    </li>
-                                    <li class="row-col">
-                                      <ul data-filter-param-name="sizes" class="inputlist rows">
-                                        <li>
-                                          <label for="filter-size-9_s">
-                                            <input id="filter-size-9_s" type="checkbox" value="9_s">
-                                            <div class="detailbox detailbox-value">
-                                              <span>s</span>
-                                            </div>
-                                          </label>
-                                        </li>
-                                      </ul>
-                                    </li>
-                                    <li class="row-col">
-                                      <ul data-filter-param-name="sizes" class="inputlist rows">
-                                        <li>
-                                          <label for="filter-size-17_l">
-                                            <input id="filter-size-17_l" type="checkbox" value="17_l">
-                                            <div class="detailbox detailbox-value">
-                                              <span>l</span>
-                                            </div>
-                                          </label>
-                                        </li>
-                                      </ul>
-                                    </li>
-                                    <li class="row-col">
-                                      <ul data-filter-param-name="sizes" class="inputlist rows">
-                                        <li>
-                                          <label for="filter-size-21_xl">
-                                            <input id="filter-size-21_xl" type="checkbox" value="21_xl">
-                                            <div class="detailbox detailbox-value">
-                                              <span>xl</span>
-                                            </div>
-                                          </label>
-                                        </li>
-                                      </ul>
-                                    </li>
-                                    <li class="row-col">
-                                      <ul data-filter-param-name="sizes" class="inputlist rows">
-                                        <li>
-                                          <label for="filter-size-1432_m">
-                                            <input id="filter-size-1432_m" type="checkbox" value="1432_m">
-                                            <div class="detailbox detailbox-value">
-                                              <span>m</span>
-                                            </div>
-                                          </label>
-                                        </li>
-                                      </ul>
-                                    </li>
+                                    <% @PossibleSizes.each_with_index do |c, k|%>
+                                      <li class="row-col">
+                                        <ul data-filter-param-name="sizes[]" class="inputlist rows">
+                                          <li>
+                                            <label for="filter-size-<%= c.size %>">
+                                              <input id="filter-size-<%= c.size %>" type="checkbox" value="<%= c.size %>" <% if @ChoizenSize.include?(c.size) %> checked="checked" <% end %>>
+                                              <div class="detailbox detailbox-value">
+                                                <span><%= c.size %></span>
+                                              </div>
+                                            </label>
+                                          </li>
+                                        </ul>
+                                      </li>
+                                    <% end %>
                                   </ul>
                                 </div>
                               </div>
@@ -390,23 +292,23 @@
                               <button class="button button-secondary js-filters-clear" disabled="disabled">СБРОСИТЬ ФИЛЬТР</button>
                               <a class="button js-filters-close" href="javascript:;">Закрыть</a>
                             </div>
-                            <input type="hidden" name="image" value="" class="filter-toggle-images-value" data-filter-param-name="image"></form>
+                            <!-- <input type="hidden" name="image" value="stillLife" class="filter-toggle-images-value" data-filter-param-name="image"></form> -->
                         </div>
                       </li>
-                      <li class="js-clickexpand clickexpand sort-by " data-expandoptions="">
+                      <li class="js-clickexpand clickexpand sort-by " data-expandoptions="jkjkj">
                         <a href="javascript:;" class="trigger js-expandtrigger">
                           <strong>Сортировать</strong>
                         </a>
                         <div class="expandtarget js-expandtarget sort">
                           <ul class="menu toggleCurrent">
-                            <li class="menu-sub-item">
-                              <span class="menu-link" data-value="">Новинки</span>
+                            <li class="menu-sub-item current">
+                              <span class="menu-link" data-value="best">Лучшее</span>
                             </li>
                             <li class="menu-sub-item">
-                              <span class="menu-link" data-value="ascPrice">Самая низкая цена</span>
+                              <span class="menu-link" data-value="PriceAsc">Самая низкая цена</span>
                             </li>
                             <li class="menu-sub-item">
-                              <span class="menu-link" data-value="descPrice">Самая высокая цена</span>
+                              <span class="menu-link" data-value="PriceDesc">Самая высокая цена</span>
                             </li>
                           </ul>
                         </div>
@@ -432,7 +334,7 @@
                     </li>
                   </ul>
                 </div>
-                <div class="grid col-3 filter-group toggle-images">
+                <!-- <div class="grid col-3 filter-group toggle-images">
                   <ul>
                     <li>
                       <a id="color_filter_model" href="#" data-value="model" class="">Модель</a>
@@ -441,10 +343,10 @@
                       <a id="color_filter_stillLife" href="#" data-value="stillLife" class="selected">Изделие</a>
                     </li>
                   </ul>
-                </div>
+                </div> -->
               </div>
             </div>
-            <div class="product-items-wrapper">
+            <div class="product-items-wrapper clearfix" data-articlecode="#">
               <section class="product-items big productlist-row">
                 <!-- Product items -->
                 <div class="product-items-content">
@@ -454,7 +356,8 @@
                     <div class="grid col-3">
                       <article class="product-item club-price-item">
                         <a href="#" title="" class="product-item-link">
-                          <%=image_tag(product.img(:original) , width:"222", height:"333", class:"product-item-image")%>
+                          
+                          <img src="<%= product.img(:original) %>" alt="" width="222" height="333" class="product-item-image" data-altimage="<%= product.img_alt(:original) %>">
                           <button type="button" class="favorite icon icon-favorites js-favorite" data-tracking-type="event" data-saved-text="СОХРАНЕНО КАК ИЗБРАННОЕ" data-not-saved-text="СОХРАНИТЬ КАК ИЗБРАННОЕ">СОХРАНИТЬ КАК ИЗБРАННОЕ</button>
                         </a>
                         <div class="product-item-details">
@@ -493,3 +396,4 @@
     </div>
     <div class="parbase overlaycontainer"></div>
   </main>
+
