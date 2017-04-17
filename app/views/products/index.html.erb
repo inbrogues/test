@@ -364,8 +364,14 @@
                           <h3 class="product-item-heading">
                             <a href="#"><%=product.name%></a>
                           </h3>
-                          <% if product.product_datum[0]!=nil and product.product_datum[0].price!=nil %>
+                        <% if product.product_datum[0]!=nil and product.product_datum[0].price!=nil %>
+                          <%if product.product_datum[0].promotional_price!=nil and product.product_datum[0].promotional_price>0 %>
+                            <strong class="price sale-price"> <%=product.product_datum[0].promotional_price%> Грн
+                              <span class="price original-price"><%= product.product_datum[0].price%> Грн</span>
+                            </strong>
+                          <%else%>
                           <strong class="price"><%= product.product_datum[0].price%> Грн</strong>
+                          <%end%>
                         <%else%>
                           <strong class="price">Уточняеться</strong>
                         <% end %>

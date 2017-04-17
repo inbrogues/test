@@ -139,9 +139,16 @@
 					<div class="product-detail-options">
 						<h1 class="product-item-headline"><%= @product.name%></h1>
 						<div class="price parbase">
-							<div class="product-item-price">
-								<span class="price-value"><%= @product_data.price%> Грн</span>
-							</div>
+							<%if @product_data.promotional_price!=nil and @product_data.promotional_price>0 %>
+								<div class="product-item-price product-item-price-discount">
+									<span class="price-value"><%= @product_data.promotional_price%> Грн</span>
+									<small class="price-value-original"><%= @product_data.price%> Грн</small>
+								</div>
+							<%else%>
+								<div class="product-item-price">
+									<span class="price-value"><%= @product_data.price%> Грн</span>
+								</div>
+							<%end%>
 						</div>
 						<div class="product-item-selection hidden"></div>
 						<div id="swatchsize">
@@ -285,10 +292,17 @@
 													<a href="#"><%=p.name%></a>
 												</h3> 
 												<% if p.product_datum[0]!=nil and p.product_datum[0].price!=nil %>
+													<%if p.product_datum[0].promotional_price!=nil and  p.product_datum[0].promotional_price>0 %>
+														<strong class="price sale-price"> <%=p.product_datum[0].promotional_price%> Грн
+															<span class="price original-price"><%= p.product_datum[0].price%> Грн</span>
+														</strong>
+													<%else%>
 													<strong class="price"><%= p.product_datum[0].price%> Грн</strong>
+													<%end%>
 												<%else%>
 													<strong class="price">Уточняеться</strong>
 												<% end %>
+
 												<div class="product-item-selection"></div>
 												<ul class="list-swatches">
 
@@ -336,11 +350,17 @@
 											<h3 class="product-item-headline">
 												<a class="ng-binding" href="#"><%=p.name%></a>
 											</h3>
-											<% if p.product_datum[0]!=nil and p.product_datum[0].price!=nil %>
-												<strong class="price sale-price ng-binding ng-hide"><%= p.product_datum[0].price%> Грн</strong> 
-											<%else%>
-												<strong class="price sale-price ng-binding ng-hide">Уточняеться</strong>
-											<% end %>
+												<% if p.product_datum[0]!=nil and p.product_datum[0].price!=nil %>
+													<%if p.product_datum[0].promotional_price!=nil and  p.product_datum[0].promotional_price>0 %>
+														<strong class="price sale-price"> <%=p.product_datum[0].promotional_price%> Грн
+															<span class="price original-price"><%= p.product_datum[0].price%> Грн</span>
+														</strong>
+													<%else%>
+													<strong class="price"><%= p.product_datum[0].price%> Грн</strong>
+													<%end%>
+												<%else%>
+													<strong class="price">Уточняеться</strong>
+												<% end %>
 												<span class="price original-price ng-binding"></span>
 											<ul class="list-swatches">
 												<!-- ngRepeat: color in product.variantData -->
