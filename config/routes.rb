@@ -106,8 +106,12 @@ Rails.application.routes.draw do
   get 'products/:categorie0/:categorie1/:categorie2/:categorie3' => 'products#index'
   
   get 'search/' => 'products#search'
-
   get 'single/hm-:article' => 'products#single'
+
+  get 'addtofavorite/:id' => 'products#addtofavorite'
+  get 'removetofavorite/:id' => 'products#removetofavorite'
+  get 'favourites' => 'products#favourites'
+  
   resources :products, only: [:edit, :update, :destroy]
   #users
   get 'login' => 'users#login'

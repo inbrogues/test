@@ -195,7 +195,24 @@ class ProductsController < ApplicationController
 			).collect(&:main_color_id)
 		)
 		@products=@productsAll.paginate(:page => params[:page], :per_page => 30)
+	end
+	def favourites
+		session[:favorite]||=[]
+		@all=session[:favorite]
+		@products_datum=ProductDatum.where(id: session[:favorite])
 
+	end
+	def addtofavorite
+		session[:favorite]||=[]
+		session[:favorite]<<params[:id]
+		redirect_to action:  'favourites' 
+	end
+	def removetofavorite
+		session[:favorite]||=[]
+		if session[:favorite].include?(params[:id])
+			session[:favorite].delete_at(arr.index(params[:id]))
+		end
+		redirect_to action:  'favourites' 
 	end
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
