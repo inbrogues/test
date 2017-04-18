@@ -105,6 +105,8 @@ Rails.application.routes.draw do
   get 'products/:categorie0/:categorie1/:categorie2' => 'products#index'
   get 'products/:categorie0/:categorie1/:categorie2/:categorie3' => 'products#index'
   
+  get 'search/' => 'products#search'
+
   get 'single/hm-:article' => 'products#single'
   resources :products, only: [:edit, :update, :destroy]
   #users

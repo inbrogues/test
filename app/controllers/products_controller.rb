@@ -132,12 +132,75 @@ class ProductsController < ApplicationController
 
 		@products=@productsAll[0..8]
 		@products_all=@productsAll.count
-		@products = @productsAll.paginate(:page => params[:page], :per_page => 30)
+		@products = @productsAll.paginate(:page => params[:page], :per_page => 30)	
+	end
+	def search
+		@search = params[:search]||""
+		#color
+		@res=[]
+		@res+=ProductDatum.where(color_id: 
+			Color.where("name LIKE ?", "%#{@search}%")
+			.collect(&:id)
+		).collect(&:product_id)
 		
+		#имя 
+		@res+=Product.where("name LIKE ?", "%#{@search}%").collect(&:id)
+
+
+		#артикл
+		@res+=ProductDatum.where("article LIKE ?", "%333%").collect(&:product_id)
+
+		#размер
+		@res+=ProductDatum.where(id: 
+			ProductProductSize.where(product_size_id: 
+				ProductSize.where("size LIKE ?", "%#{@search}%")
+				.collect(&:id)
+			).collect(&:product_id)
+		).collect(&:product_id)		
+		#Категории
+		@res+=CategoriesProducts.where(category_id: 
+			Category.where("name LIKE ?", "%#{@search}%")
+			.collect(&:id)
+		).collect(&:id)
+
+		
+		@res=@res.each_with_object( {} ) {|e, h| h[e] ||= 0; h[e] += 1 }.sort_by {|o, ct| [-ct, o] }
+
+		@ids=[]
+
+		@res.each{|k| @ids<<k[0]}
+
+		@productsAll=Product.where(id: @ids)
+
+
+		@ChoizenColor = params[:colorWithNames]||[]
+		@ChoizenSize = params[:sizes]||[]
+
+
+
+		@PossibleSizes=ProductSize.where(id: 
+			ProductProductSize.where(product_id: 
+				ProductDatum.where(product_id: 
+					@productsAll.collect(&:id)
+				).collect(&:id), has:true
+			).collect(&:product_size_id)
+		)
+	
+		
+		@PossibleColors=MainColor.where(id: 
+			Color.where(id: 
+				ProductDatum.where(product_id: 
+					@productsAll.collect(&:id)
+				).collect(&:color_id)
+			).collect(&:main_color_id)
+		)
+		@products=@productsAll.paginate(:page => params[:page], :per_page => 30)
+
 	end
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
       params.require(:product).permit(:img , :img_alt)
     end
+
 
 end
