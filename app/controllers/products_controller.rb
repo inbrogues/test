@@ -148,7 +148,7 @@ class ProductsController < ApplicationController
 
 
 		#артикл
-		@res+=ProductDatum.where("article LIKE ?", "%333%").collect(&:product_id)
+		@res+=ProductDatum.where("article LIKE ?", "%#{@search}%").collect(&:product_id)
 
 		#размер
 		@res+=ProductDatum.where(id: 

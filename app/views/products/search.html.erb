@@ -9,7 +9,7 @@
         <!-- Breadcrumbs -->
         <ul>
           <li><a href="#">YourHM</a></li>
-          <li>Женщины</li>
+          <li>Результаты поиска</li>
         </ul>
       </nav>
       <!-- /Breadcrumbs -->
@@ -17,145 +17,9 @@
 
     <div class="layout">
       <section class="sidebarpluscontent modules">
-        <aside class="aside section-menu">
-          <div class="left parbase">
-            <nav class="section-menu">
-              <ul>
-                <li>
-                  <h2>
-                    <a href="#">Женщины</a>
-                  </h2>
-                  <div class="section-menu-sub-menu">
-                    <div class="section-menu-sub-menu-inner">
-                          <div class="section-menu-categories">
-
-                            <div class="section-menu-category">
-                              <h4 class="">
-                                <span>Новые поступления</span>
-                              </h4>
-                              <ul style="display: block;">
-
-                                <li class="section-menu-subdepartment ">
-                                  <a href="#">Одежда</a>
-                                </li>
-
-                                <li class="section-menu-subdepartment ">
-                                  <a href="#">Обувь</a>
-                                </li>
-
-                                <li class="section-menu-subdepartment ">
-                                  <a href="#">Аксессуары</a>
-                                </li>
-
-                              </ul>
-                            </div>
-
-                            <div class="section-menu-category">
-                              <h4 class="">
-                                <span>ИЗБРАННОЕ</span>
-                              </h4>
-                              <ul style="display: block;">
-
-                                <li class="section-menu-subdepartment ">
-                                  <a href="#">Bещь недели</a>
-                                </li>
-
-                                <li class="section-menu-subdepartment ">
-                                  <a href="#">Утилитарный стиль</a>
-                                </li>
-
-                                <li class="section-menu-subdepartment ">
-                                  <a href="#">Белье и одежда для сна</a>
-                                </li>
-
-                                <li class="section-menu-subdepartment ">
-                                  <a href="#">Весенние куртки</a>
-                                </li>
-                              </ul>
-                            </div>
-
-                            <div class="section-menu-category">
-                              <h4 class="">
-                                <span>КОЛЛЕКЦИИ</span>
-                              </h4>
-                              <ul style="display: block;">
-
-                                <li class="section-menu-subdepartment current">
-                                  <a href="#">Blue Darlings</a>
-                                </li>
-                                <li class="section-menu-subdepartment ">
-                                  <a href="#">НОВИНКИ ВЕСНЫ</a>
-                                </li>
-                                <li class="section-menu-subdepartment ">
-                                  <a href="#">H&M Studio S/S 2017</a>
-                                </li>
-                                <li class="section-menu-subdepartment ">
-                                  <a href="#">New Trends To Try</a>
-                                </li>
-                                <li class="section-menu-subdepartment ">
-                                  <a href="#">Premium Essentials</a>
-                                </li>
-                              </ul>
-                            </div>
-
-                            <div class="section-menu-category">
-                              <h4 class="">
-                                <span>ВЫБРАТЬ КОЛЛЕКЦИЮ</span>
-                              </h4>
-                              <ul style="display: block;">
-                                <li class="section-menu-subdepartment ">
-                                  <a href="#">Divided</a>
-                                </li>
-
-                                <li class="section-menu-subdepartment ">
-                                  <a href="#">Trend</a>
-                                </li>
-
-                                <li class="section-menu-subdepartment ">
-                                  <a href="#">Modern Classic</a>
-                                </li>
-
-                                <li class="section-menu-subdepartment ">
-                                  <a href="#">Party</a>
-                                </li>
-
-                                <li class="section-menu-subdepartment ">
-                                  <a href="#">Basics</a>
-                                </li>
-
-                                <li class="section-menu-subdepartment ">
-                                  <a href="#">L.O.G.G.</a>
-                                </li>
-
-                                <li class="section-menu-subdepartment ">
-                                  <a href="#">Sportswear</a>
-                                </li>
-
-                                <li class="section-menu-subdepartment ">
-                                  <a href="#">Premium Quality</a>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                    </div>
-                  </div>
-
-                </li>
-              </ul>
-            </nav>
-          </div>
-
-          <div class="left-bottom parsys"></div>
-        </aside>
-        <div class="parsys main">
+        <div class="parsys main" style="width: 100%;">
           <div class="heading parbase section text">
-            <h1 class="">КУРТКИ</h1>
-          </div>
-          <div class="parbase section text">
-            <p>
-              Модные куртки на каждый день. Выбирайте изделия стильных фасонов или
-              классические модели, чтобы отлично выглядеть и не мерзнуть.
-            </p>
+            <h1 class="">ПОКАЗАНЫ РЕЗУЛЬТАТЫ ДЛЯ "<%=@search%>"</h1>
           </div>
           <div class="productlisting parbase section">
             <!--PAGE:productListing -->
@@ -254,7 +118,7 @@
                         <strong>ОТОБРАЖАЕТСЯ</strong>
                         <span class="load-count"><%= @products.size %></span>
                         из
-                        <span class="total-counts"><%= @products_all %></span>
+                        <span class="total-counts"><%= @productsAll.size %></span>
                         товаров
                       </span>
                     </li>
@@ -273,10 +137,6 @@
               </div>
             </div>
             <div class="product-items-wrapper clearfix" data-articlecode="#">
-              <section class="product-items big productlist-row">
-                <!-- Product items -->
-                <div class="product-items-content">
-                  <div class="row">
                     <%@products.each do |product| %>
                     <!-- Product item -->
                     <div class="grid col-3">
@@ -313,10 +173,6 @@
                     </div>
                     <!-- /Product item -->
                     <%end%>
-                  
-                  </div>
-                </div>
-              </section>
                   <%= will_paginate @products %>
 
               <!-- /Product items -->
