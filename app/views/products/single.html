@@ -180,29 +180,28 @@
 									Размер:
 									<span>Select size</span>
 								</div>
-								<ul class="inputlist clearfix" data-sizelist="" style="display: block;">
 								<% @product_datas.each do |product_data| %>
-									<% if (product_data.product_product_sizes) %>
-										<% product_data.product_product_sizes.each_with_index do |product_product_size, k| %>
-										<li>
-											<label for="filter-size-<%= product_data.article %>00<%= k %>">
-												<input type="radio" name="product-size" value="<%= product_product_size.size %>" data-size="001" id="filter-size-<%= product_data.article %>00">
-												<%if product_product_size.has%>
-												<div class="detailbox detailbox-value">
-													<span><%= product_product_size.product_size.size %></span>
-												</div>
-												<%else%>
-												<div class="detailbox detailbox-value unavailable">
-													<span><%= product_product_size.product_size.size %></span>
-												</div>
-												<%end%>
-
-											</label>
-										</li>
+									<ul class="inputlist clearfix" data-sizelist="<%= product_data.article %>0000" >
+										<% if (product_data.product_product_sizes) %>
+											<% product_data.product_product_sizes.each_with_index do |product_product_size, k| %>
+												<li>
+													<label for="filter-size-<%= product_data.article %>00<%= k %>">
+														<input type="radio" name="product-size" value="<%= product_product_size.size %>" data-size="001" id="filter-size-<%= product_data.article %>00<%= k %>" <%if ! product_product_size.has%> disabled <% end %>>
+														<%if product_product_size.has%>
+														<div class="detailbox detailbox-value">
+															<span><%= product_product_size.product_size.size %></span>
+														</div>
+														<%else%>
+														<div class="detailbox detailbox-value unavailable">
+															<span><%= product_product_size.product_size.size %></span>
+														</div>
+														<%end%>
+													</label>
+												</li>
+											<%end%>
 										<%end%>
-									<%end%>
+									</ul>
 								<%end%>
-								</ul>
 								<div class="product-detail-linked-product">
 									<a href="#" class="underline overlay-trigger">Руководство по размерам</a>
 								</div>
@@ -267,65 +266,7 @@
 				</section>
 			</div>
 		</div>
-		<div class="parbase stylewith">
-			<div class="style-with" id="style-with-article-code-0462979003">
 
-				<section class="product-items component-row">
-					<!-- Product items -->
-					<header>
-						<h2 class="product-items-title">Сочетается</h2>
-					</header>
-					<div class="product-items-content">
-						<div class="row swipe" style="visibility: visible;">
-							<ul class="swipe-items">
-								<li class="swipe-item">
-									<%  @products[0..3].each do |p|%>
-									<div class="grid col-3">
-										<article class="product-item">
-											<!-- Product item -->
-											<%= link_to "/single/hm-#{p.product_datum[0].article}" , class: "product-item-link" do %>
-                        						<%=image_tag(p.img(:original) , width:"222", height:"333", class:"product-item-image")%>
-												<button type="button" data-tracking-type="event" class="favorite icon icon-favorites js-favorite" data-saved-text="СОХРАНЕНО КАК ИЗБРАННОЕ" data-not-saved-text="СОХРАНИТЬ КАК ИЗБРАННОЕ">СОХРАНИТЬ КАК ИЗБРАННОЕ</button>
-											<%end%>
-											<div class="product-item-details">
-												<h3 class="product-item-heading">
-													<a href="#"><%=p.name%></a>
-												</h3> 
-												<% if p.product_datum[0]!=nil and p.product_datum[0].price!=nil %>
-													<%if p.product_datum[0].promotional_price!=nil and  p.product_datum[0].promotional_price>0 %>
-														<strong class="price sale-price"> <%=p.product_datum[0].promotional_price%> Грн
-															<span class="price original-price"><%= p.product_datum[0].price%> Грн</span>
-														</strong>
-													<%else%>
-													<strong class="price"><%= p.product_datum[0].price%> Грн</strong>
-													<%end%>
-												<%else%>
-													<strong class="price">Уточняеться</strong>
-												<% end %>
-
-												<div class="product-item-selection"></div>
-												<ul class="list-swatches">
-
-													<%p.color.each do |c|  %>
-														<li class="item">
-															<%=image_tag(c.img(:original) ,class:"swatch")%>
-														</li>
-													<%end%>
-
-												</ul>
-											</div>
-										</article>
-										<!-- /Product item -->
-									</div>
-									<%end%>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</section>
-				<!-- /Product items -->
-			</div>
-		</div>
 
 		<div class="praone parbase productrecommendationarea">
 			<!-- PRA 1 -->
@@ -390,19 +331,22 @@
 
     <script>
   $(document).ready(function(){
-    // окно сайзгайда
-    $('.product-detail-linked-product > a, .modalclose').click(function(){
-    	$('.modaloverlay').toggleClass('hidden');
-    });
-    // окно сайзгайда/
-    // описание
-    $('.tab-item > a').click(function(){
-    	$('.tab-item > a').removeClass('active');
-    	$(this).addClass('active');
-    	var i = $(this).parent().index();
-    	$('.tab-pane').removeClass('active');
-    	$('.tab-pane').eq(i).addClass('active');
-    });
+    // // окно сайзгайда
+    // $('.product-detail-linked-product > a, .modalclose').click(function(){
+    // 	$('.modaloverlay').toggleClass('hidden');
+    // });
+    // // окно сайзгайда/
+    // // описание
+    // $('.tab-item > a').click(function(){
+    // 	$('.tab-item > a').removeClass('active');
+    // 	$(this).addClass('active');
+    // 	var i = $(this).parent().index();
+    // 	$('.tab-pane').removeClass('active');
+    // 	$('.tab-pane').eq(i).addClass('active');
+    // });
     // описание /
+  	var color = $('.filter-option.active').attr('data-articlecode');
+    $('.inputlist.clearfix[data-sizelist="' + color +'"]').show();
   });
+
   </script>

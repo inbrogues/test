@@ -19808,9 +19808,9 @@ input:checked + .detailbox-flexible.unavailable > span > span, input:checked + .
     display: none
 }
 
-/*.product-detail-meta .product-sizes .inputlist {
+.product-detail-meta .product-sizes .inputlist {
     display: none
-}*/
+}
 
 .product-detail-meta .detailbox.detailbox-dualvalue {
     background: #0d0d0d;
