@@ -216,7 +216,7 @@
 
 						<button class="button button-big button-secondary button-favorite icon icon-favorites-dark js-button-favorite is-favorite">СОХРАНЕНО КАК ИЗБРАННОЕ</button>
 
-						<button class="button button-big button-secondary button-favorite icon icon-favorites-dark js-button-favorite" data-id="<%= @product.product_datum[0].id %>">СОХРАНИТЬ КАК ИЗБРАННОЕ</button>
+						<button class="button button-big button-secondary button-favorite icon icon-favorites-dark js-button-favorite" data-id="<%= @product_data.id %>">СОХРАНИТЬ КАК ИЗБРАННОЕ</button>
 
 						<div class="parbase details">
 							<div class="product-detail-tabs tabs">
@@ -353,7 +353,7 @@
     $('.button-favorite').click(function(){
       var a = $(this).attr('data-id');
       console.log('click');
-        $.get("/addtofavorite/"+a, function(data) {
+        $.get("/addtofavorite/"+<%= @product_data.id %>, function(data) {
           console.log(data);
         });
       });
