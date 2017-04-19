@@ -214,7 +214,9 @@
 						</div>
 						<button class="button button-big button-buy product-details-favorite button-disabled" data-not-added-text="Вы должны выбрать имеющийся в наличии размер" data-added-text="Товар добавлен" data-shopping-bag-text="Корзина" data-shopping-bag-failed-text="При добавлении товара в корзину произошла ошибка" data-quantity-text="Количество" data-color-text="Цвет" data-size-text="Размер" data-default-quantity="1" data-sold-out-text="Распродано" data-not-added-sold-out-text="Изделие данного цвета распродано во всех размерах">Добавить в корзину</button>
 
-						<button data-tracking-type="event" data-tracking-json-template="utagFavorite" data-tracking-params="" class="button button-big button-secondary button-favorite icon icon-favorites-dark js-button-favorite is-favorite" data-saved-text="СОХРАНЕНО КАК ИЗБРАННОЕ" data-not-saved-text="СОХРАНИТЬ КАК ИЗБРАННОЕ">СОХРАНЕНО КАК ИЗБРАННОЕ</button>
+						<button class="button button-big button-secondary button-favorite icon icon-favorites-dark js-button-favorite is-favorite">СОХРАНЕНО КАК ИЗБРАННОЕ</button>
+
+						<button class="button button-big button-secondary button-favorite icon icon-favorites-dark js-button-favorite" data-id="<%= @product.product_datum[0].id %>">СОХРАНИТЬ КАК ИЗБРАННОЕ</button>
 
 						<div class="parbase details">
 							<div class="product-detail-tabs tabs">
@@ -347,6 +349,14 @@
     // описание /
   	var color = $('.filter-option.active').attr('data-articlecode');
     $('.inputlist.clearfix[data-sizelist="' + color +'"]').show();
+
+    $('.button-favorite').click(function(){
+      var a = $(this).attr('data-id');
+      console.log('click');
+        $.get("/addtofavorite/"+a, function(data) {
+          console.log(data);
+        });
+      });
   });
 
   </script>

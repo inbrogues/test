@@ -13,132 +13,96 @@
 <%end%>
 <main role="main" class="responsive fill">
     <div class="wrapper">
+
         <nav class="breadcrumbs">
             <ul>
                 <li>
-
-                    <a href="/ru_ru/">HM.COM</a>
+                    <a href="#">YourHM.com</a>
                 </li>
-
             </ul>
         </nav>
 
         <div class="wrapper">
             <h1 class="favorite-heading">ЛЮБИМЫЕ МОДЕЛИ</h1>
             <div  ng-controller="FavoritesContextController" ng-cloak>
-                <div class="responsive status-message is-open secondary favorites-message " ng-if="true && getContext().data.entries.length >
-                    0">
+                <div class="responsive status-message is-open secondary favorites-message">
                     <div class="message ">
                         Сохраните эти товары бессрочно и выполняйте управление при помощи любого устройства посредством
-                        <a href="/ru_ru/login" class="link">входа в уже существующую учетную запись,</a>
+                        <a href="#" class="link">входа в уже существующую учетную запись,</a>
                         или
-                        <a href="/ru_ru/register" class="link">создания новой учетной записи.</a>
+                        <a href="#" class="link">создания новой учетной записи.</a>
                     </div>
                 </div>
-                <div class="favorite-items-quantity" ng-if="getContext().data.entries.length >
-                    0">
-                    <span class="favorite-items-quantity-number" data-single-text="item" data-multiple-text="items">
-                        {{getContext().data.entries.length}}
-                        <span ng-if="getContext().data.entries.length >1">Товары</span>
-                        <span ng-if="getContext().data.entries.length == 1">Товар</span>
-                    </span>
+                <div class="favorite-items-quantity" >
+
                 </div>
-                <ul ng-if="getContext().data.entries.length >
-                    0" class="product-detail-list responsive favorite-list js-favorite-list" id="favouritesPage-items">
-                    <li class="product-detail-list-item" id="{{entry.code}}"
-                        ng-repeat="entry in getContext().data.entries"
-                        ng-class="{'club-price-item':entry.isYellowPriceAvailable,'out-of-stock':!entry.inStock}">
-                        <!-- Wishlist item -->
-
-                        <div class="product-detail-list-item-image-wrapper">
-                            <div class="wrapper-inner">
-                                <a href="{{entry.productUrl}}" class="product-detail-list-item-image ">
-                                    <div class="marker icon-club-price" ng-if="entry.isYellowPriceAvailable" ng-show="entry.isYellowPriceAvailable"></div>
-
-                                    <img ng-if="!entry.isYellowPriceAvailable && entry.priceMarker && entry.priceMarker.url!= null"
-                                        width="56" height="56" class="marker"
-                                        alt="{{entry.priceMarker.text}}"
-                                        ng-src="{{entry.priceMarker.url}}"
-                                        title="{{entry.priceMarker.text}}" />
-
-                                    <div ng-if="!entry.isYellowPriceAvailable && entry.priceMarker && entry.showPrice" class="marker" style="width: 56px; height: 56px;">
-                                        <span ng-if="entry.discountedPrice !=null" class="marker-text">{{entry.discountedPrice.formattedValue}}</span>
-                                        <span ng-if="entry.discountedPrice == null" class="marker-text">{{entry.ordinaryPrice.formattedValue}}</span>
-                                    </div>
-                                    <img class="product-detail-list-item-image-image"
-                                            ng-src="{{entry.image.url}}" alt="{{entry.image.text}}"
-                                            title="{{entry.image.text}}" />
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="product-detail-list-item-details">
-
-                            <div ng-show="!entry.inStock" class="product-detail-list-item-price-info">
-                                <p class="product-detail-list-item-total-price">Распродано</p>
+                <ul class="product-detail-list responsive favorite-list js-favorite-list" id="favouritesPage-items">
+                    <% @products_datum.each_with_index do |pd, k|%>
+                        <li class="product-detail-list-item">
+                            <!-- Wishlist item -->
+                            <div class="product-detail-list-item-image-wrapper">
+                                <div class="wrapper-inner">
+                                    <a href="#" class="product-detail-list-item-image">
+                                        <!-- <div class="marker icon-club-price"></div> -->
+                                        <!-- <img width="56" height="56" class="marker" alt="" src="" title="" /> -->
+                                        <!-- <div class="marker" style="width: 56px; height: 56px;">
+                                            <span class="marker-text"></span>
+                                            <span class="marker-text"></span>
+                                        </div> -->
+                                        <!-- <img class="product-detail-list-item-image-image" src="" alt="" title="" /> -->
+                                        <%if pd.photos!=[]%>
+                                            <%=image_tag(pd.photos[0].img(:original) ,class:"product-detail-list-item-image-image")%>
+                                        <%end%>
+                                    </a>
+                                </div>
                             </div>
 
-                            <div ng-repeat="marker in entry.productMarkers">
-                                <img alt="{{marker.text}}" class="label"
-                                        ng-src="{{marker.url}}" />
+                            <div class="product-detail-list-item-details">
+
+                               <!--  <div class="product-detail-list-item-price-info">
+                                    <p class="product-detail-list-item-total-price">Распродано</p>
+                                </div> -->
+
+                                <!-- <div ng-repeat="marker in entry.productMarkers">
+                                    <img alt="" class="label" src="" />
+                                </div> -->
+
+                                <h3 class="sub-sub-heading"><%= pd.product.name%><br></h3>
+
+                                <div>
+                                    <p class="product-detail-price">
+                                        <span class="original-price"><%= pd.price%></span>
+                                    </p>
+                                </div>
+                                <p class="product-detail-selection"></p>
+                                <dl class="product-detail-list-item-details-list">
+                                    <dt>№ арт.:</dt>
+                                    <dd><%= pd.article%></dd>
+                                    <dt>Цвет:</dt>
+                                    <dd>
+                                        <%if pd.color%>
+                                            <%= pd.color.name%><br>
+                                        <%end%>
+                                    </dd>
+                                </dl>
                             </div>
-                            <h3 class="sub-sub-heading">{{entry.name}}</h3>
-
-                            <div ng-show="entry.isYellowPriceAvailable">
-                                <p  class="product-detail-price"  >{{entry.ordinaryPrice.formattedValue}}</p>
-                                <p class="club-price-text" >
-                                    CLUB PRICE
-                                    <span class="club-price">{{entry.discountedPrice.formattedValue}}</span>
-                                </p>
+                            <div class="product-detail-list-item-actions favorite-list-actions">
+                                <button class="button secondary icon icon-trash" type="button" title="Удалить из раздела «Избранное»" data-id="<%= pd.id %>">Удалить из раздела «Избранное»</button>
+                                <label class="product-detail-list-item-actions-label" for="favorite-options-<%= k %>"></label>
+                                <div class="favorite-add-to-bag icon-add-to-bag">
+                                    <select class="add-to-bag" name="favorite-add-to-bag-options-<%= k %>" id="favorite-options-" data-validation="false"
+                                        title=ДОБАВИТЬ В КОРЗИНУ>
+                                        <option value="">Выбрать размер</option>
+                                        <option></option>
+                                    </select>
+                                </div>
                             </div>
-                            <div ng-hide="entry.isYellowPriceAvailable">
-                                <p  class="product-detail-price"  ng-class="{'sale-price' : entry.discountedPrice != null}">
-                                    {{entry.discountedPrice.formattedValue}}
-                                    <span class="original-price">{{entry.ordinaryPrice.formattedValue}}</span>
-                                </p>
-                            </div>
-                            <p class="product-detail-selection">{{entry.sellingAttribute}}</p>
-
-                            <dl class="product-detail-list-item-details-list">
-
-                                <dt>№ арт.:</dt>
-                                <dd>{{entry.code}}</dd>
-                                <dt>Цвет:</dt>
-                                <dd>{{entry.color.text}}</dd>
-
-                            </dl>
-                        </div>
-                        <div class="product-detail-list-item-actions favorite-list-actions">
-                            <button class="button secondary icon  icon-trash" type="button"
-                                title=Удалить из раздела «Избранное»
-                                ng-click="removeItem(entry)">Удалить из раздела «Избранное»</button>
-                            <label class="product-detail-list-item-actions-label"
-                                 for="favorite-options-1"></label>
-                            <div class="favorite-add-to-bag icon-add-to-bag">
-
-                                <select class="add-to-bag" name="favorite-add-to-bag-options-1"
-                                    id="favorite-options-1" data-validation="false"
-                                    title=ДОБАВИТЬ В КОРЗИНУ
-                                    ng-model="selectedSize" ng-change="addToCart(selectedSize,entry)" ng-disabled="!entry.inStock">
-
-                                    <option value="">Выбрать размер</option>
-                                    <option ng-repeat="variant in entry.variants"
-                                        value="{{variant.code}}" ng-disabled="variant.stock.stockLevel==0">
-                                                            {{variant.size.name}}{{variant.stock.stockLevel==0
-                                        ? ' -
-                                        favorites.bag.outofstock ':''}}
-                                    </option>
-
-                                </select>
-                            </div>
-
-                        </div>
-
-                    </li>
-
-                    <!-- /Wishlist item --> </ul>
-                <div ng-if="getContext().data.entries.length == 0 || getContext().data.entries.length == null">
-
+                        </li>
+                    <% end %>
+                    <!-- /Wishlist item --> 
+                </ul>
+                <% if @products_datum == [] %>
+                <div>
                     <section class="segment favorites-empty">
                         <h3 class="heading icon-favorites">Сохранить ваши избранные товары</h3>
                         <p class="text">
@@ -146,20 +110,20 @@
                         </p>
                         <a class="button" href="home.html">ПРОСМОТРЕТЬ СЕЙЧАС</a>
                     </section>
-
                 </div>
+                <% end %>
             </div>
 
             <div class="hidden modal-content fadeInModal" style="margin-top: 91.5px;" id="error-popup">
                 <button class="modalclose icon-close-black"></button>
-                <h1 class="sticky heading">{{getContext().data.popup.header}}</h1>
+                <h1 class="sticky heading"></h1>
                 <div class="modal-wrapper" style="max-height: 140px;">
                     <div aria-hidden="false" class="modal-content">
                         <div class="modal-text">
-                            <p class="text">{{getContext().data.popup.message}}</p>
+                            <p class="text"></p>
                         </div>
                         <div class="sticky button-group">
-                            <button ng-click="closePopup()" class="modalclose button">OK</button>
+                            <button class="modalclose button">OK</button>
                         </div>
                     </div>
                 </div>
@@ -167,4 +131,14 @@
         </div>
     </div>
 </main>
-</body>
+<script>
+  $(document).ready(function(){
+    $('.secondary').click(function(){
+      var remove_id = $(this).attr('data-id');
+      $(this).parent().parent().remove();
+      $.get("/removetofavorite/" + remove_id, function(data) {
+        console.log(data);
+      });
+    });
+  });
+</script>

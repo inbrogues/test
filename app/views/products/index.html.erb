@@ -354,12 +354,12 @@
                     <%@products.each do |product| %>
                     <!-- Product item -->
                     <div class="grid col-3">
-                      <article class="product-item club-price-item">
+                      <article class="product-item club-price-item" style="position: relative;">
                         <%= link_to "/single/hm-#{product.product_datum[0].article}" , class: "product-item-link" do %>
-                          
                           <img src="<%= product.img(:original) %>" alt="" width="222" height="333" class="product-item-image" data-altimage="<%= product.img_alt(:original) %>">
-                          <button type="button" class="favorite icon icon-favorites js-favorite" data-tracking-type="event" data-saved-text="СОХРАНЕНО КАК ИЗБРАННОЕ" data-not-saved-text="СОХРАНИТЬ КАК ИЗБРАННОЕ">СОХРАНИТЬ КАК ИЗБРАННОЕ</button>
                         <%end%>
+                        <button type="button" style="z-index: 9999;" class="favorite icon icon-favorites" data-tracking-type="event" data-saved-text="СОХРАНЕНО КАК ИЗБРАННОЕ" data-not-saved-text="СОХРАНИТЬ КАК ИЗБРАННОЕ" data-id="<%= product.product_datum[0].id %>">СОХРАНИТЬ КАК ИЗБРАННОЕ</button>
+
                         <div class="product-item-details">
                           <h3 class="product-item-heading">
                             <a href="#"><%=product.name%></a>
@@ -404,4 +404,25 @@
     </div>
     <div class="parbase overlaycontainer"></div>
   </main>
+  <script>
+  $(document).ready(function(){
+    $('.favorite').click(function(){
+      var a = $(this).attr('data-id');
+      console.log('click');
+        $.get("/addtofavorite/"+a, function(data) {
+          console.log(data);
+        });
+      });
+  });
+    // $(document).ready(function(){
+    //   function addToFav(a){
+    //   console.log('click');
+    //     $.post("/addtofavorite/1", function(data) {
+    //       console.log(data);
+    //       // $('.nice-pop-block').html("<div class='nice-pop-close'></div><p class='after_subm'>Спасибо, Ваша заявка отправлена</p>");
+    //         // console.log($(data).submit());
+    //     });
+    //   }
+    // });
+  </script>
 

@@ -210,7 +210,7 @@ class ProductsController < ApplicationController
 	def removetofavorite
 		session[:favorite]||=[]
 		if session[:favorite].include?(params[:id])
-			session[:favorite].delete_at(arr.index(params[:id]))
+			session[:favorite].delete_at(session[:favorite].index(params[:id]))
 		end
 		redirect_to action:  'favourites' 
 	end
