@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170420220029) do
+ActiveRecord::Schema.define(version: 20170421113004) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: :cascade do |t|
+    t.string   "address"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "addresses", ["user_id"], name: "index_addresses_on_user_id", using: :btree
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -36,12 +45,12 @@ ActiveRecord::Schema.define(version: 20170420220029) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
-    t.integer  "categories_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  add_index "categories", ["categories_id"], name: "index_categories_on_categories_id", using: :btree
+  add_index "categories", ["category_id"], name: "index_categories_on_category_id", using: :btree
 
   create_table "categories_products", force: :cascade do |t|
     t.integer "category_id"
@@ -69,6 +78,29 @@ ActiveRecord::Schema.define(version: 20170420220029) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "address"
+    t.integer  "user_id"
+    t.string   "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
+
+  create_table "orders_product_data", force: :cascade do |t|
+    t.integer  "order_id"
+    t.integer  "count"
+    t.integer  "product_size_id"
+    t.integer  "product_datum_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "orders_product_data", ["order_id"], name: "index_orders_product_data_on_order_id", using: :btree
+  add_index "orders_product_data", ["product_datum_id"], name: "index_orders_product_data_on_product_datum_id", using: :btree
+  add_index "orders_product_data", ["product_size_id"], name: "index_orders_product_data_on_product_size_id", using: :btree
 
   create_table "photos", force: :cascade do |t|
     t.string   "img_file_name"
@@ -168,9 +200,13 @@ ActiveRecord::Schema.define(version: 20170420220029) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "addresses", "users"
   add_foreign_key "categories_products", "categories"
   add_foreign_key "categories_products", "products"
   add_foreign_key "colors", "main_colors"
+  add_foreign_key "orders", "users"
+  add_foreign_key "orders_product_data", "orders"
+  add_foreign_key "orders_product_data", "product_sizes"
   add_foreign_key "product_data", "colors"
   add_foreign_key "product_data", "products"
   add_foreign_key "product_product_sizes", "product_sizes"

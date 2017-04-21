@@ -222,6 +222,26 @@ class ProductsController < ApplicationController
 		end
 		redirect_to action:  'favourites' 
 	end
+
+	def test
+	  respond_to do |format|
+	  	product_datum = ProductDatum.find(params[:id])
+	    product=product_datum.product
+	    color=product_datum.color
+	    msg = { 
+	    	:status => "ok",
+	    	:message => "Success!",
+	    	:html => "<b>...</b>",
+	    	:name => product.name ,
+	    	:src => ,
+	    	:price => product_datum.price,
+	    	:promotional_price => product_datum.promotional_price ,
+	    	:article => product_datum.article ,
+	    	:color => color.name,
+	    }
+	    format.json  { render :json => msg }
+	  end
+	end
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
       params.require(:product).permit(:img , :img_alt)
