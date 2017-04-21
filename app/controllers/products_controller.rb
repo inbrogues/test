@@ -1,5 +1,8 @@
 class ProductsController < ApplicationController
+	include ProductsHelper
 	def single
+		@favourite_ids=favourite_ids
+
 		@product_data=ProductDatum.find_by(article: params[:article] )
 		@product = @product_data.product
 
@@ -23,7 +26,10 @@ class ProductsController < ApplicationController
 		.order("RANDOM()")
 	end
 	def index
-		
+		@favourite_ids=favourite_ids
+
+
+
 		@category=Category.all
 		@main_category=@category.select{|e| e.parent==nil}
 		@params_cat=[ params[:categorie0] , params[:categorie1], params[:categorie2] ,params[:categorie3]].compact 
@@ -135,6 +141,10 @@ class ProductsController < ApplicationController
 		@products = @productsAll.paginate(:page => params[:page], :per_page => 30)	
 	end
 	def search
+		@favourite_ids=favourite_ids()
+
+
+
 		@search = params[:search]||""
 		#color
 		@res=[]
@@ -197,10 +207,8 @@ class ProductsController < ApplicationController
 		@products=@productsAll.paginate(:page => params[:page], :per_page => 30)
 	end
 	def favourites
-		session[:favorite]||=[]
-		@all=session[:favorite]
-		@products_datum=ProductDatum.where(id: session[:favorite])
-
+		@all=session[:favorite]||[]
+		@products_datum=favourite_datums()
 	end
 	def addtofavorite
 		session[:favorite]||=[]
@@ -218,6 +226,5 @@ class ProductsController < ApplicationController
     def product_params
       params.require(:product).permit(:img , :img_alt)
     end
-
 
 end

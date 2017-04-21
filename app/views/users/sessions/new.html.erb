@@ -1,0 +1,79 @@
+
+  <main role="main" class="">
+    <div class="wrapper">
+      <nav class="breadcrumbs">
+        <ul>
+          <li>
+            <a href="/ru_ru/">Yourhm.com.ua</a>
+          </li>
+          <li class="">
+            <a href="#" onclick="return false;">Войти/Зарегистрироваться</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="row my-hm">
+        <div class="layout layout-eight">
+          <div class="grid col-7">
+            <h1>ВОЙТИ</h1>
+            <div class="row">
+              <div class="grid col-4">
+                <div class="login-form new-user">
+                  <h3>ЗАРЕГИСТРИРОВАННЫЙ ПОКУПАТЕЛЬ</h3>
+                  <p>Введите Ваши данные, чтобы войти.</p>
+                  <%= form_for(resource, as: resource_name, url: session_path(resource_name) ,:html => { :id => "loginForm", :class => "responsive half-size ng-pristine ng-valid"} ) do |f| %>
+                    <div class="inputwrapper required">
+                          <%= f.label :email , "Эл. Почта" , :class => "label"%>
+                          <%= f.email_field :email ,
+                          :id => "txt-signin-email" ,
+                          :data_validation_required=>"true" ,
+                          :data_alidation_required_text => "Пожалуйста, укажите адрес электронной почты." ,
+                          :data_validation_minlength =>"6" ,
+                          :data_validation_minlength_text => "Пожалуйста, укажите правильный адрес электронной почты" ,
+                          :data_validation_email => "true" ,
+                          :type => "email" ,
+                          :data_validation_email_text => "Пожалуйста, укажите правильный адрес электронной почты" ,
+                          :value => "" ,
+                          :maxlength => "150" %>
+                    </div>
+                    <div class="inputwrapper required">
+                      <%= f.label :password , "Пароль" , :class => "label" %>
+                      <%= f.password_field :password,
+                       autocomplete: "off",
+                       id: "txt-signin-password",
+                       data_validation_required: "true",
+                       data_validation_required_text:"Пожалуйста, укажите новый пароль.",
+                       data_validation_minlength: "6",
+                       data_validation_maxlength:"25",
+                       data_validation_minlength_text: "Пароль должен содержать минимум 6 символов",
+                       data_validation_maxlength_text: "Ваш пароль — слишком длинный. Максимально допустимое количество символов — 25",
+                       type: "password"
+                        %><br /></div>
+                    <div class="input-group">
+                      <%= f.submit "ВОЙТИ" , data_validation_text: "Проверьте данные, прежде чем продолжить"%>
+                    </div>
+                    <%= link_to "Забыли пароль?", new_password_path(resource_name), :class => "forgotten-password underline"%><br />
+                  <%end%>
+                </div>
+              </div>
+              <div class="grid col-3">
+                <h3>НОВЫЙ ПОКУПАТЕЛЬ</h3>
+                <p>Создайте новую учетную запись для упрощения процесса покупки</p>
+                <%= link_to "ПРИСОЕДИНЯЙТЕСЬ К НАМ", new_registration_path(resource_name) ,  class: "button button-secondary"%>
+                <button></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div aria-hidden="true" id="login-failed" class="hidden modal-content">
+        <div class="modal-text">
+          <h1>НЕ УДАЛОСЬ ВЫПОЛНИТЬ ВХОД</h1>
+          <p>
+            Пожалуйста, проверьте правильность Вашего адреса электронной почты и пароля.
+          </p>
+          <div class="sticky button-group">
+            <input class="modalclose button" type="button" value="OK"></div>
+        </div>
+      </div>
+    </div>
+  </main>
