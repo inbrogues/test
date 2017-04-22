@@ -351,9 +351,9 @@
     $('.inputlist.clearfix[data-sizelist="' + color +'"]').show();
 
     $('.button-favorite').click(function(){
-      var a = $(this).attr('data-id');
-      console.log('click');
-        $.get("/addtofavorite/"+<%= @product_data.id %>, function(data) {
+      // var a = $(this).attr('data-id');
+      // console.log('click');
+        $.get("/get?id="+<%= @product_data.id %>, function(data) {
           console.log(data);
         });
       });

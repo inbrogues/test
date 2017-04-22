@@ -233,7 +233,7 @@ class ProductsController < ApplicationController
 	    	:message => "Success!",
 	    	:html => "<b>...</b>",
 	    	:name => product.name ,
-	    	:src => ,
+	    	:src => 1,
 	    	:price => product_datum.price,
 	    	:promotional_price => product_datum.promotional_price ,
 	    	:article => product_datum.article ,

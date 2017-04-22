@@ -353,6 +353,7 @@
                   <div class="row">
                     <%@products.each do |product| %>
                     <!-- Product item -->
+                    <% if product.product_datum[0]%>
                     <div class="grid col-3">
                       <article class="product-item club-price-item" style="position: relative;">
                         <%= link_to "/single/hm-#{product.product_datum[0].article}" , class: "product-item-link" do %>
@@ -386,6 +387,7 @@
                       </article>
                     </div>
                     <!-- /Product item -->
+                    <%end%>
                     <%end%>
                   
                   </div>

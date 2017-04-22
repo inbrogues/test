@@ -3,8 +3,8 @@ default: &default
   encoding: unicode
   host: localhost
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: admin1
-  password: password
+  username: postgres
+  password: 
 
 development:
   <<: *default

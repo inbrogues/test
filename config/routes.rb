@@ -69,7 +69,7 @@ Rails.application.routes.draw do
   
   get 'search/' => 'products#search'
   get 'single/hm-:article' => 'products#single'
-  get 'get' => 'products#test'
+  get 'get' => 'products#test', :defaults => { :format => 'json' }
   get 'addtofavorite/:id' => 'products#addtofavorite'
   get 'removetofavorite/:id' => 'products#removetofavorite'
   get 'favourites' => 'products#favourites'
