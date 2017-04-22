@@ -228,16 +228,20 @@ class ProductsController < ApplicationController
 	  	product_datum = ProductDatum.find(params[:id])
 	    product=product_datum.product
 	    color=product_datum.color
+	    photo=product_datum.photos.first
+	    sizes = ProductSize.where( id: ProductDatum.find(3).product_product_sizes.where(has: true).collect(&:product_size_id)).collect{|d| {id: d.id,size: d.size}}
+
 	    msg = { 
 	    	:status => "ok",
 	    	:message => "Success!",
 	    	:html => "<b>...</b>",
 	    	:name => product.name ,
-	    	:src => 1,
+	    	:src => photo.img(:original),
 	    	:price => product_datum.price,
 	    	:promotional_price => product_datum.promotional_price ,
 	    	:article => product_datum.article ,
 	    	:color => color.name,
+	    	:sizes => sizes
 	    }
 	    format.json  { render :json => msg }
 	  end
