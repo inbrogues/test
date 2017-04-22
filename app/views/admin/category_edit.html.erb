@@ -1,4 +1,4 @@
-<%= semantic_form_for @category, :url => admin_category_create_path(@category) do |f| %>
+<%= semantic_form_for @category, :url => admin_category_update_path(@category) do |f| %>
   <% if @category.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>

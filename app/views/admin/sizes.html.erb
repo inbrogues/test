@@ -1,9 +1,10 @@
-
 <div class="sizes">
 	<% @sizes.each do | size | %>
 		<div class="size">
 			<p class="id"><%=size.id %></p>
 			<p class="size"><%=size.size %></p>
+			<p><%= link_to 'Edit', admin_size_edit_path(size) %></p>
+        	<p><%= link_to 'Destroy', admin_size_destroy_path(size) , :method => 'delete', data: { confirm: 'Are you sure?' } %></p>
 		</div>
 	<% end %>
 </div>

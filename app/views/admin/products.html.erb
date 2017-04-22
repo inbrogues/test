@@ -6,6 +6,8 @@
 			<p class="name"><%=product.name %></p>
 			<%=image_tag(product.img(:original) , width:"140", height:"210", class:"product-item-image")%>
 			<%=image_tag(product.img_alt(:original) , width:"140", height:"210", class:"product-item-image")%>
+			<p><%= link_to 'Edit', admin_product_edit_path(product) %></p>
+        	<p><%= link_to 'Destroy', admin_product_destroy_path(product) , :method => 'delete', data: { confirm: 'Are you sure?' } %></p>
 		</div>
 	<% end %>
 </div>

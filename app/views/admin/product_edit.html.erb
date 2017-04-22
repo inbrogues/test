@@ -1,0 +1,32 @@
+<%= semantic_form_for @product, :url => admin_product_update_path(@product) do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% @product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, class: 'form-control' %>
+
+  <%= f.label :img %>
+  <%= f.file_field :img , class: 'form-control'%>
+
+  <%= f.label :img_alt %>
+  <%= f.file_field :img_alt , class: 'form-control'%>
+	<div>
+	Datas
+	<%= f.semantic_fields_for :product_datum do |product_data| %>
+			<%=render 'product_datum_fields', f: product_data %>
+    <%end%>
+	<%= link_to_add_association 'add product_datum', f, :product_datum%>
+	</div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

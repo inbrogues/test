@@ -10,6 +10,8 @@
 			<% else %>
 				<p class="main">No found</p> 
 			<% end%>
+			<p><%= link_to 'Edit', admin_color_edit_path(color) %></p>
+        	<p><%= link_to 'Destroy', admin_color_destroy_path(color) , :method => 'delete', data: { confirm: 'Are you sure?' } %></p>
 		</div>
 	<% end %>
 </div>

@@ -4,7 +4,9 @@
 		<div class="category">
 			<p class="id"><%=category.id %></p>
 			<p class="name"><%=category.name %></p>
-			<p class="name"><%=category.parent_id %></p>
+			<p class="name"><%=category.parent %></p>
+			<p><%= link_to 'Edit', admin_category_edit_path(category) %></p>
+        	<p><%= link_to 'Destroy', admin_category_destroy_path(category) , :method => 'delete', data: { confirm: 'Are you sure?' } %></p>
 			</div>
 	<% end %>
 </div>
