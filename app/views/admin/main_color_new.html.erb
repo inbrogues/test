@@ -1,0 +1,24 @@
+<%= semantic_form_for @main_color, :url => admin_main_color_create_path(@main_color) do |f| %>
+  <% if @main_color.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@main_color.errors.count, "error") %> prohibited this color from being saved:</h2>
+
+      <ul>
+      <% @main_color.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, class: 'form-control' %>
+  
+  <%= f.label :hex %>
+  <%= f.color_field :hex, class: 'form-control' %>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

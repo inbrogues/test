@@ -10,7 +10,7 @@ Rails.application.routes.draw do
       }
 
   get 'admin/colors'
-
+  get 'admin/main_colors'
   get 'admin/news'
 
   get 'admin/products'
@@ -26,6 +26,12 @@ Rails.application.routes.draw do
   get 'admin/product_edit/:id'=> 'admin#product_edit', :as => :admin_product_edit
   patch 'admin/product_update/:id'=> 'admin#product_update', :as => :admin_product_update
   delete 'admin/product_destroy/:id'=> 'admin#product_destroy' , :as => :admin_product_destroy
+
+  get 'admin/main_color_new'
+  post 'admin/main_color_create'
+  get 'admin/main_color_edit/:id'=> 'admin#main_color_edit', :as => :admin_main_color_edit
+  patch 'admin/main_color_update/:id'=> 'admin#main_color_update', :as => :admin_main_color_update
+  delete 'admin/main_color_destroy/:id'=> 'admin#main_color_destroy' , :as => :admin_main_color_destroy
 
   get 'admin/color_new'
   post 'admin/color_create'
@@ -77,7 +83,13 @@ Rails.application.routes.draw do
   resources :products, only: [:edit, :update, :destroy]
   #users
   get 'login' => 'users#login'
-  get 'my-addressbook' => 'users#my-addressbook'
+  get 'my-address' => 'users#my_address'
+  post 'my-address/create' => 'users#address_create', :as => :users_address_create
+
+  patch 'my-address/update'=> 'users#address_update', :as => :users_address_update
+  delete 'my-address/destroy'=> 'users#address_destroy' , :as => :users_address_destroy
+
+
   get 'my-order' => 'users#my-order'
   get 'my-overview' => 'users#my-overview'
   get 'my-paymentinfo' => 'users#my-paymentinfo'

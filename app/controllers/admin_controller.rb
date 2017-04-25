@@ -5,6 +5,9 @@ class AdminController < ApplicationController
 	def colors
 		@colors=Color.all
 	end
+	def main_colors
+		@main_colors=MainColor.all
+	end
 	def categories
 		@categories= Category.all
 	end
@@ -34,6 +37,7 @@ class AdminController < ApplicationController
 					@productDatas.color_id = pd[:color_id]
 					@productDatas.about = pd[:about]
 					@productDatas.price = pd[:price]
+					@productDatas.promotional_price = pd[:promotional_price]
 					if @productDatas.save
 						if pd[:photos_attributes]!=[] && ! pd[:photos_attributes].nil?
 							pd[:photos_attributes].each do |k,photo|
@@ -87,6 +91,7 @@ class AdminController < ApplicationController
 					@productDatas.color_id = pd[:color_id]
 					@productDatas.about = pd[:about]
 					@productDatas.price = pd[:price]
+					@productDatas.promotional_price = pd[:promotional_price]
 					if @productDatas.save
 						if pd[:photos_attributes]!=[] && ! pd[:photos_attributes].nil?
 							pd[:photos_attributes].each do |k,photo|
@@ -174,6 +179,49 @@ class AdminController < ApplicationController
 		  format.json { head :no_content }
 		end
 	end
+
+	def main_color_new
+		@main_color = MainColor.new
+	end
+
+	def main_color_create
+		@main_color = MainColor.new(main_color_params)
+	    respond_to do |format|
+	      if @main_color.save
+	        format.html {redirect_to controller:"admin", action:"index", id:  @main_color.id , notice: 'Color was successfully created.' }
+	        format.json { render :show, status: :created, location: @main_color }
+	      else
+	        format.html { render :new }
+	        format.json { render json: @main_color.errors, status: :unprocessable_entity }
+	      end
+	    end
+	end
+
+	def main_color_edit
+		@main_color = MainColor.find(params[:id])
+	end
+
+	def main_color_update
+		@main_color = MainColor.find(params[:id])
+	    respond_to do |format|
+	      if @main_color.update(main_color_params)
+	        format.html {redirect_to controller:"admin", action:"index", id:  @main_color.id , notice: 'Color was successfully created.' }
+	        format.json { render :show, status: :created, location: @main_color }
+	      else
+	        format.html { render :new }
+	        format.json { render json: @main_color.errors, status: :unprocessable_entity }
+	      end
+	    end
+	end
+	def main_color_destroy
+		@main_color=MainColor.find(params[:id])
+		@main_color.destroy
+		respond_to do |format|
+		  format.html { redirect_to controller:"admin", action:"index", notice: 'ProductSize was successfully destroyed.' }
+		  format.json { head :no_content }
+		end
+	end
+
 	def category_create
 		@category = Category.new(category_params)
 	    respond_to do |format|
@@ -257,6 +305,9 @@ class AdminController < ApplicationController
     end
     def color_params
       params.require(:color).permit(:name , :main_color_id , :img )
+    end
+    def main_color_params
+      params.require(:main_color).permit(:name , :hex)
     end
     def category_params
       params.require(:category).permit(:name ,:parent_id)

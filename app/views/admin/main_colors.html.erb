@@ -1,0 +1,14 @@
+
+<div class="colors">
+	<% @main_colors.each do | color | %>
+		<div class="color">
+			<p class="id"><%=color.id %></p>
+			<p class="name"><%=color.name %></p>
+			<% if color.hex %>
+				<div style="width: 15px;height: 15px;background:<%=color.hex%> "></div>
+			<% end%>
+			<p><%= link_to 'Edit', admin_main_color_edit_path(color) %></p>
+        	<p><%= link_to 'Destroy', admin_main_color_destroy_path(color) , :method => 'delete', data: { confirm: 'Are you sure?' } %></p>
+		</div>
+	<% end %>
+</div>
