@@ -44,7 +44,7 @@ Rails.application.routes.draw do
   patch 'admin/category_update/:id'=> 'admin#category_update', :as => :admin_category_update
   delete 'admin/category_destroy/:id'=> 'admin#category_destroy' , :as => :admin_category_destroy
 
-  post 'cart/order_create'
+  post 'carts/order_create'
 
   get 'admin/order_edit/:id'=> 'admin#order_edit', :as => :admin_order_edit
   patch 'admin/order_update/:id'=> 'admin#order_update', :as => :admin_order_update
