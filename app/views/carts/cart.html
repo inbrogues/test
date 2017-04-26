@@ -67,6 +67,7 @@
 </main>
 <script>
 	$(document).ready(function(){
+		
 		cartsItems = JSON.parse(localStorage.getItem('myCart'));
 		$('#added_to_cart').val(JSON.stringify(cartsItems));
 		var item_summ;
@@ -84,7 +85,7 @@
 	    				options += '<option value='+i+' label='+ i +'>'+i+'</option>'
 	    			}
 	    		}
-	    		$('.product-detail-list').prepend('\
+	    		$('.product-detail-list').append('\
 	    			<li class="product-detail-list-item ng-scope">\
 						<div class="product-detail-list-item-image-wrapper">\
 							<div class="wrapper-inner">\
@@ -96,7 +97,7 @@
 							<div class="product-detail-list-item-price-info">\
 								<p class="product-detail-list-item-total-price">\
 									Итого:\
-									<span id="entry_new_price" class="ng-binding">' + item_summ + ' Грн</span>\
+									<span class="entry_new_price ng-binding">' + item_summ + ' Грн</span>\
 								</p>\
 							</div>\
 							<h3 class="sub-sub-heading ng-binding">' + this.name + '</h3>\
@@ -117,18 +118,27 @@
 							<button class="button secondary icon icon-move-favorite ng-scope" type="button" data-saved-text="Saved to favorites" data-not-saved-text="Not saved to favorites" data-id="' + this.id + '" title="Toggle favorite"></button>\
 							<label class="product-detail-list-item-actions-label" for="shopping-bag-quantity-options-4"></label>\
 							<div class="select-primary product-detail-list-item-quantity">\
-								<select name="product-detail-list-item-quantity" data-validation="false" class="ng-pristine ng-untouched ng-valid">\
+								<select name="product-detail-list-item-quantity" data-validation="false" class="ng-pristine ng-untouched ng-valid select_change">\
 									' + options + '\
 								</select>\
 							</div>\
 						</div>\
 					</li>');
 	    	});
-	    	if(item_summ){
-		    	$('#newPriceSubtotal').text(item_summ + ' Грн');
-		    	$('#total_price_of_basket').text(item_summ + 99 + ' Грн');
-		    }
+	    	// if(item_summ){
+		    // 	$('#newPriceSubtotal').text(item_summ + ' Грн');
+		    // 	$('#total_price_of_basket').text(item_summ + 99 + ' Грн');
+		    // }
 	    }
+	    function calcPrice(){
+		    var price_of_item = 0;
+				$('.entry_new_price').each(function(){
+					price_of_item = parseInt($(this).text()) + price_of_item;
+					// console.log(price_of_item);
+				});
+				$('#newPriceSubtotal').text(price_of_item + ' Грн');
+				$('#total_price_of_basket').text(price_of_item + 99 + ' Грн');
+			}
 	    $('.icon-trash').click(function(){
         delete_from_cart = JSON.parse(localStorage.getItem('myCart'));
         var this_article = $(this).attr('data-article');
@@ -140,6 +150,7 @@
             $(thet).parent().parent().remove();
           }
       	});
+      	calcPrice();
     	});
 
     	$('.icon-move-favorite').click(function(){
@@ -152,8 +163,29 @@
 	    		// showMessage();
 	  		});
     	});
-    	$('.ng-pristine').on('change', function(){
+    	$('.select_change').on('change', function(){
     		var change_count = $(this).find('option:selected').val();
+    		var index_of_block = $(this).parent().parent().parent().index();
+    		console.log(index_of_block);
+    		// th = $(this);
+    		cartsItems = JSON.parse(localStorage.getItem('myCart'));
+    		cartsItems[index_of_block].count = change_count;
+    		console.log(cartsItems);
+    		$($(this).parent().parent().parent()).find('.entry_new_price').text(change_count * cartsItems[index_of_block].price + ' Грн')
+    		localStorage.setItem('myCart', JSON.stringify(cartsItems));
+    		// $.each(cartsItems, function(index){
+    		// 	if(index_of_block == index){
+	    	// 		if(this.count != change_count){
+	    	// 			this['count'] = change_count;
+	    	// 			// console.log(this.count);
+	    	// 			$(th.parent().parent().parent()).find('.entry_new_price').text(change_count * this.price + ' Грн')
+	    	// 			// th.hide();
+	    	// 			localStorage.setItem('myCart', JSON.stringify(cartsItems));
+	    	// 		}
+	    	// 	}
+    		// })
+    		calcPrice();
     	});
+    	calcPrice();
 		});
 </script>
