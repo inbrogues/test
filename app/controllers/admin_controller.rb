@@ -41,6 +41,7 @@ class AdminController < ApplicationController
 					@productDatas.about = pd[:about]
 					@productDatas.price = pd[:price]
 					@productDatas.promotional_price = pd[:promotional_price]
+					@productDatas.more = pd[:more]
 					if @productDatas.save
 						if pd[:photos_attributes]!=[] && ! pd[:photos_attributes].nil?
 							pd[:photos_attributes].each do |k,photo|
@@ -95,6 +96,7 @@ class AdminController < ApplicationController
 					@productDatas.about = pd[:about]
 					@productDatas.price = pd[:price]
 					@productDatas.promotional_price = pd[:promotional_price]
+					@productDatas.more = pd[:more]
 					if @productDatas.save
 						if pd[:photos_attributes]!=[] && ! pd[:photos_attributes].nil?
 							pd[:photos_attributes].each do |k,photo|

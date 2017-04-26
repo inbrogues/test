@@ -238,23 +238,7 @@
 									<ul class="product-warninglist" data-headline-text="ПРЕДУПРЕЖДЕНИЕ!"></ul>
 								</div>
 								<div class="tab-pane tab-details">
-									<div class="article-composition">
-										<h4>Состав</h4>
-										<ul>
-											<li>Подкладка: Полиэстер 100%</li>
-											<li>Полиэстер 100%</li>
-										</ul>
-									</div>
-									<div class="article-care-instructions">
-										<h4>Инструкции по уходу</h4>
-										<ul>
-											<li>Машинная стирка при температуре 30°</li>
-										</ul>
-									</div>
-									<h4>Идентификационный номер арт.</h4>
-									<ul>
-										<li class="product-detail-article-code"><%= @product_data.article %></li>
-									</ul>
+									<%=@product_data.more %>
 								</div>
 
 								<div class="tab-pane tab-delivery">
