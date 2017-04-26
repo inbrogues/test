@@ -2,6 +2,9 @@ class AdminController < ApplicationController
 	before_action :authenticate_admin!
 	def index
 	end
+	def orders
+		@orders=Order.all
+	end
 	def colors
 		@colors=Color.all
 	end
@@ -300,6 +303,26 @@ class AdminController < ApplicationController
 		  format.json { head :no_content }
 		end
 	end
+	def order_edit
+		@order=Order.find(params[:id])
+	end
+
+	def order_update
+		@order=Order.find(params[:id])
+	    respond_to do |format|
+	      if @order.update(order_params)
+	        format.html {redirect_to controller:"admin", action:"index", id:  @order.id , notice: 'order was successfully update.' }
+	        format.json { render :show, status: :created, location: @order }
+	      else
+	        format.html { render :edit }
+	        format.json { render json: @order.errors, status: :unprocessable_entity }
+	      end
+	    end
+	end
+	def order_destroy
+		@order=Order.find(params[:id])
+		@order.destroy
+	end
 	def product_params
       params.require(:product).permit(:name , :img , :img_alt)
     end
@@ -317,5 +340,8 @@ class AdminController < ApplicationController
    	end
    	def product_size_params
    		params.require(:product_size).permit(:size)
+   	end
+   	def order_params
+   		params.require(:order)
    	end
 end

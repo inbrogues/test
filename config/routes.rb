@@ -12,11 +12,10 @@ Rails.application.routes.draw do
   get 'admin/colors'
   get 'admin/main_colors'
   get 'admin/news'
-
   get 'admin/products'
-
   get 'admin/categories'
   get 'admin/sizes'
+  get 'admin/orders'
 
   
   get 'admin' => 'admin#index'
@@ -44,6 +43,12 @@ Rails.application.routes.draw do
   get 'admin/category_edit/:id'=> 'admin#category_edit', :as => :admin_category_edit
   patch 'admin/category_update/:id'=> 'admin#category_update', :as => :admin_category_update
   delete 'admin/category_destroy/:id'=> 'admin#category_destroy' , :as => :admin_category_destroy
+
+  post 'cart/order_create'
+
+  get 'admin/order_edit/:id'=> 'admin#order_edit', :as => :admin_order_edit
+  patch 'admin/order_update/:id'=> 'admin#order_update', :as => :admin_order_update
+  delete 'admin/order_destroy/:id'=> 'admin#order_destroy' , :as => :admin_order_destroy
 
 
   get 'admin/size_new'
