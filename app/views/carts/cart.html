@@ -63,11 +63,12 @@
 			</div>
 		</div>
 	</div>
+	<input type="hidden" id="added_to_cart" value="">
 </main>
 <script>
 	$(document).ready(function(){
 		cartsItems = JSON.parse(localStorage.getItem('myCart'));
-		console.log(cartsItems);
+		$('#added_to_cart').val(JSON.stringify(cartsItems));
 		var item_summ;
 		if(cartsItems){
 	    	$.each(cartsItems, function(){
@@ -152,7 +153,7 @@
 	  		});
     	});
     	$('.ng-pristine').on('change', function(){
-    		console.log('change');
+    		var change_count = $(this).find('option:selected').val();
     	});
 		});
 </script>
