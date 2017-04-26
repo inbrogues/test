@@ -1375,3 +1375,9 @@
 </style>
   </div>
 </main>
+<script>
+  $(document).ready(function(){
+    cartsItems = JSON.parse(localStorage.getItem('myCart'));
+    $('#order_json').val(JSON.stringify(cartsItems));
+  });
+</script>
