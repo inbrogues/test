@@ -181,10 +181,10 @@
 									<span>Select size</span>
 								</div>
 								<% @product_datas.each do |product_data| %>
-									<ul class="inputlist clearfix" data-sizelist="<%= product_data.article %>0000" >
+									<ul class="inputlist clearfix" data-sizelist="<%= product_data.article %>0000">
 										<% if (product_data.product_product_sizes) %>
 											<% product_data.product_product_sizes.each_with_index do |product_product_size, k| %>
-												<li>
+												<li class="one_size">
 													<label for="filter-size-<%= product_data.article %>00<%= k %>">
 														<input type="radio" name="product-size" value="<%= product_product_size.size %>" data-size="001" id="filter-size-<%= product_data.article %>00<%= k %>" <%if ! product_product_size.has%> disabled <% end %>>
 														<%if product_product_size.has%>
@@ -214,7 +214,7 @@
 						</div>
 						<button class="button button-big button-buy product-details-favorite button-disabled" data-not-added-text="Вы должны выбрать имеющийся в наличии размер" data-added-text="Товар добавлен" data-shopping-bag-text="Корзина" data-shopping-bag-failed-text="При добавлении товара в корзину произошла ошибка" data-quantity-text="Количество" data-color-text="Цвет" data-size-text="Размер" data-default-quantity="1" data-sold-out-text="Распродано" data-not-added-sold-out-text="Изделие данного цвета распродано во всех размерах">Добавить в корзину</button>
 
-						<button class="button button-big button-secondary button-favorite icon icon-favorites-dark js-button-favorite is-favorite">СОХРАНЕНО КАК ИЗБРАННОЕ</button>
+<!-- 						<button class="button button-big button-secondary button-favorite icon icon-favorites-dark js-button-favorite is-favorite">СОХРАНЕНО КАК ИЗБРАННОЕ</button> -->
 
 						<button class="button button-big button-secondary button-favorite icon icon-favorites-dark js-button-favorite" data-id="<%= @product_data.id %>">СОХРАНИТЬ КАК ИЗБРАННОЕ</button>
 
@@ -331,8 +331,14 @@
 	</div>
 </main>
 
-    <script>
+  <script>
+  // добавление в расперсенный json - items.la="llllll"
+  // объединение 2-х объектов
+  // a=[];
+  // a.push(b);
+  // a.push(items)
   $(document).ready(function(){
+  	showMessage();
     // // окно сайзгайда
     // $('.product-detail-linked-product > a, .modalclose').click(function(){
     // 	$('.modaloverlay').toggleClass('hidden');
@@ -350,13 +356,90 @@
   	var color = $('.filter-option.active').attr('data-articlecode');
     $('.inputlist.clearfix[data-sizelist="' + color +'"]').show();
 
+    function cartCount(plus_one) {
+    	cartCounts = JSON.parse(localStorage.getItem('cartCount'));
+  		cartCounts = cartCounts + plus_one;
+  		$('.shoppingbag-item-counts').text(cartCounts);
+  		localStorage.setItem('cartCount', JSON.stringify(cartCounts));
+  		console.log(cartCounts);
+    }
+
+
+    function showMessage() {
+    	itemss = JSON.parse(localStorage.getItem('myKey'));
+    	if(itemss)
+    		$.each(itemss, function(){
+    			if(this.article == <%= @product_data.article %>){
+    				$('.button-favorite').addClass('is-favorite').text('СОХРАНЕНО КАК ИЗБРАННОЕ');
+    			}
+    		});
+		}
+		function addToFav(){
+			$.get("/get?id="+<%= @product_data.id %>, function(data) {
+    		a = data;
+    		items = JSON.parse(localStorage.getItem('myKey')) || [];
+    		items.push(a);
+    		localStorage.setItem('myKey', JSON.stringify(items));
+    		showMessage();
+  		});
+		}
     $('.button-favorite').click(function(){
-      // var a = $(this).attr('data-id');
-      // console.log('click');
-        $.get("/get?id="+<%= @product_data.id %>, function(data) {
-          console.log(data);
-        });
-      });
+    	itemss = JSON.parse(localStorage.getItem('myKey'))||[];
+    	var status = true
+  		$.each(itemss, function(index){
+  			if(this.article == <%= @product_data.article %>){
+  				$('.button-favorite').removeClass('is-favorite').text('СОХРАНИТЬ КАК ИЗБРАННОЕ');
+  				itemss.splice(index, 1);
+  				localStorage.setItem('myKey', JSON.stringify(itemss));
+  				status=false
+  			}
+  		});
+    	if(status){
+    		addToFav();
+    	}
+    });
+
+
+    function addToCart(size_val){
+			$.get("/get?id="+<%= @product_data.id %>, function(data) {
+    		a = data;
+    		a['size'] = size_val;
+    		a['id'] = <%= @product_data.id %>;
+    		a['count'] = 1;
+    		cart_mas = JSON.parse(localStorage.getItem('myCart')) || [];
+    		$.each(cart_mas, function(index){
+    			if(this.size == size_val){
+    				cart_mas.splice(index, 1);
+            localStorage.setItem('myCart', JSON.stringify(cart_mas));
+            count = this.count + 1;
+    				a['count'] = count;
+    			}
+    		});
+    		cart_mas.push(a);
+    		localStorage.setItem('myCart', JSON.stringify(cart_mas));
+    		cartCount(1);
+    		// console.log(cart_size)
+    		// showMessage();
+    		console.log('added');
+  		});
+		}
+		$('.button-buy').click(function(){
+			size_check = false;
+			$('input[name="product-size"]').each(function(index){
+				if($(this).prop('checked')){
+					size_check = true;
+					size_val = $(this).parent().find('.detailbox > span').text();
+					addToCart(size_val);
+				}
+			});
+			if(!size_check){
+				alert($('.button-buy').attr('data-not-added-text'));
+			}
+			// else{
+			// 	addToCart();
+			// }
+		});
+		cartCount(0);
   });
 
   </script>

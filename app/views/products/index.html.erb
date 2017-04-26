@@ -407,14 +407,62 @@
     <div class="parbase overlaycontainer"></div>
   </main>
   <script>
-  $(document).ready(function(){
-    $('.favorite').click(function(){
-      var a = $(this).attr('data-id');
-      console.log('click');
-        $.get("/addtofavorite/"+a, function(data) {
-          console.log(data);
+$(document).ready(function(){
+    // $('.favorite').click(function(){
+    //   var a = $(this).attr('data-id');
+    //   console.log('click');
+    //     $.get("/addtofavorite/"+a, function(data) {
+    //       console.log(data);
+    //     });
+    //   });
+    itemss = JSON.parse(localStorage.getItem('myKey'));
+    if(itemss)
+      $('.favorite').each(function(){
+        var btn = $(this).attr('data-article');
+        $.each(itemss, function(){
+          if(this.article == btn){
+            $('.favorite[data-article="' + btn + '"]').addClass('is-favorite');
+          }
         });
       });
+    function showMessage(item_article) {
+      itemss = JSON.parse(localStorage.getItem('myKey'));
+      if(itemss)
+        $.each(itemss, function(){
+          if(this.article == item_article){
+            $('.favorite[data-article="' + item_article + '"]').addClass('is-favorite');
+          }
+        });
+    }
+    function addToFav(item_id, item_article){
+      $.get("/get?id="+ item_id, function(data) {
+        a = data;
+        items = JSON.parse(localStorage.getItem('myKey')) || [];
+        items.push(a);
+        localStorage.setItem('myKey', JSON.stringify(items));
+        showMessage(item_article);
+      });
+    }
+
+    $('.favorite').click(function(){
+      itemss = JSON.parse(localStorage.getItem('myKey'))||[];
+      var status = true;
+      var this_article = $(this).attr('data-article');
+      var this_id = $(this).attr('data-id');
+      $.each(itemss, function(index){
+        if(this.article == this_article){
+          $('.favorite[data-article="' + this_article + '"]').removeClass('is-favorite');
+          itemss.splice(index, 1);
+          localStorage.setItem('myKey', JSON.stringify(itemss));
+          status=false
+        }
+      });
+      if(status){
+        addToFav(this_id, this_article);
+      }
+    });
+      itemss = JSON.parse(localStorage.getItem('myKey'));
+      console.log(itemss);
   });
     // $(document).ready(function(){
     //   function addToFav(a){

@@ -19,60 +19,7 @@
 			<div class="grid col-8">
 				<h2 class="visuallyhidden">Товары в корзине</h2>
 				<ul class="product-detail-list responsive ng-scope" id="cartPage-items">
-					<li class="product-detail-list-item ng-scope" id="0462979003">
-						<!-- Shopping bag item -->
-						<div class="product-detail-list-item-image-wrapper">
-							<div class="wrapper-inner">
-								<a href="#" class="product-detail-list-item-image ">
-                <%=image_tag("in_cart.jpg" , class:"product-detail-list-item-image-image" )%></a>
-							</div>
-						</div>
-						<div class="product-detail-list-item-details">
-							<div class="product-detail-list-item-price-info">
-								<p class="product-detail-list-item-total-price">
-									Итого:
-									<span id="entry_new_price" class="ng-binding">2499 Грн</span>
-								</p>
-							</div>
-							<h3 class="sub-sub-heading ng-binding">Атласная куртка</h3>
 
-							<p class="product-detail-selection"></p>
-							<div class="product-item-selection ng-binding"></div>
-							<p></p>
-							<dl class="product-detail-list-item-details-list">
-								<dt>№ арт.:</dt>
-								<dd class="ng-binding">0462979003</dd>
-
-								<dt>Цвет:</dt>
-								<dd class="ng-binding">Черный</dd>
-
-								<dt>Размер:</dt>
-								<dd class="ng-binding">38</dd>
-							</dl>
-						</div>
-						<div class="product-detail-list-item-actions">
-							<button class="button secondary icon icon-trash" type="button" title="Remove product"></button>
-							<!-- ngIf: true -->
-							<button class="button secondary icon icon-move-favorite ng-scope" type="button" data-saved-text="Saved to favorites" data-not-saved-text="Not saved to favorites" title="Toggle favorite"></button>
-							<!-- end ngIf: true -->
-							<label class="product-detail-list-item-actions-label" for="shopping-bag-quantity-options-4"></label>
-							<div class="select-primary product-detail-list-item-quantity">
-								<select name="product-detail-list-item-quantity-options-4" id="shopping-bag-quantity-options-4" data-validation="false" ng-change="updateQuantity(entry,entry.quantity)" class="ng-pristine ng-untouched ng-valid">
-									<option value="0" selected="selected" label="1">1</option>
-									<option value="1" label="2">2</option>
-									<option value="2" label="3">3</option>
-									<option value="3" label="4">4</option>
-									<option value="4" label="5">5</option>
-									<option value="5" label="6">6</option>
-									<option value="6" label="7">7</option>
-									<option value="7" label="8">8</option>
-									<option value="8" label="9">9</option>
-									<option value="9" label="10">10</option>
-								</select>
-							</div>
-						</div>
-						<!-- ngIf: entry.hazmat -->
-					</li>
 				</ul>
 			</div>
 			<div id="cartPage-summary" class="grid col-4">
@@ -86,7 +33,7 @@
 										<tr>
 											<th scope="row">СТОИМОСТЬ ЗАКАЗА:</th>
 											<td>
-												<span id="newPriceSubtotal" class="ng-binding">2499 Грн</span>
+												<span id="newPriceSubtotal" class="ng-binding">0 Грн</span>
 											</td>
 										</tr>
 										<tr class="ng-scope">
@@ -97,7 +44,7 @@
 									<tfoot>
 										<tr>
 											<th scope="row">ИТОГО</th>
-											<td id="total_price_of_basket" class="ng-binding">2598 Грн</td>
+											<td id="total_price_of_basket" class="ng-binding">0 Грн</td>
 										</tr>
 									</tfoot>
 								</table>
@@ -117,3 +64,95 @@
 		</div>
 	</div>
 </main>
+<script>
+	$(document).ready(function(){
+		cartsItems = JSON.parse(localStorage.getItem('myCart'));
+		console.log(cartsItems);
+		var item_summ;
+		if(cartsItems){
+	    	$.each(cartsItems, function(){
+	    		item_summ = this.price * this.count;
+	    		var all_summ;
+	    		all_summ += item_summ;
+	    		var options;
+	    		for(var i = 1; i <= 10; i++){
+	    			if(i == this.count){
+	    				options += '<option value='+i+' label='+ i +' selected="selected">'+i+'</option>'
+	    			}
+	    			else{
+	    				options += '<option value='+i+' label='+ i +'>'+i+'</option>'
+	    			}
+	    		}
+	    		$('.product-detail-list').prepend('\
+	    			<li class="product-detail-list-item ng-scope">\
+						<div class="product-detail-list-item-image-wrapper">\
+							<div class="wrapper-inner">\
+								<a href="#" class="product-detail-list-item-image ">\
+                <img class="product-detail-list-item-image-image" src="' + this.src + '" alt="In cart" title="In cart"></a>\
+							</div>\
+						</div>\
+						<div class="product-detail-list-item-details">\
+							<div class="product-detail-list-item-price-info">\
+								<p class="product-detail-list-item-total-price">\
+									Итого:\
+									<span id="entry_new_price" class="ng-binding">' + item_summ + ' Грн</span>\
+								</p>\
+							</div>\
+							<h3 class="sub-sub-heading ng-binding">' + this.name + '</h3>\
+							<p class="product-detail-selection"></p>\
+							<div class="product-item-selection ng-binding"></div>\
+							<p></p>\
+							<dl class="product-detail-list-item-details-list">\
+								<dt>№ арт.:</dt>\
+								<dd class="ng-binding">' + this.article + '</dd>\
+								<dt>Цвет:</dt>\
+								<dd class="ng-binding">' + this.color + '</dd>\
+								<dt>Размер:</dt>\
+								<dd class="ng-binding">' + this.size + '</dd>\
+							</dl>\
+						</div>\
+						<div class="product-detail-list-item-actions">\
+							<button class="button secondary icon icon-trash" type="button" title="Remove product" data-article="' + this.article + '"></button>\
+							<button class="button secondary icon icon-move-favorite ng-scope" type="button" data-saved-text="Saved to favorites" data-not-saved-text="Not saved to favorites" data-id="' + this.id + '" title="Toggle favorite"></button>\
+							<label class="product-detail-list-item-actions-label" for="shopping-bag-quantity-options-4"></label>\
+							<div class="select-primary product-detail-list-item-quantity">\
+								<select name="product-detail-list-item-quantity" data-validation="false" class="ng-pristine ng-untouched ng-valid">\
+									' + options + '\
+								</select>\
+							</div>\
+						</div>\
+					</li>');
+	    	});
+	    	if(item_summ){
+		    	$('#newPriceSubtotal').text(item_summ + ' Грн');
+		    	$('#total_price_of_basket').text(item_summ + 99 + ' Грн');
+		    }
+	    }
+	    $('.icon-trash').click(function(){
+        delete_from_cart = JSON.parse(localStorage.getItem('myCart'));
+        var this_article = $(this).attr('data-article');
+        var thet=this;
+        $.each(delete_from_cart, function(index){
+          if(this.article == this_article){
+            delete_from_cart.splice(index, 1);
+            localStorage.setItem('myCart', JSON.stringify(delete_from_cart));
+            $(thet).parent().parent().remove();
+          }
+      	});
+    	});
+
+    	$('.icon-move-favorite').click(function(){
+    		data_id = $(this).attr('data-id');
+    		$.get("/get?id="+data_id, function(data) {
+	    		a = data;
+	    		add_to_fav = JSON.parse(localStorage.getItem('myKey')) || [];
+	    		add_to_fav.push(a);
+	    		localStorage.setItem('myKey', JSON.stringify(add_to_fav));
+	    		// showMessage();
+	  		});
+    	});
+    	$('.ng-pristine').on('change', function(){
+    		console.log('change');
+    	});
+		});
+</script>
