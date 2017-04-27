@@ -50,7 +50,7 @@ class UsersController < ApplicationController
     def my_overview
 		@orders=Order.where(user_id: current_user.id)
 	end
-	def my_paymentinfo
+	def my_order
 		@orders=Order.where(user_id: current_user.id)
 	end
 
