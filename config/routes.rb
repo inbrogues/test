@@ -92,7 +92,7 @@ Rails.application.routes.draw do
   post 'my-address/create' => 'users#address_create', :as => :users_address_create
 
   patch 'my-address/update'=> 'users#address_update', :as => :users_address_update
-  delete 'my-address/destroy'=> 'users#address_destroy' , :as => :users_address_destroy
+  delete 'my-address/destroy/:id'=> 'users#address_destroy' , :as => :users_address_destroy
 
 
   get 'my-order' => 'users#my_order'

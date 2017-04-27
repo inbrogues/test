@@ -4,7 +4,7 @@ class CartsController < ApplicationController
 		@order=Order.new(order_params)
 		@address=Address.find(order_params[:address])
 		@order.user=current_user
-		@order.address=@address.city+" "+@address.address+" "+@address.seccond_address+" "+@address.post_index
+		@order.address=@address.city+" "+@address.post_index
 		data = JSON.parse order_params[:json]
 	    
 		@order.status = 'В обработке'
