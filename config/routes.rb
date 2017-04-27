@@ -99,6 +99,8 @@ Rails.application.routes.draw do
   get 'my-overview' => 'users#my_overview'
   get 'my-paymentinfo' => 'users#my_paymentinfo'
   get 'my-profile' => 'users#profile'
+
+  patch 'user_update' => 'users#update' , :as => :users_update
   
 
   resources :colors

@@ -5,6 +5,15 @@ class UsersController < ApplicationController
 			@user=current_user
 		end
 	end
+	def update
+		@user=current_user
+		if @user.update(users_params)
+			redirect_to controller:"users", action:"profile", notice: 'address was successfully update.' 
+	      else
+	        redirect_to controller: "users", action:"profile", notice: 'Some error.' 
+		end
+
+	end
 	def my_address
 		@addresses=Address.where(user_id: current_user.id)
 		@address_new=Address.new
@@ -45,8 +54,9 @@ class UsersController < ApplicationController
 	def address_params
       params.require(:address).permit(:address , :seccond_address , :city, :post_index)
     end
-
-
+    def users_params
+      params.require(:user).permit(:email , :first_name , :father ,:second_name,:date ,:tel ,:country)
+    end
     def my_overview
 		@orders=Order.where(user_id: current_user.id)
 	end
