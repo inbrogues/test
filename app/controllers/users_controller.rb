@@ -46,4 +46,12 @@ class UsersController < ApplicationController
       params.require(:address).permit(:address , :seccond_address , :city, :post_index)
     end
 
+
+    def my_overview
+		@orders=Order.where(user_id: current_user.id)
+	end
+	def my_paymentinfo
+		@orders=Order.where(user_id: current_user.id)
+	end
+
 end

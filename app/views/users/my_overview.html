@@ -1,4 +1,11 @@
-
+<% @orders.each do |order|%>
+	<%= order.id %><br>
+	<%= order.sum %><br>
+	<%= order.address %><br>
+	<%= order.created_at %><br>
+	<%= order.status %><br>
+<% end %>
+<Order id: 1, : nil, user_id: 1, status: nil, created_at: "2017-04-26 09:31:49", updated_at: "2017-04-26 09:31:49"> 
 	<main role="main" class="hm-club-overview my-hm responsive">
 		<div class="wrapper">
 			<nav class="breadcrumbs">

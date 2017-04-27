@@ -95,9 +95,9 @@ Rails.application.routes.draw do
   delete 'my-address/destroy'=> 'users#address_destroy' , :as => :users_address_destroy
 
 
-  get 'my-order' => 'users#my-order'
-  get 'my-overview' => 'users#my-overview'
-  get 'my-paymentinfo' => 'users#my-paymentinfo'
+  get 'my-order' => 'users#my_order'
+  get 'my-overview' => 'users#my_overview'
+  get 'my-paymentinfo' => 'users#my_paymentinfo'
   get 'my-profile' => 'users#profile'
   
 

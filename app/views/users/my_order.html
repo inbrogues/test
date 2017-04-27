@@ -1,4 +1,21 @@
-
+<% @orders||[].each do |order|%>
+	<%= order.id %><br>
+	<%= order.sum %><br>
+	<%= order.address %><br>
+	<%= order.created_at %><br>
+	<%= order.status %><br>
+	<br>
+	<%= order.user %><br>
+	<% order.orders_product_data||[].each do |opd| %>
+		<%=opd.count%><br>
+		<br>
+		<%=opd.product_data.article%><br>
+		<%=opd.product_data.price%><br>
+		<%=opd.product_data.promotional_price%><br>
+		<br>
+		<%=opd.product_data.product.name%><br>
+	<% end %>
+<% end %>
 	<main role="main" class="responsive my-hm">
 		<div class="wrapper">
 			<nav class="breadcrumbs">

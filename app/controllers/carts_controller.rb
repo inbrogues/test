@@ -5,23 +5,23 @@ class CartsController < ApplicationController
 		@address=Address.find(order_params[:address])
 		@order.user=current_user
 		@order.address=@address.city+" "+@address.address+" "+@address.seccond_address+" "+@address.post_index
-		puts order_params[:json]
-		#[{"status":"ok","message":"Success!","html":"<b>...</b>","name":"test 3","src":"/system/photos/imgs/000/000/007/original/hmprod-3.jpeg?1493236646","price":3000,"promotional_price":100,"article":"2020","color":"wert","sizes":[],"size":"9","id":7,"count":2}]
-		#"size":"9","id":7,"count":2
-		#,count: nil, product_size_id: nil, product_datum_id: nil
 		data = JSON.parse order_params[:json]
 	    
 		@order.status = 'В обработке'
 	    respond_to do |format|
 	      if @order.save
+	      	@order.sum=0
 	      	data.each { |d|
 	      		a=OrdersProductDatum.new
 	      		a.order_id=@order.id
 	      		a.count=d['count']
 	      		a.product_datum_id=d['id']
 	      		a.product_size=ProductSize.find_by(size: d['size'])
+	      		pd = ProductDatum.find(d['id'])
+	      		@order.sum += pd.promotional_price||pd.price
 	      		a.save
 	      	}
+	      	@order.save
 	        format.html {redirect_to controller:"carts", action:"order", id:  @order.id , notice: 'Color was successfully created.' }
 	        format.json { render :show, status: :created, location: @order }
 	      else
