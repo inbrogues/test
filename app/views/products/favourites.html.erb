@@ -96,7 +96,13 @@
                     </p>\
                 </div>'
         }
-      $('.product-detail-list').prepend('\
+        var size_option;
+        console.log(this.sizes)
+        $.each(this.sizes, function(){
+            console.log(this.size)
+            size_option = '<option value="' + this.size + '">'+ this.size + '</option>'
+        });
+      $('.product-detail-list').append('\
         <li class="product-detail-list-item">\
   <div class="product-detail-list-item-image-wrapper">\
     <div class="wrapper-inner">\
@@ -120,16 +126,13 @@
     <button class="button secondary icon icon-trash" type="button" title="Удалить из раздела «Избранное»" data-article="' + this.article + '">Удалить из раздела «Избранное»</button>\
     <label class="product-detail-list-item-actions-label" for="favorite-options-0"></label>\
     <div class="favorite-add-to-bag icon-add-to-bag">\
-      <select class="add-to-bag" name="favorite-add-to-bag-options-0" id="favorite-options-" data-validation="false" title="ДОБАВИТЬ" В="" КОРЗИНУ="">\
+      <select class="add-to-bag" name="favorite-add-to-bag-options-0" id="favorite-options-" data-article="' + this.article + '" title="ДОБАВИТЬ" В="" КОРЗИНУ="">\
         <option value="">Выбрать размер</option>\
+        ' + size_option + '\
       </select>\
     </div>\
   </div>\
 </li>')
-    $.each(this.sizes, function(){
-        console.log(this.size)
-        $('.add-to-bag').append('<option>'+ this.size + '</option>')
-    });
     })
     }
     $('.secondary').click(function(){
@@ -140,6 +143,26 @@
                 itemss.splice(index, 1);
                 localStorage.setItem('myKey', JSON.stringify(itemss));
                 $('.secondary[data-article="' + this_article + '"]').parent().parent().remove();
+            }
+        });
+    });
+    $('.add-to-bag').on('change', function(){
+        itemss = JSON.parse(localStorage.getItem('myKey'));
+        cartsItems = JSON.parse(localStorage.getItem('myCart')) || [];
+        var this_article = $(this).attr('data-article');
+        var change_count = $(this).find('option:selected').val();
+        $.each(itemss, function(index){
+                console.log(change_count);
+            if(this.article == this_article){
+                this['size'] = change_count;
+                this['count'] = itemss[index]['count'] + 1;
+                console.log(itemss);
+                cartsItems.push(itemss[index]);
+                localStorage.setItem('myCart', JSON.stringify(cartsItems));
+                console.log(cartsItems);
+                itemss.splice(index, 1);
+                localStorage.setItem('myKey', JSON.stringify(itemss));
+                $('.add-to-bag[data-article="' + this_article + '"]').parent().parent().parent().remove();
             }
         });
     });

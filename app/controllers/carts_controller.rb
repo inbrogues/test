@@ -10,17 +10,16 @@ class CartsController < ApplicationController
 		#"size":"9","id":7,"count":2
 		#,count: nil, product_size_id: nil, product_datum_id: nil
 		data = JSON.parse order_params[:json]
-			OrdersProductDatum
 	    
-
+		@order.status = 'В обработке'
 	    respond_to do |format|
 	      if @order.save
 	      	data.each { |d|
 	      		a=OrdersProductDatum.new
 	      		a.order_id=@order.id
-	      		a.count=data.count
-	      		a.product_size_id=data.id
-	      		a.size=ProductSize.find_by(size: data.size)
+	      		a.count=d['count']
+	      		a.product_datum_id=d['id']
+	      		a.product_size=ProductSize.find_by(size: d['size'])
 	      		a.save
 	      	}
 	        format.html {redirect_to controller:"carts", action:"order", id:  @order.id , notice: 'Color was successfully created.' }

@@ -361,6 +361,9 @@
 		function addToFav(){
 			$.get("/get?id="+<%= @product_data.id %>, function(data) {
     		a = data;
+    		a['size'] = 9;
+    		a['id'] = <%= @product_data.id %>;
+    		a['count'] = 1;
     		items = JSON.parse(localStorage.getItem('myKey')) || [];
     		items.push(a);
     		localStorage.setItem('myKey', JSON.stringify(items));
@@ -372,7 +375,8 @@
     	var status = true
   		$.each(itemss, function(index){
   			if(this.article == <%= @product_data.article %>){
-  				$('.button-favorite').removeClass('is-favorite').text('СОХРАНИТЬ КАК ИЗБРАННОЕ');
+  				$('.button-favorite').removeClass('is-favorite');
+  				$('.button-favorite').text('СОХРАНИТЬ КАК ИЗБРАННОЕ')
   				itemss.splice(index, 1);
   				localStorage.setItem('myKey', JSON.stringify(itemss));
   				status=false

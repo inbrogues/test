@@ -229,7 +229,7 @@ class ProductsController < ApplicationController
 	    product=product_datum.product
 	    color=product_datum.color
 	    photo=product_datum.photos.first
-	    sizes = ProductSize.where( id: ProductDatum.find(3).product_product_sizes.where(has: true).collect(&:product_size_id)).collect{|d| {id: d.id,size: d.size}}
+	    sizes = ProductSize.where( id: product_datum.product_product_sizes.where(has: true).collect(&:product_size_id)).collect{|d| {id: d.id,size: d.size}}
 
 	    msg = { 
 	    	:status => "ok",

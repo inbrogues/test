@@ -359,7 +359,7 @@
                         <%= link_to "/single/hm-#{product.product_datum[0].article}" , class: "product-item-link" do %>
                           <img src="<%= product.img(:original) %>" alt="" width="222" height="333" class="product-item-image" data-altimage="<%= product.img_alt(:original) %>">
                         <%end%>
-                        <button type="button" style="z-index: 9999;" class="favorite icon icon-favorites" data-tracking-type="event" data-saved-text="СОХРАНЕНО КАК ИЗБРАННОЕ" data-not-saved-text="СОХРАНИТЬ КАК ИЗБРАННОЕ" data-id="<%= product.product_datum[0].id %>">СОХРАНИТЬ КАК ИЗБРАННОЕ</button>
+                        <button type="button" style="z-index: 9999;" class="favorite icon icon-favorites" data-tracking-type="event" data-saved-text="СОХРАНЕНО КАК ИЗБРАННОЕ" data-not-saved-text="СОХРАНИТЬ КАК ИЗБРАННОЕ" data-id="<%= product.product_datum[0].id %>" data-article="<%= product.product_datum[0].article %>"">СОХРАНИТЬ КАК ИЗБРАННОЕ</button>
 
                         <div class="product-item-details">
                           <h3 class="product-item-heading">
@@ -437,6 +437,9 @@ $(document).ready(function(){
     function addToFav(item_id, item_article){
       $.get("/get?id="+ item_id, function(data) {
         a = data;
+        a['size'] = 0;
+        a['id'] = item_id;
+        a['count'] = 0;
         items = JSON.parse(localStorage.getItem('myKey')) || [];
         items.push(a);
         localStorage.setItem('myKey', JSON.stringify(items));

@@ -344,6 +344,6 @@ class AdminController < ApplicationController
    		params.require(:product_size).permit(:size)
    	end
    	def order_params
-   		params.require(:order)
+   		params.require(:order).permit(:status)
    	end
 end

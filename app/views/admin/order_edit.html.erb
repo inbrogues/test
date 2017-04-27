@@ -1,4 +1,4 @@
-<%= semantic_form_for @order, :url => admin_category_update_path(@order) do |f| %>
+<%= semantic_form_for @order, :url => admin_order_update_path(@order) do |f| %>
   <% if @order.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
