@@ -14,6 +14,18 @@ class UsersController < ApplicationController
 		end
 
 	end
+	def second_update
+		@user=current_user
+		respond_to do |format|
+			if @user.update(second_users_params)
+				format.html { redirect_to controller:"users", action:"my_address", notice: 'address was successfully update.' }
+				format.json { render  status: :ok }
+		      else
+		        format.html { redirect_to controller: "users", action:"my_address", notice: 'Some error.' }
+		        format.json { render json: @product.errors, status: :unprocessable_entity }	
+			end
+		end
+	end
 	def my_address
 		@addresses=Address.where(user_id: current_user.id)
 		@address_new=Address.new
@@ -56,6 +68,9 @@ class UsersController < ApplicationController
     end
     def users_params
       params.require(:user).permit(:email , :first_name , :father ,:second_name,:date ,:tel ,:country)
+    end
+    def second_users_params
+      params.require(:user).permit(:first_name , :father ,:second_name,:date ,:tel ,:country)
     end
     def my_overview
 		@orders=Order.where(user_id: current_user.id)
