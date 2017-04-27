@@ -7,6 +7,7 @@
 			<p class="name"><%= order.user.email %></p>
 			<p class="name"><%= order.status %></p>
 			<p class="name"><%= order.created_at %></p>
+			<p class="name"><%= order.sum %></p>
 			<p><%= link_to 'Edit', admin_order_edit_path(order) %></p>
         	<p><%= link_to 'Destroy', admin_order_destroy_path(order) , :method => 'delete', data: { confirm: 'Are you sure?' } %></p>
 			</div>
