@@ -361,9 +361,9 @@
 		function addToFav(){
 			$.get("/get?id="+<%= @product_data.id %>, function(data) {
     		a = data;
-    		a['size'] = 9;
+    		a['size'] = 0;
     		a['id'] = <%= @product_data.id %>;
-    		a['count'] = 1;
+    		a['count'] = 0;
     		items = JSON.parse(localStorage.getItem('myKey')) || [];
     		items.push(a);
     		localStorage.setItem('myKey', JSON.stringify(items));
@@ -400,7 +400,12 @@
     				cart_mas.splice(index, 1);
             localStorage.setItem('myCart', JSON.stringify(cart_mas));
             count = this.count + 1;
-    				a['count'] = count;
+            		if(count >= 10){
+            			a['count'] = 10;
+            		}
+            		else{
+            			a['count'] = count;
+            		}
     			}
     		});
     		cart_mas.push(a);

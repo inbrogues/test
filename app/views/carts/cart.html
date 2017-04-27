@@ -36,17 +36,7 @@
 												<span id="newPriceSubtotal" class="ng-binding">0 Грн</span>
 											</td>
 										</tr>
-										<tr class="ng-scope">
-											<th scope="row">ДОСТАВКА:</th>
-											<td class="ng-binding">99 Грн</td>
-										</tr>
 									</tbody>
-									<tfoot>
-										<tr>
-											<th scope="row">ИТОГО</th>
-											<td id="total_price_of_basket" class="ng-binding">0 Грн</td>
-										</tr>
-									</tfoot>
 								</table>
 								<a href="/diver"><button class="button button-big">ПЕРЕЙТИ К ОФОРМЛЕНИЮ ЗАКАЗА</button></a>
 							</div>
@@ -73,7 +63,14 @@
 		var item_summ;
 		if(cartsItems){
 	    	$.each(cartsItems, function(){
-	    		item_summ = this.price * this.count;
+	    		if(this.promotional_price){
+	    			promo = '<p class="product-detail-price ng-binding sale-price">' + this.promotional_price + ' Грн<span class="original-price">' + this.price + ' Грн </span></p>';
+	    			item_summ = this.promotional_price * this.count;
+	    		}
+	    		else{
+	    			promo = '<p class="product-detail-price ng-binding">' + this.price + ' Грн</p>'
+	    			item_summ = this.price * this.count;
+	    		}
 	    		var all_summ;
 	    		all_summ += item_summ;
 	    		var options;
@@ -101,6 +98,7 @@
 								</p>\
 							</div>\
 							<h3 class="sub-sub-heading ng-binding">' + this.name + '</h3>\
+							' + promo + '\
 							<p class="product-detail-selection"></p>\
 							<div class="product-item-selection ng-binding"></div>\
 							<p></p>\
@@ -115,7 +113,6 @@
 						</div>\
 						<div class="product-detail-list-item-actions">\
 							<button class="button secondary icon icon-trash" type="button" title="Remove product" data-article="' + this.article + '"></button>\
-							<button class="button secondary icon icon-move-favorite ng-scope" type="button" data-saved-text="Saved to favorites" data-not-saved-text="Not saved to favorites" data-id="' + this.id + '" title="Toggle favorite"></button>\
 							<label class="product-detail-list-item-actions-label" for="shopping-bag-quantity-options-4"></label>\
 							<div class="select-primary product-detail-list-item-quantity">\
 								<select name="product-detail-list-item-quantity" data-validation="false" class="ng-pristine ng-untouched ng-valid select_change">\
@@ -137,7 +134,7 @@
 					// console.log(price_of_item);
 				});
 				$('#newPriceSubtotal').text(price_of_item + ' Грн');
-				$('#total_price_of_basket').text(price_of_item + 99 + ' Грн');
+				// $('#total_price_of_basket').text(price_of_item  + ' Грн');
 			}
 	    $('.icon-trash').click(function(){
         delete_from_cart = JSON.parse(localStorage.getItem('myCart'));
@@ -160,30 +157,17 @@
 	    		add_to_fav = JSON.parse(localStorage.getItem('myKey')) || [];
 	    		add_to_fav.push(a);
 	    		localStorage.setItem('myKey', JSON.stringify(add_to_fav));
-	    		// showMessage();
 	  		});
     	});
     	$('.select_change').on('change', function(){
     		var change_count = $(this).find('option:selected').val();
     		var index_of_block = $(this).parent().parent().parent().index();
     		console.log(index_of_block);
-    		// th = $(this);
     		cartsItems = JSON.parse(localStorage.getItem('myCart'));
     		cartsItems[index_of_block].count = change_count;
     		console.log(cartsItems);
     		$($(this).parent().parent().parent()).find('.entry_new_price').text(change_count * cartsItems[index_of_block].price + ' Грн')
     		localStorage.setItem('myCart', JSON.stringify(cartsItems));
-    		// $.each(cartsItems, function(index){
-    		// 	if(index_of_block == index){
-	    	// 		if(this.count != change_count){
-	    	// 			this['count'] = change_count;
-	    	// 			// console.log(this.count);
-	    	// 			$(th.parent().parent().parent()).find('.entry_new_price').text(change_count * this.price + ' Грн')
-	    	// 			// th.hide();
-	    	// 			localStorage.setItem('myCart', JSON.stringify(cartsItems));
-	    	// 		}
-	    	// 	}
-    		// })
     		calcPrice();
     	});
     	calcPrice();

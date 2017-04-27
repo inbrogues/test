@@ -100,7 +100,7 @@
         console.log(this.sizes)
         $.each(this.sizes, function(){
             console.log(this.size)
-            size_option = '<option value="' + this.size + '">'+ this.size + '</option>'
+            size_option += '<option value="' + this.size + '">'+ this.size + '</option>'
         });
       $('.product-detail-list').append('\
         <li class="product-detail-list-item">\
@@ -151,15 +151,26 @@
         cartsItems = JSON.parse(localStorage.getItem('myCart')) || [];
         var this_article = $(this).attr('data-article');
         var change_count = $(this).find('option:selected').val();
-        $.each(itemss, function(index){
-                console.log(change_count);
+        $.each(itemss, function(index , s){
             if(this.article == this_article){
                 this['size'] = change_count;
                 this['count'] = itemss[index]['count'] + 1;
-                console.log(itemss);
-                cartsItems.push(itemss[index]);
+                var helper=true
+                $.each( cartsItems , function(index1, s1){
+                    if (s.article==s1.article && s1.size==change_count){
+                        if(s1.count >= 10){
+                            s1.count = 10;
+                        }
+                        else{
+                            s1.count+=1;
+                        }
+                        helper=false
+                    }
+                })
+                if (helper) {
+                    cartsItems.push(itemss[index]);                    
+                }
                 localStorage.setItem('myCart', JSON.stringify(cartsItems));
-                console.log(cartsItems);
                 itemss.splice(index, 1);
                 localStorage.setItem('myKey', JSON.stringify(itemss));
                 $('.add-to-bag[data-article="' + this_article + '"]').parent().parent().parent().remove();
