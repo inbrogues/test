@@ -32,6 +32,7 @@ class CartsController < ApplicationController
 	end
 	def diver
 		@order=Order.new()
+		@user=current_user
 		@address=Address.where(user: current_user)
 	end
 	def order_params
