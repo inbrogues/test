@@ -15,24 +15,30 @@ class UsersController < ApplicationController
 
 	end
 	def second_update
-		puts params
 		@user=current_user
-		puts current_user
 		respond_to do |format|
-			puts "_____________"
 			@user.first_name = params["first_name"]
 			@user.father = params["father"]
 			@user.second_name=params["second_name"]
 			@user.date=params["date"]
 			@user.tel=params["tel"]
 			@user.country=params["country"]
+			if params["address_id"]
+				address=Address.find(params["address_id"])
+				if  address.user==current_user
+					address.city = params["address_city"]
+					address.post_index = params["address_city"]
+					address.save
+				end
+			end
 			if @user.save
 				msg = { 
 			    	:status => "ok",
 			    	:message => "Success!",
 			    }
+
 			    format.json  { render :json => msg }
-		      else
+		    else
 		        format.json { render json: @user.errors, status: :unprocessable_entity }	
 			end
 		end
