@@ -27,7 +27,7 @@ class UsersController < ApplicationController
 				address=Address.find(params["address_id"])
 				if  address.user==current_user
 					address.city = params["address_city"]
-					address.post_index = params["address_city"]
+					address.post_index = params["address_post_index"]
 					address.save
 				end
 			end
@@ -44,6 +44,7 @@ class UsersController < ApplicationController
 		end
 	end
 	def my_address
+		@user=current_user
 		@addresses=Address.where(user_id: current_user.id)
 		@address_new=Address.new
 	end

@@ -60,6 +60,7 @@
             <header class="box-headline checkout-address-section-header">
               <h1 class="heading">Мои данные</h1>
             </header>
+            <div class="address_hidden hidden">
               <fieldset class="form-part">
                 <legend class="heading">ЛИЧНЫЕ СВЕДЕНИЯ</legend>
                 <div class="two modules">
@@ -124,7 +125,7 @@
                       </div>
                       <!-- end ngIf: true -->
 
-                      <input required="" type="text" data-validation-maxlength="40" data-validation-regex="^(?:\s*)[^\s“”\u0022;]+[^“”\u0022;]*(?:\s*)$" data-validation-maxlength-text="" data-validation-required-text="Пожалуйста, укажите адрес. " data-validation-regex-text="Удалить первый пробел" id="newBillingAddress-line1" name="line1" maxlength="40" class="text-input field line1  ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength" autocomplete="address-line1" value="<%= @address[0].city %>">
+                      <input required="" type="text" data-validation-maxlength="40" data-validation-regex="^(?:\s*)[^\s“”\u0022;]+[^“”\u0022;]*(?:\s*)$" data-validation-maxlength-text="" data-validation-required-text="Пожалуйста, укажите адрес. " data-validation-regex-text="Удалить первый пробел" id="newBillingAddress-line1" name="mainCity" maxlength="40" class="text-input field line1  ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength" autocomplete="address-line1" value="<%= @address[0].city %>">
                       <div class="input-info"">При заполнении указывайте область, район и населенный пункт</div>
                       <span class="static ng-binding ng-hide"></span>
                     </div>
@@ -138,7 +139,7 @@
                       </div>
                       <!-- end ngIf: true -->
 
-                      <input required="" type="text" data-validation-maxlength="40" data-validation-regex="^(?:\s*)[^\d“”\u0022;]+[^\s\d“”\u0022;]+[^“”\u0022;]*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text="Пожалуйста, укажите город. " data-validation-regex-text="Пожалуйста, укажите правильное название города" id="newBillingAddress-town" name="town" maxlength="40" class="text-input field town  ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength" autocomplete="address-level2" value="<%= @address[0].post_index %>">
+                      <input required="" type="text" data-validation-maxlength="40" data-validation-regex="^(?:\s*)[^\d“”\u0022;]+[^\s\d“”\u0022;]+[^“”\u0022;]*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text="Пожалуйста, укажите город. " data-validation-regex-text="Пожалуйста, укажите правильное название города" id="newBillingAddress-town" name="postIndex" maxlength="40" class="text-input field town  ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength" autocomplete="address-level2" value="<%= @address[0].post_index %>">
                       <div class="input-info">Укажите номер отделения Новой почты</div>
                       <span class="static ng-binding ng-hide"></span>
                     </div>
@@ -160,6 +161,7 @@
                 <!-- <input type="submit" id="submitBillingAddress" value="ПЕРЕЙТИ К РАЗДЕЛУ &quot;ДОСТАВКА&quot;" data-validation-text="Эту форму не удалось отправить. Пожалуйста, проверьте указанную Вами информацию."> -->
                 <button class="save_new_data">Сохранить</button>
               </div>
+            </div>
             <div class="read-only row">
               <div class="grid col-4">
                 <div class="box-content">
@@ -230,6 +232,7 @@
               </div>
             </div>
           </section>
+          <input id="placeorderbutton" class="button-big place-order-button" value="ЗАВЕРШИТЬ ПОКУПКУ" data-validation-text="Ваша покупка не может быть завершена. Пожалуйста, проверьте вашу информацию." type="submit">
         </div>
         
         <div class="grid col-4">
@@ -299,8 +302,11 @@
     // console.log(user);
 
     $('.save_new_data').click(function(){
-      var user = {authenticity_token:'<%= form_authenticity_token %>', first_name:'' + $("input[name='firstName']").val() + '', father:'' + $("input[name='middleName']").val() + '', second_name:'' + $("input[name='lastName']").val() + '', date:'' + $("input[name='user-date']").val() + '', tel:'49', _method:'PATCH'};
+      var user = {authenticity_token:'<%= form_authenticity_token %>', first_name:'' + $("input[name='firstName']").val() + '', father:'' + $("input[name='middleName']").val() + '', second_name:'' + $("input[name='lastName']").val() + '', date:'' + $("input[name='user-date']").val() + '', tel:'49', address_id:'<%= @address[0].id %>', address_city:'' + $("input[name='mainCity']").val() + '',address_post_index:'' + $("input[name='postIndex']").val() + '', _method:'PATCH'};
       $.ajax('/small_user_update', { type: 'POST', data: user });
+    });
+    $('#checkoutAddressPartEdit').click(function(){
+      $(this).parent().find('.address_hidden, .read-only').toggle();
     });
   });
 </script>

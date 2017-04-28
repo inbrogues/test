@@ -65,605 +65,81 @@
 <% end %>
 
 <main role="main" class="responsive my-hm">
-	<div class="wrapper">
-		<nav class="breadcrumbs">
-			<ul>
-				<li>
+		<div class="wrapper">
+			<nav class="breadcrumbs">
+				<ul>
+					<li>
+						<a href="#">Yourhm.com.ua</a>
+					</li>
 
-					<a href="/ru_ru/">HM.COM</a>
-				</li>
+					<li class="">
+						<a href="#">Ваша учетная запись</a>
+					</li>
 
-				<li class="">
-
-					<a href="/ru_ru/my-account">Ваша учетная запись</a>
-				</li>
-				<li class="active">
-
-					<a href="#" onclick="return false;">АДРЕСНАЯ КНИГА</a>
-				</li>
-			</ul>
-		</nav>
-		<script type="text/javascript">$("body").addClass("checkout-loader-layer");</script>
-		<nav class="section navigation menu " role="navigation">
-			<ul role="menu">
-				<li class="item" role="presentation" tabindex="0">
-					<a href="/ru_ru/my-account/overview" role="menuitem">Обзор</a>
-				</li>
-				<li class="item" role="presentation" tabindex="-1">
-					<a href="/ru_ru/my-account/profile" role="menuitem">Личные сведения</a>
-				</li>
-				<li class="item" role="presentation" tabindex="-1">
-					<a href="/ru_ru/my-account/orders" role="menuitem">Заказы</a>
-				</li>
-				<li class="current item" role="presentation" tabindex="-1">
-					<a href="/ru_ru/my-account/address-book" role="menuitem">Адресная книга</a>
-				</li>
-				<li class="item" role="presentation" tabindex="-1">
-					<a href="/ru_ru/my-account/payment-details" role="menuitem">Информация о банковском счете</a>
-				</li>
-			</ul>
-		</nav>
-		<div class="layout layout-eight ng-scope" ng-controller="MyAccountController as myAccountCtrl">
-			<div class="hidden modal-content ng-hide" id="address-validation-popup" ng-show="getContext().showPopup &amp;&amp; getContext().popupType =='ADDRESSES'">
-				<div class="modal-text">
-					<div class="address-validation">
-						<h1 class="heading ng-binding"></h1>
-						<p ng-bind-html="getContext().popupMessage" class="ng-binding"></p>
-						<form class="ng-pristine ng-valid">
-							<div class="address-validation-addresses">
-								<div class="address-validation-un-validated">
-									<h3>ВЫ УКАЗАЛИ:</h3>
-									<div class="address-validation-address">
-										<input type="radio" name="validation-address" value="-1" id="un-validated-address" ng-model="addresses[addressInEdit].selectedAddress" class="ng-pristine ng-untouched ng-valid">
-										<label for="un-validated-address">
-											<span ng-bind-html="addresses[addressInEdit].formattedAddress" class="ng-binding"></span>
-											<br>
-											<a class="address-validation-edit modalclose underline ng-hide" ng-show="verifiedAddresses.length&gt;0" ng-click="getContext().showPopup = false; addresses[addressInEdit].selectedAddress=-1">Редактировать</a>
-										</label>
-									</div>
-								</div>
-								<div class="address-validation-suggestions ng-hide" ng-show="verifiedAddresses.length&gt;0">
-									<h3>ВЫ ИМЕЛИ В ВИДУ:</h3>
-									<div class="address-validation-address-list " ng-class="{'scrollable' : verifiedAddresses.length&gt;4}">
-										<!-- ngRepeat: address in verifiedAddresses -->
-									</div>
-								</div>
-							</div>
-							<div class="buttons clearfix">
-								<button ng-click="getContext().showPopup = false" class="modalclose button button-secondary ng-hide" ng-show="getContext().popupType=='ADDRESSES' &amp;&amp; !verifiedAddresses.length&gt;0">Редактировать</button>
-								<button ng-click="submitClosePopup()" class="modalclose button">OK</button>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-			<div aria-hidden="true" id="remove-address-popup" class="hidden modal-content">
-				<div class="modal-text" style="text-align:center">
-					<h1 class="heading">УДАЛИТЬ АДРЕС</h1>
-					<p class="text">Удалить этот адрес?</p>
-					<div class="buttons clearfix">
-						<button ng-click="closePopup()" class="modalclose button secondary">Отменить</button>
-						<button ng-click="removeAddress()" class="modalclose button primary">OK</button>
-					</div>
-				</div>
-			</div>
-			<header class="page-header">
-				<h1>АДРЕСНАЯ КНИГА</h1>
-				<p>Новый адрес можно добавить на этапе оформления заказа.</p>
-				<br></header>
-
-			<div class="form-group">
-				<form ng-submit="saveHomeAddress()" ng-init="home.formIndex = 'home'" id="homeAddressForm" name="homeAddressForm" class="form-section new-form homeForm ng-pristine ng-valid-maxlength ng-valid ng-valid-required" novalidate="">
-					<fieldset class="form-part" ng-show="home!=null || isEdit['home']">
-						<legend class="heading">Домашний адрес</legend>
-
-						<div class="inputwrapper required" ng-class="true ? 'required' : 'optional'">
-							<label class="label" for="checkout.line1">Строка адреса 1</label>
-
-							<!-- ngIf: true -->
-							<div class="input-field-info ng-scope ng-hide" ng-if="true" ng-show="(isEdithome || isEdit['home']) &amp;&amp; ('line1' == 'line1' || 'line1' == 'line2') ">
-
-								<span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
-							</div>
-							<!-- end ngIf: true -->
-
-							<input ng-show="isEdithome || isEdit['home']" ng-model="home.line1" ng-change="addressMandatoryChanged('home','line1')" required="" type="text" data-validation-maxlength="40" data-validation-regex="^(?:\s*)[^\s“”\u0022;]+[^“”\u0022;]*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text="Пожалуйста, укажите адрес. " data-validation-regex-text="Удалить первый пробел" id="home-line1" name="line1" maxlength="40" class="text-input field line1  ng-pristine ng-untouched ng-valid-maxlength ng-valid ng-valid-required ng-hide" autocomplete="address-line1">
-							<div class="input-info ng-hide" ng-show="isEdithome || isEdit['home'] ">Название улицы, номер дома, корпус, строение, номер квартиры</div>
-							<span class="static ng-binding" ng-hide="isEdithome || isEdit['home']">Педагогическая</span>
-
+					<li class="active">
+						<a href="#" onclick="return false;">Адресная книга</a>
+					</li>
+				</ul>
+			</nav>
+			<script type="text/javascript">$("body").addClass("checkout-loader-layer");</script>
+			<nav class="section navigation menu " role="navigation">
+				<ul role="menu">
+					<li class="item" role="presentation" tabindex="0">
+						<a href="#" role="menuitem">Обзор</a>
+					</li>
+					<li class="item" role="presentation" tabindex="-1">
+						<a href="#" role="menuitem">Личные сведения</a>
+					</li>
+					<li class="item" role="presentation" tabindex="-1">
+						<a href="#" role="menuitem">Заказы</a>
+					</li>
+					<li class="current item" role="presentation" tabindex="-1">
+						<a href="#" role="menuitem">Адресная книга</a>
+					</li>
+					<li class="item" role="presentation" tabindex="-1">
+						<a href="#" role="menuitem">Информация о банковском счете</a>
+					</li>
+				</ul>
+			</nav>
+			<div class="layout layout-eight ng-scope" id="profileDIV">
+				<div class="form-section agile-form disabled-form" id="profile">
+					<fieldset class="form-part">
+						<legend class="heading">Адресная книга</legend>
+						
+ 
+						<%= semantic_form_for @addresses[0], :url => users_address_update_path(@addresses[0]) do |f| %>
+						<div class="inputwrapper">
+							<label class="label" for="myhm-email">Адрес</label>
+							<%= f.text_field :city, class: 'text-input field' %>
+							<span class="static ng-binding"><%= @addresses[0].city %></span>
+							<div class="input-info ng-hide">Указывайте полный адрес(область, район, населенный пункт)</div>
 						</div>
 
-						<div class="inputwrapper optional" ng-class="false ? 'required' : 'optional'">
-							<label class="label" for="checkout.line2">Строка адреса 2</label>
-
-							<!-- ngIf: true -->
-							<div class="input-field-info ng-scope ng-hide" ng-if="true" ng-show="(isEdithome || isEdit['home']) &amp;&amp; ('line2' == 'line1' || 'line2' == 'line2') ">
-
-								<span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
-							</div>
-							<!-- end ngIf: true -->
-
-							<input ng-show="isEdithome || isEdit['home']" ng-model="home.line2" ng-change="addressNotMandatoryChanged('home','line2')" type="text" data-validation-maxlength="40" data-validation-regex="^(?:\s*)[^\s“”\u0022;]+[^“”\u0022;]*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text=" " data-validation-regex-text="Удалить первый пробел" id="home-line2" name="line2" maxlength="40" class="text-input field line2  ng-pristine ng-untouched ng-valid ng-valid-maxlength ng-hide" autocomplete="address-line2">
-							<div class="input-info ng-hide" ng-show="isEdithome || isEdit['home'] ">Этаж, домофон и т.д.</div>
-							<span class="static ng-binding" ng-hide="isEdithome || isEdit['home']"></span>
-
+						<div class="inputwrapper required">
+							<label class="label" for="checkout.firstName">Отделение Новой почты</label>
+							<%= f.text_field :post_index, class: 'text-input field' %>
+							<span class="static ng-binding"><%= @addresses[0].post_index %></span>
+							<div class="input-info ng-hide"></div>
 						</div>
 
-						<div class="inputwrapper required" ng-class="true ? 'required' : 'optional'">
-							<label class="label" for="checkout.town">Город</label>
-
-							<!-- ngIf: true -->
-							<div class="input-field-info ng-scope ng-hide" ng-if="true" ng-show="(isEdithome || isEdit['home']) &amp;&amp; ('town' == 'line1' || 'town' == 'line2') ">
-
-								<span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
-							</div>
-							<!-- end ngIf: true -->
-
-							<input ng-show="isEdithome || isEdit['home']" ng-model="home.town" ng-change="addressMandatoryChanged('home','town')" required="" type="text" data-validation-maxlength="40" data-validation-regex="^(?:\s*)[^\d“”\u0022;]+[^\s\d“”\u0022;]+[^“”\u0022;]*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text="Пожалуйста, укажите город. " data-validation-regex-text="Пожалуйста, укажите правильное название города" id="home-town" name="town" maxlength="40" class="text-input field town  ng-pristine ng-untouched ng-valid-maxlength ng-valid ng-valid-required ng-hide" autocomplete="address-level2">
-							<div class="input-info ng-hide" ng-show="isEdithome || isEdit['home'] ">город, без указания области и района</div>
-							<span class="static ng-binding" ng-hide="isEdithome || isEdit['home']">Одес</span>
-
-						</div>
-
-						<div class="inputwrapper required" ng-class="true ? 'required' : 'optional'">
-							<label class="label" for="checkout.postalCode">Почтовый индекс</label>
-
-							<!-- ngIf: true -->
-							<div class="input-field-info ng-scope ng-hide" ng-if="true" ng-show="(isEdithome || isEdit['home']) &amp;&amp; ('postalCode' == 'line1' || 'postalCode' == 'line2') ">
-
-								<span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
-							</div>
-							<!-- end ngIf: true -->
-
-							<input ng-show="isEdithome || isEdit['home']" ng-model="home.postalCode" ng-change="addressMandatoryChanged('home','postalCode')" required="" type="text" data-validation-maxlength="10" data-validation-regex="^(?:\s*)(\d{6})(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text="Пожалуйста, укажите почтовый индекс (105064). " data-validation-regex-text="Пожалуйста, укажите правильный почтовый индекс (105064)." id="home-postalCode" name="postalCode" maxlength="10" class="text-input field postalCode to-hankaku ng-pristine ng-untouched ng-valid-maxlength ng-valid ng-valid-required ng-hide" autocomplete="postal-code">
-							<div class="input-info ng-hide" ng-show="isEdithome || isEdit['home'] ">Укажите Ваш почтовый индекс. Например 105064</div>
-							<span class="static ng-binding" ng-hide="isEdithome || isEdit['home']">105064</span>
-
-						</div>
-
-						<input type="hidden" name="billingAddress" ng-model="home.billingAddress" value="true" class="ng-pristine ng-untouched ng-valid">
-						<div class="inputwrapper" required="">
-							<label class="label" for="address-book.country">Страна</label>
-							<input ng-show="isEdithome || isEdit['home']" class="text-input field ng-hide" disabled="" value="Российская Федерация">
-							<span ng-hide="isEdithome || isEdit['home']" class="static ng-binding">Российская Федерация</span>
-						</div>
 					</fieldset>
-					<div class="no-address ng-hide" ng-hide="home!=null || isEdit['home']">
-						<h3 class="sub-heading">Домашний адрес</h3>
-						<p class="text">Домашний адрес не сохранен.</p>
-					</div>
+
 					<div class="button-group">
-						<button class="button ng-binding" type="button" ng-click="isEdit['home']=true;combobox('home')" ng-hide="isEdit['home'] || false">РЕДАКТИРОВАТЬ АДРЕС</button>
-						<button class="secondary button ng-hide" type="button" ng-click="cancelAction('home');" ng-show="isEdit['home']" onclick="hm.formValidator.resetFormStyles($('#homeAddressForm'))">Отменить</button>
-						<button class="button save-form ng-hide" type="submit" ng-show="isEdit['home']">Сохранить данные</button>
+						<button type="button" class="secondary button redaction_data">Редактировать</button>
+						<%= f.submit value:'ИЗМЕНИТЬ', class: 'hidden change_button'%>
+						<div id="globalMessages"></div>
 					</div>
-				</form>
-			</div>
-			<div ng-show="addressBook.length &gt; 0" class="ng-hide">
-				<h3 class="sub-heading">АДРЕСА ДОСТАВКИ</h3>
-			</div>
-			<div class="form-group">
-				<div ng-show="visibility.delivery0" class="">
-					<div class="default-fieldset" ng-hide="isEdit['delivery0']">
-						<label for="default_00" class="preceding-label ng-hide" ng-show="delivery0">Использовать по умолчанию</label>
-						<input type="radio" ng-model="defaultAddress" value="delivery0" id="default_00" name="use-as-default" class="radio-input ng-pristine ng-untouched ng-valid ng-hide" checked="" ng-show="delivery0" ng-click="setDefaultAddress(delivery0)"></div>
-					<form ng-submit="saveDeliveryAddress('delivery0')" ng-init="home.formIndex = 'home'" id="delivery0AddressForm" name="delivery0AddressForm" class="form-section new-form delivery0Form ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength" novalidate="">
-						<fieldset class="form-part ng-hide" ng-show="delivery0!=null || isEdit['delivery0']">
-							<legend class="heading">Адрес Доставки&nbsp;1</legend>
-
-							<div class="inputwrapper required" ng-class="true ? 'required' : 'optional'">
-								<label class="label" for="checkout.firstName">Имя</label>
-
-								<!-- ngIf: true -->
-								<div class="input-field-info ng-scope ng-hide" ng-if="true" ng-show="(isEditdelivery0 || isEdit['delivery0']) &amp;&amp; ('firstName' == 'line1' || 'firstName' == 'line2') ">
-
-									<span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
-								</div>
-								<!-- end ngIf: true -->
-
-								<input ng-show="isEditdelivery0 || isEdit['delivery0']" ng-model="delivery0.firstName" ng-change="nameChanged('delivery0','firstName')" required="" type="text" data-validation-maxlength="75" data-validation-regex="^(?:\s*)[^:“”\u0022;!@$%^&amp;*()_+={}\[&lt;&gt;,.?`~|\]\\\/]+(\s+[^\s\d:“”\u0022;!@$%^&amp;*()_+={}\[&lt;&gt;,.?`~|\]\\\/]+)*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text="Пожалуйста, укажите имя. " data-validation-regex-text="Пожалуйста, введите снова без пробелов" id="delivery0-firstName" name="firstName" maxlength="75" class="text-input field firstName  ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength ng-hide" autocomplete="given-name">
-								<div class="input-info ng-hide" ng-show="isEditdelivery0 || isEdit['delivery0'] "></div>
-								<span class="static ng-binding" ng-hide="isEditdelivery0 || isEdit['delivery0']"></span>
-
-							</div>
-
-							<div class="inputwrapper optional" ng-class="false ? 'required' : 'optional'">
-								<label class="label" for="checkout.middleName">Отчество</label>
-
-								<!-- ngIf: true -->
-								<div class="input-field-info ng-scope ng-hide" ng-if="true" ng-show="(isEditdelivery0 || isEdit['delivery0']) &amp;&amp; ('middleName' == 'line1' || 'middleName' == 'line2') ">
-
-									<span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
-								</div>
-								<!-- end ngIf: true -->
-
-								<input ng-show="isEditdelivery0 || isEdit['delivery0']" ng-model="delivery0.middleName" ng-change="nameChanged('delivery0','middleName')" type="text" data-validation-maxlength="75" data-validation-regex="^(?:\s*)[^:“”\u0022;!@$%^&amp;*()_+={}\[&lt;&gt;,.?`~|\]\\\/]+(\s+[^\s\d:“”\u0022;!@$%^&amp;*()_+={}\[&lt;&gt;,.?`~|\]\\\/]+)*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text=" " data-validation-regex-text="" id="delivery0-middleName" name="middleName" maxlength="75" class="text-input field middleName  ng-pristine ng-untouched ng-valid ng-valid-maxlength ng-hide" autocomplete="">
-								<div class="input-info ng-hide" ng-show="isEditdelivery0 || isEdit['delivery0'] ">Укажите Ваше отчество здесь</div>
-								<span class="static ng-binding" ng-hide="isEditdelivery0 || isEdit['delivery0']"></span>
-
-							</div>
-
-							<div class="inputwrapper required" ng-class="true ? 'required' : 'optional'">
-								<label class="label" for="checkout.lastName">Фамилия</label>
-
-								<!-- ngIf: true -->
-								<div class="input-field-info ng-scope ng-hide" ng-if="true" ng-show="(isEditdelivery0 || isEdit['delivery0']) &amp;&amp; ('lastName' == 'line1' || 'lastName' == 'line2') ">
-
-									<span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
-								</div>
-								<!-- end ngIf: true -->
-
-								<input ng-show="isEditdelivery0 || isEdit['delivery0']" ng-model="delivery0.lastName" ng-change="nameChanged('delivery0','lastName')" required="" type="text" data-validation-maxlength="150" data-validation-regex="^(?:\s*)[^:“”\u0022;!@$%^&amp;*()_+={}\[&lt;&gt;,.?`~|\]\\\/]+(\s+[^\s\d:“”\u0022;!@$%^&amp;*()_+={}\[&lt;&gt;,.?`~|\]\\\/]+)*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text="Пожалуйста, укажите фамилию. " data-validation-regex-text="Пожалуйста, введите снова без пробелов" id="delivery0-lastName" name="lastName" maxlength="150" class="text-input field lastName  ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength ng-hide" autocomplete="family-name">
-								<div class="input-info ng-hide" ng-show="isEditdelivery0 || isEdit['delivery0'] "></div>
-								<span class="static ng-binding" ng-hide="isEditdelivery0 || isEdit['delivery0']"></span>
-
-							</div>
-
-							<div class="inputwrapper required" ng-class="true ? 'required' : 'optional'">
-								<label class="label" for="checkout.line1">Строка адреса 1</label>
-
-								<!-- ngIf: true -->
-								<div class="input-field-info ng-scope ng-hide" ng-if="true" ng-show="(isEditdelivery0 || isEdit['delivery0']) &amp;&amp; ('line1' == 'line1' || 'line1' == 'line2') ">
-
-									<span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
-								</div>
-								<!-- end ngIf: true -->
-
-								<input ng-show="isEditdelivery0 || isEdit['delivery0']" ng-model="delivery0.line1" ng-change="addressMandatoryChanged('delivery0','line1')" required="" type="text" data-validation-maxlength="40" data-validation-regex="^(?:\s*)[^\s“”\u0022;]+[^“”\u0022;]*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text="Пожалуйста, укажите адрес. " data-validation-regex-text="Удалить первый пробел" id="delivery0-line1" name="line1" maxlength="40" class="text-input field line1  ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength ng-hide" autocomplete="address-line1">
-								<div class="input-info ng-hide" ng-show="isEditdelivery0 || isEdit['delivery0'] ">Название улицы, номер дома, корпус, строение, номер квартиры</div>
-								<span class="static ng-binding" ng-hide="isEditdelivery0 || isEdit['delivery0']"></span>
-
-							</div>
-
-							<div class="inputwrapper optional" ng-class="false ? 'required' : 'optional'">
-								<label class="label" for="checkout.line2">Строка адреса 2</label>
-
-								<!-- ngIf: true -->
-								<div class="input-field-info ng-scope ng-hide" ng-if="true" ng-show="(isEditdelivery0 || isEdit['delivery0']) &amp;&amp; ('line2' == 'line1' || 'line2' == 'line2') ">
-
-									<span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
-								</div>
-								<!-- end ngIf: true -->
-
-								<input ng-show="isEditdelivery0 || isEdit['delivery0']" ng-model="delivery0.line2" ng-change="addressNotMandatoryChanged('delivery0','line2')" type="text" data-validation-maxlength="40" data-validation-regex="^(?:\s*)[^\s“”\u0022;]+[^“”\u0022;]*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text=" " data-validation-regex-text="Удалить первый пробел" id="delivery0-line2" name="line2" maxlength="40" class="text-input field line2  ng-pristine ng-untouched ng-valid ng-valid-maxlength ng-hide" autocomplete="address-line2">
-								<div class="input-info ng-hide" ng-show="isEditdelivery0 || isEdit['delivery0'] ">Этаж, домофон и т.д.</div>
-								<span class="static ng-binding" ng-hide="isEditdelivery0 || isEdit['delivery0']"></span>
-
-							</div>
-
-							<div class="inputwrapper required" ng-class="true ? 'required' : 'optional'">
-								<label class="label" for="checkout.town">Город</label>
-
-								<!-- ngIf: true -->
-								<div class="input-field-info ng-scope ng-hide" ng-if="true" ng-show="(isEditdelivery0 || isEdit['delivery0']) &amp;&amp; ('town' == 'line1' || 'town' == 'line2') ">
-
-									<span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
-								</div>
-								<!-- end ngIf: true -->
-
-								<input ng-show="isEditdelivery0 || isEdit['delivery0']" ng-model="delivery0.town" ng-change="addressMandatoryChanged('delivery0','town')" required="" type="text" data-validation-maxlength="40" data-validation-regex="^(?:\s*)[^\d“”\u0022;]+[^\s\d“”\u0022;]+[^“”\u0022;]*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text="Пожалуйста, укажите город. " data-validation-regex-text="Пожалуйста, укажите правильное название города" id="delivery0-town" name="town" maxlength="40" class="text-input field town  ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength ng-hide" autocomplete="address-level2">
-								<div class="input-info ng-hide" ng-show="isEditdelivery0 || isEdit['delivery0'] ">город, без указания области и района</div>
-								<span class="static ng-binding" ng-hide="isEditdelivery0 || isEdit['delivery0']"></span>
-
-							</div>
-
-							<div class="inputwrapper required" ng-class="true ? 'required' : 'optional'">
-								<label class="label" for="checkout.postalCode">Почтовый индекс</label>
-
-								<!-- ngIf: true -->
-								<div class="input-field-info ng-scope ng-hide" ng-if="true" ng-show="(isEditdelivery0 || isEdit['delivery0']) &amp;&amp; ('postalCode' == 'line1' || 'postalCode' == 'line2') ">
-
-									<span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
-								</div>
-								<!-- end ngIf: true -->
-
-								<input ng-show="isEditdelivery0 || isEdit['delivery0']" ng-model="delivery0.postalCode" ng-change="addressMandatoryChanged('delivery0','postalCode')" required="" type="text" data-validation-maxlength="10" data-validation-regex="^(?:\s*)(\d{6})(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text="Пожалуйста, укажите почтовый индекс (105064). " data-validation-regex-text="Пожалуйста, укажите правильный почтовый индекс (105064)." id="delivery0-postalCode" name="postalCode" maxlength="10" class="text-input field postalCode to-hankaku ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength ng-hide" autocomplete="postal-code">
-								<div class="input-info ng-hide" ng-show="isEditdelivery0 || isEdit['delivery0'] ">Укажите Ваш почтовый индекс. Например 105064</div>
-								<span class="static ng-binding" ng-hide="isEditdelivery0 || isEdit['delivery0']"></span>
-
-							</div>
-
-							<input type="hidden" name="id" ng-model="delivery0.id" value="" class="ng-pristine ng-untouched ng-valid">
-							<input type="hidden" name="shippingAddress" ng-model="delivery0.shippingAddress" value="true" class="ng-pristine ng-untouched ng-valid">
-							<div class="inputwrapper" required="">
-								<label class="label" for="address-book.country">Страна</label>
-								<input ng-show="isEditdelivery0 || isEdit['delivery0']" class="text-input field ng-hide" disabled="" value="Российская Федерация">
-								<span ng-hide="isEditdelivery0 || isEdit['delivery0']" class="static ng-binding">Российская Федерация</span>
-							</div>
-						</fieldset>
-						<div class="no-address" ng-hide="delivery0!=null || isEdit['delivery0']">
-							<h3 class="sub-heading" ng-hide="0!=0">Адрес Доставки</h3>
-							<p class="text" ng-hide="0!=0">Адрес доставки не сохранен.</p>
-						</div>
-						<div class="button-group">
-							<button class="button ng-binding" type="button" ng-click="isEdit['delivery0']=true;combobox('delivery0')" ng-hide="isEdit['delivery0']">добавить новый адрес</button>
-							<a class="secondary button ng-hide" href="#remove-address" ng-hide="isEdit['delivery0'] || delivery0==null" ng-click="openRemovePopup('delivery0')">УДАЛИТЬ АДРЕС</a>
-							<button class="secondary button ng-hide" type="button" ng-click="cancelAction('delivery0');" ng-show="isEdit['delivery0']" onclick="hm.formValidator.resetFormStyles($('#delivery0AddressForm'))">Отменить</button>
-							<button class="button save-form ng-hide" type="submit" ng-show="isEdit['delivery0']">Сохранить данные</button>
-						</div>
-					</form>
+					<% end %>
 				</div>
-				<div ng-show="visibility.delivery1" class="ng-hide">
-					<div class="default-fieldset" ng-hide="isEdit['delivery1']">
-						<label for="default_00" class="preceding-label ng-hide" ng-show="delivery1">Использовать по умолчанию</label>
-						<input type="radio" ng-model="defaultAddress" value="delivery1" id="default_01" name="use-as-default" class="radio-input ng-pristine ng-untouched ng-valid ng-hide" checked="" ng-show="delivery1" ng-click="setDefaultAddress(delivery1)"></div>
-					<form ng-submit="saveDeliveryAddress('delivery1')" ng-init="home.formIndex = 'home'" id="delivery1AddressForm" name="delivery1AddressForm" class="form-section new-form delivery1Form ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength" novalidate="">
-						<fieldset class="form-part ng-hide" ng-show="delivery1!=null || isEdit['delivery1']">
-							<legend class="heading">Адрес Доставки&nbsp;2</legend>
 
-							<div class="inputwrapper required" ng-class="true ? 'required' : 'optional'">
-								<label class="label" for="checkout.firstName">Имя</label>
-
-								<!-- ngIf: true -->
-								<div class="input-field-info ng-scope ng-hide" ng-if="true" ng-show="(isEditdelivery1 || isEdit['delivery1']) &amp;&amp; ('firstName' == 'line1' || 'firstName' == 'line2') ">
-
-									<span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
-								</div>
-								<!-- end ngIf: true -->
-
-								<input ng-show="isEditdelivery1 || isEdit['delivery1']" ng-model="delivery1.firstName" ng-change="nameChanged('delivery1','firstName')" required="" type="text" data-validation-maxlength="75" data-validation-regex="^(?:\s*)[^:“”\u0022;!@$%^&amp;*()_+={}\[&lt;&gt;,.?`~|\]\\\/]+(\s+[^\s\d:“”\u0022;!@$%^&amp;*()_+={}\[&lt;&gt;,.?`~|\]\\\/]+)*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text="Пожалуйста, укажите имя. " data-validation-regex-text="Пожалуйста, введите снова без пробелов" id="delivery1-firstName" name="firstName" maxlength="75" class="text-input field firstName  ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength ng-hide" autocomplete="given-name">
-								<div class="input-info ng-hide" ng-show="isEditdelivery1 || isEdit['delivery1'] "></div>
-								<span class="static ng-binding" ng-hide="isEditdelivery1 || isEdit['delivery1']"></span>
-
-							</div>
-
-							<div class="inputwrapper optional" ng-class="false ? 'required' : 'optional'">
-								<label class="label" for="checkout.middleName">Отчество</label>
-
-								<!-- ngIf: true -->
-								<div class="input-field-info ng-scope ng-hide" ng-if="true" ng-show="(isEditdelivery1 || isEdit['delivery1']) &amp;&amp; ('middleName' == 'line1' || 'middleName' == 'line2') ">
-
-									<span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
-								</div>
-								<!-- end ngIf: true -->
-
-								<input ng-show="isEditdelivery1 || isEdit['delivery1']" ng-model="delivery1.middleName" ng-change="nameChanged('delivery1','middleName')" type="text" data-validation-maxlength="75" data-validation-regex="^(?:\s*)[^:“”\u0022;!@$%^&amp;*()_+={}\[&lt;&gt;,.?`~|\]\\\/]+(\s+[^\s\d:“”\u0022;!@$%^&amp;*()_+={}\[&lt;&gt;,.?`~|\]\\\/]+)*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text=" " data-validation-regex-text="" id="delivery1-middleName" name="middleName" maxlength="75" class="text-input field middleName  ng-pristine ng-untouched ng-valid ng-valid-maxlength ng-hide" autocomplete="">
-								<div class="input-info ng-hide" ng-show="isEditdelivery1 || isEdit['delivery1'] ">Укажите Ваше отчество здесь</div>
-								<span class="static ng-binding" ng-hide="isEditdelivery1 || isEdit['delivery1']"></span>
-
-							</div>
-
-							<div class="inputwrapper required" ng-class="true ? 'required' : 'optional'">
-								<label class="label" for="checkout.lastName">Фамилия</label>
-
-								<!-- ngIf: true -->
-								<div class="input-field-info ng-scope ng-hide" ng-if="true" ng-show="(isEditdelivery1 || isEdit['delivery1']) &amp;&amp; ('lastName' == 'line1' || 'lastName' == 'line2') ">
-
-									<span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
-								</div>
-								<!-- end ngIf: true -->
-
-								<input ng-show="isEditdelivery1 || isEdit['delivery1']" ng-model="delivery1.lastName" ng-change="nameChanged('delivery1','lastName')" required="" type="text" data-validation-maxlength="150" data-validation-regex="^(?:\s*)[^:“”\u0022;!@$%^&amp;*()_+={}\[&lt;&gt;,.?`~|\]\\\/]+(\s+[^\s\d:“”\u0022;!@$%^&amp;*()_+={}\[&lt;&gt;,.?`~|\]\\\/]+)*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text="Пожалуйста, укажите фамилию. " data-validation-regex-text="Пожалуйста, введите снова без пробелов" id="delivery1-lastName" name="lastName" maxlength="150" class="text-input field lastName  ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength ng-hide" autocomplete="family-name">
-								<div class="input-info ng-hide" ng-show="isEditdelivery1 || isEdit['delivery1'] "></div>
-								<span class="static ng-binding" ng-hide="isEditdelivery1 || isEdit['delivery1']"></span>
-
-							</div>
-
-							<div class="inputwrapper required" ng-class="true ? 'required' : 'optional'">
-								<label class="label" for="checkout.line1">Строка адреса 1</label>
-
-								<!-- ngIf: true -->
-								<div class="input-field-info ng-scope ng-hide" ng-if="true" ng-show="(isEditdelivery1 || isEdit['delivery1']) &amp;&amp; ('line1' == 'line1' || 'line1' == 'line2') ">
-
-									<span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
-								</div>
-								<!-- end ngIf: true -->
-
-								<input ng-show="isEditdelivery1 || isEdit['delivery1']" ng-model="delivery1.line1" ng-change="addressMandatoryChanged('delivery1','line1')" required="" type="text" data-validation-maxlength="40" data-validation-regex="^(?:\s*)[^\s“”\u0022;]+[^“”\u0022;]*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text="Пожалуйста, укажите адрес. " data-validation-regex-text="Удалить первый пробел" id="delivery1-line1" name="line1" maxlength="40" class="text-input field line1  ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength ng-hide" autocomplete="address-line1">
-								<div class="input-info ng-hide" ng-show="isEditdelivery1 || isEdit['delivery1'] ">Название улицы, номер дома, корпус, строение, номер квартиры</div>
-								<span class="static ng-binding" ng-hide="isEditdelivery1 || isEdit['delivery1']"></span>
-
-							</div>
-
-							<div class="inputwrapper optional" ng-class="false ? 'required' : 'optional'">
-								<label class="label" for="checkout.line2">Строка адреса 2</label>
-
-								<!-- ngIf: true -->
-								<div class="input-field-info ng-scope ng-hide" ng-if="true" ng-show="(isEditdelivery1 || isEdit['delivery1']) &amp;&amp; ('line2' == 'line1' || 'line2' == 'line2') ">
-
-									<span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
-								</div>
-								<!-- end ngIf: true -->
-
-								<input ng-show="isEditdelivery1 || isEdit['delivery1']" ng-model="delivery1.line2" ng-change="addressNotMandatoryChanged('delivery1','line2')" type="text" data-validation-maxlength="40" data-validation-regex="^(?:\s*)[^\s“”\u0022;]+[^“”\u0022;]*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text=" " data-validation-regex-text="Удалить первый пробел" id="delivery1-line2" name="line2" maxlength="40" class="text-input field line2  ng-pristine ng-untouched ng-valid ng-valid-maxlength ng-hide" autocomplete="address-line2">
-								<div class="input-info ng-hide" ng-show="isEditdelivery1 || isEdit['delivery1'] ">Этаж, домофон и т.д.</div>
-								<span class="static ng-binding" ng-hide="isEditdelivery1 || isEdit['delivery1']"></span>
-
-							</div>
-
-							<div class="inputwrapper required" ng-class="true ? 'required' : 'optional'">
-								<label class="label" for="checkout.town">Город</label>
-
-								<!-- ngIf: true -->
-								<div class="input-field-info ng-scope ng-hide" ng-if="true" ng-show="(isEditdelivery1 || isEdit['delivery1']) &amp;&amp; ('town' == 'line1' || 'town' == 'line2') ">
-
-									<span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
-								</div>
-								<!-- end ngIf: true -->
-
-								<input ng-show="isEditdelivery1 || isEdit['delivery1']" ng-model="delivery1.town" ng-change="addressMandatoryChanged('delivery1','town')" required="" type="text" data-validation-maxlength="40" data-validation-regex="^(?:\s*)[^\d“”\u0022;]+[^\s\d“”\u0022;]+[^“”\u0022;]*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text="Пожалуйста, укажите город. " data-validation-regex-text="Пожалуйста, укажите правильное название города" id="delivery1-town" name="town" maxlength="40" class="text-input field town  ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength ng-hide" autocomplete="address-level2">
-								<div class="input-info ng-hide" ng-show="isEditdelivery1 || isEdit['delivery1'] ">город, без указания области и района</div>
-								<span class="static ng-binding" ng-hide="isEditdelivery1 || isEdit['delivery1']"></span>
-
-							</div>
-
-							<div class="inputwrapper required" ng-class="true ? 'required' : 'optional'">
-								<label class="label" for="checkout.postalCode">Почтовый индекс</label>
-
-								<!-- ngIf: true -->
-								<div class="input-field-info ng-scope ng-hide" ng-if="true" ng-show="(isEditdelivery1 || isEdit['delivery1']) &amp;&amp; ('postalCode' == 'line1' || 'postalCode' == 'line2') ">
-
-									<span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
-								</div>
-								<!-- end ngIf: true -->
-
-								<input ng-show="isEditdelivery1 || isEdit['delivery1']" ng-model="delivery1.postalCode" ng-change="addressMandatoryChanged('delivery1','postalCode')" required="" type="text" data-validation-maxlength="10" data-validation-regex="^(?:\s*)(\d{6})(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text="Пожалуйста, укажите почтовый индекс (105064). " data-validation-regex-text="Пожалуйста, укажите правильный почтовый индекс (105064)." id="delivery1-postalCode" name="postalCode" maxlength="10" class="text-input field postalCode to-hankaku ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength ng-hide" autocomplete="postal-code">
-								<div class="input-info ng-hide" ng-show="isEditdelivery1 || isEdit['delivery1'] ">Укажите Ваш почтовый индекс. Например 105064</div>
-								<span class="static ng-binding" ng-hide="isEditdelivery1 || isEdit['delivery1']"></span>
-
-							</div>
-
-							<input type="hidden" name="id" ng-model="delivery1.id" value="" class="ng-pristine ng-untouched ng-valid">
-							<input type="hidden" name="shippingAddress" ng-model="delivery1.shippingAddress" value="true" class="ng-pristine ng-untouched ng-valid">
-							<div class="inputwrapper" required="">
-								<label class="label" for="address-book.country">Страна</label>
-								<input ng-show="isEditdelivery1 || isEdit['delivery1']" class="text-input field ng-hide" disabled="" value="Российская Федерация">
-								<span ng-hide="isEditdelivery1 || isEdit['delivery1']" class="static ng-binding">Российская Федерация</span>
-							</div>
-						</fieldset>
-						<div class="no-address" ng-hide="delivery1!=null || isEdit['delivery1']">
-							<h3 class="sub-heading ng-hide" ng-hide="1!=0">Адрес Доставки</h3>
-							<p class="text ng-hide" ng-hide="1!=0">Адрес доставки не сохранен.</p>
-						</div>
-						<div class="button-group">
-							<button class="button ng-binding" type="button" ng-click="isEdit['delivery1']=true;combobox('delivery1')" ng-hide="isEdit['delivery1']">добавить новый адрес</button>
-							<a class="secondary button ng-hide" href="#remove-address" ng-hide="isEdit['delivery1'] || delivery1==null" ng-click="openRemovePopup('delivery1')">УДАЛИТЬ АДРЕС</a>
-							<button class="secondary button ng-hide" type="button" ng-click="cancelAction('delivery1');" ng-show="isEdit['delivery1']" onclick="hm.formValidator.resetFormStyles($('#delivery1AddressForm'))">Отменить</button>
-							<button class="button save-form ng-hide" type="submit" ng-show="isEdit['delivery1']">Сохранить данные</button>
-						</div>
-					</form>
-				</div>
-				<div ng-show="visibility.delivery2" class="ng-hide">
-					<div class="default-fieldset" ng-hide="isEdit['delivery2']">
-						<label for="default_00" class="preceding-label ng-hide" ng-show="delivery2">Использовать по умолчанию</label>
-						<input type="radio" ng-model="defaultAddress" value="delivery2" id="default_02" name="use-as-default" class="radio-input ng-pristine ng-untouched ng-valid ng-hide" checked="" ng-show="delivery2" ng-click="setDefaultAddress(delivery2)"></div>
-					<form ng-submit="saveDeliveryAddress('delivery2')" ng-init="home.formIndex = 'home'" id="delivery2AddressForm" name="delivery2AddressForm" class="form-section new-form delivery2Form ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength" novalidate="">
-						<fieldset class="form-part ng-hide" ng-show="delivery2!=null || isEdit['delivery2']">
-							<legend class="heading">Адрес Доставки&nbsp;3</legend>
-
-							<div class="inputwrapper required" ng-class="true ? 'required' : 'optional'">
-								<label class="label" for="checkout.firstName">Имя</label>
-
-								<!-- ngIf: true -->
-								<div class="input-field-info ng-scope ng-hide" ng-if="true" ng-show="(isEditdelivery2 || isEdit['delivery2']) &amp;&amp; ('firstName' == 'line1' || 'firstName' == 'line2') ">
-
-									<span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
-								</div>
-								<!-- end ngIf: true -->
-
-								<input ng-show="isEditdelivery2 || isEdit['delivery2']" ng-model="delivery2.firstName" ng-change="nameChanged('delivery2','firstName')" required="" type="text" data-validation-maxlength="75" data-validation-regex="^(?:\s*)[^:“”\u0022;!@$%^&amp;*()_+={}\[&lt;&gt;,.?`~|\]\\\/]+(\s+[^\s\d:“”\u0022;!@$%^&amp;*()_+={}\[&lt;&gt;,.?`~|\]\\\/]+)*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text="Пожалуйста, укажите имя. " data-validation-regex-text="Пожалуйста, введите снова без пробелов" id="delivery2-firstName" name="firstName" maxlength="75" class="text-input field firstName  ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength ng-hide" autocomplete="given-name">
-								<div class="input-info ng-hide" ng-show="isEditdelivery2 || isEdit['delivery2'] "></div>
-								<span class="static ng-binding" ng-hide="isEditdelivery2 || isEdit['delivery2']"></span>
-
-							</div>
-
-							<div class="inputwrapper optional" ng-class="false ? 'required' : 'optional'">
-								<label class="label" for="checkout.middleName">Отчество</label>
-
-								<!-- ngIf: true -->
-								<div class="input-field-info ng-scope ng-hide" ng-if="true" ng-show="(isEditdelivery2 || isEdit['delivery2']) &amp;&amp; ('middleName' == 'line1' || 'middleName' == 'line2') ">
-
-									<span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
-								</div>
-								<!-- end ngIf: true -->
-
-								<input ng-show="isEditdelivery2 || isEdit['delivery2']" ng-model="delivery2.middleName" ng-change="nameChanged('delivery2','middleName')" type="text" data-validation-maxlength="75" data-validation-regex="^(?:\s*)[^:“”\u0022;!@$%^&amp;*()_+={}\[&lt;&gt;,.?`~|\]\\\/]+(\s+[^\s\d:“”\u0022;!@$%^&amp;*()_+={}\[&lt;&gt;,.?`~|\]\\\/]+)*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text=" " data-validation-regex-text="" id="delivery2-middleName" name="middleName" maxlength="75" class="text-input field middleName  ng-pristine ng-untouched ng-valid ng-valid-maxlength ng-hide" autocomplete="">
-								<div class="input-info ng-hide" ng-show="isEditdelivery2 || isEdit['delivery2'] ">Укажите Ваше отчество здесь</div>
-								<span class="static ng-binding" ng-hide="isEditdelivery2 || isEdit['delivery2']"></span>
-
-							</div>
-
-							<div class="inputwrapper required" ng-class="true ? 'required' : 'optional'">
-								<label class="label" for="checkout.lastName">Фамилия</label>
-
-								<!-- ngIf: true -->
-								<div class="input-field-info ng-scope ng-hide" ng-if="true" ng-show="(isEditdelivery2 || isEdit['delivery2']) &amp;&amp; ('lastName' == 'line1' || 'lastName' == 'line2') ">
-
-									<span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
-								</div>
-								<!-- end ngIf: true -->
-
-								<input ng-show="isEditdelivery2 || isEdit['delivery2']" ng-model="delivery2.lastName" ng-change="nameChanged('delivery2','lastName')" required="" type="text" data-validation-maxlength="150" data-validation-regex="^(?:\s*)[^:“”\u0022;!@$%^&amp;*()_+={}\[&lt;&gt;,.?`~|\]\\\/]+(\s+[^\s\d:“”\u0022;!@$%^&amp;*()_+={}\[&lt;&gt;,.?`~|\]\\\/]+)*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text="Пожалуйста, укажите фамилию. " data-validation-regex-text="Пожалуйста, введите снова без пробелов" id="delivery2-lastName" name="lastName" maxlength="150" class="text-input field lastName  ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength ng-hide" autocomplete="family-name">
-								<div class="input-info ng-hide" ng-show="isEditdelivery2 || isEdit['delivery2'] "></div>
-								<span class="static ng-binding" ng-hide="isEditdelivery2 || isEdit['delivery2']"></span>
-
-							</div>
-
-							<div class="inputwrapper required" ng-class="true ? 'required' : 'optional'">
-								<label class="label" for="checkout.line1">Строка адреса 1</label>
-
-								<!-- ngIf: true -->
-								<div class="input-field-info ng-scope ng-hide" ng-if="true" ng-show="(isEditdelivery2 || isEdit['delivery2']) &amp;&amp; ('line1' == 'line1' || 'line1' == 'line2') ">
-
-									<span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
-								</div>
-								<!-- end ngIf: true -->
-
-								<input ng-show="isEditdelivery2 || isEdit['delivery2']" ng-model="delivery2.line1" ng-change="addressMandatoryChanged('delivery2','line1')" required="" type="text" data-validation-maxlength="40" data-validation-regex="^(?:\s*)[^\s“”\u0022;]+[^“”\u0022;]*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text="Пожалуйста, укажите адрес. " data-validation-regex-text="Удалить первый пробел" id="delivery2-line1" name="line1" maxlength="40" class="text-input field line1  ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength ng-hide" autocomplete="address-line1">
-								<div class="input-info ng-hide" ng-show="isEditdelivery2 || isEdit['delivery2'] ">Название улицы, номер дома, корпус, строение, номер квартиры</div>
-								<span class="static ng-binding" ng-hide="isEditdelivery2 || isEdit['delivery2']"></span>
-
-							</div>
-
-							<div class="inputwrapper optional" ng-class="false ? 'required' : 'optional'">
-								<label class="label" for="checkout.line2">Строка адреса 2</label>
-
-								<!-- ngIf: true -->
-								<div class="input-field-info ng-scope ng-hide" ng-if="true" ng-show="(isEditdelivery2 || isEdit['delivery2']) &amp;&amp; ('line2' == 'line1' || 'line2' == 'line2') ">
-
-									<span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
-								</div>
-								<!-- end ngIf: true -->
-
-								<input ng-show="isEditdelivery2 || isEdit['delivery2']" ng-model="delivery2.line2" ng-change="addressNotMandatoryChanged('delivery2','line2')" type="text" data-validation-maxlength="40" data-validation-regex="^(?:\s*)[^\s“”\u0022;]+[^“”\u0022;]*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text=" " data-validation-regex-text="Удалить первый пробел" id="delivery2-line2" name="line2" maxlength="40" class="text-input field line2  ng-pristine ng-untouched ng-valid ng-valid-maxlength ng-hide" autocomplete="address-line2">
-								<div class="input-info ng-hide" ng-show="isEditdelivery2 || isEdit['delivery2'] ">Этаж, домофон и т.д.</div>
-								<span class="static ng-binding" ng-hide="isEditdelivery2 || isEdit['delivery2']"></span>
-
-							</div>
-
-							<div class="inputwrapper required" ng-class="true ? 'required' : 'optional'">
-								<label class="label" for="checkout.town">Город</label>
-
-								<!-- ngIf: true -->
-								<div class="input-field-info ng-scope ng-hide" ng-if="true" ng-show="(isEditdelivery2 || isEdit['delivery2']) &amp;&amp; ('town' == 'line1' || 'town' == 'line2') ">
-
-									<span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
-								</div>
-								<!-- end ngIf: true -->
-
-								<input ng-show="isEditdelivery2 || isEdit['delivery2']" ng-model="delivery2.town" ng-change="addressMandatoryChanged('delivery2','town')" required="" type="text" data-validation-maxlength="40" data-validation-regex="^(?:\s*)[^\d“”\u0022;]+[^\s\d“”\u0022;]+[^“”\u0022;]*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text="Пожалуйста, укажите город. " data-validation-regex-text="Пожалуйста, укажите правильное название города" id="delivery2-town" name="town" maxlength="40" class="text-input field town  ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength ng-hide" autocomplete="address-level2">
-								<div class="input-info ng-hide" ng-show="isEditdelivery2 || isEdit['delivery2'] ">город, без указания области и района</div>
-								<span class="static ng-binding" ng-hide="isEditdelivery2 || isEdit['delivery2']"></span>
-
-							</div>
-
-							<div class="inputwrapper required" ng-class="true ? 'required' : 'optional'">
-								<label class="label" for="checkout.postalCode">Почтовый индекс</label>
-
-								<!-- ngIf: true -->
-								<div class="input-field-info ng-scope ng-hide" ng-if="true" ng-show="(isEditdelivery2 || isEdit['delivery2']) &amp;&amp; ('postalCode' == 'line1' || 'postalCode' == 'line2') ">
-
-									<span class="input-field-info-description hidden">Это поле необходимо заполнить латиницей</span>
-								</div>
-								<!-- end ngIf: true -->
-
-								<input ng-show="isEditdelivery2 || isEdit['delivery2']" ng-model="delivery2.postalCode" ng-change="addressMandatoryChanged('delivery2','postalCode')" required="" type="text" data-validation-maxlength="10" data-validation-regex="^(?:\s*)(\d{6})(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text="Пожалуйста, укажите почтовый индекс (105064). " data-validation-regex-text="Пожалуйста, укажите правильный почтовый индекс (105064)." id="delivery2-postalCode" name="postalCode" maxlength="10" class="text-input field postalCode to-hankaku ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength ng-hide" autocomplete="postal-code">
-								<div class="input-info ng-hide" ng-show="isEditdelivery2 || isEdit['delivery2'] ">Укажите Ваш почтовый индекс. Например 105064</div>
-								<span class="static ng-binding" ng-hide="isEditdelivery2 || isEdit['delivery2']"></span>
-
-							</div>
-
-							<input type="hidden" name="id" ng-model="delivery2.id" value="" class="ng-pristine ng-untouched ng-valid">
-							<input type="hidden" name="shippingAddress" ng-model="delivery2.shippingAddress" value="true" class="ng-pristine ng-untouched ng-valid">
-							<div class="inputwrapper" required="">
-								<label class="label" for="address-book.country">Страна</label>
-								<input ng-show="isEditdelivery2 || isEdit['delivery2']" class="text-input field ng-hide" disabled="" value="Российская Федерация">
-								<span ng-hide="isEditdelivery2 || isEdit['delivery2']" class="static ng-binding">Российская Федерация</span>
-							</div>
-						</fieldset>
-						<div class="no-address" ng-hide="delivery2!=null || isEdit['delivery2']">
-							<h3 class="sub-heading ng-hide" ng-hide="2!=0">Адрес Доставки</h3>
-							<p class="text ng-hide" ng-hide="2!=0">Адрес доставки не сохранен.</p>
-						</div>
-						<div class="button-group">
-							<button class="button ng-binding" type="button" ng-click="isEdit['delivery2']=true;combobox('delivery2')" ng-hide="isEdit['delivery2']">добавить новый адрес</button>
-							<a class="secondary button ng-hide" href="#remove-address" ng-hide="isEdit['delivery2'] || delivery2==null" ng-click="openRemovePopup('delivery2')">УДАЛИТЬ АДРЕС</a>
-							<button class="secondary button ng-hide" type="button" ng-click="cancelAction('delivery2');" ng-show="isEdit['delivery2']" onclick="hm.formValidator.resetFormStyles($('#delivery2AddressForm'))">Отменить</button>
-							<button class="button save-form ng-hide" type="submit" ng-show="isEdit['delivery2']">Сохранить данные</button>
-						</div>
-					</form>
-				</div>
 			</div>
 		</div>
-	</div>
-</main>
+	</main>
+	<script>
+		$(document).ready(function(){
+			$('.redaction_data').click(function(){
+				$('#profile').toggleClass('disabled-form');
+				$('.change_button').toggle();
+			});
+		});
+	</script>
