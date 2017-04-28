@@ -15,14 +15,25 @@ class UsersController < ApplicationController
 
 	end
 	def second_update
+		puts params
 		@user=current_user
+		puts current_user
 		respond_to do |format|
-			if @user.update(second_users_params)
-				format.html { redirect_to controller:"users", action:"my_address", notice: 'address was successfully update.' }
-				format.json { render  status: :ok }
+			puts "_____________"
+			@user.first_name = params["first_name"]
+			@user.father = params["father"]
+			@user.second_name=params["second_name"]
+			@user.date=params["date"]
+			@user.tel=params["tel"]
+			@user.country=params["country"]
+			if @user.save
+				msg = { 
+			    	:status => "ok",
+			    	:message => "Success!",
+			    }
+			    format.json  { render :json => msg }
 		      else
-		        format.html { redirect_to controller: "users", action:"my_address", notice: 'Some error.' }
-		        format.json { render json: @product.errors, status: :unprocessable_entity }	
+		        format.json { render json: @user.errors, status: :unprocessable_entity }	
 			end
 		end
 	end
@@ -70,7 +81,7 @@ class UsersController < ApplicationController
       params.require(:user).permit(:email , :first_name , :father ,:second_name,:date ,:tel ,:country)
     end
     def second_users_params
-      params.require(:user).permit(:first_name , :father ,:second_name,:date ,:tel ,:country)
+      params
     end
     def my_overview
 		@orders=Order.where(user_id: current_user.id)
