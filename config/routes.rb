@@ -103,7 +103,7 @@ Rails.application.routes.draw do
 
   patch 'user_update' => 'users#update' , :as => :users_update
   
-
+  get "liqpay_request" => 'carts#liqpay_request'
   resources :colors
 
 

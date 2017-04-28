@@ -30,6 +30,13 @@ class CartsController < ApplicationController
 	      end
 	    end
 	end
+	def liqpay_request
+		@liqpay_request = Liqpay::Request.new(	:amount => '999.99',
+												:currency => 'UAH',
+												:order_id => '123',
+												:description => 'Some Product',
+												:result_url => my_order_url )
+	end
 	def diver
 		@order=Order.new()
 		@user=current_user
