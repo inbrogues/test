@@ -147,14 +147,13 @@ ActiveRecord::Schema.define(version: 20170428090756) do
 
   create_table "product_product_sizes", force: :cascade do |t|
     t.boolean  "has"
-    t.integer  "product_id"
+    t.integer  "product_datum_id"
     t.integer  "product_size_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.string   "size"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
-  add_index "product_product_sizes", ["product_id"], name: "index_product_product_sizes_on_product_id", using: :btree
+  add_index "product_product_sizes", ["product_datum_id"], name: "index_product_product_sizes_on_product_datum_id", using: :btree
   add_index "product_product_sizes", ["product_size_id"], name: "index_product_product_sizes_on_product_size_id", using: :btree
 
   create_table "product_sizes", force: :cascade do |t|
@@ -214,7 +213,7 @@ ActiveRecord::Schema.define(version: 20170428090756) do
   add_foreign_key "orders_product_data", "product_sizes"
   add_foreign_key "product_data", "colors"
   add_foreign_key "product_data", "products"
+  add_foreign_key "product_product_sizes", "product_data"
   add_foreign_key "product_product_sizes", "product_sizes"
-  add_foreign_key "product_product_sizes", "products"
   add_foreign_key "product_sizes", "categories"
 end

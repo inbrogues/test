@@ -101,7 +101,7 @@ class AdminController < ApplicationController
 						if pd[:photos_attributes]!=[] && ! pd[:photos_attributes].nil?
 							pd[:photos_attributes].each do |k,photo|
 								if photo[:id]
-									@productDatas = Photo.find(photo[:id])
+									@photo = Photo.find(photo[:id])
 								else
 									@photo=Photo.new(photo.permit(:img))
 									if @photo.save
@@ -112,15 +112,19 @@ class AdminController < ApplicationController
 						end
 						if pd[:product_product_sizes_attributes]!=[] and !pd[:product_product_sizes_attributes].nil?
 							pd[:product_product_sizes_attributes].each do |k,product_product_size|
+								@pd_size=ProductProductSize.new()
 								if product_product_size[:id]
-									@size=ProductProductSize.find(product_product_size[:id])
-								else
-									@size=ProductProductSize.new()
+									@pd_size=ProductProductSize.find(product_product_size[:id])
 								end
-								@size.has = product_product_size[:has].to_i==1
-								@size.product_size_id = product_product_size[:product_size_id]
-								if @size.save
-								    @productDatas.product_product_sizes<<@size
+								@pd_size.has = product_product_size[:has].to_i==1
+								@pd_size.product_size_id = product_product_size[:product_size_id]
+								puts @pd_size
+								puts @productDatas.product_product_sizes
+								if !@productDatas.product_product_sizes.include?(@pd_size) 
+									if @pd_size.save
+									    @pd_size.product_id= @productDatas.id
+									    @pd_size.save
+									end
 								end
 							end
 						end

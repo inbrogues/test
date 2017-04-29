@@ -1,11 +1,3 @@
-<% @orders.each do |order|%>
-	<%= order.id %><br>
-	<%= order.sum %><br>
-	<%= order.address %><br>
-	<%= order.created_at %><br>
-	<%= order.status %><br>
-<% end %>
-<Order id: 1, : nil, user_id: 1, status: nil, created_at: "2017-04-26 09:31:49", updated_at: "2017-04-26 09:31:49"> 
 	<main role="main" class="hm-club-overview my-hm responsive">
 		<div class="wrapper">
 			<nav class="breadcrumbs">
@@ -26,19 +18,16 @@
 			<nav class="section navigation menu " role="navigation">
 				<ul role="menu">
 					<li class="current item" role="presentation" tabindex="0">
-						<a href="#" role="menuitem">Обзор</a>
+						<a href="/my-overview" role="menuitem">Обзор</a>
 					</li>
 					<li class="item" role="presentation" tabindex="-1">
-						<a href="#" role="menuitem">Личные сведения</a>
+						<a href="/my-profile" role="menuitem">Личные сведения</a>
 					</li>
 					<li class="item" role="presentation" tabindex="-1">
-						<a href="#" role="menuitem">Заказы</a>
+						<a href="/my-order" role="menuitem">Заказы</a>
 					</li>
 					<li class="item" role="presentation" tabindex="-1">
-						<a href="#" role="menuitem">Адресная книга</a>
-					</li>
-					<li class="item" role="presentation" tabindex="-1">
-						<a href="#" role="menuitem">Информация о банковском счете</a>
+						<a href="/my-address" role="menuitem">Адресная книга</a>
 					</li>
 				</ul>
 			</nav>
@@ -48,7 +37,7 @@
 						<section class="responsive club-user">
 							<div class="greeting">
 								<header class="module-heading">
-									<h1 class="module-heading-title">Здравствуйте, Сергей!</h1>
+									<h1 class="module-heading-title">Здравствуйте, <%=@user.first_name%>!</h1>
 								</header>
 								<div class="module-content">
 									<p>
@@ -56,175 +45,50 @@
 									</p>
 								</div>
 							</div>
-
 							<header class="module-heading">
 								<h1 class="module-heading-title" id="personal-details-title">ЛИЧНЫЕ СВЕДЕНИЯ</h1>
 							</header>
-
 							<div class="module-content">
 								<dl role="person" class="user-details">
-
 									<dt>Эл. Почта</dt>
 									<dd>
-										<span>inbrogues1@gmail.com</span>
+										<span><%=@user.email%></span>
 									</dd>
 									<dt>Номер телефона</dt>
-									<dd>&nbsp;</dd>
-
+									<dd>
+										<span><%=@user.tel%></span>
+									</dd>
 								</dl>
 							</div>
-
-							<a href="#" id="personal-details-title-link" class="navigate button" aria-labelledby="personal-details-title personal-details-title-link" title="View all personal details">Смотреть еще</a>
+							<a href="/my-profile" id="personal-details-title-link" class="navigate button">Смотреть еще</a>
 						</section>
-
 					</aside>
 					<div>
-
 						<section class="responsive orders-summary">
 							<header class="module-heading ">
 								<h1 class="module-heading-title">ЗАКАЗЫ</h1>
-								<a href="#" class="view-all link" title="View all orders">Посмотреть все заказы</a>
+								<a href="/my-order" class="view-all link" title="View all orders">Посмотреть все заказы</a>
 							</header>
 							<div class="module-content">
-
 								<table aria-labelledby="hmd003">
-
 									<tbody>
-										<tr class="order-row" data-order-id="214371527">
-											<td class="order-date"> <strong class="my-hm-order-date" style="width: 25%">2017-03-22</strong>
-											</td>
-											<td class="order-id ">214371527</td>
-											<td class="order-total">2&nbsp;698 Pуб</td>
-											<td class="order-status">
-												<a class="order-link" href="#" title="View order 214371527">Отменено</a>
-											</td>
-										</tr>
+										<% @orders.each do |order|%>
+											<tr class="order-row" data-order-id="214371527">
+												<td class="order-date"> <strong class="my-hm-order-date" style="width: 25%"><%= order.created_at %></strong>
+												</td>
+												<td class="order-id "><%= order.id %></td>
+												<td class="order-total"><%= order.sum %> Грн</td>
+												<td class="order-status">
+													<a class="order-link" href="#" title="View order 214371527">Отменено</a>
+												</td>
+											</tr>
+										<% end %>
 									</tbody>
-
 								</table>
-
-								<a href="#" class="navigate button" title="View all orders">Посмотреть все заказы</a>
 							</div>
 						</section>
-						<div class="two modules">
-							<section class="responsive club-address">
-								<header class="module-heading">
-									<h1 class="module-heading-title" id="address-book-title">АДРЕСНАЯ КНИГА</h1>
-									<a href="#" class="view-all link" id="address-book-title-link" aria-labelledby="address-book-title address-book-title-link" title="View all addresses">Просмотреть все</a>
-								</header>
-								<div class="module-content">
-									<h2 class="module-subheading">Домашний адрес</h2>
-									<address itemscope="" class="address-summary" itemtype="http://schema.org/person">
-										<div class="item">
-											<div class="address-item-street" itemprop="streetAddress">
-												Педагогическая
-												<br>
-												105064&nbsp;Одес
-												<br>Российская Федерация</div>
-										</div>
-									</address>
-								</div>
-								<a href="#" class="navigate button" title="View all addresses">Просмотреть все</a>
-							</section>
-						</div>
-					</div>
-				</div>
-				<!-- Placeholder for sign-in form -->
-			</div>
-			<div class="hidden modal-content ng-hide" id="address-validation-popup">
-				<div class="modal-text">
-					<div class="address-validation">
-						<h1 class="heading ng-binding"></h1>
-						<p class="ng-binding"></p>
-						<form class="ng-pristine ng-valid">
-							<div class="address-validation-addresses">
-								<div class="address-validation-un-validated">
-									<h3>ВЫ УКАЗАЛИ:</h3>
-									<div class="address-validation-address">
-										<input type="radio" name="validation-address" value="-1" id="un-validated-address" class="ng-pristine ng-untouched ng-valid">
-										<label for="un-validated-address">
-											<span class="ng-binding"></span>
-											<br>
-											<a class="address-validation-edit modalclose underline ng-hide">Редактировать</a>
-										</label>
-									</div>
-								</div>
-								<div class="address-validation-suggestions ng-hide">
-									<h3>ВЫ ИМЕЛИ В ВИДУ:</h3>
-									<div class="address-validation-address-list ">
-										<!-- ngRepeat: address in verifiedAddresses -->
-									</div>
-								</div>
-							</div>
-							<div class="buttons clearfix">
-								<button class="modalclose button button-secondary">Редактировать</button>
-								<button class="modalclose button">OK</button>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-
-			<div class="hidden modal-content" id="error-popup">
-				<div class="modal-text">
-					<div class="shopping-bag-message">
-						<h1 class="heading ng-binding"></h1>
-						<p class="ng-binding"></p>
-						<form class="ng-pristine ng-valid">
-							<div class="sticky button-group">
-								<button class="modalclose button">OK</button>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-
-			<div aria-hidden="true" id="generic-error-popup" class="hidden modal-content">
-				<div class="modal-text">
-					<h1 class="heading">Произошла ошибка</h1>
-					<p style="text-align:center">
-						Эту форму не удалось отправить. Пожалуйста, проверьте указанную Вами информацию
-					</p>
-					<div class="sticky button-group">
-						<button class="modalclose button">OK</button>
-					</div>
-				</div>
-			</div>
-
-			<div aria-hidden="true" id="kcp-unavailable-error" class="hidden modal-content">
-				<div class="modal-text">
-					<h1 class="heading">checkout.error.kcp.unavailable.title</h1>
-					<p class="text">checkout.error.kcp.unavailable.message</p>
-					<div class="sticky button-group">
-						<button ng-click="closePopup()" class="modalclose button">OK</button>
-					</div>
-				</div>
-			</div>
-
-			<div aria-hidden="true" id="los-down-error" class="hidden modal-content">
-				<div class="modal-text">
-					<h1 class="heading">Код скидки не подтвержден</h1>
-					<p class="text">
-						Извините, в настоящий момент не удалось подтвердить Ваш код скидки.Пожалуйста, повторите попытку, или удалите код скидки, чтобы завершить оформление Вашей покупки.Нажмите «OK», чтобы вернуться к оформлению заказа.
-					</p>
-					<div class="sticky button-group">
-						<button ng-click="closePopup()" class="modalclose button">OK</button>
-					</div>
-				</div>
-			</div>
-
-			<div aria-hidden="true" id="expired-idc-error" class="hidden modal-content">
-				<div class="modal-text">
-					<h1 class="heading">Неверный код скидки</h1>
-					<p class="text">
-						Срок действия указанного кода истек, и скидка не будет применена.Фактическая стоимость заказа указана в обновленной информации о заказе.Нажмите «OK», чтобы вернуться к оформлению заказа.
-					</p>
-					<div class="sticky button-group">
-						<button ng-click="removeExpiredIdc()" class="modalclose button">OK</button>
 					</div>
 				</div>
 			</div>
 		</div>
 	</main>
-
-  

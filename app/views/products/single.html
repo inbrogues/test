@@ -186,7 +186,7 @@
 											<% product_data.product_product_sizes.each_with_index do |product_product_size, k| %>
 												<li class="one_size">
 													<label for="filter-size-<%= product_data.article %>00<%= k %>">
-														<input type="radio" name="product-size" value="<%= product_product_size.size %>" data-size="001" id="filter-size-<%= product_data.article %>00<%= k %>" <%if ! product_product_size.has%> disabled <% end %>>
+														<input type="radio" name="product-size" value="<%= product_product_size.product_size.size %>" data-size="001" id="filter-size-<%= product_data.article %>00<%= k %>" <%if ! product_product_size.has%> disabled <% end %>>
 														<%if product_product_size.has%>
 														<div class="detailbox detailbox-value">
 															<span><%= product_product_size.product_size.size %></span>
