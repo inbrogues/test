@@ -1,17 +1,66 @@
 
-<div class="colors">
-	<% @colors.each do | color | %>
-		<div class="color">
-			<p class="id"><%=color.id %></p>
-			<p class="name"><%=color.name %></p>
-			<p class=""><%=image_tag(color.img(:original))%></p>
-			<% if color.main_color%>
-				<p class="main"><%=color.main_color.name%></p>
-			<% else %>
-				<p class="main">No found</p> 
-			<% end%>
-			<p><%= link_to 'Edit', admin_color_edit_path(color) %></p>
-        	<p><%= link_to 'Destroy', admin_color_destroy_path(color) , :method => 'delete', data: { confirm: 'Are you sure?' } %></p>
-		</div>
-	<% end %>
+<div class="wrapper wrapper-content animated fadeInRight">
+<div class="row">
+<div class="col-lg-12">
+<div class="ibox float-e-margins">
+<div class="ibox-title">
+    <h5>Все цвета</h5>
+    <div class="ibox-tools">
+        <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
 </div>
+<div class="ibox-content">
+<table class="table table-striped table-bordered table-hover dataTables-example">
+<thead>
+<tr>
+    <th>id</th>
+    <th>Имя</th>
+    <th>Цвет</th>
+    <th>Группа цветов</th>
+    <th>Обновить</th>
+    <th>Удалить</th>
+</tr>
+</thead>
+<tbody>
+<% @colors.each do | color | %>
+<tr class="gradeX">
+    <td><%=color.id %></td>
+    <td><%=color.name %></td>
+    <td>
+    	<%=image_tag(color.img(:original) , style: 'max-height:15px;max-width:15px;' )%>
+    </td>
+    <td>
+		<% if color.main_color%>
+				<div style="width: 15px;height: 15px;background:<%=color.main_color.hex%> "></div>
+				<p class="main"><%=color.main_color.name%>
+				</p>
+		<% else %>
+				<p class="main">Не задан</p> 
+		<% end%>
+
+    </td>
+    <td><%= link_to 'Обновить', admin_color_edit_path(color) %></td>
+    <td><%= link_to 'Удалить', admin_color_destroy_path(color) , :method => 'delete', data: { confirm: 'Точно?' } %></td>
+</tr>
+<% end %>
+</tbody>
+<tfoot>
+<tr>
+    <th>id</th>
+    <th>Имя</th>
+    <th>Цвет</th>
+    <th>Группа цветов</th>
+    <th>Обновить</th>
+    <th>Удалить</th>
+</tr>
+</tfoot>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+

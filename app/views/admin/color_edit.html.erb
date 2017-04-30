@@ -1,26 +1,43 @@
-<%= semantic_form_for @color, :url => admin_color_update_path(@color) do |f| %>
-  <% if @color.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@color.errors.count, "error") %> prohibited this color from being saved:</h2>
 
-      <ul>
-      <% @color.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="row">
+    <div class="col-lg-5">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>Изменение  цвета</h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+                <%= semantic_form_for @color, :url => admin_color_update_path(@color), :html => { :class => "form-horizontal" , multipart: true } do |f| %>
+                    <div class="form-group">
+                    <%= f.label  :name , "Имя" , class: "col-lg-2 control-label"%>
+                        <div class="col-lg-10"><%= f.text_field :name, class: 'form-control' %><span class="help-block m-b-none">Введите имя для группы цветов</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                    <%= f.label  :main_color_id , "Цвет" , class: "col-lg-2 control-label"%>
+
+                        <div class="col-lg-10">
+                          <%= f.select(:main_color_id, @main_color.collect { |p| [ p.name, p.id ] }, {} ,{ :class => "form-control m-b"}) %>
+                          <span class="help-block m-b-none">Введите цвет для группы цветов</span>
+                        </div>
+                    </div>
+                    <div class="fileinput fileinput-new input-group" data-provides="fileinput">
+                      
+                      <div class="form-control" data-trigger="fileinput"><i class="glyphicon glyphicon-file fileinput-exists"></i> <span class="fileinput-filename"></span></div>
+                      <span class="input-group-addon btn btn-default btn-file"><span class="fileinput-new">Select file</span><span class="fileinput-exists">Change</span><%= f.file_field :img %></span>
+                      <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+                      </div>
+                    <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-10">
+                          <%= f.submit  "Изменить цвет" , :class => "btn btn-sm btn-primary"  %>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
     </div>
-  <% end %>
-
-  <%= f.label :name %>
-  <%= f.text_field :name, class: 'form-control' %>
-  
-  <%= f.label :main_color_id %>
-  <%= f.text_field :main_color_id, class: 'form-control' %>
-
-  <%= f.label :img %>
-  <%= f.file_field :img , class: 'form-control'%>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

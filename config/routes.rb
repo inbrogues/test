@@ -105,6 +105,5 @@ Rails.application.routes.draw do
   
   get "liqpay_request" => 'carts#liqpay_request'
   resources :colors
-
-
+  post '/liqpay_payment' => 'payments#liqpay_payment'
 end

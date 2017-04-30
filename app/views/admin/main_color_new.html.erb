@@ -1,24 +1,34 @@
-<%= semantic_form_for @main_color, :url => admin_main_color_create_path(@main_color) do |f| %>
-  <% if @main_color.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@main_color.errors.count, "error") %> prohibited this color from being saved:</h2>
-
-      <ul>
-      <% @main_color.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="row">
+    <div class="col-lg-5">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>Создание новоой группы цветов</h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+                <%= semantic_form_for @main_color, :url => admin_main_color_create_path(@main_color) , :html => { :class => "form-horizontal"} do |f| %>
+                    <p>Введите пустые поля</p>
+                    <div class="form-group">
+                    <%= f.label  :name , "Имя" , class: "col-lg-2 control-label"%>
+                        <div class="col-lg-10"><%= f.text_field :name, class: 'form-control' %><span class="help-block m-b-none">Введите имя для группы цветов</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                    <%= f.label  :hex , "Цвет" , class: "col-lg-2 control-label"%>
+                        <div class="col-lg-10"><%= f.color_field :hex, class: 'form-control' %><span class="help-block m-b-none">Введите цвет для группы цветов</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-10">
+                          <%= f.submit  "Создать группу цветов" , :class => "btn btn-sm btn-primary"  %>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
     </div>
-  <% end %>
-
-  <%= f.label :name %>
-  <%= f.text_field :name, class: 'form-control' %>
-  
-  <%= f.label :hex %>
-  <%= f.color_field :hex, class: 'form-control' %>
-
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

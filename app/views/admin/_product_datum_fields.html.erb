@@ -1,32 +1,60 @@
-<div>
-	<%= f.label :color_id %>
-	<%= f.text_field :color_id %>
-	<%= f.label :article %>
-	<%= f.text_field :article %>
-	<%= f.label :price %>
-	<%= f.text_field :price %>
-	<%= f.label :promotional_price %>
-	<%= f.text_field :promotional_price %>
-	<%= f.label :about %>
-	<%= f.text_field :about%>
-	<%= f.label :more %>
-	<%= f.text_field :more%>
-
-	<div class="photoss">
-		izes
-		<div class="product_size">
-		<%= f.semantic_fields_for :product_product_sizes do |product_product_size| %>
-			<%=render 'product_product_size_fields', f: product_product_size %>
-	    <%end%>
-		<%= link_to_add_association 'add size', f, :product_product_sizes%>
-		</div>
-	</div>
-	<div class="photoss">
-		<div class="photos">
-		<%= f.semantic_fields_for :photos do |photo| %>
-			<%=render 'photo_fields', f: photo %>
-	    <%end%>
-		<%= link_to_add_association 'add photos', f, :photos%>
-		</div>
-	<div class="photoss">
+<div class="col-lg-6">
+    <div class="ibox float-e-margins">
+        <div class="ibox-title">
+            <h5>Создание нового цвета</h5>
+            <div class="ibox-tools">
+                <a class="collapse-link">
+                    <i class="fa fa-chevron-up"></i>
+                </a>
+            </div>
+        </div>
+        <div class="ibox-content">
+                <div class="form-group">
+                <%= f.label  :color_id , "Цвет" , class: "col-lg-2 control-label"%>
+                    <div class="col-lg-10">
+                      <%= f.select(:color_id, @colors.collect { |p| [ p.name, p.id ] }, {} ,{ :class => "form-control m-b"}) %>
+                      <span class="help-block m-b-none">Введите цвет для группы цветов</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                <%= f.label  :article , "Артикл" , class: "col-lg-2 control-label"%>
+                    <div class="col-lg-10"><%= f.text_field :article, class: 'form-control' %><span class="help-block m-b-none">Введите имя для группы цветов</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                <%= f.label  :price , "Цена" , class: "col-lg-2 control-label"%>
+                    <div class="col-lg-10"><%= f.text_field :price, class: 'form-control' %><span class="help-block m-b-none">Введите имя для группы цветов</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                <%= f.label  :promotional_price , "Скидочная цена" , class: "col-lg-2 control-label"%>
+                    <div class="col-lg-10"><%= f.text_field :promotional_price, class: 'form-control' %><span class="help-block m-b-none">Введите имя для группы цветов</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                <%= f.label  :about , "Описание" , class: "col-lg-2 control-label"%>
+                    <div class="col-lg-10"><%= f.text_field :about, class: 'form-control' %><span class="help-block m-b-none">Введите имя для группы цветов</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                <%= f.label  :more , "Полное описание" , class: "col-lg-2 control-label"%>
+                    <div class="col-lg-10"><%= f.text_field :more, class: 'form-control' %><span class="help-block m-b-none">Введите имя для группы цветов</span>
+                    </div>
+                </div>
+						<p>Размеры</p>
+                	<div class="sizes">
+						<%= f.semantic_fields_for :product_product_sizes do |product_product_size| %>
+							<%=render 'product_product_size_fields', f: product_product_size %>
+					    <%end%>
+						<%= link_to_add_association 'add size', f, :product_product_sizes ,:class => 'btn btn-sm btn-default'%>
+					</div>
+						<p>Фото</p>
+					<div class="photos">
+						<%= f.semantic_fields_for :photos do |photo| %>
+							<%=render 'photo_fields', f: photo %>
+					    <%end%>
+						<%= link_to_add_association 'add photos', f, :photos ,:class => 'btn btn-sm btn-default'%>
+					</div>
+        </div>
+    </div>
 </div>

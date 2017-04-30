@@ -1,4 +1,5 @@
 class AdminController < ApplicationController
+  	layout "admin_layout"
 	before_action :authenticate_admin!
 	def index
 	end
@@ -64,7 +65,7 @@ class AdminController < ApplicationController
 				    end
 				end
 	      	end
-			format.html {redirect_to controller:"admin", action:"index", id:  @product.id , notice: 'Color was successfully created.' }
+			format.html {redirect_to controller:"admin", action:"products", notice: 'Товар успешно создан' }
 	        format.json { render :show, status: :created, location: @product }	
 	      else
 	        format.html { render :new }
@@ -127,7 +128,7 @@ class AdminController < ApplicationController
 				    end
 				end
 	      	end
-			format.html {redirect_to controller:"admin", action:"index", id:  @product.id , notice: 'Color was successfully created.' }
+			format.html {redirect_to controller:"admin", action:"products", id:  @product.id , notice: 'Товар успешно обновлён' }
 	        format.json { render :show, status: :created, location: @product }	
 	      else
 	        format.html { render :new }
@@ -139,19 +140,20 @@ class AdminController < ApplicationController
 		@product=Product.find(params[:id])
 		@product.destroy
 		respond_to do |format|
-		  format.html { redirect_to controller:"admin", action:"index", notice: 'ProductSize was successfully destroyed.' }
+		  format.html { redirect_to controller:"admin", action:"products", notice: 'Товар успешно удалён' }
 		  format.json { head :no_content }
 		end
 	end
 	def color_new
 		@color = Color.new
+		@main_color=MainColor.all
 	end
 
 	def color_create
 		@color = Color.new(color_params)
 	    respond_to do |format|
 	      if @color.save
-	        format.html {redirect_to controller:"admin", action:"index", id:  @color.id , notice: 'Color was successfully created.' }
+	        format.html {redirect_to controller:"admin", action:"colors", id:  @color.id , notice: 'Цвет успешно создан ' }
 	        format.json { render :show, status: :created, location: @color }
 	      else
 	        format.html { render :new }
@@ -162,13 +164,14 @@ class AdminController < ApplicationController
 
 	def color_edit
 		@color = Color.find(params[:id])
+		@main_color=MainColor.all
 	end
 
 	def color_update
 		@color = Color.find(params[:id])
 	    respond_to do |format|
 	      if @color.update(color_params)
-	        format.html {redirect_to controller:"admin", action:"index", id:  @color.id , notice: 'Color was successfully created.' }
+	        format.html {redirect_to controller:"admin", action:"colors", id:  @color.id , notice: 'Цвет успешно обновлён ' }
 	        format.json { render :show, status: :created, location: @color }
 	      else
 	        format.html { render :new }
@@ -180,7 +183,7 @@ class AdminController < ApplicationController
 		@color=Color.find(params[:id])
 		@color.destroy
 		respond_to do |format|
-		  format.html { redirect_to controller:"admin", action:"index", notice: 'ProductSize was successfully destroyed.' }
+		  format.html { redirect_to controller:"admin", action:"colors", notice: 'Цвет успешно удалён' }
 		  format.json { head :no_content }
 		end
 	end
@@ -193,7 +196,7 @@ class AdminController < ApplicationController
 		@main_color = MainColor.new(main_color_params)
 	    respond_to do |format|
 	      if @main_color.save
-	        format.html {redirect_to controller:"admin", action:"index", id:  @main_color.id , notice: 'Color was successfully created.' }
+	        format.html {redirect_to controller:"admin", action:"main_colors", id:  @main_color.id , notice: 'Группа цветов успешно создана ' }
 	        format.json { render :show, status: :created, location: @main_color }
 	      else
 	        format.html { render :new }
@@ -210,7 +213,7 @@ class AdminController < ApplicationController
 		@main_color = MainColor.find(params[:id])
 	    respond_to do |format|
 	      if @main_color.update(main_color_params)
-	        format.html {redirect_to controller:"admin", action:"index", id:  @main_color.id , notice: 'Color was successfully created.' }
+	        format.html {redirect_to controller:"admin", action:"main_colors", id:  @main_color.id , notice: 'Группа цветов успешно обновлёна ' }
 	        format.json { render :show, status: :created, location: @main_color }
 	      else
 	        format.html { render :new }
@@ -222,7 +225,7 @@ class AdminController < ApplicationController
 		@main_color=MainColor.find(params[:id])
 		@main_color.destroy
 		respond_to do |format|
-		  format.html { redirect_to controller:"admin", action:"index", notice: 'ProductSize was successfully destroyed.' }
+		  format.html { redirect_to controller:"admin", action:"main_colors", notice: 'Группа цветов успешно удалён ' }
 		  format.json { head :no_content }
 		end
 	end
@@ -231,7 +234,7 @@ class AdminController < ApplicationController
 		@category = Category.new(category_params)
 	    respond_to do |format|
 	      if @category.save
-	        format.html {redirect_to controller:"admin", action:"index", id:  @category.id , notice: 'Color was successfully created.' }
+	        format.html {redirect_to controller:"admin", action:"categories", id:  @category.id , notice: 'Категория успешн создана' }
 	        format.json { render :show, status: :created, location: @category }
 	      else
 	        format.html { render :new }
@@ -247,7 +250,7 @@ class AdminController < ApplicationController
 		@category = Category.find(params[:id])
 	    respond_to do |format|
 	      if @category.update(category_params)
-	        format.html {redirect_to controller:"admin", action:"index", id:  @category.id , notice: 'Color was successfully created.' }
+	        format.html {redirect_to controller:"admin", action:"categories", id:  @category.id , notice: 'Категория успешно обновлена' }
 	        format.json { render :show, status: :created, location: @category }
 	      else
 	        format.html { render :new }
@@ -263,7 +266,7 @@ class AdminController < ApplicationController
 		@category=Category.find(params[:id])
 		@category.destroy
 		respond_to do |format|
-		  format.html { redirect_to controller:"admin", action:"index", notice: 'ProductSize was successfully destroyed.' }
+		  format.html { redirect_to controller:"admin", action:"categories", notice: 'Категория успешно удалена' }
 		  format.json { head :no_content }
 		end
 	end
@@ -274,7 +277,7 @@ class AdminController < ApplicationController
 		@size=ProductSize.new(product_size_params)
 	    respond_to do |format|
 	      if @size.save
-	        format.html {redirect_to controller:"admin", action:"index", id:  @size.id , notice: 'Color was successfully created.' }
+	        format.html {redirect_to controller:"admin", action:"sizes", id:  @size.id , notice: 'Размер был успешно создан' }
 	        format.json { render :show, status: :created, location: @size }
 	      else
 	        format.html { render :new }
@@ -289,7 +292,7 @@ class AdminController < ApplicationController
 		@size=ProductSize.find(params[:id])
 	    respond_to do |format|
 	      if @size.update(product_size_params)
-	        format.html {redirect_to controller:"admin", action:"index", id:  @size.id , notice: 'Color was successfully created.' }
+	        format.html {redirect_to controller:"admin", action:"sizes", id:  @size.id , notice: 'Размер был успешно обновлён' }
 	        format.json { render :show, status: :created, location: @size }
 	      else
 	        format.html { render :edit }
@@ -301,7 +304,7 @@ class AdminController < ApplicationController
 		@size=ProductSize.find(params[:id])
 		@size.destroy
 		respond_to do |format|
-		  format.html { redirect_to controller:"admin", action:"index", notice: 'ProductSize was successfully destroyed.' }
+		  format.html { redirect_to controller:"admin", action:"sizes", notice: 'Размер был успешно удалён' }
 		  format.json { head :no_content }
 		end
 	end
@@ -313,7 +316,7 @@ class AdminController < ApplicationController
 		@order=Order.find(params[:id])
 	    respond_to do |format|
 	      if @order.update(order_params)
-	        format.html {redirect_to controller:"admin", action:"index", id:  @order.id , notice: 'order was successfully update.' }
+	        format.html {redirect_to controller:"admin", action:"orders", id:  @order.id , notice: 'Заказ был успешно обновлён' }
 	        format.json { render :show, status: :created, location: @order }
 	      else
 	        format.html { render :edit }

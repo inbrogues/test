@@ -3,9 +3,17 @@
 
 <html lang="ru" class="js history rgba no-touchevents lastchild nthchild backgroundsize borderradius flexbox flexboxlegacy csstransforms csstransitions grunticon ng-scope" ng-app="hmApp" style="">
 <head>
-  <%= stylesheet_link_tag    'application' %>
-  <%= javascript_include_tag 'application' %>
+
+ <!-- Include style per-controller - vendor plugins -->
+  <%= stylesheet_link_tag params[:controller] if ::Rails.application.assets.find_asset("#{params[:controller]}.css") %>
+
+  <!-- Main css styles -->
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
+  <!-- Main javascript files -->
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
   <!--[if lt IE 9]>
   <link rel="stylesheet" href="/etc/designs/hm/clientlibs/desktop/ie8.min.css" type="text/css">
   <![endif]-->

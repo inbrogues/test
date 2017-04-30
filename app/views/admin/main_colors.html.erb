@@ -1,14 +1,57 @@
+<div class="wrapper wrapper-content animated fadeInRight">
+<div class="row">
+<div class="col-lg-12">
+<div class="ibox float-e-margins">
+<div class="ibox-title">
+    <h5>Все группы цветов</h5>
+    <div class="ibox-tools">
+        <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
+</div>
+<div class="ibox-content">
+<table class="table table-striped table-bordered table-hover dataTables-example">
+<thead>
+<tr>
+    <th>id</th>
+    <th>Имя</th>
+    <th>Цвет</th>
+    <th>Обновить</th>
+    <th>Удалить</th>
+</tr>
+</thead>
+<tbody>
+<% @main_colors.each do | color | %>
+<tr class="gradeX">
+    <td><%=color.id %></td>
+    <td><%=color.name %></td>
+    <td>
+    	<% if color.hex %>
+			<div style="width: 15px;height: 15px;background:<%=color.hex%> "></div>
+		<%else%>
+			<p>Не задан</p>
+		<%end%>
 
-<div class="colors">
-	<% @main_colors.each do | color | %>
-		<div class="color">
-			<p class="id"><%=color.id %></p>
-			<p class="name"><%=color.name %></p>
-			<% if color.hex %>
-				<div style="width: 15px;height: 15px;background:<%=color.hex%> "></div>
-			<% end%>
-			<p><%= link_to 'Edit', admin_main_color_edit_path(color) %></p>
-        	<p><%= link_to 'Destroy', admin_main_color_destroy_path(color) , :method => 'delete', data: { confirm: 'Are you sure?' } %></p>
-		</div>
-	<% end %>
+    </td>
+    <td><%= link_to 'Обновить', admin_main_color_edit_path(color) %></td>
+    <td><%= link_to 'Удалить', admin_main_color_destroy_path(color) , :method => 'delete', data: { confirm: 'Точно?' } %></td>
+</tr>
+<% end %>
+</tbody>
+<tfoot>
+<tr>
+    <th>id</th>
+    <th>Имя</th>
+    <th>Цвет</th>
+    <th>Обновить</th>
+    <th>Удалить</th>
+</tr>
+</tfoot>
+</table>
+</div>
+</div>
+</div>
+</div>
+
 </div>

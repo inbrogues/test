@@ -1,7 +1,12 @@
 <div>
-
   <%= f.label :has %>
   <%= f.check_box :has%>
-  <%= f.label :product_size_id %>
-  <%= f.text_field :product_size_id%>
+
+	<div class="form-group">
+	<%= f.label  :product_size_id , "Цвет" , class: "col-lg-2 control-label"%>
+	    <div class="col-lg-10">
+	      <%= f.select(:product_size_id, @sizes.collect { |p| [ p.size, p.id ] }, {} ,{ :class => "form-control m-b"}) %>
+	      <span class="help-block m-b-none">Введите цвет для группы цветов</span>
+	    </div>
+	</div>
 </div>

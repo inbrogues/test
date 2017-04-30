@@ -1,32 +1,56 @@
+
+
 <%= semantic_form_for @product, :url => admin_product_update_path(@product) do |f| %>
-  <% if @product.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
-
-      <ul>
-      <% @product.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="row">
+    <div class="col-lg-5">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>Создание нового цвета</h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+                <div class="form-horizontal">
+                    <p>Введите пустые поля</p>
+                    <div class="form-group">
+                    <%= f.label  :name , "Имя" , class: "col-lg-2 control-label"%>
+                        <div class="col-lg-10"><%= f.text_field :name, class: 'form-control' %><span class="help-block m-b-none">Введите имя для группы цветов</span>
+                        </div>
+                    </div>
+                    <div class="fileinput fileinput-new input-group" data-provides="fileinput">
+                      
+                      <div class="form-control" data-trigger="fileinput"><i class="glyphicon glyphicon-file fileinput-exists"></i> <span class="fileinput-filename"></span></div>
+                      <span class="input-group-addon btn btn-default btn-file"><span class="fileinput-new">Select file</span><span class="fileinput-exists">Change</span><%= f.file_field :img %></span>
+                      <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+                      </div>
+                      <div class="fileinput fileinput-new input-group" data-provides="fileinput">
+                      
+                      <div class="form-control" data-trigger="fileinput"><i class="glyphicon glyphicon-file fileinput-exists"></i> <span class="fileinput-filename"></span></div>
+                      <span class="input-group-addon btn btn-default btn-file"><span class="fileinput-new">Select file</span><span class="fileinput-exists">Change</span><%= f.file_field :img_alt %></span>
+                      <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+                      </div>
+                    <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-10">
+                          <%= f.submit  "Создать цвет" , :class => "btn btn-sm btn-primary"  %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  <% end %>
-
-  <%= f.label :name %>
-  <%= f.text_field :name, class: 'form-control' %>
-
-  <%= f.label :img %>
-  <%= f.file_field :img , class: 'form-control'%>
-
-  <%= f.label :img_alt %>
-  <%= f.file_field :img_alt , class: 'form-control'%>
-	<div>
-	Datas
-	<%= f.semantic_fields_for :product_datum do |product_data| %>
-			<%=render 'product_datum_fields', f: product_data %>
-    <%end%>
-	<%= link_to_add_association 'add product_datum', f, :product_datum%>
-	</div>
-  <div class="actions">
-    <%= f.submit %>
+</div>
+<div class="row">
+  <%= f.semantic_fields_for :product_datum do |product_data| %>
+    <%=render 'product_datum_fields', f: product_data %>
+  <%end%>
+  <div class="col-lg-12">
+    <%= link_to_add_association 'Добавить вариант', f, :product_datum ,:class => 'btn btn-sm btn-default'%>
   </div>
+</div>
+<div class="row">
+
+</div>
 <% end %>
