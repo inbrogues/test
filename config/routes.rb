@@ -2,11 +2,15 @@ Rails.application.routes.draw do
 
   root to:'pages#index'
   devise_for :admins, controllers: {
-        sessions: 'admins/sessions'
+        sessions: 'admins/sessions',
+        registrations: 'admins/registrations',
+        passwords: 'admins/passwords'
       }
 
   devise_for :users, controllers: {
-        sessions: 'users/sessions'
+        sessions: 'users/sessions',
+        registrations: 'users/registrations',
+        passwords: 'users/passwords'
       }
 
   get 'admin/colors'
