@@ -1,16 +1,3 @@
-<%=@all%>
-<br>
-<% @products_datum.each do |pd|%>
-    <%= pd.product.name%><br>
-    <%= pd.price%><br>
-    <%= pd.promotional_price%><br>
-    <%if pd.color%>
-        <%= pd.color.name%><br>
-    <%end%>
-    <%if pd.photos!=[]%>
-        <%=image_tag(pd.photos[0].img(:original) ,class:"pattern")%>
-    <%end%>
-<%end%>
 <main role="main" class="responsive fill">
     <div class="wrapper">
 
@@ -25,22 +12,11 @@
         <div class="wrapper">
             <h1 class="favorite-heading">ЛЮБИМЫЕ МОДЕЛИ</h1>
             <div  ng-controller="FavoritesContextController" ng-cloak>
-                <div class="responsive status-message is-open secondary favorites-message">
-                    <div class="message ">
-                        Сохраните эти товары бессрочно и выполняйте управление при помощи любого устройства посредством
-                        <a href="#" class="link">входа в уже существующую учетную запись,</a>
-                        или
-                        <a href="#" class="link">создания новой учетной записи.</a>
-                    </div>
-                </div>
-                <div class="favorite-items-quantity" >
-
-                </div>
                 <ul class="product-detail-list responsive favorite-list js-favorite-list" id="favouritesPage-items">
                     <!-- /Wishlist item --> 
                 </ul>
-                <% if @products_datum == [] %>
-                <div>
+                
+                <div class="save_info">
                     <section class="segment favorites-empty">
                         <h3 class="heading icon-favorites">Сохранить ваши избранные товары</h3>
                         <p class="text">
@@ -49,7 +25,7 @@
                         <a class="button" href="home.html">ПРОСМОТРЕТЬ СЕЙЧАС</a>
                     </section>
                 </div>
-                <% end %>
+
             </div>
 
             <div class="hidden modal-content fadeInModal" style="margin-top: 91.5px;" id="error-popup">
@@ -79,7 +55,6 @@
     //   });
     // });
     items = JSON.parse(localStorage.getItem('myKey'));
-    console.log(items);
     if(items){
     $.each(items, function(){
         if(this.promotional_price){

@@ -1,16 +1,41 @@
-<h2>Forgot your password?</h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+<main role="main" class="">
+	<div class="wrapper">    
+		<nav class="breadcrumbs">
+			<ul class="breadcrumbs-list">
+				<li class="breadcrumb-list-item">
+					<a href="/">YouHM.COM</a>
+				</li>
+				<li class="breadcrumb-list-item">
+					<a href="#">Восстановление пароля</a>
+				</li>
+			</ul>
+		</nav>
+		<div class="row my-hm">
+			<div class="layout layout-eight">
+				<div class="row my-hm">
+					<div class="grid col-6">
+						<h1>Забыли пароль?</h1>
+						Введите адрес электронной почты, который вы использовали для создания своей учетной записи, и мы отправим вам ссылку для сброса пароля.
+						<p></p>
+						<div class="row">
+							<div class="grid col-3">
+								<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  							<%= devise_error_messages! %>
+								<div id="forgottenPwdForm" class="ng-pristine ng-valid">
+									<div class="input-group">
+										<%= f.label :email, 'Эл. Почта' %>
+										<%= f.email_field :email, autofocus: true %>
+									</div>
+									<div>&nbsp;</div>
+									<%= f.submit "Отправить" %>
+								</div>
+								<% end %>
+							</div>
+						</div>
+						<%= render "users/shared/links" %>
+					</div>
+				</div>
+			</div>	
+		</div>
+	</div>
+</main>

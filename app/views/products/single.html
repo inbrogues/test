@@ -323,20 +323,32 @@
   // a.push(items)
   $(document).ready(function(){
   	showMessage();
+  	if($('input[name="product-size"]:checked').length > 0){
+	  	disableButton();
+	  }
     // // окно сайзгайда
     // $('.product-detail-linked-product > a, .modalclose').click(function(){
     // 	$('.modaloverlay').toggleClass('hidden');
     // });
     // // окно сайзгайда/
     // // описание
-    // $('.tab-item > a').click(function(){
-    // 	$('.tab-item > a').removeClass('active');
-    // 	$(this).addClass('active');
-    // 	var i = $(this).parent().index();
-    // 	$('.tab-pane').removeClass('active');
-    // 	$('.tab-pane').eq(i).addClass('active');
-    // });
+    $('.tab-item > a').click(function(){
+    	$('.tab-item > a').removeClass('active');
+    	$(this).addClass('active');
+    	var i = $(this).parent().index();
+    	$('.tab-pane').removeClass('active');
+    	$('.tab-pane').eq(i).addClass('active');
+    });
     // описание /
+    function disableButton(){
+	    $('.button-buy').removeClass('button-disabled');
+    }
+
+    $('.detailbox').click(function(){
+    	disableButton();
+    	console.log('chchc')
+    });
+
   	var color = $('.filter-option.active').attr('data-articlecode');
     $('.inputlist.clearfix[data-sizelist="' + color +'"]').show();
 
@@ -345,7 +357,6 @@
   		cartCounts = cartCounts + plus_one;
   		$('.shoppingbag-item-counts').text(cartCounts);
   		localStorage.setItem('cartCount', JSON.stringify(cartCounts));
-  		console.log(cartCounts);
     }
 
 
@@ -411,9 +422,6 @@
     		cart_mas.push(a);
     		localStorage.setItem('myCart', JSON.stringify(cart_mas));
     		cartCount(1);
-    		// console.log(cart_size)
-    		// showMessage();
-    		console.log('added');
   		});
 		}
 		$('.button-buy').click(function(){
@@ -428,9 +436,6 @@
 			if(!size_check){
 				alert($('.button-buy').attr('data-not-added-text'));
 			}
-			// else{
-			// 	addToCart();
-			// }
 		});
 		cartCount(0);
   });
