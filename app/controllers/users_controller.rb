@@ -91,6 +91,7 @@ class UsersController < ApplicationController
       params
     end
     def my_overview
+    	@user=current_user
 		@orders=Order.where(user_id: current_user.id)
 	end
 	def my_order

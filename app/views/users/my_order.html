@@ -1,25 +1,3 @@
-<% @orders.each do |order|%>
-	<%= order.id %><br>
-	<%= order.sum %><br>
-	<%= order.address %><br>
-	<%= order.created_at %><br>
-	<%= order.status %><br>
-	<br>
-	<%= order.user %><br>
-	<% if order.orders_product_data %>
-		<% order.orders_product_data.each do |opd| %>
-			<%=opd.count%><br>
-			<br>
-			<% if opd.product_data %>
-				<%=opd.product_data.article%><br>
-				<%=opd.product_data.price%><br>
-				<%=opd.product_data.promotional_price%><br>
-				<br>
-				<%=opd.product_data.product.name%><br>
-			<%end%>
-		<% end %>
-	<% end %>
-<% end %>
 	<main role="main" class="responsive my-hm">
 		<div class="wrapper">
 			<nav class="breadcrumbs">
@@ -41,19 +19,16 @@
 			<nav class="section navigation menu " role="navigation">
 				<ul role="menu">
 					<li class="item" role="presentation" tabindex="0">
-						<a href="#" role="menuitem">Обзор</a>
+						<a href="/my-overview" role="menuitem">Обзор</a>
 					</li>
 					<li class="item" role="presentation" tabindex="-1">
-						<a href="#" role="menuitem">Личные сведения</a>
+						<a href="/my-profile" role="menuitem">Личные сведения</a>
 					</li>
 					<li class="current item" role="presentation" tabindex="-1">
-						<a href="#" role="menuitem">Заказы</a>
+						<a href="/my-order" role="menuitem">Заказы</a>
 					</li>
 					<li class="item" role="presentation" tabindex="-1">
-						<a href="#" role="menuitem">Адресная книга</a>
-					</li>
-					<li class="item" role="presentation" tabindex="-1">
-						<a href="#" role="menuitem">Информация о банковском счете</a>
+						<a href="my-address" role="menuitem">Адресная книга</a>
 					</li>
 				</ul>
 			</nav>
@@ -65,65 +40,63 @@
 					</p>
 				</header>
 				<ul class="orders">
-					<li class="order-item is-open">
+				<% @orders.each do |order|%>
+				<% if order.orders_product_data %>
+					<li class="order-item">
 						<div class="order-header js-toggle-trigger">
-							<span class="order-id">ORDER&nbsp;214371527</span>
-							<span class="order-date">2017-03-22</span>
+							<span class="order-id">ORDER&nbsp;<%= order.id %></span>
+							<span class="order-date"><%= order.created_at %></span>
 							<span class="order-status my-hm-order-status-cancelled">Отменено</span>
 						</div>
-
 						<div class="order-info">
-							<div class="order-details two modules">
-								<ul class="details-list">
+								<div class="order-details two modules">
+									<ul class="details-list">
 
-									<li class="item">
-										<span class="label">ЭЛ. ПОЧТА</span>
-										<span class="static">inbrogues1@gmail.com</span>
-									</li>
+										<li class="item">
+											<span class="label">ЭЛ. ПОЧТА</span>
+											<span class="static"><%= order.user.email %></span>
+										</li>
 
-									<li class="item">
-										<span class="label">ДАТА ЗАКАЗА</span>
-										<span class="static">2017-03-22</span>
-									</li>
+										<li class="item">
+											<span class="label">ДАТА ЗАКАЗА</span>
+											<span class="static"><%= order.created_at %></span>
+										</li>
 
-									<li class="item">
-										<span class="label">СПОСОБ ОПЛАТЫ</span>
-										<span class="static">Оплата наличными при получении</span>
-									</li>
+										<li class="item">
+											<span class="label">СПОСОБ ОПЛАТЫ</span>
+											<span class="static">Оплата на счет магазина</span>
+										</li>
 
-								</ul>
-								<ul class="details-list">
-									<li class="item">
-										<span class="label">ВАРИАНТЫ ДОСТАВКИ</span>
-										<span class="static">Доставка курьером</span>
-									</li>
+									</ul>
+									<ul class="details-list">
+										<li class="item">
+											<span class="label">ВАРИАНТЫ ДОСТАВКИ</span>
+											<span class="static">Доставка Новой почтой</span>
+										</li>
 
-									<li class="item">
-										<span class="label">АДРЕС ДОСТАВКИ</span>
-										<span class="static">
-											Сергей Николаевич Шишман
-											<br>
-											Педагогическая
-											<br>
-											105064&nbsp;Одес
-											<br>Российская Федерация</span>
-									</li>
+										<li class="item">
+											<span class="label">АДРЕС ДОСТАВКИ</span>
+											<span class="static">
+												<%= order.user.first_name + ' ' + order.user.father + ' ' + order.user.second_name%>
+												<br>
+												<%= order.address %>
+											</span>
+										</li>
 
-									<li class="item">
-										<span class="label">ОБЩАЯ СТОИМОСТЬ ЗАКАЗА</span>
-										<span class="amount">2&nbsp;698 Грн</span>
-									</li>
-								</ul>
-
-							</div>
+										<li class="item">
+											<span class="label">ОБЩАЯ СТОИМОСТЬ ЗАКАЗА</span>
+											<span class="amount"><%= order.sum %> Грн</span>
+										</li>
+									</ul>
+								</div>
 
 							<ul class="order-products product-detail-list responsive">
+								<% order.orders_product_data.each do |opd| %>
 								<li class="product-detail-list-item">
-									<!-- Order confirmation item -->
 									<div class="product-detail-list-item-image-wrapper">
 										<div class="wrapper-inner">
 											<a href="" class="product-detail-list-item-image">
-												<img alt="Product name" width="140" height="210" class="product-detail-list-item-image-image" src="https://lp2.hm.com/hmprod%3Fset%3Dsource%5B%2Fmodel%2F2017%2FE00+0462979+004+32+1456.jpg%5D%2Ctype%5BSTILLLIFE_FRONT%5D%26hmver%3D1%26call%3Durl%5Bfile%3A%2Fproduct%2Fcart%5D" title="Product name">
+												<img alt="Product name" width="140" height="210" class="product-detail-list-item-image-image" src="<%=opd.product_datum.product.img%>" title="Product name">
 											</a>
 										</div>
 									</div>
@@ -131,12 +104,12 @@
 										<div class="product-detail-list-item-price-info">
 											<p class="product-detail-list-item-total-price">
 												Итого:
-												<span class="amount">2499 Грн</span>
+												<span class="amount"><%= opd.product_datum.price*opd.count%> Грн</span>
 											</p>
 										</div>
 
-										<h3 class="sub-sub-heading">Атласная куртка</h3>
-										<span class="original-price">2499 Грн</span>
+										<h3 class="sub-sub-heading"><%=opd.product_datum.product.name%></h3>
+										<span class="original-price"><%=opd.product_datum.price%> Грн</span>
 										<p class="product-detail-price"></p>
 										<p class="product-detail-price"></p>
 										<p></p>
@@ -144,38 +117,39 @@
 										<dl class="product-detail-list-item-details-list">
 
 											<dt>№ арт.:</dt>
-											<dd>0462979004</dd>
+											<dd><%=opd.product_datum.article%></dd>
 
 											<dt>Цвет:</dt>
-											<dd>Приглушенный розовый</dd>
+											<dd><%=opd.product_datum.color.name%></dd>
+
+											<dt>Количество:</dt>
+											<dd><%= opd.count %></dd>
 
 											<dt>Размер:</dt>
-											<dd>36</dd>
+											<dd><%=opd.product_size.size%></dd>
 
 										</dl>
 									</div>
 								</li>
+								<% end %>
 							</ul>
 
 							<!-- FINISH -->
 							<ul class="order-table">
 								<li class="item">
 									<span class="label">Итого:</span>
-									<span class="static ">2499 Грн</span>
-								</li>
-
-								<li class="item">
-									<span class="label">Доставка:</span>
-									<span class="static ">199 Грн</span>
+									<span class="static "><%= order.sum %> Грн</span>
 								</li>
 
 								<li class="item order-total">
 									<span class="label">ИТОГО:</span>
-									<span class="static ">2698 Грн</span>
+									<span class="static "><%=order.sum%> Грн</span>
 								</li>
 							</ul>
 						</div>
 					</li>
+					<% end %>
+					<% end %>
 				</ul>
 			</div>
 

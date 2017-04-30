@@ -1,69 +1,4 @@
 
-
-
-
-<% @addresses.each do | address | %>
-	<p><%= link_to 'Destroy', users_address_destroy_path(address) , :method => 'delete', data: { confirm: 'Are you sure?' } %></p>
-<% end %>
-
-<% @addresses.each do | address | %>
-	city:<%= address.city %>
-	post_index:<%= address.post_index %>
-	<br>
-<% end %>
-<% @addresses.each do | address | %>
-	<%= semantic_form_for address, :url => users_address_update_path(address) do |f| %>
-	  <% if address.errors.any? %>
-	    <div id="error_explanation">
-	      <h2><%= pluralize(address.errors.count, "error") %> prohibited this address from being saved:</h2>
-
-	      <ul>
-	      <% address.errors.full_messages.each do |message| %>
-	        <li><%= message %></li>
-	      <% end %>
-	      </ul>
-	    </div>
-	  <% end %>
-
-
-	  <%= f.label :city %>
-	  <%= f.text_field :city, class: 'form-control' %>
-
-	  <%= f.label :post_index %>
-	  <%= f.text_field :post_index, class: 'form-control' %>
-
-	  <div class="actions">
-	    <%= f.submit %>
-	  </div>
-	<% end %>
-<% end %>
-
-
-<%= semantic_form_for @address_new, :url => users_address_create_path(@address_new) do |f| %>
-  <% if @address_new.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@address_new.errors.count, "error") %> prohibited this @address_new from being saved:</h2>
-
-      <ul>
-      <% @address_new.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-
-  <%= f.label :city %>
-  <%= f.text_field :city, class: 'form-control' %>
-
-  <%= f.label :post_index %>
-  <%= f.text_field :post_index, class: 'form-control' %>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-
 <main role="main" class="responsive my-hm">
 		<div class="wrapper">
 			<nav class="breadcrumbs">
@@ -85,19 +20,16 @@
 			<nav class="section navigation menu " role="navigation">
 				<ul role="menu">
 					<li class="item" role="presentation" tabindex="0">
-						<a href="#" role="menuitem">Обзор</a>
+						<a href="/my-overview" role="menuitem">Обзор</a>
 					</li>
 					<li class="item" role="presentation" tabindex="-1">
-						<a href="#" role="menuitem">Личные сведения</a>
+						<a href="/my-profile" role="menuitem">Личные сведения</a>
 					</li>
 					<li class="item" role="presentation" tabindex="-1">
-						<a href="#" role="menuitem">Заказы</a>
+						<a href="/my-order" role="menuitem">Заказы</a>
 					</li>
 					<li class="current item" role="presentation" tabindex="-1">
-						<a href="#" role="menuitem">Адресная книга</a>
-					</li>
-					<li class="item" role="presentation" tabindex="-1">
-						<a href="#" role="menuitem">Информация о банковском счете</a>
+						<a href="/my-address" role="menuitem">Адресная книга</a>
 					</li>
 				</ul>
 			</nav>

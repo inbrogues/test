@@ -1,50 +1,3 @@
-
-
-
-	<%= semantic_form_for @user, :url => users_update_path(@user) do |f| %>
-	  <% if @user.errors.any? %>
-	    <div id="error_explanation">
-	      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this @user from being saved:</h2>
-
-	      <ul>
-	      <% @user.errors.full_messages.each do |message| %>
-	        <li><%= message %></li>
-	      <% end %>
-	      </ul>
-	    </div>
-	  <% end %>
-
-
-
-	  <%= f.label :email %>
-	  <%= f.text_field :email, class: 'form-control' %>
-
-
-	  <%= f.label :first_name %>
-	  <%= f.text_field :first_name, class: 'form-control' %>
-
-	  <%= f.label :father %>
-	  <%= f.text_field :father, class: 'form-control' %>
-
-	  <%= f.label :second_name %>
-	  <%= f.text_field :second_name, class: 'form-control' %>
-
-	  <%= f.label :date %>
-	  <%= f.date_field :date, class: 'form-control' %>
-
-	  <%= f.label :tel %>
-	  <%= f.text_field :tel, class: 'form-control' %>
-	  
-	  <%= f.label :country %>
-	  <%= f.text_field :country, class: 'form-control' %>
-
-
-	  <div class="actions">
-	    <%= f.submit %>
-	  </div>
-	<% end %>
-
-
 	<main role="main" class="responsive my-hm">
 		<div class="wrapper">
 			<nav class="breadcrumbs">
@@ -66,19 +19,16 @@
 			<nav class="section navigation menu " role="navigation">
 				<ul role="menu">
 					<li class="item" role="presentation" tabindex="0">
-						<a href="#" role="menuitem">Обзор</a>
+						<a href="/my-overview" role="menuitem">Обзор</a>
 					</li>
 					<li class="current item" role="presentation" tabindex="-1">
-						<a href="#" role="menuitem">Личные сведения</a>
+						<a href="/my-profile" role="menuitem">Личные сведения</a>
 					</li>
 					<li class="item" role="presentation" tabindex="-1">
-						<a href="#" role="menuitem">Заказы</a>
+						<a href="/my-order" role="menuitem">Заказы</a>
 					</li>
 					<li class="item" role="presentation" tabindex="-1">
-						<a href="#" role="menuitem">Адресная книга</a>
-					</li>
-					<li class="item" role="presentation" tabindex="-1">
-						<a href="#" role="menuitem">Информация о банковском счете</a>
+						<a href="/my-address" role="menuitem">Адресная книга</a>
 					</li>
 				</ul>
 			</nav>
@@ -98,14 +48,11 @@
 						<%= semantic_form_for @user, :url => users_update_path(@user) do |f| %>
 						<div class="inputwrapper">
 							<label class="label" for="myhm-email">Эл. Почта</label>
-							<!-- <input class="text-input" type="email" name="email" id="email" data-validation-email="true" data-validation-required="true" data-validation-required-text="profile.email.invalid" init-from-form="" value="" autocomplete="email"> -->
 							 <%= f.text_field :email, class: 'text-input field' %>
 							<span class="static ng-binding"><%=@user.email%></span>
 						</div>
 						<div class="inputwrapper required">
 							<label class="label" for="checkout.firstName">Имя</label>
-							<!-- <input ng-show="isEditprofile || isEdit['profile']" ng-model="profile.firstName" ng-change="nameChanged('profile','firstName')" required="" type="text" data-validation-maxlength="75" data-validation-regex="^(?:\s*)[^:“”\u0022;!@$%^&amp;*()_+={}\[<>
-							,.?`~|\]\\\/]+(\s+[^\s\d:“”\u0022;!@$%^&amp;*()_+={}\[<>,.?`~|\]\\\/]+)*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text="Пожалуйста, укажите имя. " data-validation-regex-text="Пожалуйста, введите снова без пробелов" id="profile-firstName" name="firstName" maxlength="75" class="text-input field firstName  ng-pristine ng-untouched ng-valid-maxlength ng-hide ng-valid ng-valid-required" autocomplete="given-name"> -->
 							<%= f.text_field :first_name, class: 'text-input field' %>
 							<div class="input-info ng-hide"></div>
 							<span class="static ng-binding"><%= @user.first_name%></span>
@@ -114,8 +61,6 @@
 
 						<div class="inputwrapper optional">
 							<label class="label" for="checkout.middleName">Отчество</label>
-							<!-- <input ng-show="isEditprofile || isEdit['profile']" ng-model="profile.middleName" ng-change="nameChanged('profile','middleName')" type="text" data-validation-maxlength="75" data-validation-regex="^(?:\s*)[^:“”\u0022;!@$%^&amp;*()_+={}\[<>
-							,.?`~|\]\\\/]+(\s+[^\s\d:“”\u0022;!@$%^&amp;*()_+={}\[<>,.?`~|\]\\\/]+)*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text=" " data-validation-regex-text="" id="profile-middleName" name="middleName" maxlength="75" class="text-input field middleName  ng-pristine ng-untouched ng-valid ng-valid-maxlength ng-hide" autocomplete=""> -->
 							<%= f.text_field :father, class: 'text-input field' %>
 							<div class="input-info ng-hide">Укажите Ваше отчество здесь</div>
 							<span class="static ng-binding"><%= @user.father%></span>
@@ -123,8 +68,6 @@
 
 						<div class="inputwrapper required">
 							<label class="label" for="checkout.lastName">Фамилия</label>
-							<!-- <input ng-show="isEditprofile || isEdit['profile']" ng-model="profile.lastName" ng-change="nameChanged('profile','lastName')" required="" type="text" data-validation-maxlength="150" data-validation-regex="^(?:\s*)[^:“”\u0022;!@$%^&amp;*()_+={}\[<>
-							,.?`~|\]\\\/]+(\s+[^\s\d:“”\u0022;!@$%^&amp;*()_+={}\[<>,.?`~|\]\\\/]+)*(?:\s*)$" data-validation-maxlength-text="   " data-validation-required-text="Пожалуйста, укажите фамилию. " data-validation-regex-text="Пожалуйста, введите снова без пробелов" id="profile-lastName" name="lastName" maxlength="150" class="text-input field lastName  ng-pristine ng-untouched ng-valid-maxlength ng-hide ng-valid ng-valid-required" autocomplete="family-name"> -->
 							<%= f.text_field :second_name, class: 'text-input field' %>
 							<div class="input-info ng-hide"></div>
 							<span class="static ng-binding"><%=@user.second_name%></span>
