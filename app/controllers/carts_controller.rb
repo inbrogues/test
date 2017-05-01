@@ -2,9 +2,8 @@ class CartsController < ApplicationController
 	before_action :authenticate_user! , :only => [:create_order, :diver , :order ]
 	def order_create
 		@order=Order.new(order_params)
-		@address=Address.find(order_params[:address])
+		puts order_params[:address]
 		@order.user=current_user
-		@order.address=@address.city+" "+@address.post_index
 		data = JSON.parse order_params[:json]
 	    
 		@order.status = 'В обработке'
@@ -21,7 +20,16 @@ class CartsController < ApplicationController
 	      		@order.sum += pd.promotional_price||pd.price
 	      		a.save
 	      	}
+	      	@address = Address.where(user: current_user)[0]||Address.new
+	      	
+	      	@order.address_ref = @address
+	      	@address.city=order_address_params["city"]
+	      	@address.post_index=order_address_params["post_index"]
+	      	@address.user=@order.user
+	      	@address.save
+	      	@order.address=@address.city+" "+@address.post_index
 	      	@order.save
+
 	        format.html {redirect_to controller:"carts", action:"order", id:  @order.id , notice: 'Color was successfully created.' }
 	        format.json { render :show, status: :created, location: @order }
 	      else
@@ -39,10 +47,13 @@ class CartsController < ApplicationController
 	end
 	def diver
 		@order=Order.new()
-		@user=current_user
-		@address=Address.where(user: current_user)
+		@order.address_ref=(Address.where(user: current_user)[0]||Address.new) 
+		@address=Address.new
 	end
 	def order_params
-   		params.require(:order).permit(:address,:json)
+   		params.require(:order).permit(:json)
    	end
+   	def order_address_params
+   		params.require(:order).require(:address_ref_attributes)
+    end
 end
