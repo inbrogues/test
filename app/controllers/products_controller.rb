@@ -206,23 +206,10 @@ class ProductsController < ApplicationController
 		)
 		@products=@productsAll.paginate(:page => params[:page], :per_page => 30)
 	end
-	def favourites
-		@all=session[:favorite]||[]
-		@products_datum=favourite_datums()
-	end
-	def addtofavorite
-		session[:favorite]||=[]
-		session[:favorite]<<params[:id]
-		redirect_to action:  'favourites' 
-	end
-	def removetofavorite
-		session[:favorite]||=[]
-		if session[:favorite].include?(params[:id])
-			session[:favorite].delete_at(session[:favorite].index(params[:id]))
-		end
-		redirect_to action:  'favourites' 
-	end
 
+	def favourites
+	end
+	
 	def test
 	  respond_to do |format|
 	  	product_datum = ProductDatum.find(params[:id])

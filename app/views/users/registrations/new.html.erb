@@ -16,10 +16,10 @@
       <section class="layout layout-six">
         <section class="responsive create-account">
           <div id="registration-form" novalidate="true" class="responsive form-section ng-pristine ng-valid">
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <fieldset class="form-part">
               <legend class="heading">ПРИСОЕДИНЯЙТЕСЬ К НАМ</legend>
               <p class="info-paragraph">Укажите следующие данные здесь</p>
-              <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
               <%= devise_error_messages! %>
               <div class="inputwrapper">
                 <%= f.label :email, 'Эл. Почта'%>
@@ -43,7 +43,7 @@
             <fieldset class="form-part">
                <%= f.submit "ПРИСОЕДИНЯЙТЕСЬ К НАМ", class: 'button'%>
             </fieldset>
-              <% end %>
+            <% end %>
             <div>
           </div>
         </section>

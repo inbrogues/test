@@ -32,7 +32,16 @@
 
 </head>
 <body>
+
 <% if user_signed_in? %>
+  <%= link_to "Выйти" , destroy_user_session_path, :method => :delete  %>
+
+  сумма=<%=@user.money%>
+  имя=<%= @user.first_name%>
+  фамилия=<%= @user.second_name%>
+  отчечтво=<%= @user.father%>
+<%else%>
+  <%= link_to "Войти" , new_user_session_path%>
 <%end%>
   <!-- Code to manage the mobile preview after css changes by HTML team -->
   <header class="header-global">
