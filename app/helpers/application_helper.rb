@@ -11,4 +11,8 @@ module ApplicationHelper
         params[:action] == action_name ? "active" : nil
     end
 
+    def get_controller
+        params[:controller].slice(0..((params[:controller].index('/')||0)-1))
+    end
+
 end

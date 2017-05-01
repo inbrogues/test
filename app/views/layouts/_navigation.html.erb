@@ -1,3 +1,5 @@
+<% if admin_signed_in? %>
+
 <nav class="navbar-default navbar-static-side" role="navigation">
     <div class="sidebar-collapse">
         <ul class="nav metismenu" id="side-menu">
@@ -29,57 +31,57 @@
                     IN+
                 </div>
             </li>
-            <li class="">
+            <li class="<%=is_active_action('product_new')%>">
                 <%= link_to  controller: "admin", action: "product_new"  do %>
                 <i class="fa fa-laptop"></i> <span class="nav-label" data-i18n="nav.gridoptions">Создать товар</span>
                 <% end %>
             </li>
-            <li class="">
+            <li class="<%=is_active_action('products')%>">
                 <%= link_to  controller: "admin", action: "products" do %>
                 <i class="fa fa-laptop"></i> <span class="nav-label" data-i18n="nav.gridoptions">Все товары</span>
                 <% end %>
             </li>
-            <li class="">
+            <li class="<%=is_active_action('color_new')%>">
                 <%= link_to  controller: "admin", action: "color_new" do %>
                 <i class="fa fa-laptop"></i> <span class="nav-label" data-i18n="nav.gridoptions">Создать цвет</span>
                 <% end %>
             </li>
-            <li class="">
+            <li class="<%=is_active_action('colors')%>">
                 <%= link_to  controller: "admin", action: "colors" do %>
                 <i class="fa fa-laptop"></i> <span class="nav-label" data-i18n="nav.gridoptions">Все цвета</span>
                 <% end %>
             </li>
-            <li class="">
+            <li class="<%=is_active_action('main_color_new')%>">
                 <%= link_to controller: "admin", action: "main_color_new" do %>
                 <i class="fa fa-laptop"></i> <span class="nav-label" data-i18n="nav.gridoptions">Создать группу цветов</span>
                 <% end %>
             </li>
-            <li class="">
+            <li class="<%=is_active_action('main_colors')%>">
                 <%= link_to  controller: "admin", action: "main_colors"  do %>
                 <i class="fa fa-laptop"></i> <span class="nav-label" data-i18n="nav.gridoptions">Все группы цветов</span>
                 <% end %>
             </li>
-            <li class="">
+            <li class="<%=is_active_action('category_new')%>">
                 <%= link_to  controller: "admin", action: "category_new" do %>
                 <i class="fa fa-laptop"></i> <span class="nav-label" data-i18n="nav.gridoptions">Создать категорию</span>
                 <% end %>
             </li>
-            <li class="">
+            <li class="<%=is_active_action('categories')%>">
                 <%= link_to controller: "admin", action: "categories"  do %>
                 <i class="fa fa-laptop"></i> <span class="nav-label" data-i18n="nav.gridoptions">Все категории</span>
                 <% end %>
             </li>
-            <li class="">
+            <li class="<%=is_active_action('size_new')%>">
                 <%= link_to controller: "admin", action: "size_new"  do %>
                 <i class="fa fa-laptop"></i> <span class="nav-label" data-i18n="nav.gridoptions">Создать размер</span>
                 <% end %>
             </li>
-            <li class="">
+            <li class="<%=is_active_action('sizes')%>">
                 <%= link_to controller: "admin", action: "sizes" do %>
                 <i class="fa fa-laptop"></i> <span class="nav-label" data-i18n="nav.gridoptions">Все размеры</span>
                 <% end %>
             </li>
-             <li class="">
+             <li class="<%=is_active_action('orders')%>">
                 <%= link_to controller: "admin", action: "orders"  do %>
                 <i class="fa fa-laptop"></i> <span class="nav-label" data-i18n="nav.gridoptions">Заказы</span>
                 <% end %>
@@ -89,3 +91,4 @@
 
     </div>
 </nav>
+<% end %>

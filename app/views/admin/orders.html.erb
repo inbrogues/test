@@ -20,6 +20,7 @@
     <th>Адресс</th>
     <th>Клиент</th>
     <th>Сумма</th>
+    <th>Сумма возврат</th>
     <th>Статус</th>
     <th>Дата заказа</th>
     <th>Обновить</th>
@@ -37,6 +38,7 @@
     	<a href="tel:<%= order.user.tel %>"><%= order.user.tel %></a></p>
     </td>
     <td><%= order.sum %></td>
+    <td><%= order.cash_back %></td>
     <td><%= order.status %></td>
     <td><%= order.created_at.to_s(:db) %></td>
     <td><%= link_to 'Обновить', admin_order_edit_path(order) %></td>
@@ -50,6 +52,7 @@
     <th>Адресс</th>
     <th>Клиент</th>
     <th>Сумма</th>
+    <th>Сумма возврат</th>
     <th>Статус</th>
     <th>Дата заказа</th>
     <th>Обновить</th>

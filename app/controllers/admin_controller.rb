@@ -318,8 +318,12 @@ class AdminController < ApplicationController
 
 	def order_update
 		@order=Order.find(params[:id])
+		@user=@order.user
+		@user.money=(@user.money||0) - @order.cash_back
 	    respond_to do |format|
 	      if @order.update(order_params)
+	      	@user.money+=@order.cash_back
+	      	@user.save
 	        format.html {redirect_to controller:"admin", action:"orders", id:  @order.id , notice: 'Заказ был успешно обновлён' }
 	        format.json { render :show, status: :created, location: @order }
 	      else
@@ -351,6 +355,6 @@ class AdminController < ApplicationController
    		params.require(:product_size).permit(:size)
    	end
    	def order_params
-   		params.require(:order).permit(:status)
+   		params.require(:order).permit(:status , :cash_back )
    	end
 end
