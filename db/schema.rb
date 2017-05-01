@@ -17,11 +17,11 @@ ActiveRecord::Schema.define(version: 20170501105850) do
   enable_extension "plpgsql"
 
   create_table "addresses", force: :cascade do |t|
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "city"
-    t.string   "post_index"
+    t.integer  "user_id",                 null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "city",       default: "", null: false
+    t.string   "post_index", default: "", null: false
   end
 
   add_index "addresses", ["user_id"], name: "index_addresses_on_user_id", using: :btree
@@ -45,15 +45,13 @@ ActiveRecord::Schema.define(version: 20170501105850) do
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
 
   create_table "categories", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "category_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string  "name",        default: "", null: false
+    t.integer "category_id"
   end
 
   add_index "categories", ["category_id"], name: "index_categories_on_category_id", using: :btree
 
-  create_table "categories_products", force: :cascade do |t|
+  create_table "categories_products", id: false, force: :cascade do |t|
     t.integer "category_id"
     t.integer "product_id"
   end
@@ -62,10 +60,8 @@ ActiveRecord::Schema.define(version: 20170501105850) do
   add_index "categories_products", ["product_id"], name: "index_categories_products_on_product_id", using: :btree
 
   create_table "colors", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",             default: "", null: false
     t.integer  "main_color_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
     t.string   "img_file_name"
     t.string   "img_content_type"
     t.integer  "img_file_size"
@@ -75,33 +71,29 @@ ActiveRecord::Schema.define(version: 20170501105850) do
   add_index "colors", ["main_color_id"], name: "index_colors_on_main_color_id", using: :btree
 
   create_table "main_colors", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "hex"
+    t.string "name", default: "",     null: false
+    t.string "hex",  default: "#000", null: false
   end
 
   create_table "orders", force: :cascade do |t|
     t.string   "address"
     t.integer  "user_id"
-    t.string   "status"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.float    "sum"
+    t.string   "status",     default: "Ожидает платежа", null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.float    "sum",        default: 0.0
     t.float    "cash_back",  default: 0.0
-    t.integer  "address_id"
+    t.integer  "address_id",                             null: false
   end
 
   add_index "orders", ["address_id"], name: "index_orders_on_address_id", using: :btree
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
   create_table "orders_product_data", force: :cascade do |t|
-    t.integer  "order_id"
-    t.integer  "count"
-    t.integer  "product_size_id"
-    t.integer  "product_datum_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.integer "order_id"
+    t.integer "count",            default: 1, null: false
+    t.integer "product_size_id"
+    t.integer "product_datum_id"
   end
 
   add_index "orders_product_data", ["order_id"], name: "index_orders_product_data_on_order_id", using: :btree
@@ -134,44 +126,40 @@ ActiveRecord::Schema.define(version: 20170501105850) do
   add_index "photos_products", ["product_id"], name: "index_photos_products_on_product_id", using: :btree
 
   create_table "product_data", force: :cascade do |t|
+    t.string   "article",                         null: false
     t.integer  "color_id"
-    t.string   "article"
     t.integer  "product_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.float    "price"
-    t.text     "about"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.float    "price",             default: 0.0, null: false
+    t.text     "about",             default: "",  null: false
     t.float    "promotional_price"
-    t.string   "more"
+    t.string   "more",              default: "",  null: false
   end
 
   add_index "product_data", ["color_id"], name: "index_product_data_on_color_id", using: :btree
   add_index "product_data", ["product_id"], name: "index_product_data_on_product_id", using: :btree
 
-  create_table "product_product_sizes", force: :cascade do |t|
-    t.boolean  "has"
-    t.integer  "product_datum_id"
-    t.integer  "product_size_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+  create_table "product_product_sizes", id: false, force: :cascade do |t|
+    t.boolean "has",              default: false, null: false
+    t.integer "product_datum_id"
+    t.integer "product_size_id"
   end
 
   add_index "product_product_sizes", ["product_datum_id"], name: "index_product_product_sizes_on_product_datum_id", using: :btree
   add_index "product_product_sizes", ["product_size_id"], name: "index_product_product_sizes_on_product_size_id", using: :btree
 
   create_table "product_sizes", force: :cascade do |t|
-    t.integer  "category_id"
-    t.string   "size"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer "category_id"
+    t.string  "size",        default: "", null: false
   end
 
   add_index "product_sizes", ["category_id"], name: "index_product_sizes_on_category_id", using: :btree
 
   create_table "products", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.string   "name",                 default: "", null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.string   "img_file_name"
     t.string   "img_content_type"
     t.integer  "img_file_size"
@@ -183,12 +171,12 @@ ActiveRecord::Schema.define(version: 20170501105850) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",  null: false
+    t.string   "encrypted_password",     default: "",  null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,   null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -201,7 +189,7 @@ ActiveRecord::Schema.define(version: 20170501105850) do
     t.string   "country"
     t.date     "date"
     t.string   "tel"
-    t.float    "money"
+    t.float    "money",                  default: 0.0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
