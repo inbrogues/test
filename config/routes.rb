@@ -101,7 +101,6 @@ Rails.application.routes.draw do
 
   get 'my-order' => 'users#my_order'
   get 'my-overview' => 'users#my_overview'
-  get 'my-paymentinfo' => 'users#my_paymentinfo'
   get 'my-profile' => 'users#profile'
   patch 'small_user_update' => 'users#second_update', :defaults => { :format => 'json' }
 
