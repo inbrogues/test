@@ -18,9 +18,14 @@ class AdminController < ApplicationController
 	def products
 		@products=Product.all
 	end
-
 	def sizes
 		@sizes=ProductSize.all
+	end
+	def baners
+		@baners=Baner.all
+	end
+	def pops
+		@pops=Pop.all
 	end
 	def product_new
 		@product = Product.new
@@ -312,6 +317,84 @@ class AdminController < ApplicationController
 		  format.json { head :no_content }
 		end
 	end
+
+	def baner_new
+		@baner=Baner.new
+	end
+	def baner_create
+		@baner=Baner.new(baner_params)
+	    respond_to do |format|
+	      if @baner.save
+	        format.html {redirect_to controller:"admin", action:"baners", id:  @baner.id , notice: 'Банер был успешно создан' }
+	        format.json { render :show, status: :created, location: @baner }
+	      else
+	        format.html { render :new }
+	        format.json { render json: @baner.errors, status: :unprocessable_entity }
+	      end
+	    end
+	end
+	def baner_edit
+		@baner=Baner.find(params[:id])
+	end
+	def baner_update
+		@baner=Baner.find(params[:id])
+	    respond_to do |format|
+	      if @baner.update(baner_params)
+	        format.html {redirect_to controller:"admin", action:"baners", id:  @baner.id , notice: 'Банер был успешно обновлён' }
+	        format.json { render :show, status: :created, location: @baner }
+	      else
+	        format.html { render :edit }
+	        format.json { render json: @baner.errors, status: :unprocessable_entity }
+	      end
+	    end
+	end
+	def baner_destroy
+		@baner=Baner.find(params[:id])
+		@baner.destroy
+		respond_to do |format|
+		  format.html { redirect_to controller:"admin", action:"baners", notice: 'Банер был успешно удалён' }
+		  format.json { head :no_content }
+		end
+	end
+
+	def pop_new
+		@pop=Pop.new
+	end
+	def pop_create
+		@pop=Pop.new(pop_params)
+	    respond_to do |format|
+	      if @pop.save
+	        format.html {redirect_to controller:"admin", action:"pops", id:  @pop.id , notice: 'Банер был успешно создан' }
+	        format.json { render :show, status: :created, location: @pop }
+	      else
+	        format.html { render :new }
+	        format.json { render json: @pop.errors, status: :unprocessable_entity }
+	      end
+	    end
+	end
+	def pop_edit
+		@pop=Pop.find(params[:id])
+	end
+	def pop_update
+		@pop=Pop.find(params[:id])
+	    respond_to do |format|
+	      if @pop.update(pop_params)
+	        format.html {redirect_to controller:"admin", action:"pops", id:  @pop.id , notice: 'Банер был успешно обновлён' }
+	        format.json { render :show, status: :created, location: @pop }
+	      else
+	        format.html { render :edit }
+	        format.json { render json: @pop.errors, status: :unprocessable_entity }
+	      end
+	    end
+	end
+	def pop_destroy
+		@pop=Pop.find(params[:id])
+		@pop.destroy
+		respond_to do |format|
+		  format.html { redirect_to controller:"admin", action:"sizes", notice: 'Банер был успешно удалён' }
+		  format.json { head :no_content }
+		end
+	end
 	def order_edit
 		@order=Order.find(params[:id])
 	end
@@ -356,5 +439,11 @@ class AdminController < ApplicationController
    	end
    	def order_params
    		params.require(:order).permit(:status , :cash_back )
+   	end
+   	def baner_params
+   		params.require(:baner).permit(:text , :photo_id)
+   	end
+   	def pop_params
+   		params.require(:baner).permit(:text , :category_id)
    	end
 end

@@ -13,48 +13,61 @@ Rails.application.routes.draw do
         passwords: 'users/passwords'
       }
 
-  get 'admin/colors'
-  get 'admin/main_colors'
-  get 'admin/news'
-  get 'admin/products'
-  get 'admin/categories'
-  get 'admin/sizes'
-  get 'admin/orders'
 
   
+  get 'admin/news'
   get 'admin' => 'admin#index'
 
+
+  get 'admin/products'
   get 'admin/product_new'
   post 'admin/product_create'
   get 'admin/product_edit/:id'=> 'admin#product_edit', :as => :admin_product_edit
   patch 'admin/product_update/:id'=> 'admin#product_update', :as => :admin_product_update
   delete 'admin/product_destroy/:id'=> 'admin#product_destroy' , :as => :admin_product_destroy
 
+  get 'admin/main_colors'
   get 'admin/main_color_new'
   post 'admin/main_color_create'
   get 'admin/main_color_edit/:id'=> 'admin#main_color_edit', :as => :admin_main_color_edit
   patch 'admin/main_color_update/:id'=> 'admin#main_color_update', :as => :admin_main_color_update
   delete 'admin/main_color_destroy/:id'=> 'admin#main_color_destroy' , :as => :admin_main_color_destroy
 
+
+  get 'admin/colors'
   get 'admin/color_new'
   post 'admin/color_create'
   get 'admin/color_edit/:id'=> 'admin#color_edit', :as => :admin_color_edit
   patch 'admin/color_update/:id'=> 'admin#color_update', :as => :admin_color_update
   delete 'admin/color_destroy/:id'=> 'admin#color_destroy' , :as => :admin_color_destroy
 
+  get 'admin/categories'
   get 'admin/category_new'
   post 'admin/category_create'
   get 'admin/category_edit/:id'=> 'admin#category_edit', :as => :admin_category_edit
   patch 'admin/category_update/:id'=> 'admin#category_update', :as => :admin_category_update
   delete 'admin/category_destroy/:id'=> 'admin#category_destroy' , :as => :admin_category_destroy
 
-  post 'carts/order_create'
+  get 'admin/baners'
+  get 'admin/baner_new'
+  post 'admin/baner_create'
+  get 'admin/baner_edit/:id'=> 'admin#baner_edit', :as => :admin_baner_edit
+  patch 'admin/baner_update/:id'=> 'admin#baner_update', :as => :admin_baner_update
+  delete 'admin/baner_destroy/:id'=> 'admin#baner_destroy' , :as => :admin_baner_destroy
 
+  get 'admin/pops'
+  get 'admin/pop_new'
+  post 'admin/pop_create'
+  get 'admin/pop_edit/:id'=> 'admin#pop_edit', :as => :admin_pop_edit
+  patch 'admin/pop_update/:id'=> 'admin#pop_update', :as => :admin_pop_update
+  delete 'admin/pop_destroy/:id'=> 'admin#pop_destroy' , :as => :admin_pop_destroy
+
+  get 'admin/orders'
   get 'admin/order_edit/:id'=> 'admin#order_edit', :as => :admin_order_edit
   patch 'admin/order_update/:id'=> 'admin#order_update', :as => :admin_order_update
   delete 'admin/order_destroy/:id'=> 'admin#order_destroy' , :as => :admin_order_destroy
 
-
+  get 'admin/sizes'
   get 'admin/size_new'
   post 'admin/size_create'
   get 'admin/size_edit/:id'=> 'admin#size_edit', :as => :admin_size_edit
@@ -89,12 +102,10 @@ Rails.application.routes.draw do
   get 'removetofavorite/:id' => 'products#removetofavorite'
   get 'favourites' => 'products#favourites'
   
-  resources :products, only: [:edit, :update, :destroy]
   #users
   get 'login' => 'users#login'
   get 'my-address' => 'users#my_address'
   post 'my-address/create' => 'users#address_create', :as => :users_address_create
-
   patch 'my-address/update/:id'=> 'users#address_update', :as => :users_address_update
   delete 'my-address/destroy/:id'=> 'users#address_destroy' , :as => :users_address_destroy
 
@@ -107,6 +118,7 @@ Rails.application.routes.draw do
   patch 'user_update' => 'users#update' , :as => :users_update
   
   get "liqpay_request" => 'carts#liqpay_request'
-  resources :colors
+  post 'carts/order_create'
   post '/liqpay_payment' => 'payments#liqpay_payment'
+
 end

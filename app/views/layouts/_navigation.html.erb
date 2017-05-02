@@ -81,6 +81,26 @@
                 <i class="fa fa-laptop"></i> <span class="nav-label" data-i18n="nav.gridoptions">Все размеры</span>
                 <% end %>
             </li>
+            <li class="<%=is_active_action('baner_new')%>">
+                <%= link_to controller: "admin", action: "baner_new"  do %>
+                <i class="fa fa-laptop"></i> <span class="nav-label" data-i18n="nav.gridoptions">Создать банер</span>
+                <% end %>
+            </li>
+            <li class="<%=is_active_action('baners')%>">
+                <%= link_to controller: "admin", action: "baners" do %>
+                <i class="fa fa-laptop"></i> <span class="nav-label" data-i18n="nav.gridoptions">Все банеры</span>
+                <% end %>
+            </li>
+            <li class="<%=is_active_action('pop_new')%>">
+                <%= link_to controller: "admin", action: "pop_new"  do %>
+                <i class="fa fa-laptop"></i> <span class="nav-label" data-i18n="nav.gridoptions">Создать попап</span>
+                <% end %>
+            </li>
+            <li class="<%=is_active_action('pops')%>">
+                <%= link_to controller: "admin", action: "pops" do %>
+                <i class="fa fa-laptop"></i> <span class="nav-label" data-i18n="nav.gridoptions">Все попапы</span>
+                <% end %>
+            </li>
              <li class="<%=is_active_action('orders')%>">
                 <%= link_to controller: "admin", action: "orders"  do %>
                 <i class="fa fa-laptop"></i> <span class="nav-label" data-i18n="nav.gridoptions">Заказы</span>

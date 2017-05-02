@@ -1,8 +1,7 @@
 class ProductsController < ApplicationController
 	include ProductsHelper
 	def single
-		@favourite_ids=favourite_ids
-
+	
 		@product_data=ProductDatum.find_by(article: params[:article] )
 		@product = @product_data.product
 
@@ -26,7 +25,6 @@ class ProductsController < ApplicationController
 		.order("RANDOM()")
 	end
 	def index
-		@favourite_ids=favourite_ids
 
 
 
@@ -141,7 +139,7 @@ class ProductsController < ApplicationController
 		@products = @productsAll.paginate(:page => params[:page], :per_page => 30)	
 	end
 	def search
-		@favourite_ids=favourite_ids()
+
 
 
 
