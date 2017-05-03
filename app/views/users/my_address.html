@@ -1,4 +1,27 @@
+<%= semantic_form_for @address_new, :url => users_address_create_path(@address_new) do |f| %>
+  <% if @address_new.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@address_new.errors.count, "error") %> prohibited this @address_new from being saved:</h2>
 
+      <ul>
+      <% @address_new.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <%= f.label :city %>
+  <%= f.text_field :city, class: 'form-control' %>
+
+  <%= f.label :post_index %>
+  <%= f.text_field :post_index, class: 'form-control' %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
 <main role="main" class="responsive my-hm">
 		<div class="wrapper">
 			<nav class="breadcrumbs">
@@ -37,25 +60,22 @@
 				<div class="form-section agile-form disabled-form" id="profile">
 					<fieldset class="form-part">
 						<legend class="heading">Адресная книга</legend>
-						
- 
 						<%= semantic_form_for @addresses[0], :url => users_address_update_path(@addresses[0]) do |f| %>
 						<div class="inputwrapper">
 							<label class="label" for="myhm-email">Адрес</label>
 							<%= f.text_field :city, class: 'text-input field' %>
-							<span class="static ng-binding"><%= @addresses[0].city %></span>
+							<span class="static ng-binding"><%= @addresses[0].city%></span>
 							<div class="input-info ng-hide">Указывайте полный адрес(область, район, населенный пункт)</div>
 						</div>
 
 						<div class="inputwrapper required">
 							<label class="label" for="checkout.firstName">Отделение Новой почты</label>
 							<%= f.text_field :post_index, class: 'text-input field' %>
-							<span class="static ng-binding"><%= @addresses[0].post_index %></span>
+							<span class="static ng-binding"><%= @addresses[0].post_index%></span>
 							<div class="input-info ng-hide"></div>
 						</div>
 
 					</fieldset>
-
 					<div class="button-group">
 						<button type="button" class="secondary button redaction_data">Редактировать</button>
 						<%= f.submit value:'ИЗМЕНИТЬ', class: 'hidden change_button'%>
