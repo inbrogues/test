@@ -74,8 +74,17 @@ Rails.application.routes.draw do
   patch 'admin/size_update/:id'=> 'admin#size_update', :as => :admin_size_update
   delete 'admin/size_destroy/:id'=> 'admin#size_destroy' , :as => :admin_size_destroy
 
+
+  get 'admin/pages'
+  get 'admin/page_new'
+  post 'admin/page_create'
+  get 'admin/page_edit/:id'=> 'admin#page_edit', :as => :admin_page_edit
+  patch 'admin/page_update/:id'=> 'admin#page_update', :as => :admin_page_update
+  delete 'admin/page_destroy/:id'=> 'admin#page_destroy' , :as => :admin_page_destroy
+
+
   # pages
-  get 'pages/page' => 'pages#page'
+  get 'pages/:link' => 'pages#page'
   # cart
   get 'cart' => 'carts#cart'
   get 'checkout' => 'carts#checkout'
@@ -98,8 +107,7 @@ Rails.application.routes.draw do
   get 'search/' => 'products#search'
   get 'single/hm-:article' => 'products#single'
   get 'get' => 'products#test', :defaults => { :format => 'json' }
-  get 'addtofavorite/:id' => 'products#addtofavorite'
-  get 'removetofavorite/:id' => 'products#removetofavorite'
+
   get 'favourites' => 'products#favourites'
   
   #users

@@ -4,6 +4,10 @@ class PagesController < ApplicationController
     @products=Product.order("updated_at").limit(8)
     @baners=Baner.where("number > ?" , 0) 
   end
+  def page
+    @pages=Page.where.not(order:  nil).order(order:  :desc)
+    @page=Page.find_by(link: params[:link])
+  end
 
   def search_results
   end

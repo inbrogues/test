@@ -27,6 +27,9 @@ class AdminController < ApplicationController
 	def pops
 		@pops=Pop.all
 	end
+	def pages
+		@pages=Page.all
+	end
 	def product_new
 		@product = Product.new
 
@@ -436,6 +439,51 @@ class AdminController < ApplicationController
 	def order_destroy
 		@order=Order.find(params[:id])
 		@order.destroy
+	end
+
+
+
+	def page_new
+		@page=Page.new
+	end
+	def page_create
+		@page=Page.new(page_params)
+	    respond_to do |format|
+	      if @page.save
+	        format.html {redirect_to controller:"admin", action:"pages", id:  @page.id , notice: 'Банер был успешно создан' }
+	        format.json { render :show, status: :created, location: @page }
+	      else
+	        format.html { render :new }
+	        format.json { render json: @page.errors, status: :unprocessable_entity }
+	      end
+	    end
+	end
+	def page_edit
+		@page=Page.find(params[:id])
+	end
+	def page_update
+		@page=Page.find(params[:id])
+	    respond_to do |format|
+	      if @page.update(page_params)
+	        format.html {redirect_to controller:"admin", action:"pages", id:  @page.id , notice: 'Банер был успешно обновлён' }
+	        format.json { render :show, status: :created, location: @page }
+	      else
+	        format.html { render :edit }
+	        format.json { render json: @page.errors, status: :unprocessable_entity }
+	      end
+	    end
+	end
+	def page_destroy
+		@page=Page.find(params[:id])
+		@page.destroy
+		respond_to do |format|
+		  format.html { redirect_to controller:"admin", action:"pages", notice: 'Банер был успешно удалён' }
+		  format.json { head :no_content }
+		end
+	end
+
+	def page_params
+	  params.require(:page).permit( :link, :name , :content ,:order)
 	end
 	def product_params
       params.require(:product).permit(:name , :img , :img_alt , :category_id)

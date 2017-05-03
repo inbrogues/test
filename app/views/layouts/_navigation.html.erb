@@ -106,6 +106,16 @@
                 <i class="fa fa-laptop"></i> <span class="nav-label" data-i18n="nav.gridoptions">Заказы</span>
                 <% end %>
             </li>
+            <li class="<%=is_active_action('page_new')%>">
+                <%= link_to controller: "admin", action: "page_new"  do %>
+                <i class="fa fa-laptop"></i> <span class="nav-label" data-i18n="nav.gridoptions">Создать Страницу</span>
+                <% end %>
+            </li>
+            <li class="<%=is_active_action('pops')%>">
+                <%= link_to controller: "admin", action: "pages" do %>
+                <i class="fa fa-laptop"></i> <span class="nav-label" data-i18n="nav.gridoptions">Все Страницы</span>
+                <% end %>
+            </li>
 
         </ul>
 

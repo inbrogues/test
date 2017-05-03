@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  link: MyString
+  name: MyString
+  content: MyText
+  order: 1
+
+two:
+  link: MyString
+  name: MyString
+  content: MyText
+  order: 1
