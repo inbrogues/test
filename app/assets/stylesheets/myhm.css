@@ -1,0 +1,2957 @@
+@charset "UTF-8";
+@-webkit-keyframes heartbeat {
+    0% {
+        transform: scale(1, 1)
+    }
+
+    15% {
+        transform: scale(1.091, 1.05)
+    }
+
+    30% {
+        transform: scale(1, 1)
+    }
+
+    55% {
+        transform: scale(1.182, 1.15)
+    }
+
+    100% {
+        transform: scale(1, 1)
+    }
+}
+
+@-moz-keyframes heartbeat {
+    0% {
+        transform: scale(1, 1)
+    }
+
+    15% {
+        transform: scale(1.091, 1.05)
+    }
+
+    30% {
+        transform: scale(1, 1)
+    }
+
+    55% {
+        transform: scale(1.182, 1.15)
+    }
+
+    100% {
+        transform: scale(1, 1)
+    }
+}
+
+@-o-keyframes heartbeat {
+    0% {
+        transform: scale(1, 1)
+    }
+
+    15% {
+        transform: scale(1.091, 1.05)
+    }
+
+    30% {
+        transform: scale(1, 1)
+    }
+
+    55% {
+        transform: scale(1.182, 1.15)
+    }
+
+    100% {
+        transform: scale(1, 1)
+    }
+}
+
+@keyframes heartbeat {
+    0% {
+        transform: scale(1, 1)
+    }
+
+    15% {
+        transform: scale(1.091, 1.05)
+    }
+
+    30% {
+        transform: scale(1, 1)
+    }
+
+    55% {
+        transform: scale(1.182, 1.15)
+    }
+
+    100% {
+        transform: scale(1, 1)
+    }
+}
+
+@-webkit-keyframes heartbeat-parent {
+    0% {
+        opacity: 1
+    }
+
+    100% {
+        opacity: 1
+    }
+}
+
+@-moz-keyframes heartbeat-parent {
+    0% {
+        opacity: 1
+    }
+
+    100% {
+        opacity: 1
+    }
+}
+
+@-o-keyframes heartbeat-parent {
+    0% {
+        opacity: 1
+    }
+
+    100% {
+        opacity: 1
+    }
+}
+
+@keyframes heartbeat-parent {
+    0% {
+        opacity: 1
+    }
+
+    100% {
+        opacity: 1
+    }
+}
+
+.responsive .event-message {
+    margin: 24px 15px 35px
+}
+
+@media screen and (min-width:768px) {
+    .responsive .event-message {
+        margin: 40px 0;
+        text-align: center
+    }
+}
+
+.responsive .add-to-calendar {
+    margin: 0 15px 30px;
+    text-align: center
+}
+
+.responsive.update-subscription .inputwrapper {
+    padding: 0;
+    display: block;
+    width: 100%
+}
+
+.responsive.update-subscription .inputwrapper > .radio-input {
+    margin: 3px 0 0
+}
+
+.responsive.update-subscription .inputwrapper > .radio-label {
+    display: block;
+    margin-bottom: 0;
+    padding: 0 0 0 24px;
+    overflow: hidden;
+    width: auto
+}
+
+.responsive.update-subscription .form-section .form-part, .responsive.update-subscription .form-section .form-part-block {
+    width: 100%
+}
+
+.responsive.update-subscription .form-section .form-part {
+    margin-bottom: 0
+}
+
+.responsive.update-subscription .form-section .form-part .info-paragraph {
+    width: 80%;
+    margin: 0
+}
+
+.responsive.update-subscription .form-part-block {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 20px 15px;
+    width: 100%;
+    margin-bottom: 10px
+}
+
+.responsive.update-subscription .form-part-block:first-of-type {
+    border-top: 0
+}
+
+.responsive.update-subscription .form-part-block .heading {
+    line-height: 22px
+}
+
+.responsive.update-subscription .button {
+    display: inline-block
+}
+
+.responsive.update-subscription .button.secondary {
+    margin-top: 10px
+}
+
+@media screen and (min-width:768px) {
+    .responsive.update-subscription .info-paragraph {
+        display: none
+    }
+
+    .responsive.update-subscription .form-section .form-part {
+        border: 0;
+        padding-bottom: 20px
+    }
+
+    .responsive.update-subscription .form-section .form-part-block {
+        padding: 0
+    }
+}
+
+.agile-form .button + .button {
+    margin-left: 0
+}
+
+.agile-form .inputwrapper .field {
+    display: block
+}
+
+.agile-form .inputwrapper .static {
+    display: none
+}
+
+.agile-form .inputwrapper.static-text .static, .agile-form .inputwrapper .input-field-info {
+    display: block
+}
+
+.agile-form .form-placeholder {
+    display: none
+}
+
+.agile-form.new-form {
+    margin-top: 20px
+}
+
+.agile-form.new-form .form-part {
+    display: block
+}
+
+.agile-form.new-form .form-placeholder {
+    display: none
+}
+
+.agile-form.disabled-form .field, .agile-form.disabled-form .radio-input + .checkbox-label,
+.agile-form.disabled-form .input-field-info {
+    display: none
+}
+
+.agile-form.disabled-form .radio-input:checked + .checkbox-label {
+    display: block
+}
+
+.agile-form.disabled-form .static {
+    display: block;
+    padding: 3px 0
+}
+
+.agile-form.disabled-form.new-form .form-part {
+    display: none
+}
+
+.agile-form.disabled-form.new-form .form-placeholder {
+    display: block
+}
+
+.responsive.club-user {
+    font-size: 13px;
+    color: black;
+    font-weight: normal
+}
+
+.responsive.club-user .greeting {
+    display: none
+}
+
+.responsive.club-user .module-content {
+    padding: 0 15px
+}
+
+.responsive.club-user .module-content dd, .responsive.club-user .module-content dt {
+    line-height: 18px;
+    margin: 0 0 15px
+}
+
+.responsive.club-user .module-content dt {
+    font-weight: 700;
+    margin-bottom: 3px
+}
+
+@media screen and (min-width:768px) {
+    .responsive.club-user {
+        padding-right: 20%;
+        font-size: 12px
+    }
+
+    .responsive.club-user .greeting {
+        display: block;
+        margin-bottom: 40px
+    }
+
+    .responsive.club-user .greeting .module-heading {
+        margin: 0 0 10px
+    }
+
+    .responsive.club-user .module-heading {
+        margin: 0
+    }
+
+    .responsive.club-user .module-content {
+        padding: 0
+    }
+
+    .responsive.club-user .module-content dd:first-of-type, .responsive.club-user .module-content dt:first-of-type {
+        display: block
+    }
+}
+
+.responsive .orders-summary .navigate.button {
+    display: block
+}
+
+.responsive .orders-summary table {
+    background-color: #f8f8f8;
+    padding: 0 15px;
+    margin: 0
+}
+
+.responsive .orders-summary table tr.order-row {
+    border-top: 1px solid;
+    border-color: #c8c8c8
+}
+
+.responsive .orders-summary table tr.order-row td {
+    text-align: left;
+    font-size: 13px;
+    box-sizing: border-box;
+    padding: 17px 15px 16px
+}
+
+.responsive .orders-summary table tr.order-row td.order-date {
+    font-weight: 700
+}
+
+.responsive .orders-summary table tr.order-row td.order-total {
+    display: none
+}
+
+.responsive .orders-summary table tr.order-row td td.order-status {
+    padding: 0 !important
+}
+
+.responsive .orders-summary table tr.order-row td td.order-status a {
+    text-decoration: none;
+    box-sizing: border-box;
+    padding: 17px 15px 16px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    outline: 0
+}
+
+.responsive .orders-summary .empty-orders .order-row {
+    border-bottom: 1px solid;
+    border-color: #c8c8c8
+}
+
+.responsive .orders-summary .empty-orders:after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 10px;
+    background-color: #f3f3f3;
+    border-bottom: 1px solid #cbcbcb
+}
+
+@media screen and (min-width:768px) {
+    .responsive .orders-summary {
+        margin: 0 0 50px 0
+    }
+
+    .responsive .orders-summary .empty-orders:after {
+        content: none
+    }
+
+    .responsive .orders-summary table tr.order-row {
+        border: 1px solid #c8c8c8
+    }
+
+    .responsive .orders-summary table tr.order-row:last-of-type {
+        display: table-row
+    }
+
+    .responsive .orders-summary table tr.order-row:hover {
+        background-color: #f8f8f8;
+        cursor: pointer
+    }
+
+    .responsive .orders-summary table tr.order-row td.order-status {
+        font-weight: 700
+    }
+
+    .responsive .orders-summary table tr.order-row td.order-total {
+        display: table-cell
+    }
+
+    .responsive .orders-summary table tr.order-row td a {
+        text-decoration: none
+    }
+
+    .responsive .orders-summary .module-content .navigate.button {
+        display: none
+    }
+}
+
+.responsive.club-address .module-content {
+    padding: 0 15px 30px;
+    height: auto
+}
+
+.responsive.club-address .module-content .button {
+    display: none
+}
+
+.responsive.club-address .module-content .address-summary {
+    font-style: normal;
+    font-size: 13px;
+    line-height: 18px;
+    margin: 0 0 20px 0
+}
+
+@media screen and (min-width:768px) {
+    .responsive.club-address .module-content {
+        min-height: 140px;
+        position: relative
+    }
+
+    .responsive.club-address .module-content .button {
+        display: block;
+        position: absolute;
+        bottom: 15px
+    }
+
+    .responsive.club-address .module-content .address-summary {
+        font-size: 12px
+    }
+
+    .responsive.club-address .navigate.button {
+        display: none
+    }
+}
+
+.responsive.club-cards .module-content {
+    padding: 0 15px 30px;
+    height: auto
+}
+
+.responsive.club-cards .module-content .button {
+    display: none
+}
+
+.responsive.club-cards .module-content .payment-method {
+    font-family: "HM Amperserif Disp", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", "Garamond", "Times New Roman", Times, serif;
+    font-size: 26px
+}
+
+.responsive.club-cards .module-content .payment-method-details {
+    margin: 20px 0 0
+}
+
+.responsive.club-cards .module-content .payment-method-details:after {
+    content: " ";
+    display: block;
+    clear: both
+}
+
+.responsive.club-cards .module-content .payment-method-details .icon {
+    width: 30px;
+    height: 20px;
+    float: left;
+    margin: 0 20px 0 0
+}
+
+.responsive.club-cards .module-content .payment-method-details .method-number {
+    float: left;
+    font-size: 12px
+}
+
+@media screen and (min-width:768px) {
+    .responsive.club-cards .module-content {
+        min-height: 140px;
+        position: relative
+    }
+
+    .responsive.club-cards .module-content .button {
+        display: block;
+        position: absolute;
+        bottom: 15px
+    }
+
+    .responsive.club-cards .navigate.button {
+        display: none
+    }
+}
+
+.responsive.my-hm-block .module-heading, .responsive.my-hm-block .module-subheading {
+    display: none
+}
+
+@media screen and (min-width:768px) {
+    .responsive.my-hm-block {
+        margin: 0 0 50px 0
+    }
+
+    .responsive.my-hm-block .module-heading, .responsive.my-hm-block .module-subheading {
+        display: block;
+        padding: 0
+    }
+
+    .responsive.my-hm-block .module-subheading {
+        font-size: 13px
+    }
+
+    .responsive.my-hm-block .hero-unit {
+        margin-bottom: 0
+    }
+}
+
+.responsive.club-user-logout {
+    margin: 40px 0 0
+}
+
+.hm-club-overview .responsive.club-user-logout .module-heading {
+    margin: 30px 15px 5px
+}
+
+.hm-club-overview .responsive.club-user-logout .module-heading .module-heading-title {
+    font-size: 16px;
+    font-weight: 600
+}
+
+.responsive.club-user-logout .module-content .button {
+    margin-top: 20px
+}
+
+@media screen and (min-width:768px) {
+    .responsive.club-user-logout {
+        display: none
+    }
+}
+
+@media screen and (max-width:767px) {
+    .responsive.leave-club-success {
+        padding: 20px 15px
+    }
+}
+
+@media screen and (min-width:768px) {
+    .responsive.club-leave-success.hero-unit-join {
+        display: none
+    }
+
+    .responsive.club-leave-success .club-banner {
+        margin-bottom: 40px
+    }
+
+    .responsive.leave-club-success {
+        margin-bottom: 155px;
+        text-align: center
+    }
+
+    .responsive.leave-club-success .leave-text {
+        margin-bottom: 30px;
+        margin-left: auto;
+        margin-right: auto
+    }
+}
+
+.club-area-page {
+    font-size: 13px
+}
+
+.club-area-page .menu {
+    display: none
+}
+
+.club-area-page .scope-bar {
+    padding-top: 10px
+}
+
+.club-area-page .scope-bar .scope-panel {
+    margin-top: 20px;
+    text-align: center
+}
+
+.club-area-page .scope-bar .scope-panel .more-info-paragraph {
+    padding: 15px;
+    text-align: left
+}
+
+.club-area-page .scope-bar .scope-panel .club-news-heading {
+    display: none
+}
+
+.club-area-page .scope-bar .load-more-link {
+    width: 93%
+}
+
+.club-area-page .heading {
+    text-align: left;
+    margin-left: 5%;
+    margin-bottom: 20px
+}
+
+.club-area-page .club-vouchers {
+    margin-top: -10px;
+    border-top: solid 1px #c8c8c8
+}
+
+.club-area-page .club-vouchers .club-voucher {
+    margin-bottom: 15px
+}
+
+.club-area-page .club-vouchers .heading {
+    margin-bottom: 20px
+}
+
+.club-area-page .club-vouchers .info-paragraph {
+    text-align: left
+}
+
+.club-area-page .club-vouchers .inviting-paragraph {
+    text-align: left;
+    font-size: 14px;
+    margin-bottom: 30px
+}
+
+.club-area-page .in-scope-panel .club-vouchers {
+    border-top: 0;
+    margin-top: -24px
+}
+
+.club-area-page .in-scope-panel .club-vouchers > .heading {
+    display: none
+}
+
+.club-area-page .button.navigate.disabled {
+    background: hotpink;
+    color: #fff;
+    cursor: default;
+    border: 0;
+    pointer-events: none
+}
+
+.club-area-page .button.navigate + .button.navigate {
+    margin-top: -1px;
+    margin-bottom: 40px
+}
+
+@media screen and (min-width:768px) {
+    .club-area-page .menu {
+        display: block
+    }
+
+    .club-area-page .heading + .news-teaser .text-container .text {
+        font-size: 28px;
+        margin: 5px 0 0
+    }
+
+    .club-area-page + .footer-global .layout {
+        margin-top: 0
+    }
+
+    .club-area-page .scope-panel {
+        display: block !important
+    }
+
+    .club-area-page .scope-bar {
+        border-top: 0;
+        padding-top: 0
+    }
+
+    .club-area-page .scope-bar .scope-panel {
+        margin-top: 0
+    }
+
+    .club-area-page .scope-bar .scope-panel .more-info-paragraph {
+        display: none
+    }
+
+    .club-area-page .scope-bar .scope-panel .club-news-heading {
+        display: block
+    }
+
+    .club-area-page .scope-bar .load-more-link {
+        width: auto
+    }
+
+    .club-area-page .in-scope-panel .club-vouchers {
+        margin-top: 30px
+    }
+
+    .club-area-page .in-scope-panel .club-vouchers .heading {
+        display: block
+    }
+
+    .club-area-page .club-vouchers {
+        margin-top: 0;
+        border-top: 0
+    }
+
+    .club-area-page .club-vouchers .club-voucher {
+        margin-bottom: 24px
+    }
+
+    .club-area-page .club-vouchers .info-paragraph {
+        text-align: center
+    }
+
+    .club-area-page .club-vouchers .inviting-paragraph {
+        margin-top: -10px
+    }
+
+    .club-area-page .club-vouchers .hero-unit {
+        margin-top: 0;
+        margin-bottom: 24px;
+        height: 342px
+    }
+
+    .club-area-page .heading {
+        margin-left: 0;
+        margin-bottom: 10px
+    }
+
+    .club-area-page .button.navigate {
+        display: none
+    }
+}
+
+.hm-club .heading {
+    margin-bottom: 10px;
+    font-size: 18px;
+    line-height: normal;
+    font-weight: 700;
+    text-transform: none
+}
+
+.hm-club .club-card-with-ean-code .heading {
+    margin-bottom: 5px
+}
+
+.club {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+.club .heading {
+    text-align: left;
+    margin-left: 15px
+}
+
+.club .box {
+    padding: 14px
+}
+
+.club-card {
+    width: 100%
+}
+
+.club-app-stores {
+    margin: 30px 0 16px 0;
+    padding-bottom: 30px;
+    width: 100%;
+    text-align: center;
+    border-bottom: solid 1px #c8c8c8
+}
+
+.club-app-stores .heading {
+    margin-left: 0;
+    text-align: center;
+    font-size: 15px
+}
+
+.club-app-stores .sub-heading {
+    margin-top: 40px
+}
+
+.club-app-stores .club-app-text {
+    margin-bottom: 25px;
+    margin-left: 15px;
+    margin-right: 15px;
+    font-size: 12px;
+    display: none
+}
+
+.club-app-stores .app-badges {
+    margin-top: 20px
+}
+
+.club-app-stores .app-badges .app-store {
+    display: inline-block;
+    width: 130px;
+    height: 38px
+}
+
+.club-app-stores .app-badges .google-play {
+    display: inline-block;
+    width: 115px;
+    height: 40px;
+    margin-left: 15px
+}
+
+.club-app-stores .app-badges .app-store img, .club-app-stores .app-badges .google-play img {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle
+}
+
+@media screen and (max-width:767px) {
+    .club-myhm-block .section-content .club-points .club-points-bottom.not-member {
+        margin-bottom: 8px;
+        min-height: 100%
+    }
+}
+
+.hm-club .scope-bar .scope-bar-item a {
+    padding: 0 0 12px 0
+}
+
+.hm-club .scope-bar .scope-bar-item a:hover {
+    color: inherit
+}
+
+@media screen and (min-width:768px) {
+    .club .heading {
+        margin-left: 0
+    }
+
+    .club_left_wrapper {
+        float: left;
+        width: 304px
+    }
+
+    .text-container .text {
+        font-size: 28px;
+        margin: 0
+    }
+
+    .club-card {
+        float: right;
+        width: 632px
+    }
+
+    .club-app-stores {
+        border-bottom: 0;
+        width: 100%;
+        padding: 0 20%;
+        box-sizing: border-box
+    }
+
+    .club-app-stores .club-app-text {
+        margin-left: 0;
+        display: block
+    }
+
+    .club-app-stores .app-badges {
+        padding-left: 0
+    }
+
+    .hm-club .modules .scope-bar {
+        margin-top: 0
+    }
+
+    .hm-club .scope-bar-nav {
+        display: none
+    }
+}
+
+.responsive.hm-club .segment .heading {
+    font-size: 18px;
+    margin: 0 0 10px;
+    text-align: left
+}
+
+.responsive.hm-club .segment:after {
+    content: '';
+    display: block;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: #f8f8f8;
+    border-top: 1px solid #c8c8c8;
+    border-bottom: 1px solid #c8c8c8
+}
+
+@media screen and (min-width:768px) {
+    .responsive.hm-club .segment {
+        margin-bottom: 50px
+    }
+
+    .responsive.hm-club .segment:after {
+        display: none
+    }
+}
+
+.responsive.hm-club-overview .menu {
+    display: none
+}
+
+.responsive.hm-club-overview .module-heading {
+    margin: 30px 15px 20px
+}
+
+.responsive.hm-club-overview .module-heading .view-all.link {
+    display: none
+}
+
+.responsive.hm-club-overview .module-heading .module-heading-title {
+    margin: 0 0 5px;
+    font-size: 20px;
+    font-weight: 700
+}
+
+.responsive.hm-club-overview .module-subheading {
+    font-size: 13px;
+    line-height: 1em;
+    margin: 0 0 10px
+}
+
+.responsive.hm-club-overview .club-cards .module-content, .responsive.hm-club-overview .club-address .module-content,
+.responsive.hm-club-overview .club-user-logout .module-content,
+.responsive.hm-club-overview .club-user .module-content {
+    padding-right: 15px;
+    padding-left: 15px
+}
+
+.responsive.hm-club-overview .overview-offer > .club-voucher {
+    margin: 20px 15px 0
+}
+
+.responsive.hm-club-overview .navigate.button {
+    display: inline-block;
+    margin-bottom: 10px
+}
+
+@media screen and (max-width:767px) {
+    .responsive.hm-club-overview .navigate.button:before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 10px;
+        background-color: #f3f3f3;
+        position: absolute;
+        top: 49px;
+        left: 0;
+        border-top: 1px solid #cbcbcb;
+        border-bottom: 1px solid #cbcbcb
+    }
+}
+
+@media screen and (min-width:768px) {
+    .responsive.hm-club-overview .menu {
+        display: block
+    }
+
+    .responsive.hm-club-overview .my-hm-block .module-heading, .responsive.hm-club-overview .orders-summary .module-heading,
+    .responsive.hm-club-overview .two.modules .module-heading {
+        padding-bottom: 15px;
+        border-bottom: 2px solid #0d0d0d
+    }
+
+    .responsive.hm-club-overview .module-heading {
+        margin: 0 0 20px
+    }
+
+    .responsive.hm-club-overview .module-heading .view-all.link {
+        display: block;
+        font-size: 11px
+    }
+
+    .responsive.hm-club-overview .club-points .heading {
+        font-size: 13px;
+        line-height: 1em;
+        margin: 0 0 10px
+    }
+
+    .responsive.hm-club-overview .club-points .heading.hide-header {
+        display: none
+    }
+
+    .responsive.hm-club-overview .module-content {
+        padding-top: 5px
+    }
+
+    .responsive.hm-club-overview .club-user .module-content {
+        border: 0;
+        padding: 0
+    }
+
+    .responsive.hm-club-overview .club-address > .navigate.button, .responsive.hm-club-overview .club-cards > .navigate.button,
+    .responsive.hm-club-overview .overview-offer > .navigate.button {
+        display: none
+    }
+
+    .responsive.hm-club-overview .club-cards .module-content, .responsive.hm-club-overview .club-address .module-content,
+    .responsive.hm-club-overview .club-user-logout .module-content,
+    .responsive.hm-club-overview .club-user .module-content, .responsive.hm-club-overview .overview-offer {
+        padding-right: 0;
+        padding-left: 0
+    }
+
+    .responsive.hm-club-overview .overview-offer {
+        padding-top: 0
+    }
+
+    .responsive.hm-club-overview .overview-offer > .club-voucher {
+        margin: 0
+    }
+}
+
+.info-section {
+    padding: 30px 0 20px 0
+}
+
+@media screen and (min-width:768px) {
+    .info-section {
+        padding: 50px 0 30px
+    }
+}
+
+.info-section.bg-grey {
+    background-color: #f3f3f3
+}
+
+.info-section.bg-black {
+    background-color: black
+}
+
+.info-section h3 {
+    text-transform: none
+}
+
+.info-section .layout {
+    margin-bottom: 0
+}
+
+@media screen and (min-width:768px) {
+    .section.navigation.menu + .info-section {
+        margin-top: -50px
+    }
+
+    .myhmmenu + .parsys .section .info-section {
+        margin-top: -50px
+    }
+}
+
+.info-blurb {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: #fff;
+    position: relative;
+    margin: 0 15px 15px 15px;
+    overflow: hidden;
+    max-height: 450px
+}
+
+@media(min-width:450px) {
+    .info-blurb {
+        max-height: 700px
+    }
+}
+
+@media screen and (min-width:768px) {
+    .info-blurb {
+        margin: 0 0 24px 0;
+        height: 321px
+    }
+
+    .two .info-blurb {
+        height: 480px
+    }
+
+    .three .info-blurb {
+        height: 400px
+    }
+}
+
+.info-blurb p {
+    margin: 0 0 15px 0
+}
+
+.info-blurb p:last-child {
+    margin-bottom: 0
+}
+
+.info-blurb .navigate.button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding: 15px 20px;
+    color: black;
+    font-size: 14px;
+    line-height: 1.28571
+}
+
+@media screen and (min-width:768px) {
+    .info-blurb .navigate.button {
+        left: 50%;
+        width: 50%;
+        font-size: 11px;
+        line-height: 1.36364;
+        font-weight: 600;
+        letter-spacing: 1px;
+        background-color: #fff;
+        border: 0 none;
+        border-top: 1px solid #cbcbcb;
+        color: #222
+    }
+
+    .modal .info-blurb .navigate.button, .two .info-blurb .navigate.button,
+    .three .info-blurb .navigate.button {
+        left: 0;
+        width: 100%
+    }
+}
+
+@media screen and (min-width:768px) {
+    .info-blurb-image {
+        float: left;
+        width: 50%;
+        height: 1px
+    }
+
+    .modal .info-blurb-image, .two .info-blurb-image, .three .info-blurb-image {
+        float: none;
+        width: auto;
+        height: auto
+    }
+}
+
+.info-blurb-text {
+    padding: 20px 15px
+}
+
+@media screen and (min-width:768px) {
+    .info-blurb-text {
+        padding: 20px;
+        float: left;
+        width: calc(50% - 40px)
+    }
+
+    .modal .info-blurb-text, .two .info-blurb-text, .three .info-blurb-text {
+        float: none;
+        width: auto
+    }
+}
+
+.modal .info-blurb-text {
+    padding: 0
+}
+
+.modal .info-blurb-image + .info-blurb-text {
+    padding-top: 15px
+}
+
+.info-blurb-title {
+    font-family: "HM Amperserif Text", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", "Garamond", "Times New Roman", Times, serif;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 1.2;
+    margin-bottom: 8px
+}
+
+.modal > .info-blurb-title {
+    font-family: "HM Ampersand", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+    font-weight: bold
+}
+
+@media screen and (min-width:768px) {
+    .info-blurb-title {
+        font-size: 18px;
+        line-height: 1.27778;
+        margin-bottom: 12px
+    }
+}
+
+.info-heading {
+    margin: 0 20px 30px 20px
+}
+
+@media screen and (min-width:768px) {
+    .info-heading {
+        margin: 0 0 30px 0
+    }
+}
+
+.bg-black .info-heading {
+    color: #fff
+}
+
+.info-heading .sub-heading {
+    margin-bottom: 8px
+}
+
+.info-heading .heading {
+    font-size: 24px;
+    line-height: 1.16667
+}
+
+.toggle-list .info-heading {
+    margin-left: 0;
+    margin-right: 0
+}
+
+.info-heading p {
+    margin: 0 0 15px 0
+}
+
+.info-heading p:last-child {
+    margin-bottom: 0
+}
+
+.info-text-module {
+    padding: 0 15px;
+    text-align: center
+}
+
+@media screen and (min-width:768px) {
+    .info-section .toggle-list-item {
+        border-left-width: 1px;
+        border-right-width: 1px;
+        padding: 0 20px
+    }
+}
+
+.responsive .club-vouchers {
+    position: relative;
+    background-color: #f3f3f3;
+    background-position: center center;
+    background-size: 100% auto;
+    margin: 30px 0 -40px 0;
+    padding: 20px 15px 40px
+}
+
+.responsive .club-vouchers.bleed-out:before, .responsive .club-vouchers.bleed-out:after {
+    content: "";
+    bottom: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    right: 100%;
+    background-color: inherit
+}
+
+.responsive .club-vouchers.bleed-out:after {
+    left: 100%
+}
+
+@media only screen and (max-width:1000px) {
+    .responsive .club-vouchers.bleed-out:after, .responsive .club-vouchers.bleed-out:before {
+        width: 15px
+    }
+}
+
+.responsive .club-vouchers .heading {
+    text-align: left;
+    margin-left: 0
+}
+
+.responsive .club-voucher {
+    overflow: hidden;
+    display: block;
+    text-align: left;
+    width: auto;
+    position: relative;
+    color: white;
+    background-color: #0d0d0d;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+.responsive .club-voucher .voucher-top {
+    position: relative;
+    z-index: 0
+}
+
+.responsive .club-voucher .voucher-top .voucher-image {
+    z-index: 1
+}
+
+.responsive .club-voucher .voucher-top .active-marker {
+    text-align: center;
+    position: absolute;
+    top: 5%;
+    padding: 10px 20px;
+    z-index: 2;
+    background-color: #000;
+    font-weight: 700;
+    font-size: 14px
+}
+
+.responsive .club-voucher .voucher-top .point-badge {
+    display: block;
+    text-align: center;
+    width: 18%;
+    height: 0;
+    padding: 9% 0;
+    border-radius: 50%;
+    background-color: #000;
+    position: absolute;
+    right: 5%;
+    bottom: 10%;
+    line-height: 0;
+    letter-spacing: -1px;
+    overflow: hidden;
+    z-index: 2
+}
+
+.responsive .club-voucher .voucher-bottom {
+    background-color: #0d0d0d;
+    padding: 15px 4% 0 4%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow: hidden
+}
+
+.responsive .club-voucher .voucher-bottom .sub-sub-heading {
+    margin-bottom: 0;
+    font-size: 12px;
+    line-height: 1.33333
+}
+
+.responsive .club-voucher .voucher-bottom .text {
+    margin: 5px 0 0 0;
+    font-size: 16px;
+    font-family: "HM Amperserif Text", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", "Garamond", "Times New Roman", Times, serif;
+    height: 64px;
+    line-height: normal
+}
+
+.responsive .club-voucher .voucher-info {
+    margin-top: 5px
+}
+
+.responsive .club-voucher .state {
+    text-align: center;
+    color: #FFF;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: bold;
+    letter-spacing: 1px;
+    display: block;
+    margin: 0
+}
+
+.responsive .club-voucher .valid {
+    font-size: 11px;
+    color: #c8c8c8;
+    display: block;
+    margin: 0 4% 4%;
+    overflow: hidden;
+    white-space: nowrap;
+    font-style: normal;
+    font-weight: bold;
+    letter-spacing: 1px
+}
+
+.responsive .club-voucher .state:last-child {
+    margin: 10px
+}
+
+.responsive .club-voucher .voucher-bottom:last-child {
+    height: 140px
+}
+
+.responsive .club-voucher .voucher-bottom:last-child .text {
+    margin-bottom: 10px;
+    overflow: hidden
+}
+
+.responsive .club-voucher.disabled {
+    background-color: white
+}
+
+.responsive .club-voucher.disabled .voucher-top .voucher-image {
+    filter: alpha(opactiy=40);
+    -ms-filter: "alpha(opacity=40)";
+    -moz-opacity: .4;
+    -khtml-opacity: .4;
+    opacity: .4
+}
+
+.responsive .club-voucher.disabled .voucher-bottom {
+    height: 100%;
+    background-color: #ccc
+}
+
+.responsive .club-voucher.disabled .cta-overlay {
+    display: none
+}
+
+.responsive .club-voucher.empty-voucher {
+    background-color: transparent;
+    border: dashed 1px gray;
+    padding: 50px 30px;
+    color: gray;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+.responsive .club-voucher.empty-voucher .text {
+    font-family: "HM Amperserif Text", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", "Garamond", "Times New Roman", Times, serif;
+    font-size: 16px;
+    font-weight: normal;
+    letter-spacing: 0
+}
+
+@media screen and (min-width:768px) {
+    .responsive .club-vouchers {
+        margin: 40px 0 -40px 0;
+        padding-top: 60px;
+        padding-bottom: 60px;
+        padding-left: 0;
+        padding-right: 0;
+        text-align: center
+    }
+
+    .responsive .club-vouchers .large.button {
+        display: none
+    }
+
+    .responsive .club-vouchers .info-paragraph + .large.button {
+        display: inline-block
+    }
+
+    .responsive .club-vouchers .three.modules .club-voucher .voucher-top .point-badge,
+    .responsive .club-vouchers .overview-offer > .club-voucher .voucher-top .point-badge {
+        font-size: 1em
+    }
+
+    .responsive .club-voucher {
+        height: 342px
+    }
+
+    .responsive .club-voucher:nth-child(3n + 1) {
+        clear: left
+    }
+
+    .responsive .club-voucher .voucher-top .point-badge {
+        width: 18%;
+        height: 0;
+        padding: 9% 0;
+        border-radius: 50%;
+        font-size: 1.3em
+    }
+
+    .responsive .club-voucher .voucher-top .active-marker {
+        padding: 10px 20px;
+        font-size: 18px
+    }
+
+    .responsive .club-voucher .voucher-info {
+        position: absolute;
+        bottom: 0;
+        width: 100%
+    }
+
+    .responsive .layout.layout-eight .club-voucher {
+        height: 652px
+    }
+
+    .responsive .layout.layout-eight .club-voucher .voucher-top .point-badge {
+        width: 12%;
+        padding: 6% 0
+    }
+
+    .responsive .layout.layout-eight .club-voucher .voucher-bottom .text {
+        font-size: 28px;
+        height: 100px
+    }
+
+    .responsive .layout.layout-eight .club-voucher .voucher-bottom:last-child {
+        height: 180px
+    }
+
+    .responsive .layout.layout-eight .club-voucher .voucher-bottom:last-child .text {
+        height: 135px;
+        margin-bottom: 10px;
+        overflow: hidden
+    }
+}
+
+.responsive.club-points {
+    color: white;
+    background-color: #0d0d0d
+}
+
+.responsive.club-points .heading {
+    padding-top: 15px;
+    margin-left: 5%
+}
+
+.responsive.club-points .club-points-top {
+    * zoom: 1;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: right;
+    padding: 0 5%
+}
+
+.responsive.club-points .club-points-top:before, .responsive.club-points .club-points-top:after {
+    content: " ";
+    display: table
+}
+
+.responsive.club-points .club-points-top:after {
+    clear: both
+}
+
+.responsive.club-points .club-points-top .icon-kort {
+    background-position: -9999px
+}
+
+.responsive.club-points .club-points-top .sub-heading {
+    font-weight: 700;
+    font-size: 11px;
+    margin-top: -30px
+}
+
+.responsive.club-points .club-points-top .points {
+    font-family: "HM Amperserif Disp", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", "Garamond", "Times New Roman", Times, serif;
+    font-weight: normal;
+    font-size: 24px;
+    display: inline-block;
+    float: right;
+    margin-top: -10px;
+    width: 35%
+}
+
+.responsive.club-points .club-points-top .info-text {
+    font-weight: 700;
+    font-size: 12px;
+    float: left;
+    text-align: left;
+    width: 60%
+}
+
+.responsive.club-points .club-points-bottom {
+    font-size: 13px;
+    padding: 0 5% 5%;
+    color: #c8c8c8
+}
+
+.responsive.club-points .club-points-bottom .info-text > p:first-child {
+    margin-top: 0
+}
+
+.responsive.club-points .club-points-bottom .info-text a, .responsive.club-points .club-points-bottom .info-text .link {
+    color: #c8c8c8
+}
+
+.responsive.club-points.member {
+    display: none
+}
+
+@media screen and (max-width:767px) {
+    .club-points-bottom.hide-info-text .info-text {
+        display: none
+    }
+
+    .responsive.club-points .club-points-bottom.hide-info-text {
+        margin-bottom: 8px;
+        padding: 0
+    }
+}
+
+@media screen and (min-width:768px) {
+    .responsive.club-points {
+        margin-bottom: 30px;
+        color: #0d0d0d;
+        background-color: white
+    }
+
+    .responsive.club-points .heading {
+        padding-top: 0;
+        margin-left: 0
+    }
+
+    .responsive.club-points .club-points-top {
+        border: solid 1px #0d0d0d;
+        background-color: transparent;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        min-height: 88px;
+        text-align: left
+    }
+
+    .responsive.club-points .club-points-top .sub-heading {
+        font-weight: 700;
+        font-size: 12px;
+        margin: 10px 0 0
+    }
+
+    .responsive.club-points .club-points-top .icon-kort {
+        display: block;
+        background-position: right center;
+        background-size: 21px 16px;
+        line-height: 16px
+    }
+
+    .responsive.club-points .club-points-top .points {
+        font-size: 36px;
+        font-family: "HM Amperserif Disp", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", "Garamond", "Times New Roman", Times, serif;
+        margin: 0 5% 5px 0;
+        float: left;
+        width: auto
+    }
+
+    .responsive.club-points .club-points-top .points.not-member {
+        color: #c8c8c8
+    }
+
+    .responsive.club-points .club-points-top .info-text {
+        font-size: 12px;
+        font-weight: 700;
+        margin: 5px 0 10px;
+        width: auto;
+        float: none
+    }
+
+    .responsive.club-points .club-points-top .info-text:before {
+        content: "";
+        min-width: 40%;
+        display: block;
+        overflow: hidden
+    }
+
+    .responsive.club-points .club-points-top.not-member {
+        border: dashed 1px #0d0d0d
+    }
+
+    .responsive.club-points .club-points-bottom {
+        font-size: 12px;
+        border: solid 1px #0d0d0d;
+        background-color: transparent;
+        margin-top: -1px;
+        padding: 5%;
+        color: #0d0d0d
+    }
+
+    .responsive.club-points .club-points-bottom.not-member {
+        border: dashed 1px #0d0d0d
+    }
+
+    .responsive.club-points .club-points-bottom.hide-info-text .info-text {
+        display: block
+    }
+
+    .responsive.club-points .club-points-bottom .info-text > p {
+        margin: 0 0 14px
+    }
+
+    .responsive.club-points .club-points-bottom .info-text .link {
+        color: #0d0d0d
+    }
+
+    .responsive.club-points.member {
+        display: inline-block
+    }
+}
+
+.responsive .ean-code-wrapper {
+    background-color: white;
+    margin-top: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom: solid 1px #ccc;
+    padding: 10px 0 13px 0;
+    text-align: center
+}
+
+.responsive .ean-code-wrapper .ean-code-image {
+    height: 64px;
+    width: 202px;
+    display: block;
+    margin: auto auto 10px
+}
+
+.responsive .ean-code-wrapper .ean-code {
+    color: black;
+    font-weight: 700;
+    font-size: 14px
+}
+
+.responsive .ean-code-wrapper .ean-code.icon-kort {
+    background-size: 17px 14px;
+    padding-left: 26px
+}
+
+.responsive .ean-code-wrapper:last-child {
+    border-bottom: 0
+}
+
+.responsive .club-card-with-ean-code {
+    color: white;
+    background-color: #0d0d0d;
+    padding: 10px 15px 0;
+    margin-bottom: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+.responsive .club-card-with-ean-code .heading {
+    margin-left: 0
+}
+
+.responsive .club-card-with-ean-code .heading + .ean-code-wrapper {
+    margin-top: 30px
+}
+
+.responsive .club-card-with-ean-code .sub-heading {
+    font-weight: 700;
+    font-size: 11px;
+    margin-top: -30px;
+    text-align: right
+}
+
+.responsive .club-card-with-ean-code .points {
+    font-family: "HM Amperserif Disp", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", "Garamond", "Times New Roman", Times, serif;
+    font-weight: normal;
+    font-size: 24px;
+    display: block;
+    margin-top: -10px;
+    text-align: right
+}
+
+.responsive .club-card-with-ean-code .ean-code-wrapper {
+    padding: 25px 0 17px 0
+}
+
+.responsive .club-card-with-ean-code .info-text {
+    padding: 20px 0 0;
+    color: #0d0d0d;
+    position: relative;
+    background-color: white;
+    background-position: center center;
+    background-size: 100% auto;
+    margin: 0
+}
+
+.responsive .club-card-with-ean-code .info-text:before, .responsive .club-card-with-ean-code .info-text:after {
+    content: "";
+    bottom: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    right: 100%;
+    background-color: inherit
+}
+
+.responsive .club-card-with-ean-code .info-text:after {
+    left: 100%
+}
+
+.responsive .club-card-with-ean-code .info-text.hide-info-text {
+    display: none
+}
+
+.responsive .club-card-with-ean-code.not-member {
+    display: none
+}
+
+@media screen and (min-width:768px) {
+    .responsive .club-card-with-ean-code {
+        display: none
+    }
+}
+
+.responsive.news-teaser {
+    margin-bottom: 8px;
+    position: relative
+}
+
+.responsive .empty-news-box {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 13px
+}
+
+.responsive .empty-news-box.has-effect-2 {
+    line-height: 0
+}
+
+.responsive .empty-news-box .text-container {
+    display: block;
+    position: absolute;
+    z-index: 3;
+    line-height: 1.4
+}
+
+.responsive .empty-news-box .text-container .info-news-box-heading {
+    font-family: "HM Amperserif Text", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", "Garamond", "Times New Roman", Times, serif;
+    font-size: 16px;
+    font-weight: normal;
+    text-align: center;
+    text-transform: none;
+    margin-bottom: 10px
+}
+
+.responsive .empty-news-box .text-container .info-news-box-paragraph {
+    text-align: left
+}
+
+.responsive.news-teaser.single-cta .cta {
+    background: 0;
+    position: absolute;
+    z-index: 3;
+    left: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 13px 0 66.776315789%;
+    display: block;
+    height: 0;
+    width: 100%;
+    border: 0
+}
+
+.responsive.news-teaser.single-cta .cta:before {
+    display: none
+}
+
+.responsive.news-teaser .text-container {
+    color: white;
+    z-index: 5;
+    padding: 10px 10px 16px;
+    text-align: left;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+.responsive.news-teaser .text-container h1 {
+    margin: 0
+}
+
+.responsive.news-teaser .text-container .heading-text {
+    margin: 0;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px
+}
+
+.responsive.news-teaser .text-container .text {
+    font-size: 16px;
+    font-family: "HM Amperserif Text", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", "Garamond", "Times New Roman", Times, serif;
+    margin: 3px 0 0 0;
+    letter-spacing: 1px
+}
+
+@media screen and (min-width:768px) {
+    .responsive.news-teaser {
+        margin-bottom: 24px
+    }
+
+    .responsive.news-teaser.empty-news-box {
+        font-family: "HM Amperserif Text", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", "Garamond", "Times New Roman", Times, serif;
+        font-size: 16px
+    }
+
+    .responsive.news-teaser.empty-news-box .background-image {
+        width: 100%
+    }
+
+    .responsive.news-teaser.empty-news-box .text-container {
+        width: 80%
+    }
+
+    .responsive.news-teaser.empty-news-box .text-container .info-news-box-heading {
+        font-size: 27px;
+        font-weight: normal;
+        font-variant: normal;
+        font-style: normal;
+        text-transform: none
+    }
+
+    .responsive.news-teaser.empty-news-box .text-container .info-news-box-paragraph {
+        text-align: center
+    }
+}
+
+.responsive.new-to-hm {
+    position: relative;
+    padding: 0 15px 40px
+}
+
+.responsive.new-to-hm:after {
+    content: '';
+    display: block;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: #f8f8f8;
+    border-top: 1px solid #c8c8c8;
+    border-bottom: 1px solid #c8c8c8;
+    position: absolute
+}
+
+.responsive.new-to-hm .info-paragraph {
+    display: none
+}
+
+.responsive.new-to-hm .sub-heading {
+    margin: 10px 0 10px
+}
+
+@media screen and (min-width:768px) {
+    .responsive.new-to-hm {
+        padding: 0 0 30px 80px
+    }
+
+    .responsive.new-to-hm:after {
+        content: none
+    }
+
+    .responsive.new-to-hm .sub-heading {
+        margin: 38px 0 5px
+    }
+
+    .responsive.new-to-hm .info-paragraph {
+        display: block;
+        margin: 0 0 38px
+    }
+}
+
+.responsive .club-points-redeem {
+    position: relative;
+    margin-top: -50px;
+    min-height: 50px;
+    background-color: #0d0d0d;
+    background-position: center center;
+    background-size: 100% auto;
+    text-align: center;
+    padding: 10px 0;
+    color: white
+}
+
+.responsive .club-points-redeem.bleed-out:before, .responsive .club-points-redeem.bleed-out:after {
+    content: "";
+    bottom: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    right: 100%;
+    background-color: inherit
+}
+
+.responsive .club-points-redeem.bleed-out:after {
+    left: 100%
+}
+
+@media only screen and (max-width:1000px) {
+    .responsive .club-points-redeem.bleed-out:after, .responsive .club-points-redeem.bleed-out:before {
+        width: 15px
+    }
+}
+
+.responsive .club-points-redeem .heading {
+    font-weight: 700;
+    font-size: 12px;
+    text-align: center;
+    letter-spacing: 5px;
+    color: #8d8d8d;
+    margin: 0 0 0 5px;
+    display: block
+}
+
+.responsive .club-points-redeem .points {
+    font-family: "HM Amperserif Disp", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", "Garamond", "Times New Roman", Times, serif;
+    font-size: 42px;
+    font-weight: normal;
+    font-variant: normal;
+    font-style: normal;
+    display: block;
+    text-align: center;
+    margin-top: -5px;
+    margin-bottom: 0
+}
+
+.responsive.club-rewards-page .club-points-redeem {
+    margin-bottom: 24px
+}
+
+@media screen and (max-width:767px) {
+    .responsive.club-points-redeem {
+        margin-top: 0
+    }
+}
+
+.responsive .in-store-voucher {
+    text-align: center;
+    background-position: top center
+}
+
+.responsive .in-store-voucher.icon-time-active {
+    padding-top: 40px
+}
+
+.responsive .in-store-voucher .heading {
+    font-size: 14px;
+    padding: 0 30px;
+    margin-bottom: 5px
+}
+
+.responsive .in-store-voucher .heading:last-child {
+    padding: 8px 30px 28px 30px
+}
+
+.responsive .in-store-voucher .countdown {
+    font-weight: 600;
+    font-size: 36px;
+    margin-bottom: 15px;
+    display: block;
+    letter-spacing: 2px
+}
+
+.responsive .in-store-voucher .countdown > time {
+    text-align: left;
+    width: 100px;
+    display: block;
+    margin: 0 auto
+}
+
+.responsive .in-store-voucher .timer-text {
+    margin: 0 15px 30px
+}
+
+.responsive .in-store-voucher .voucher_card .heading {
+    margin: 0
+}
+
+.responsive .in-store-voucher .voucher_card .ean-code-wrapper {
+    margin-top: 0
+}
+
+.responsive .redeemed-voucher {
+    margin-bottom: 20px
+}
+
+.responsive .redeemed-voucher .heading {
+    margin-left: 15px
+}
+
+.responsive .redeemed-voucher .voucher-list {
+    text-align: left;
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 0
+}
+
+.responsive .redeemed-voucher .voucher-list .voucher-item {
+    position: relative;
+    border-top: solid 1px #e6e6e6
+}
+
+.responsive .redeemed-voucher .voucher-list .voucher-item a {
+    height: 79px;
+    padding: 10px 25px 10px 15px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: block;
+    text-decoration: none
+}
+
+.responsive .redeemed-voucher .voucher-list .voucher-item a .vignette {
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 11px;
+    margin: 0 0 4px
+}
+
+.responsive .redeemed-voucher .voucher-list .voucher-item a .sub-heading {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 13px;
+    text-transform: none;
+    margin: 0 0 5px
+}
+
+.responsive .redeemed-voucher .voucher-list .voucher-item a .countdown {
+    display: block;
+    position: absolute;
+    background-position: left center;
+    padding: 0 0 0 30px;
+    right: 0;
+    top: 10px;
+    width: 100px;
+    font-size: 22px
+}
+
+.responsive .redeemed-voucher .voucher-list .voucher-item a .calender_date {
+    color: #555;
+    display: block;
+    background-position: left center;
+    font-size: 12px;
+    font-weight: 600
+}
+
+.responsive .redeemed-voucher .voucher-list .voucher-item a:after {
+    position: absolute;
+    content: "";
+    top: 50%;
+    display: block;
+    width: 6px;
+    height: 6px;
+    background-color: transparent;
+    border-top: 2px solid #cbcbcb;
+    border-right: 2px solid #cbcbcb;
+    right: 15px;
+    -webkit-transform: rotate(45deg) translateY(-50%);
+    -moz-transform: rotate(45deg) translateY(-50%);
+    -ms-transform: rotate(45deg) translateY(-50%);
+    -o-transform: rotate(45deg) translateY(-50%);
+    transform: rotate(45deg) translateY(-50%)
+}
+
+.responsive .redeemed-voucher .voucher-list .voucher-item.in-store {
+    height: 50px
+}
+
+.responsive .redeemed-voucher .voucher-list .voucher-item.in-store .sub-heading {
+    padding-top: 7px;
+    width: 45%
+}
+
+.responsive .redeemed-voucher .voucher-list .voucher-item:last-child {
+    border-bottom: solid 1px #e6e6e6
+}
+
+.responsive .redeemed-voucher.modal-text .heading.sticky {
+    text-align: left;
+    padding: 0
+}
+
+.responsive .redeemed-voucher.modal-text .voucher-list {
+    margin: -1px
+}
+
+.responsive .redeemed-voucher.modal-text .voucher-item a {
+    height: 88px;
+    padding: 15px 0 15px 25px
+}
+
+.responsive .redeemed-voucher.modal-text .voucher-item a:after {
+    right: 30px
+}
+
+.responsive .redeemed-voucher.modal-text .voucher-item a .sub-heading {
+    position: absolute;
+    width: 80%;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 13px;
+    text-transform: none;
+    margin: 0 0 5px
+}
+
+.responsive .redeemed-voucher.modal-text .voucher-item a .calender_date {
+    position: absolute;
+    bottom: 15px
+}
+
+.responsive .redeemed-voucher.modal-text .voucher-item.in-store a {
+    height: 50px
+}
+
+.responsive .redeemed-voucher.modal-text .voucher-item.in-store a:after {
+    right: 30px
+}
+
+.responsive .redeemed-voucher.modal-text .voucher-item.in-store a .vignette {
+    display: none
+}
+
+.responsive .redeemed-voucher.modal-text .voucher-item.in-store a .sub-heading {
+    padding-top: 0;
+    width: 45%
+}
+
+.responsive .redeemed-voucher.modal-text .voucher-item:last-child {
+    border-bottom: solid 1px #e6e6e6
+}
+
+.responsive .redeemed-voucher .link {
+    display: inline-block;
+    margin: 20px 15px 20px;
+    font-weight: 700;
+    font-size: 13px
+}
+
+@media screen and (min-width:768px) {
+    .responsive .in-store-voucher {
+        display: none
+    }
+
+    .responsive .redeemed-voucher {
+        margin-bottom: 20px
+    }
+
+    .responsive .redeemed-voucher .heading {
+        margin-top: 0;
+        margin-left: 0
+    }
+
+    .responsive .redeemed-voucher .voucher-list .voucher-item a {
+        padding-left: 0
+    }
+
+    .responsive .redeemed-voucher .voucher-list .voucher-item a:after {
+        display: none
+    }
+
+    .responsive .redeemed-voucher .voucher-list .voucher-item.in-store {
+        display: none
+    }
+
+    .responsive .redeemed-voucher.modal-text {
+        overflow-y: auto
+    }
+
+    .responsive .redeemed-voucher.modal-text .voucher-list {
+        margin: 0
+    }
+
+    .responsive .redeemed-voucher.modal-text .voucher-item {
+        margin-bottom: 0
+    }
+
+    .responsive .redeemed-voucher.modal-text .voucher-item a {
+        padding-left: 15px
+    }
+
+    .responsive .redeemed-voucher.modal-text .voucher-item a:after {
+        position: absolute;
+        content: "";
+        top: 50%;
+        display: block;
+        width: 6px;
+        height: 6px;
+        background-color: transparent;
+        border-top: 2px solid #cbcbcb;
+        border-right: 2px solid #cbcbcb;
+        right: 15px;
+        -webkit-transform: rotate(45deg) translateY(-50%);
+        -moz-transform: rotate(45deg) translateY(-50%);
+        -ms-transform: rotate(45deg) translateY(-50%);
+        -o-transform: rotate(45deg) translateY(-50%);
+        transform: rotate(45deg) translateY(-50%);
+        right: 30px
+    }
+
+    .responsive .redeemed-voucher.modal-text .selectables-overflow {
+        height: 357px
+    }
+
+    .responsive .redeemed-voucher .link {
+        margin-left: 0
+    }
+
+    .responsive .modal .upcoming-bookings {
+        margin-top: 0
+    }
+}
+
+.responsive.my-hm .page-header {
+    text-align: left;
+    border-top: 0
+}
+
+.responsive.my-hm .page-header, .responsive.my-hm .heading, .responsive.my-hm .sub-heading,
+.responsive.my-hm .sub-sub-heading {
+    margin-bottom: 0
+}
+
+.responsive.my-hm .form-part .heading {
+    margin-bottom: 20px
+}
+
+.responsive.my-hm .page-header + .sub-heading, .responsive.my-hm .heading + .sub-heading,
+.responsive.my-hm .sub-heading + .sub-sub-heading {
+    margin-top: 20px
+}
+
+.responsive.my-hm .page-header + .text, .responsive.my-hm .heading + .text,
+.responsive.my-hm .sub-heading + .text, .responsive.my-hm .sub-sub-heading + .text {
+    margin-top: 8px
+}
+
+.responsive.my-hm .sub-heading {
+    padding: 0 15px
+}
+
+@media screen and (min-width:768px) {
+    .responsive.my-hm .sub-heading {
+        padding: 0
+    }
+}
+
+.responsive.my-hm .form-part .sub-sub-heading {
+    padding: 0
+}
+
+.responsive.my-hm .sub-heading + .agile-form {
+    margin-top: 20px
+}
+
+.responsive.my-hm .info-details {
+    position: relative;
+    list-style-type: none;
+    margin: 20px 0;
+    padding: 0 15px 25px
+}
+
+.responsive.my-hm .info-details .item {
+    margin: 20px 0 0
+}
+
+.responsive.my-hm .info-details .item:first-child {
+    margin-top: 0
+}
+
+.responsive.my-hm .info-details:after {
+    position: absolute;
+    content: '';
+    display: block;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: #f8f8f8;
+    border-top: 1px solid #c8c8c8;
+    border-bottom: 1px solid #c8c8c8
+}
+
+.responsive.my-hm .info-details .label {
+    display: inline-block;
+    clear: both;
+    font-size: 11px;
+    line-height: 1.36364;
+    letter-spacing: .5px;
+    font-weight: 700;
+    color: black;
+    margin: 0 0 5px 0;
+    vertical-align: top;
+    width: 100%
+}
+
+.responsive.my-hm .info-details .static {
+    display: inline-block;
+    color: #555;
+    font-size: 13px;
+    line-height: 1.38462
+}
+
+@media screen and (min-width:768px) {
+    .responsive.my-hm .info-details {
+        border: 2px solid #0d0d0d;
+        padding: 20px;
+        margin: 24px 0
+    }
+
+    .responsive.my-hm .info-details:after {
+        content: none
+    }
+}
+
+.responsive.my-hm .table .button, .responsive.my-hm .list .button {
+    margin-top: 20px
+}
+
+.responsive.my-hm .list {
+    list-style-type: none;
+    margin: 10px 0 20px;
+    padding: 0 15px
+}
+
+@media screen and (min-width:768px) {
+    .responsive.my-hm .list {
+        padding: 0
+    }
+}
+
+.responsive.my-hm .table {
+    list-style-type: none;
+    margin: 20px 0;
+    padding: 0 15px
+}
+
+@media screen and (min-width:768px) {
+    .responsive.my-hm .table {
+        padding: 0
+    }
+}
+
+.responsive.my-hm .table .row {
+    letter-spacing: -4px;
+    border-bottom: 1px solid #f1f1f1
+}
+
+.responsive.my-hm .table .head.row .cell {
+    font-weight: 700;
+    letter-spacing: .5px
+}
+
+.responsive.my-hm .table .cell {
+    font-size: 11px;
+    line-height: 1.36364;
+    display: inline-block;
+    width: 20%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    vertical-align: top;
+    letter-spacing: normal;
+    padding: 17px 4px 15px;
+    text-align: left
+}
+
+.responsive.my-hm .table .cell:last-child {
+    text-align: right
+}
+
+.responsive.my-hm .table .cell:nth-child(2) {
+    width: 40%;
+    font-weight: 600
+}
+
+.responsive.club-login-from-club-landing .rtl .form-section {
+    padding-top: 10px
+}
+
+.responsive.club-login-from-club-landing .rtl .form-section .form-part {
+    padding: 0 15px
+}
+
+.responsive.club-login-from-club-landing .rtl .form-section .form-part .heading,
+.responsive.club-login-from-club-landing .rtl .form-section .form-part .info-paragraph {
+    display: none
+}
+
+.responsive.club-login-from-club-landing .rtl .form-section .form-part:after {
+    content: none
+}
+
+.responsive.club-login-from-club-landing .rtl .form-section .form-part-block {
+    padding: 10px 15px
+}
+
+.responsive.club-login-from-club-landing .rtl .new-to-hm .button {
+    margin: 0
+}
+
+@media screen and (min-width:768px) {
+    .responsive.club-login-from-club-landing .rtl .form-section, .responsive.club-login-from-club-landing .rtl .new-to-hm {
+        float: right;
+        width: 50%;
+        box-sizing: border-box
+    }
+
+    .responsive.club-login-from-club-landing .rtl .form-section {
+        padding-right: 24px;
+        padding-top: 0;
+        background: transparent
+    }
+
+    .responsive.club-login-from-club-landing .rtl .form-section .form-part {
+        padding: 0;
+        margin: 0;
+        border: 0
+    }
+
+    .responsive.club-login-from-club-landing .rtl .form-section .form-part .heading,
+    .responsive.club-login-from-club-landing .rtl .form-section .form-part .info-paragraph {
+        display: block
+    }
+
+    .responsive.club-login-from-club-landing .rtl .form-section .form-part .heading {
+        margin-bottom: 20px;
+        line-height: 18px
+    }
+
+    .responsive.club-login-from-club-landing .rtl .form-section .form-part .inputwrapper {
+        width: 100%
+    }
+
+    .responsive.club-login-from-club-landing .rtl .form-section .form-part-block {
+        padding: 20px 0
+    }
+
+    .responsive.club-login-from-club-landing .rtl .new-to-hm {
+        border: 0;
+        margin-right: 0
+    }
+}
+
+.responsive.club-redeem-voucher-page .club-app-stores {
+    margin-top: 60px;
+    display: none
+}
+
+.responsive.club-redeem-voucher-page .btn-redeem-in-store {
+    display: block
+}
+
+.responsive.club-redeem-voucher-page .club-card-with-ean-code + .club-points-redeem {
+    display: none
+}
+
+.responsive.club-redeem-voucher-page .layout-eight .club-voucher,
+.responsive.club-redeem-voucher-page .layout-eight .status-message {
+    margin-left: 15px;
+    margin-right: 15px
+}
+
+.responsive.club-redeem-voucher-page .layout-eight .club-voucher {
+    margin-bottom: 40px
+}
+
+.responsive.club-redeem-voucher-page .layout-eight .terms-and-conditions {
+    position: relative;
+    background-color: #f3f3f3;
+    background-position: center center;
+    background-size: 100% auto;
+    margin: 0 0 -60px;
+    padding: 20px 15px 40px
+}
+
+.responsive.club-redeem-voucher-page .layout-eight .terms-and-conditions.bleed-out:before,
+.responsive.club-redeem-voucher-page .layout-eight .terms-and-conditions.bleed-out:after {
+    content: "";
+    bottom: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    right: 100%;
+    background-color: inherit
+}
+
+.responsive.club-redeem-voucher-page .layout-eight .terms-and-conditions.bleed-out:after {
+    left: 100%
+}
+
+@media only screen and (max-width:1000px) {
+    .responsive.club-redeem-voucher-page .layout-eight .terms-and-conditions.bleed-out:after,
+    .responsive.club-redeem-voucher-page .layout-eight .terms-and-conditions.bleed-out:before {
+        width: 15px
+    }
+}
+
+.responsive.club-redeem-voucher-page .layout-eight .terms-and-conditions + .terms-and-conditions {
+    margin-top: 0;
+    border: 0 none
+}
+
+.responsive.club-redeem-voucher-page .layout-eight .terms-and-conditions:last-child {
+    padding-bottom: 40px
+}
+
+.responsive.club-redeem-voucher-page .layout-eight .voucher-explained .heading {
+    padding: 0 15px 0
+}
+
+.responsive.club-redeem-voucher-page .layout-eight .voucher-explained .text {
+    padding: 0 15px 40px
+}
+
+.responsive.club-redeem-voucher-page .layout-eight .button-wrapper {
+    background-color: white;
+    text-align: center;
+    padding: 20px 15px 35px
+}
+
+.responsive.club-redeem-voucher-page .layout-eight .form-part.button-wrapper {
+    padding: 0 15px 20px
+}
+
+.responsive.club-redeem-voucher-page .layout-eight .notification {
+    margin: -20px 0 30px
+}
+
+@media screen and (min-width:768px) {
+    .responsive.club-redeem-voucher-page .club-app-stores {
+        text-align: center;
+        display: block
+    }
+
+    .responsive.club-redeem-voucher-page .btn-redeem-in-store {
+        display: none
+    }
+
+    .responsive.club-redeem-voucher-page .club-card-with-ean-code + .club-points-redeem {
+        display: block
+    }
+
+    .responsive.club-redeem-voucher-page .layout-eight .club-voucher:first-child {
+        margin-top: 50px
+    }
+
+    .responsive.club-redeem-voucher-page .layout-eight .status-message,
+    .responsive.club-redeem-voucher-page .layout-eight .club-voucher {
+        margin-left: 0;
+        margin-right: 0
+    }
+
+    .responsive.club-redeem-voucher-page .layout-eight .terms-and-conditions {
+        position: relative;
+        background-color: transparent;
+        border-top: solid 1px #f3f3f3;
+        background-position: center center;
+        background-size: 100% auto;
+        margin: 30px 0 0 0;
+        padding: 20px 0 0 0;
+        color: #a2a2a2
+    }
+
+    .responsive.club-redeem-voucher-page .layout-eight .voucher-explained .heading,
+    .responsive.club-redeem-voucher-page .layout-eight .voucher-explained .text {
+        padding: 0
+    }
+
+    .responsive.club-redeem-voucher-page .layout-eight .select {
+        margin-top: 0
+    }
+
+    .responsive.club-redeem-voucher-page .layout-eight .form-part.button-wrapper {
+        padding: 20px 15px 35px
+    }
+
+    .responsive.club-redeem-voucher-page .layout-eight .notification {
+        margin: 40px 0 10px
+    }
+
+    .responsive.club-redeem-voucher-page .btn-redeem-in-store {
+        display: none
+    }
+}
+
+.my-hm {
+    margin-bottom: 24px
+}
+
+.my-hm .button-group {
+    padding: 30px 15px
+}
+
+.my-hm .text {
+    padding: 0 15px
+}
+
+.my-hm .page-header .text {
+    padding: 0
+}
+
+@media screen and (min-width:768px) {
+    .my-hm .form-section:first-child {
+        margin-top: 40px
+    }
+
+    .my-hm .form-part {
+        border: 2px solid #0d0d0d;
+        padding: 20px;
+        margin: 24px 0
+    }
+
+    .my-hm .form-part .heading {
+        padding-right: 30%
+    }
+
+    .my-hm .form-part .inputwrapper {
+        width: 50%
+    }
+
+    .my-hm .text {
+        padding: 0
+    }
+
+    .my-hm .privacy-agreement {
+        margin: 0 0 24px
+    }
+
+    .my-hm .button-group {
+        padding: 0 0 30px
+    }
+
+    .my-hm .button-group .button {
+        margin-top: 0
+    }
+
+    .my-hm .button-group .change-password {
+        width: auto;
+        display: table;
+        clear: both;
+        margin-top: 24px
+    }
+}
+
+@media screen and (min-width:768px) {
+    .hm-club .inputwrapper {
+        width: 50%;
+        padding-right: 12px
+    }
+
+    .hm-club .inputwrapper.select-date {
+        width: 100%
+    }
+}
+
+@media screen and (min-width:768px) {
+    .manage-subscription .form-part {
+        padding: 0;
+        margin: 20px 0
+    }
+
+    .manage-subscription .inputwrapper {
+        margin: 10px 0
+    }
+}
+
+.responsive .page-header {
+    margin: 20px 15px
+}
+
+@media screen and (min-width:768px) {
+    .responsive .page-header {
+        padding: 0;
+        margin: 0 0 20px;
+        text-align: left
+    }
+}
+
+.club-login-form .form-part:not(.club-fieldset):after {
+    content: none
+}
+
+.club-login-form .button-group {
+    margin-top: 20px
+}
+
+.club-login-form .button-group .button {
+    margin-bottom: 20px
+}
+
+.responsive.club-join-new-customer .form-part:nth-of-type(n + 2) {
+    padding: 10px 15px 30px
+}
+
+@media screen and (min-width:768px) {
+    .responsive.club-join-new-customer .form-part-block {
+        margin-top: 30px
+    }
+
+    .responsive.club-join-new-customer .form-part:first-child {
+        margin-bottom: 0
+    }
+
+    .responsive.club-join-new-customer .form-part:nth-of-type(n + 2) {
+        padding: 10px 0 0
+    }
+
+    .responsive.club-join-new-customer .inputwrapper.select-date {
+        margin: 20px 0 0
+    }
+}
+
+.responsive.form-section.updated-subscriptions .form-part-block {
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 20px 15px 30px
+}
+
+.responsive.form-section.updated-subscriptions .form-part-block:after {
+    content: '';
+    display: block;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: #f8f8f8;
+    border-top: 1px solid #c8c8c8;
+    border-bottom: 1px solid #c8c8c8;
+    position: absolute
+}
+
+.responsive.form-section.updated-subscriptions .form-part-block:last-child:after {
+    content: none
+}
+
+.responsive.form-section.updated-subscriptions .form-part-block:first-of-type {
+    border-top: 0
+}
+
+.responsive.form-section.updated-subscriptions .icon-check {
+    width: 24px;
+    height: 24px;
+    display: block;
+    margin: 0 0 20px 0
+}
+
+.responsive.form-section.updated-subscriptions .info-paragraph:before {
+    content: '- '
+}
+
+.responsive.form-section.updated-subscriptions .icon-check-small {
+    display: inline-block;
+    width: 14px;
+    height: 10px;
+    vertical-align: top;
+    margin: 2px 5px 0 0
+}
+
+.responsive.form-section.updated-subscriptions .selected-radio {
+    display: inline-block
+}
+
+@media screen and (min-width:768px) {
+    .responsive.form-section.updated-subscriptions .form-part-block {
+        width: 100%
+    }
+
+    .responsive.form-section.updated-subscriptions .form-part-block:after {
+        content: none
+    }
+
+    .responsive.form-section.updated-subscriptions .icon-check {
+        display: inline-block;
+        margin: 0 15px 0 0;
+        vertical-align: top
+    }
+
+    .responsive.form-section.updated-subscriptions .heading.success-heading {
+        display: inline-block;
+        margin: 0 0 20px;
+        text-transform: none
+    }
+
+    .responsive.form-section.updated-subscriptions .no-edit {
+        margin-left: 44px
+    }
+
+    .responsive.form-section.updated-subscriptions .info-paragraph {
+        margin-bottom: 30px;
+        color: gray
+    }
+}
+
+.responsive.leave-club-confirm .heading {
+    margin-bottom: 15px
+}
+
+.responsive.leave-club-confirm .form-section .form-part, .responsive.leave-club-confirm .form-section .form-part-block {
+    width: 100%
+}
+
+.responsive.leave-club-confirm .form-part-block {
+    border-top: none !important
+}
+
+.responsive.leave-club-confirm .form-section .form-part {
+    padding-top: 0
+}
+
+.responsive.leave-club-confirm .form-section .form-part .inputwrapper {
+    width: 100%;
+    margin: 20px 0 0
+}
+
+@media screen and (min-width:768px) {
+    .responsive.leave-club-confirm .form-section .form-part {
+        padding-top: 30px
+    }
+}
+
+.responsive.club-rewards-page .club-vouchers {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    background: white
+}
+
+.responsive.club-rewards-page .club-vouchers .club-voucher {
+    margin-bottom: 15px
+}
+
+@media screen and (min-width:768px) {
+    .responsive.club-rewards-page .status-message {
+        margin-left: 155px;
+        margin-right: 155px
+    }
+
+    .responsive.club-rewards-page .club-vouchers .heading {
+        margin: 0 0 10px
+    }
+
+    .responsive.club-rewards-page .club-vouchers .club-voucher {
+        margin-bottom: 24px
+    }
+
+    .responsive.club-rewards-page .club-vouchers .three.modules {
+        margin: 0
+    }
+}
+

@@ -29,8 +29,10 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
-
+  #было ложь
+  config.assets.compile = true
+  # вообще не было
+   config.assets.raise_runtime_errors = true
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
   # yet still be able to expire them through the digest params.
   config.assets.digest = true
@@ -46,6 +48,7 @@ Rails.application.configure do
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
+   config.assets.debug = true
   config.log_level = :debug
 
   # Prepend all log lines with the following tags.
