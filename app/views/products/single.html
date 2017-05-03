@@ -142,7 +142,6 @@
 							<%end%>
 							<span class="product-detail-zoom-info">Нажмите на изображение, чтобы изменить его размер</span>
 							<span class="product-detail-zoom-info touch-info">Коснуться изображения, чтобы развернуть его на весь экран</span>
-							<a href="#" class="product-detail-full-screen-image-link hidden-text">На весь экран</a>
 						</div>
 					</section>
 				</div>
@@ -214,7 +213,8 @@
 									</ul>
 								<%end%>
 								<div class="product-detail-linked-product">
-									<a href="#" class="underline overlay-trigger">Руководство по размерам</a>
+									<a href="javascript:void(0)" class="underline overlay-trigger open">Руководство по размерам</a><br>
+									<a href="javascript:void(0)" class="underline overlay-trigger">Онлайн помощь по подбору размера</a>
 								</div>
 							</div>
 						</div>
@@ -325,6 +325,452 @@
 		<div class="parsys main"></div>
 	</div>
 </main>
+<div class="modaloverlay responsive hidden">
+	<div class="modalbackground"></div>
+	<div class="modal fadeInModal" style="margin-top: 117px;">
+		<button class="modalclose icon-close-black"></button>
+		<h1 class="sticky">ON</h1>
+		<div class="modal-wrapper" style="max-height: 895px; margin-top: 64px; box-sizing: border-box;">
+			<div class="modal-content">
+				<div class="parbase sizelisting" aria-hidden="false">
+					<div class="parbase intro textimage">
+						<article class="article-contents size-guide-intro">
+							<div class="row">
+								<div class="grid col-6">
+									<p>
+										<img style="float: right;" src="/content/dam/Customer-Service/Sizeguide/size-guide-men-new.png"></p>
+									<p>
+										Pomiarów należy dokonywać po zdjęciu ubrania. Aby wybrać odpowiedni rozmiar koszuli, musisz sprawdzić rozmiar kołnierzyka. Weź koszulę, która najlepiej na Tobie leży, i zmierz obwód kołnierzyka od środka górnego guzika koszuli do brzegu dziurki na guzik.
+									</p>
+									<p>A: Klatka piersiowa</p>
+									<p>B: Talia</p>
+									<p>C: Biodra</p>
+									<p>D: Wewnętrzna długość nogawki mierzona od krocza do podłogi.</p>
+									<p>&nbsp;</p>
+									<div class="toggle-list size-guides">
+										<div class="toggle-list-item">
+											<h3 class="toggle-list-headline slide-down-toggle">
+												<span>KOSZULE</span>
+											</h3>
+											<div class="toggle-list-content article-contents slide-down">
+												<table class="size-guide"></table>
+												<table class="size-guide">
+													<tbody>
+														<tr>
+															<th>&nbsp;</th>
+															<th>XS</th>
+															<th>S</th>
+															<th>M</th>
+														</tr>
+														<tr>
+															<th scope="row" class="size-guide-emphasized">EUR</th>
+															<td>35/36</td>
+															<td>37/38</td>
+															<td>39/40</td>
+														</tr>
+														<tr>
+															<th scope="row">Klatka piersiowa (cm)</th>
+															<td>80-84</td>
+															<td>88-92</td>
+															<td>96-100</td>
+														</tr>
+														<tr>
+															<th scope="row">Talia (cm)</th>
+															<td>68-72</td>
+															<td>76-80</td>
+															<td>84-88</td>
+														</tr>
+													</tbody>
+												</table>
+												<table class="size-guide">
+													<tbody>
+														<tr>
+															<th>&nbsp;</th>
+															<th>L</th>
+															<th>XL</th>
+															<th>2XL</th>
+														</tr>
+														<tr>
+															<th scope="row" class="size-guide-emphasized">EUR</th>
+															<td>41/42</td>
+															<td>43/44</td>
+															<td>45/46</td>
+														</tr>
+														<tr>
+															<th scope="row">Klatka piersiowa (cm)</th>
+															<td>104-108</td>
+															<td>112-116</td>
+															<td>120-124</td>
+														</tr>
+														<tr>
+															<th scope="row">Talia (cm)</th>
+															<td>92-96</td>
+															<td>100-104</td>
+															<td>108-112</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+										<div class="toggle-list-item">
+											<h3 class="toggle-list-headline slide-down-toggle">
+												<span>KOSZULKI</span>
+											</h3>
+											<div class="toggle-list-content article-contents slide-down">
+												<table class="size-guide">
+													<tbody>
+														<tr>
+															<th>&nbsp;</th>
+															<th>XS</th>
+															<th colspan="2" scope="col" class="colheader">S</th>
+															<th colspan="2" scope="col" class="colheader">M</th>
+														</tr>
+														<tr>
+															<th class="size-guide-emphasized" scope="row">EUR</th>
+															<td class="size-guide-emphasized">42</td>
+															<td class="size-guide-emphasized">44</td>
+															<td class="size-guide-emphasized">46</td>
+															<td class="size-guide-emphasized">48</td>
+															<td class="size-guide-emphasized">50</td>
+														</tr>
+														<tr>
+															<th scope="row">Klatka piersiowa (cm)</th>
+															<td>84</td>
+															<td>88</td>
+															<td>92</td>
+															<td>96</td>
+															<td>100</td>
+														</tr>
+														<tr>
+															<th scope="row">Talia (cm)</th>
+															<td>72</td>
+															<td>76</td>
+															<td>80</td>
+															<td>84</td>
+															<td>88</td>
+														</tr>
+													</tbody>
+												</table>
+												<table class="size-guide">
+													<tbody>
+														<tr>
+															<th>&nbsp;</th>
+															<th class="colheader" scope="col" colspan="2">L</th>
+															<th class="colheader" scope="col" colspan="2">XL</th>
+															<th class="colheader" scope="col" colspan="2">2XL</th>
+														</tr>
+														<tr>
+															<th class="size-guide-emphasized" scope="row">EUR</th>
+															<td class="size-guide-emphasized">52</td>
+															<td class="size-guide-emphasized">54</td>
+															<td class="size-guide-emphasized">56</td>
+															<td class="size-guide-emphasized">58</td>
+															<td class="size-guide-emphasized">60</td>
+															<td class="size-guide-emphasized">62</td>
+														</tr>
+														<tr>
+															<th scope="row">Klatka piersiowa (cm)</th>
+															<td>104</td>
+															<td>108</td>
+															<td>112</td>
+															<td>116</td>
+															<td>120</td>
+															<td>124</td>
+														</tr>
+														<tr>
+															<th scope="row">Talia (cm)</th>
+															<td>92</td>
+															<td>96</td>
+															<td>100</td>
+															<td>104</td>
+															<td>108</td>
+															<td>112</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+										<div class="toggle-list-item">
+											<h3 class="toggle-list-headline slide-down-toggle">
+												<span>SPODNIE</span>
+											</h3>
+											<div class="toggle-list-content article-contents slide-down">
+												<table class="size-guide">
+													<tbody>
+														<tr>
+															<th>&nbsp;</th>
+															<th class="colheader" scope="col" colspan="2">XS</th>
+															<th class="colheader" scope="col" colspan="2">S</th>
+															<th class="colheader" scope="col" colspan="2">M</th>
+														</tr>
+														<tr>
+															<th class="size-guide-emphasized" scope="row">EUR</th>
+															<td class="size-guide-emphasized">&nbsp;</td>
+															<td class="size-guide-emphasized">42</td>
+															<td class="size-guide-emphasized">44</td>
+															<td class="size-guide-emphasized">46</td>
+															<td class="size-guide-emphasized">48</td>
+															<td class="size-guide-emphasized">50</td>
+														</tr>
+														<tr>
+															<th scope="row">Talia (cm)</th>
+															<td>&nbsp;</td>
+															<td>72</td>
+															<td>76</td>
+															<td>80</td>
+															<td>84</td>
+															<td>88</td>
+														</tr>
+														<tr>
+															<th scope="row">Biodra (cm)</th>
+															<td>&nbsp;</td>
+															<td>90</td>
+															<td>93</td>
+															<td>96</td>
+															<td>99</td>
+															<td>102</td>
+														</tr>
+														<tr>
+															<th scope="row">Wewnętrzna długość nogawki (cm)</th>
+															<td>&nbsp;</td>
+															<td>81</td>
+															<td>81</td>
+															<td>82</td>
+															<td>82</td>
+															<td>83</td>
+														</tr>
+													</tbody>
+												</table>
+												<table class="size-guide">
+													<tbody>
+														<tr>
+															<th>&nbsp;</th>
+															<th class="colheader" scope="col" colspan="2">L</th>
+															<th class="colheader" scope="col" colspan="2">XL</th>
+															<th class="colheader" scope="col" colspan="2">2XL</th>
+														</tr>
+														<tr>
+															<th class="size-guide-emphasized" scope="row">EUR</th>
+															<td class="size-guide-emphasized">52</td>
+															<td class="size-guide-emphasized">54</td>
+															<td class="size-guide-emphasized">56</td>
+															<td class="size-guide-emphasized">58</td>
+															<td class="size-guide-emphasized">60</td>
+															<td class="size-guide-emphasized">62</td>
+														</tr>
+														<tr>
+															<th scope="row">Talia (cm)</th>
+															<td>92</td>
+															<td>96</td>
+															<td>100</td>
+															<td>104</td>
+															<td>108</td>
+															<td>112</td>
+														</tr>
+														<tr>
+															<th scope="row">Biodra (cm)</th>
+															<td>105</td>
+															<td>108</td>
+															<td>111</td>
+															<td>114</td>
+															<td>117</td>
+															<td>120</td>
+														</tr>
+														<tr>
+															<th scope="row">Wewnętrzna długość nogawkig (cm)</th>
+															<td>83</td>
+															<td>84</td>
+															<td>85</td>
+															<td>85</td>
+															<td>86</td>
+															<td>86</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+										<div class="toggle-list-item">
+											<h3 class="toggle-list-headline slide-down-toggle">
+												<span>DŻINSY</span>
+											</h3>
+											<div class="toggle-list-content article-contents slide-down">
+												<p>
+													Rozmiary dżinsów często są podawane w calach, na przykład 30/32. Pierwsza liczba oznacza rozmiar talii, a druga – wewnętrzną długość nogawki.
+												</p>
+												<table class="size-guide"></table>
+												<table class="size-guide">
+													<tbody>
+														<tr>
+															<th>&nbsp;</th>
+															<th>XS</th>
+															<th>S</th>
+															<th>M</th>
+															<th>L</th>
+															<th>XL</th>
+														</tr>
+														<tr>
+															<th class="size-guide-emphasized" scope="row">Rozmiar</th>
+															<td class="size-guide-emphasized">26", 27"</td>
+															<td class="size-guide-emphasized">28",29",30"</td>
+															<td class="size-guide-emphasized">31",32",33"</td>
+															<td class="size-guide-emphasized">34",36"</td>
+															<td class="size-guide-emphasized">38"</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+										<div class="toggle-list-item">
+											<h3 class="toggle-list-headline slide-down-toggle">
+												<span>ROZMIARY DLA WYSOKICH</span>
+											</h3>
+											<div class="toggle-list-content article-contents slide-down">
+												<table class="size-guide"></table>
+												<p> <b>Koszulki</b>
+												</p>
+												<p>
+													Długość + 3&nbsp;cm (względem standardowego rozmiaru)
+													<br>Długość rękawa + 3&nbsp;cm (względem standardowego rozmiaru)</p>
+												<p> <b>Spodnie</b>
+												</p>
+												<p>
+													Wewnętrzna długość nogawki + 4&nbsp;cm (względem standardowego rozmiaru)
+												</p>
+												<table class="size-guide">
+													<tbody>
+														<tr>
+															<th>MARYNARKI</th>
+															<th colspan="2" scope="col" class="colheader">M</th>
+															<th colspan="2" scope="col" class="colheader">L</th>
+														</tr>
+														<tr>
+															<th scope="row" class="size-guide-emphasized">EUR</th>
+															<td>148</td>
+															<td>150</td>
+															<td>152</td>
+															<td>154</td>
+														</tr>
+														<tr>
+															<th scope="row">Klatka piersiowa (cm)</th>
+															<td>96</td>
+															<td>100</td>
+															<td>104</td>
+															<td>108</td>
+														</tr>
+													</tbody>
+												</table>
+												<table class="size-guide">
+													<tbody>
+														<tr>
+															<th>SPODNIE</th>
+															<th class="colheader" scope="col" colspan="2">M</th>
+															<th class="colheader" scope="col" colspan="2">L</th>
+														</tr>
+														<tr>
+															<th scope="row" class="size-guide-emphasized">EUR</th>
+															<td>148</td>
+															<td>150</td>
+															<td>152</td>
+															<td>154</td>
+														</tr>
+														<tr>
+															<th scope="row">Talia (cm)</th>
+															<td>84</td>
+															<td>88</td>
+															<td>92</td>
+															<td>96</td>
+														</tr>
+														<tr>
+															<th scope="row">Biodra (cm)</th>
+															<td>99</td>
+															<td>102</td>
+															<td>105</td>
+															<td>108</td>
+														</tr>
+														<tr>
+															<th scope="row">Wewnętrzna długość nogawki (cm)</th>
+															<td>86</td>
+															<td>87</td>
+															<td>88</td>
+															<td>88</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+										<div class="toggle-list-item">
+											<h3 class="toggle-list-headline slide-down-toggle">
+												<span>DODATKI</span>
+											</h3>
+											<div class="toggle-list-content article-contents slide-down">
+												<div class="table-scrollable">
+													<img src="/content/dam/Customer-Service/Sizeguide/acc-hands100x162.jpg">
+													<div class="toggle-list-content article-contents slide-down">
+														<div class="table-scrollable">
+															<h5>RĘKAWICZKI I MITENKI</h5>
+															<table class="size-guide">
+																<tbody>
+																	<tr>
+																		<th>&nbsp;</th>
+																		<th>XS</th>
+																		<th>S</th>
+																		<th>M</th>
+																		<th>L</th>
+																		<th>XL</th>
+																	</tr>
+																	<tr>
+																		<th scope="size-guide-emphasized">Obwód dłoni (cm)</th>
+																		<td scope="size-guide-emphasized">20,1</td>
+																		<td scope="size-guide-emphasized">20,9</td>
+																		<td scope="size-guide-emphasized">21,7</td>
+																		<td scope="size-guide-emphasized">22,5</td>
+																		<td scope="size-guide-emphasized">23,3</td>
+																	</tr>
+																</tbody>
+															</table>
+														</div>
+														<p>&nbsp;</p>
+														<img src="/content/dam/Customer-Service/Sizeguide/acc-hats200x124.jpg">
+														<div class="toggle-list-content article-contents slide-down">
+															<div class="table-scrollable">
+																<h5>CZAPKI</h5>
+																<table class="size-guide">
+																	<tbody>
+																		<tr>
+																			<th>&nbsp;</th>
+																			<th>S</th>
+																			<th>M</th>
+																			<th>L</th>
+																			<th>XL</th>
+																		</tr>
+																		<tr>
+																			<th scope="size-guide-emphasized">Obwód głowy (cm)</th>
+																			<td scope="size-guide-emphasized">56</td>
+																			<td scope="size-guide-emphasized">58</td>
+																			<td scope="size-guide-emphasized">60</td>
+																			<td scope="size-guide-emphasized">62</td>
+																		</tr>
+																	</tbody>
+																</table>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</article>
+					</div>
+					<div class="toggle-list size-guides">
+						<div class="parsys listing"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
 <script>
   // добавление в расперсенный json - items.la="llllll"
@@ -338,9 +784,10 @@
 	  	disableButton();
 	  }
     // // окно сайзгайда
-    // $('.product-detail-linked-product > a, .modalclose').click(function(){
-    // 	$('.modaloverlay').toggleClass('hidden');
-    // });
+    $('.product-detail-linked-product .open, .modalclose').click(function(){
+    	// console.log('clicj');
+    	$('.modaloverlay').toggleClass('hidden');
+    });
     // // окно сайзгайда/
     // // описание
     $('.tab-item > a').click(function(){
@@ -357,18 +804,17 @@
 
     $('.detailbox').click(function(){
     	disableButton();
-    	console.log('chchc')
     });
 
   	var color = $('.filter-option.active').attr('data-articlecode');
     $('.inputlist.clearfix[data-sizelist="' + color +'"]').show();
 
-    function cartCount(plus_one) {
-    	cartCounts = JSON.parse(localStorage.getItem('cartCount'));
-  		cartCounts = cartCounts + plus_one;
-  		$('.shoppingbag-item-counts').text(cartCounts);
-  		localStorage.setItem('cartCount', JSON.stringify(cartCounts));
-    }
+    // function cartCount(plus_one) {
+    // 	cartCounts = JSON.parse(localStorage.getItem('cartCount'));
+  		// cartCounts = cartCounts + plus_one;
+  		// $('.shoppingbag-item-counts').text(cartCounts);
+  		// localStorage.setItem('cartCount', JSON.stringify(cartCounts));
+    // }
 
 
     function showMessage() {
@@ -432,7 +878,7 @@
     		});
     		cart_mas.push(a);
     		localStorage.setItem('myCart', JSON.stringify(cart_mas));
-    		cartCount(1);
+    		cartCount();
   		});
 		}
 		$('.button-buy').click(function(){
@@ -448,7 +894,7 @@
 				alert($('.button-buy').attr('data-not-added-text'));
 			}
 		});
-		cartCount(0);
+		// cartCount(0);
   });
 
   </script>
