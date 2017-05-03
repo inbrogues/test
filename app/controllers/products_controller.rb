@@ -1,10 +1,11 @@
 class ProductsController < ApplicationController
 	include ProductsHelper
 	def single
-	
+		
 		@product_data=ProductDatum.find_by(article: params[:article] )
 		@product = @product_data.product
 
+		@pop=@product.categories[0].pop
 
 		@product_datas = @product.product_datum
 		@product_sizes = @product_data.product_product_sizes

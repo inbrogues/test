@@ -32,13 +32,20 @@ class AdminController < ApplicationController
 
 		@colors = Color.all
 		@sizes = ProductSize.all
-		@сategories = Category.all
+		@categories = Category.all
 	end
 
 	def product_create
 		@product = Product.new(product_params)
 	    respond_to do |format|
 	      if @product.save
+	      	@product.categories.clear
+	      	params[:product][:categories].each{ |category|
+	      		ssss=Category.find(category)rescue nil
+	      		if ssss
+		      		@product.categories<<ssss  			
+	      		end
+	      	}
 	      	if params[:product][:product_datum_attributes]!=[] && !params[:product][:product_datum_attributes].nil?
 		      	params[:product][:product_datum_attributes].each do |k,pd|
 					@productDatas = @product.product_datum.build
@@ -83,13 +90,20 @@ class AdminController < ApplicationController
 
 		@colors = Color.all
 		@sizes = ProductSize.all
-		@сategories = Category.all
+		@categories = Category.all
 	end
 
 	def product_update
 		@product=Product.find(params[:id])
 	    respond_to do |format|
 	      if @product.update(product_params)
+	      	@product.categories.clear
+	      	params[:product][:categories].each{ |category|
+	      		ssss=Category.find(category)rescue nil
+	      		if ssss
+		      		@product.categories<<ssss  			
+	      		end
+	      	}
 	      	if params[:product][:product_datum_attributes]!=[] && !params[:product][:product_datum_attributes].nil?
 		      	params[:product][:product_datum_attributes].each do |k,pd|
 					if pd[:id]
@@ -254,6 +268,8 @@ class AdminController < ApplicationController
 
 	def category_edit
 		@category=Category.find(params[:id])
+		@categories=Category.all
+		@pops=Pop.all
 	end
 	def category_update
 		@category = Category.find(params[:id])
@@ -270,6 +286,8 @@ class AdminController < ApplicationController
 
 	def category_new
 		@category=Category.new
+		@categories=Category.all
+		@pops=Pop.all
 	end
 	def category_destroy
 		@category=Category.find(params[:id])
@@ -420,7 +438,7 @@ class AdminController < ApplicationController
 		@order.destroy
 	end
 	def product_params
-      params.require(:product).permit(:name , :img , :img_alt)
+      params.require(:product).permit(:name , :img , :img_alt , :category_id)
     end
     def color_params
       params.require(:color).permit(:name , :main_color_id , :img )
@@ -429,7 +447,7 @@ class AdminController < ApplicationController
       params.require(:main_color).permit(:name , :hex)
     end
     def category_params
-      params.require(:category).permit(:name ,:parent_id)
+      params.require(:category).permit(:name ,:parent_id ,:pop_id)
     end
     def photo_params
    		params.require(:photo).permit(:img)
@@ -444,6 +462,6 @@ class AdminController < ApplicationController
    		params.require(:baner).permit(:text , :photo_id)
    	end
    	def pop_params
-   		params.require(:baner).permit(:text , :category_id)
+   		params.require(:pop).permit(:text , :category_id)
    	end
 end

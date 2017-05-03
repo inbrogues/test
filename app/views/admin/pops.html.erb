@@ -25,7 +25,7 @@
 <% @pops.each do | pop | %>
 <tr class="gradeX">
     <td><%=pop.id %></td>
-    <td><%=pop.text %></td>
+    <td><%=pop.text.html_safe %></td>
     <td><%= link_to 'Обновить', admin_size_edit_path(pop) %></td>
     <td class="center"><%= link_to 'Удалить', admin_size_destroy_path(pop) , :method => 'delete', data: { confirm: 'Точно?' } %></td>
 </tr>

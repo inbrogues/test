@@ -8,4 +8,5 @@ class Product < ActiveRecord::Base
     has_many :color, through: :product_datum
     has_and_belongs_to_many :photos
     has_and_belongs_to_many :categories
+    accepts_nested_attributes_for :categories
 end

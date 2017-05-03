@@ -1,4 +1,10 @@
 class PagesController < ApplicationController
+  
+  def index
+    @products=Product.order("updated_at").limit(8)
+    @baners=Baner.where("number > ?" , 0) 
+  end
+
   def search_results
   end
 

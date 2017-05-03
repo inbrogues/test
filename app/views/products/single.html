@@ -1,3 +1,14 @@
+
+
+
+
+
+Вот твой поп
+<%if @pop%>
+	@pop.text.html_safe
+<%end%>
+
+
 <!-- <script type="text/javascript" src="http://www2.hm.com/etc/designs/hm/clientlibs/desktop.min.js"></script> -->
 	<main role="main">
 	<!-- Main -->
@@ -238,7 +249,7 @@
 									<ul class="product-warninglist" data-headline-text="ПРЕДУПРЕЖДЕНИЕ!"></ul>
 								</div>
 								<div class="tab-pane tab-details">
-									<%=@product_data.more %>
+									<%=@product_data.more.html_safe %>
 								</div>
 
 								<div class="tab-pane tab-delivery">

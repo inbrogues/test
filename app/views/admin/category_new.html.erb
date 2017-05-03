@@ -1,23 +1,46 @@
-<%= semantic_form_for @category, :url => admin_category_create_path(@category) do |f| %>
-  <% if @category.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
 
-      <ul>
-      <% @category.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+
+<div class="row">
+    <div class="col-lg-5">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>Создание новой категории</h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+                <%= semantic_form_for @category, :url => admin_category_create_path(@category) , :html => { :class => "form-horizontal"} do |f| %>
+                    <p>Введите пустые поля</p>
+                    <div class="form-group">
+                    <%= f.label  :name , "Имя" , class: "col-lg-2 control-label"%>
+                        <div class="col-lg-10"><%= f.text_field :name, class: 'form-control' %><span class="help-block m-b-none">Введите имя для группы цветов</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                    <%= f.label  :category_id , "Отец" , class: "col-lg-2 control-label"%>
+
+                        <div class="col-lg-10">
+                          <%= f.select(:category_id, @categories.collect { |p| [ p.name, p.id ] }, { include_blank: true },{ :class => "form-control m-b"}) %>
+                          <span class="help-block m-b-none">Введите отца для категории</span>
+                        </div>
+                    </div>
+                    <%= f.label  :pop_id , "Отец" , class: "col-lg-2 control-label"%>
+
+                        <div class="col-lg-10">
+                          <%= f.select(:pop_id, @pops.collect { |p| [ p.id, p.id ] }, { include_blank: true },{ :class => "form-control m-b"}) %>
+                          <span class="help-block m-b-none">Введите отца для категории</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-10">
+                          <%= f.submit  "Создать категорию" , :class => "btn btn-sm btn-primary"  %>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
     </div>
-  <% end %>
-
-  <%= f.label :name %>
-  <%= f.text_field :name, class: 'form-control' %>
-  
-  <%= f.label :category_id %>
-  <%= f.text_field :category_id  , class: 'form-control' %>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

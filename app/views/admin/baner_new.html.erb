@@ -15,7 +15,7 @@
                     <p>Введите пустые поля</p>
                     <div class="form-group">
                     <%= f.label  :text , "Текст банера" , class: "col-lg-2 control-label"%>
-                        <div class="col-lg-10"><%= f.text_field :text, class: 'form-control' %><span class="help-block m-b-none">Введите текст банера</span>
+                        <div class="col-lg-10"><%= f.text_area :text, as: :summernote , id: "summernote" %><span class="help-block m-b-none">Введите текст банера</span>
                         </div>
                     </div>
                     <div class="form-group">

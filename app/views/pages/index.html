@@ -4,266 +4,94 @@
   <div class="layout">
     <div class="parsys main">
       <div class="ghost section"></div>
+      <%if @baners[0]%>
       <section class="segment section">
-
-        <article class="expandable banner l-text default" style="background-image:url(<%= asset_path('0366630003_GENERAL_TROUSERS_RU39-s5_SLD_16x9.jpg')%>)" data-text-color="black" data-view-tracking="" data-activity-type="" data-activity-code="" data-promotion-creative="" id="track_6679235">
-          <div class="banner-text-content">
-            <span class="banner-text-inner-content">
-              <h3 class="headline">СКИДКА 20%</h3>
-              <p class="text">
-                Предложение распространяется на отдельные виды продукции на hm.com и действует до 22.03.2017
-              </p>
-
-            </span>
-          </div>
-
-          <ul class="cta list expander">
-            <li class="item">
-              <a href="#" data-promotion-page-id="" data-promotion-page-category="" data-cta-tracking="" class="cta link" data-text-color="black">Женщины</a>
-            </li>
-
-            <li class="item">
-              <a href="#" data-promotion-page-id="" data-promotion-page-category="" data-cta-tracking="" class="cta link" data-text-color="black">Мужчины</a>
-            </li>
-
-            <li class="item">
-              <a href="#" data-promotion-page-id="" data-promotion-page-category="" data-cta-tracking="" class="cta link" data-text-color="black">Дети</a>
-            </li>
-            <li class="item">
-              <a href="" data-promotion-page-id="" data-promotion-page-category="" data-cta-tracking="" class="cta link" data-text-color="black">Для дома</a>
-            </li>
-          </ul>
-
-        </article>
-
+        <%= @baners[0].text.html_safe %>
       </section>
+      <%end%>
+      <%if @baners[1]%>
       <section class="segment section singleteasercontainer">
-
-        <article class="default-m-sans  teaser-media  single-cta" data-item-ratio="16x9" style="position:relative;" data-view-tracking="" data-activity-type="" data-activity-code="" data-promotion-creative="" id="track_6679236">
-
-          <div class="background-image teaser-image rimd">
-            <%=image_tag("hmprod-7.jpg" )%></div>
-          <div class="text-container" data-text-placement="left middle" data-text-alignment="center" data-text-color="black">
-            <p class="vignette">Весенняя коллекция</p>
-
-            <h3 class="heading">7 НОВЫХ ТРЕНДОВ</h3>
-
-            <ul class="cta-list" data-cta-color="black">
-              <li class="item">
-                <a href="#" data-promotion-page-id="" data-promotion-page-category="" data-cta-tracking="true" class="cta button" target="_self">Купить сейчас</a>
-              </li>
-            </ul>
-          </div>
-        </article>
-
+          <%= @baners[1].text.html_safe %>
       </section>
+      <%end%>
       <div class="parbase newarrivalscontainer section">
 
         <section class="segment new-arrivals">
           <h2 class="heading"></h2>
           <div class="four modules">
+          <% if @products[0..3]%>
+            <% @products[0..3].each do |product| %>
+        
+              <div class="department-product-item">
+                <article class="product-item" data-articlecode="" data-newarrivals-first-article="" data-activity-type="" data-activity-code="" data-promotion-creative="" onclick="">
+                  <!-- Product item -->
+                  <a href="#" data-cta-tracking="false" title="" class="product-item-link">
+                    <%=image_tag(product.img(:original), width:"260" , height:"390" , alt:"" , class:"product-item-image" )%>
+                    <button data-tracking-type="event" data-tracking-json-template="utagFavorite" data-tracking-params="" type="button" class="favorite icon icon-favorites js-favorite" data-saved-text="" data-not-saved-text="">Добавить в корзину</button>
+                  </a>
+                  <div class="product-item-details">
+                    <h3 class="product-item-heading">
+                      <a href="#" data-cta-tracking="false">Сатиновый тренч</a>
+                    </h3><strong class="price"><%=product.product_datum[0].promotional_price||product.product_datum[0].price%> ГРН</strong>
+                    <%= link_to "/single/hm-#{product.product_datum[0].article}" , class: "product-item-link" do %>
+                      <a href="#" class="cta button" data-cta-tracking="" data-promotion-page-id="" data-promotion-page-category="">КУПИТЬ СЕЙЧАС</a>
+                    <%end%>
+                  </div>
+                </article>
+                <!-- /Product item -->
+              </div>
 
-            <div class="department-product-item">
-              <article class="product-item" data-articlecode="" data-newarrivals-first-article="" data-activity-type="" data-activity-code="" data-promotion-creative="" onclick="">
-                <!-- Product item -->
-                <a href="#" data-cta-tracking="false" title="" class="product-item-link">
-                  <%=image_tag("main_1.jpg" , width:"260" , height:"390" , alt:"" , class:"product-item-image" )%>
-                  <button data-tracking-type="event" data-tracking-json-template="utagFavorite" data-tracking-params="" type="button" class="favorite icon icon-favorites js-favorite" data-saved-text="" data-not-saved-text="">Добавить в корзину</button>
-                </a>
-                <div class="product-item-details">
-                  <h3 class="product-item-heading">
-                    <a href="#" data-cta-tracking="false">Сатиновый тренч</a>
-                  </h3><strong class="price">229,00 ГРН</strong>
-                  <a href="#" class="cta button" data-cta-tracking="" data-promotion-page-id="" data-promotion-page-category="">КУПИТЬ СЕЙЧАС</a>
-                </div>
-              </article>
-              <!-- /Product item -->
-            </div>
+            <% end %>
+          <% end %>
 
-            <div class="department-product-item">
-              <article class="product-item" data-articlecode="" data-newarrivals-first-article="" data-activity-type="" data-activity-code="" data-promotion-creative="" onclick="">
-                <!-- Product item -->
-                <a href="#" data-cta-tracking="false" title="" class="product-item-link">
-                  <%=image_tag("hmprod-1.jpg" , width:"260" , height:"390" , alt:"" , class:"product-item-image" )%>
-                  <button data-tracking-type="event" data-tracking-json-template="utagFavorite" data-tracking-params="" type="button" class="favorite icon icon-favorites js-favorite" data-saved-text="" data-not-saved-text="">Добавить в корзину</button>
-                </a>
-                <div class="product-item-details">
-                  <h3 class="product-item-heading">
-                    <a href="#" data-cta-tracking="false">Топ с рукавами</a>
-                  </h3><strong class="price">129,00 ГРН</strong>
-                  <a href="#" class="cta button" data-cta-tracking="" data-promotion-page-id="" data-promotion-page-category="">КУПИТЬ СЕЙЧАС</a>
-                </div>
-              </article>
-              <!-- /Product item -->
-            </div>
-
-            <div class="department-product-item">
-              <article class="product-item" data-articlecode="" data-newarrivals-first-article="" data-activity-type="" data-activity-code="" data-promotion-creative="" onclick="">
-                <!-- Product item -->
-                <a href="#" data-cta-tracking="false" title="" class="product-item-link">
-                  <%=image_tag("hmprod-2.jpg" , width:"260" , height:"390" , alt:"" , class:"product-item-image" )%>
-                  <button data-tracking-type="event" data-tracking-json-template="utagFavorite" data-tracking-params="" type="button" class="favorite icon icon-favorites js-favorite" data-saved-text="" data-not-saved-text="">Добавить в корзину</button>
-                </a>
-                <div class="product-item-details">
-                  <h3 class="product-item-heading">
-                    <a href="#" data-cta-tracking="false">Прямые Укороченные джинсы</a>
-                  </h3><strong class="price">129,00 ГРН</strong>
-                  <a href="#" class="cta button" data-cta-tracking="" data-promotion-page-id="" data-promotion-page-category="">КУПИТЬ СЕЙЧАС</a>
-                </div>
-              </article>
-              <!-- /Product item -->
-            </div>
-
-            <div class="department-product-item">
-              <article class="product-item" data-articlecode="" data-newarrivals-first-article="" data-activity-type="" data-activity-code="" data-promotion-creative="" onclick="">
-                <!-- Product item -->
-                <a href="#" data-cta-tracking="false" title="" class="product-item-link">
-                  <%=image_tag("hmprod-3.jpg" , width:"260" , height:"390" , alt:"" , class:"product-item-image" )%>
-                  <button data-tracking-type="event" data-tracking-json-template="utagFavorite" data-tracking-params="" type="button" class="favorite icon icon-favorites js-favorite" data-saved-text="" data-not-saved-text="">Добавить в корзину</button>
-                </a>
-                <div class="product-item-details">
-                  <h3 class="product-item-heading">
-                    <a href="#" data-cta-tracking="false">Кружевная блузка</a>
-                  </h3><strong class="price">99,00 ГРН</strong>
-                  <a href="#" class="cta button" data-cta-tracking="" data-promotion-page-id="" data-promotion-page-category="">КУПИТЬ СЕЙЧАС</a>
-                </div>
-              </article>
-              <!-- /Product item -->
-            </div>
           </div>
         </section>
       </div>
+      <%if @baners[2] || @baners[3]%>
       <section class="segment section">
         <div class="two modules">
-          <article class="default-m-serif  teaser-media  single-cta" data-item-ratio="2x3" style="position:relative;" data-view-tracking="true" data-activity-type="CAMPAIGN" data-activity-code="8LI" data-promotion-creative="" id="">
-            <a href="#" data-promotion-page-id="" data-promotion-page-category="" data-cta-tracking="" target="_self" class="hidden-text cta-overlay">КУПИТЬ СЕЙЧАС</a>
-            <div class="background-image teaser-image rimd">
-              <%=image_tag("hmprod-4.jpg") %></div>
-            <div class="text-container" data-text-placement="center bottom" data-text-alignment="center" data-text-color="black">
-              <p class="vignette">ТОЛЬКО ОНЛАЙН</p>
-              <h3 class="heading">ПРЕМИУМ</h3>
-              <ul class="cta-list" data-cta-color="black">
-                <li class="item">
-                  <a href="#" data-promotion-page-id="" data-promotion-page-category="" data-cta-tracking="" class="cta button" target="_self">КУПИТЬ СЕЙЧАС</a>
-                </li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="default-m-serif has-effect-1 teaser-media  single-cta" data-item-ratio="2x3" style="position:relative;" data-view-tracking="true" data-activity-type="" data-activity-code="" data-promotion-creative="" id="">
-            <a href="#" data-promotion-page-id="" data-promotion-page-category="" data-cta-tracking="true" target="_self" class="hidden-text cta-overlay">КУПИТЬ СЕЙЧАС</a>
-            <div class="background-image teaser-image rimd">
-              <%=image_tag("hmprod-5.jpg") %></div>
-
-            <div class="text-container" data-text-placement="center bottom" data-text-alignment="center" data-text-color="white">
-              <font>  
-              <p class="vignette">СПЕЦИАЛЬНОЕ ПРЕДЛОЖЕНИЕ</p>
-              </font>
-
-              <h3 class="heading">КАК В СКАЗКЕ</h3>
-
-              <ul class="cta-list" data-cta-color="white">
-                <li class="item">
-                  <a href="#" data-promotion-page-id="" data-promotion-page-category="" data-cta-tracking="true" class="cta button" target="_self">КУПИТЬ СЕЙЧАС</a>
-                </li>
-              </ul>
-            </div>
-          </article>
+          <%if @baners[2] %>
+              <%=@baners[2].text.html_safe%>
+          <% end %>
+          <%if @baners[3]%>
+              <%=@baners[3].text.html_safe%>
+          <% end %>
         </div>
-
       </section>
+      <% end %>
+      <%if @baners[4] %>
       <section class="segment section singleteasercontainer">
-        <article class="merch-sgi-bottom teaser-media  single-cta" data-item-ratio="3x2" data-view-tracking="" data-activity-type="" data-promotion-creative="seu31 new arrivals from" id="track_6679240">
-          <a href="#" data-promotion-page-id="" data-promotion-page-category="" data-cta-tracking="" target="_self" class="hidden-text cta-overlay">КУПИТЬ СЕЙЧАС</a>
-          <div class="background-image teaser-image rimd">
-            <%=image_tag("hmprod-14.jpg", class:"product-item-image")%>
-          </div>
-          <div class="text-container" data-text-color="white">
-            <p class="vignette">НОВАЯ КОЛЛЕКЦИЯ</p>
-            <h3 class="heading">
-              НОВИНКИ ОТ
-              <br>29,90 ГРН</h3>
-            <ul class="cta-list" data-cta-color="black">
-              <li class="item">
-                <a href="#" data-promotion-page-id="" data-promotion-page-category="" data-cta-tracking="" class="cta button" target="_self">КУПИТЬ САЙЧАС</a>
-              </li>
-            </ul>
-          </div>
-        </article>
-
+          <%=@baners[4].text.html_safe%>
       </section>
+      <%end%>
       <div class="parbase newarrivalscontainer section">
 
         <section class="segment new-arrivals">
           <h2 class="heading"></h2>
           <div class="four modules">
-            <div class="department-product-item">
-              <article class="product-item" data-articlecode="" data-newarrivals-first-article="" data-activity-type="" data-activity-code="" data-promotion-creative="" onclick="">
-                <!-- Product item -->
-                <a href="#" data-cta-tracking="false" title="" class="product-item-link">
-                  <%=image_tag("hmprod-8.jpg" , width:"260" ,  height:"390" , class:"product-item-image" ) %>
-                  <button data-tracking-type="event" data-tracking-json-template="utagFavorite" data-tracking-params="" type="button" class="favorite icon icon-favorites js-favorite" data-saved-text="" data-not-saved-text="">Добавить в корзину</button>
-                </a>
-                <div class="product-item-details">
-                  <h3 class="product-item-heading">
-                    <a href="#" data-cta-tracking="false">Бомбер</a>
-                  </h3><strong class="price">99,00 ГРН</strong>
-                  <a href="#" class="cta button" data-cta-tracking="" data-promotion-page-id="" data-promotion-page-category="">КУПИТЬ СЕЙЧАС</a>
-                </div>
-              </article>
-              <!-- /Product item -->
-            </div>
-
-            <div class="department-product-item">
-              <article class="product-item" data-articlecode="" data-newarrivals-first-article="" data-activity-type="" data-activity-code="" data-promotion-creative="" onclick="">
-                <!-- Product item -->
-                <a href="#" data-cta-tracking="false" title="" class="product-item-link">
-                  <%=image_tag("hmprod-9.jpg" , width:"260" ,  height:"390" , class:"product-item-image" )%>
-                  <button data-tracking-type="event" data-tracking-json-template="utagFavorite" data-tracking-params="" type="button" class="favorite icon icon-favorites js-favorite" data-saved-text="" data-not-saved-text="">Добавить в корзину</button>
-                </a>
-                <div class="product-item-details">
-                  <h3 class="product-item-heading">
-                    <a href="#" data-cta-tracking="false">Футболка из хлопка и шелка</a>
-                  </h3><strong class="price">99,00 ГРН</strong>
-                  <a href="#" class="cta button" data-cta-tracking="" data-promotion-page-id="" data-promotion-page-category="">КУПИТЬ СЕЙЧАС</a>
-                </div>
-              </article>
-              <!-- /Product item -->
-            </div>
-
-            <div class="department-product-item">
-              <article class="product-item" data-articlecode="" data-newarrivals-first-article="" data-activity-type="" data-activity-code="" data-promotion-creative="" onclick="">
-                <!-- Product item -->
-                <a href="#" data-cta-tracking="false" title="" class="product-item-link">
-                  <%=image_tag("hmprod-10.jpg" , width:"260" ,  height:"390" , class:"product-item-image" )%>
-                  <button data-tracking-type="event" data-tracking-json-template="utagFavorite" data-tracking-params="" type="button" class="favorite icon icon-favorites js-favorite" data-saved-text="" data-not-saved-text="">Добавить в корзину</button>
-                </a>
-                <div class="product-item-details">
-                  <h3 class="product-item-heading">
-                    <a href="#" data-cta-tracking="false">Узкие джинсы</a>
-                  </h3><strong class="price">99,00 ГРН</strong>
-                  <a href="#" class="cta button" data-cta-tracking="" data-promotion-page-id="" data-promotion-page-category="">КУПИТЬ СЕЙЧАС</a>
-                </div>
-              </article>
-              <!-- /Product item -->
-            </div>
-
-            <div class="department-product-item">
-              <article class="product-item" data-articlecode="" data-newarrivals-first-article="" data-activity-type="" data-activity-code="" data-promotion-creative="" onclick="">
-                <!-- Product item -->
-                <a href="#" data-cta-tracking="false" title="" class="product-item-link">
-                  <%=image_tag("hmprod-11.jpg" , width:"260" ,  height:"390" , class:"product-item-image")%>
-                  <button data-tracking-type="event" data-tracking-json-template="utagFavorite" data-tracking-params="" type="button" class="favorite icon icon-favorites js-favorite" data-saved-text="" data-not-saved-text="">Добавить в корзину</button>
-                </a>
-                <div class="product-item-details">
-                  <h3 class="product-item-heading">
-                    <a href="#" data-cta-tracking="false">Замшевые кеды</a>
-                  </h3><strong class="price">99,00 ГРН</strong>
-                  <a href="#" class="cta button" data-cta-tracking="" data-promotion-page-id="" data-promotion-page-category="">КУПИТЬ СЕЙЧАС</a>
-                </div>
-              </article>
-              <!-- /Product item -->
-            </div>
+          <% if @products[4..-1]%>
+            <% @products[4..-1].each do |product| %>
+        
+              <div class="department-product-item">
+                <article class="product-item" data-articlecode="" data-newarrivals-first-article="" data-activity-type="" data-activity-code="" data-promotion-creative="" onclick="">
+                  <!-- Product item -->
+                  <a href="#" data-cta-tracking="false" title="" class="product-item-link">
+                    <%=image_tag(product.img(:original), width:"260" , height:"390" , alt:"" , class:"product-item-image" )%>
+                    <button data-tracking-type="event" data-tracking-json-template="utagFavorite" data-tracking-params="" type="button" class="favorite icon icon-favorites js-favorite" data-saved-text="" data-not-saved-text="">Добавить в корзину</button>
+                  </a>
+                  <div class="product-item-details">
+                    <h3 class="product-item-heading">
+                      <a href="#" data-cta-tracking="false">Сатиновый тренч</a>
+                    </h3><strong class="price"><%=product.product_datum[0].promotional_price||product.product_datum[0].price%> ГРН</strong>
+                    <%= link_to "/single/hm-#{product.product_datum[0].article}" , class: "product-item-link" do %>
+                      <a href="#" class="cta button" data-cta-tracking="" data-promotion-page-id="" data-promotion-page-category="">КУПИТЬ СЕЙЧАС</a>
+                    <%end%>
+                  </div>
+                </article>
+                <!-- /Product item -->
+              </div>  
+            <% end %>
+          <% end %>
           </div>
         </section>
       </div>

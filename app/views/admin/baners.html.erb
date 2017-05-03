@@ -25,7 +25,7 @@
 <% @baners.each do | baner | %>
 <tr class="gradeX">
     <td><%=baner.id %></td>
-    <td><%=baner.text %></td>
+    <td><%=baner.text.html_safe %></td>
     <td><%= link_to 'Обновить', admin_baner_edit_path(baner) %></td>
     <td class="center"><%= link_to 'Удалить', admin_baner_destroy_path(baner) , :method => 'delete', data: { confirm: 'Точно?' } %></td>
 </tr>

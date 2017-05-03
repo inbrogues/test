@@ -105,3 +105,6 @@ $(function() {
         radioClass: 'iradio_square-green',
     });
 });
+ $(document).ready(function() {
+    $('#summernote').summernote();
+  });

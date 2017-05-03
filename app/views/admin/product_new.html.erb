@@ -31,6 +31,14 @@
                       <span class="input-group-addon btn btn-default btn-file"><span class="fileinput-new">Select file</span><span class="fileinput-exists">Change</span><%= f.file_field :img_alt %></span>
                       <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
                       </div>
+                      <%= f.label  :categories , "Отец" , class: "col-lg-2 control-label"%>
+
+                          <div class="col-lg-10">
+                            <%= f.select(:categories, @categories.collect { |s| [ s.name, s.id ] }, { include_blank: true },{:multiple => true, :class => "form-control m-b"}) %>
+                            <span class="help-block m-b-none">Введите отца для категории</span>
+                          </div>
+                      </div>
+
                     <div class="form-group">
                         <div class="col-lg-offset-2 col-lg-10">
                           <%= f.submit  "Создать цвет" , :class => "btn btn-sm btn-primary"  %>
@@ -45,8 +53,8 @@
   <%= f.semantic_fields_for :product_datum do |product_data| %>
     <%=render 'product_datum_fields', f: product_data %>
   <%end%>
-  <div class="col-lg-12">
-    <%= link_to_add_association 'Добавить вариант', f, :product_datum ,:class => 'btn btn-sm btn-default'%>
+  <div class="col-lg-12 rov">
+    <%= link_to_add_association 'Добавить вариант', f, :product_datum ,:class => 'btn btn-sm btn-default' , :onclick=>"setTimeout( function(){ $('.summernote').summernote();console.log('HI') }  , 3000 )"%>
   </div>
 </div>
 <div class="row">
