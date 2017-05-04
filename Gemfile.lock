@@ -106,6 +106,8 @@ GEM
       mimemagic (~> 0.3.0)
     pg (0.20.0)
     rack (1.6.5)
+    rack-cache (1.2)
+      rack (>= 0.4)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.6)
@@ -198,6 +200,7 @@ DEPENDENCIES
   liqpay (~> 1.0.0)
   paperclip (~> 5.0.0)
   pg
+  rack-cache
   rails (= 4.2.6)
   rails_12factor
   sass-rails (~> 5.0)

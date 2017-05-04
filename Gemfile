@@ -11,7 +11,7 @@ gem 'summernote-rails', '0.8.2.0'
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'font-awesome-rails', '4.7.0.1'
-
+gem 'rack-cache'
 # Use SCSS for stylesheets
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
