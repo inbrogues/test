@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   
   def index
     @products=Product.order("updated_at").limit(8)
-    @baners=Baner.where("number > ?" , 0) 
+    @baners=Baner.where.not(number:  nil).order(number:  :desc)
   end
   def page
     @pages=Page.where.not(order:  nil).order(order:  :desc)
