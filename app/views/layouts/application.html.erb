@@ -5,7 +5,7 @@
 <head>
 
  <!-- Include style per-controller - vendor plugins -->
-<%= stylesheet_link_tag params[:controller] if (Rails.application.assets || ::Sprockets::Railtie.build_environment(Rails.application)).find_asset("#{params[:controller]}.css") %>
+<%= stylesheet_link_tag get_controller if (Rails.application.assets || ::Sprockets::Railtie.build_environment(Rails.application)).find_asset("#{get_controller}.css") %>
 
   <!--[if lt IE 9]>
   <link rel="stylesheet" href="/etc/designs/hm/clientlibs/desktop/ie8.min.css" type="text/css">

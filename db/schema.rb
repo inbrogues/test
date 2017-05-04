@@ -148,9 +148,12 @@ ActiveRecord::Schema.define(version: 20170503213110) do
 
   create_table "pops", force: :cascade do |t|
     t.text     "text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
+
+  add_index "pops", ["category_id"], name: "index_pops_on_category_id", using: :btree
 
   create_table "product_data", force: :cascade do |t|
     t.string   "article",                         null: false
@@ -230,6 +233,7 @@ ActiveRecord::Schema.define(version: 20170503213110) do
   add_foreign_key "orders", "users"
   add_foreign_key "orders_product_data", "orders"
   add_foreign_key "orders_product_data", "product_sizes"
+  add_foreign_key "pops", "categories"
   add_foreign_key "product_data", "colors"
   add_foreign_key "product_data", "products"
   add_foreign_key "product_product_sizes", "product_data"
